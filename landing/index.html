@@ -1,0 +1,971 @@
+﻿<!DOCTYPE html>
+<html lang="es" x-data="{ lang: localStorage.getItem('lang') || 'es', mobileOpen: false, scrolled: false, activeModal: null, faqOpen: null }" :class="{ 'lang-en': lang === 'en' }" x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 50)" x-cloak>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AHAguilera — Apps Offline-First | Desarrollo Freelance</title>
+  <meta name="description" content="Desarrollo de apps offline-first sin servidores, sin CDNs. Alpine.js + Dexie + Tailwind. Tus datos, tu control.">
+  <meta name="keywords" content="offline-first, apps, Alpine.js, Dexie, Tailwind, freelance, desarrollo web">
+  <meta property="og:title" content="AHAguilera — Apps que funcionan sin internet">
+  <meta property="og:description" content="Apps offline-first para Mipymes y freelancers. Sin servidores. Sin complicaciones.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:locale:alternate" content="en_US">
+  <link rel="icon" href="./brand/logo-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/bootstrap-icons.css">
+
+  <style>
+    /* ========== VARIABLES ========== */
+    :root {
+      --canvas: #EAF4F5;
+      --surface: #FFFFFF;
+      --surface-hover: #f7fbfb;
+      --surface-teal: #024653;
+      --brand-primary: #CFF434;
+      --brand-primary-hover: #dbf65a;
+      --brand-secondary: #07D16E;
+      --txt-primary: #171614;
+      --txt-secondary: #5a6a6b;
+      --txt-muted: #8a9a9b;
+      --txt-on-accent: #171614;
+      --border-subtle: #d0dbdc;
+      --border-hover: #CFF434;
+      --border-accent: #CFF434;
+      --shadow-card: 0 1px 3px rgba(0,0,0,0.06);
+
+      /* Layout */
+      --max-w: 72rem;
+      --max-w-narrow: 48rem;
+      --section-py: 5rem;
+      --section-py-lg: 8rem;
+      --card-radius: 12px;
+      --btn-radius: 999px;
+    }
+
+    @media (min-width: 768px) {
+      :root { --section-py: 6rem; --section-py-lg: 8rem; }
+    }
+
+    /* ========== FONT ========== */
+    @font-face {
+      font-family: 'Inter Variable';
+      src: url('./assets/fonts/InterVariable.woff2') format('woff2');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ========== RESET ========== */
+    [x-cloak] { display: none !important; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+    body {
+      background: var(--canvas);
+      color: var(--txt-primary);
+      font-family: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ========== UTILITIES ========== */
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+    .container-narrow { max-width: var(--max-w-narrow); margin: 0 auto; padding: 0 1.5rem; }
+    .section { padding: var(--section-py) 0; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .sr-only.focus\:not-sr-only:focus { position: static; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; }
+
+    /* Typography */
+    .display { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.025em; }
+    .h1 { font-size: 2.5rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+    .h2 { font-size: 1.75rem; font-weight: 600; line-height: 1.2; letter-spacing: -0.015em; }
+    .h3 { font-size: 1.25rem; font-weight: 600; line-height: 1.3; }
+    .body { font-size: 1rem; line-height: 1.6; }
+    .body-sm { font-size: 0.875rem; line-height: 1.5; }
+    .caption { font-size: 0.75rem; font-weight: 500; line-height: 1.4; }
+    .eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--txt-secondary); margin-bottom: 1rem; }
+    .txt-secondary { color: var(--txt-secondary); }
+    .txt-muted { color: var(--txt-muted); }
+    .text-center { text-align: center; }
+
+    /* Code pattern background */
+    .code-pattern {
+      position: relative;
+    }
+    .code-pattern::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(207,244,52,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(207,244,52,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .code-pattern > * { position: relative; z-index: 1; }
+
+    /* ========== ANIMATIONS ========== */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 100ms; }
+    .delay-2 { transition-delay: 200ms; }
+    .delay-3 { transition-delay: 300ms; }
+    .delay-4 { transition-delay: 400ms; }
+    .delay-5 { transition-delay: 500ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .reveal.visible { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ========== NAV ========== */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; transition: background 0.3s, box-shadow 0.3s; }
+    .nav-scrolled { background: rgba(234,244,245,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--border-subtle); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 3.5rem; max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+    .nav-links { display: none; gap: 0.25rem; }
+    .nav-links a { padding: 0.5rem 0.75rem; font-size: 0.875rem; font-weight: 500; color: var(--txt-secondary); border-radius: 0.5rem; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: var(--brand-primary); background: rgba(207,244,52,0.08); }
+    .nav-links a.active { color: var(--txt-primary); }
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .nav-hamburger { display: none; }
+    }
+
+    /* Mobile menu */
+    .mobile-menu { position: fixed; inset: 0; top: 3.5rem; background: var(--surface); z-index: 99; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .mobile-menu a { padding: 1rem; font-size: 1.125rem; font-weight: 500; color: var(--txt-primary); border-radius: 0.75rem; transition: background 0.2s; }
+    .mobile-menu a:hover { background: rgba(207,244,52,0.08); }
+
+    /* ========== COMPONENTS ========== */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--card-radius);
+      padding: 1.5rem;
+      transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      border-color: var(--brand-primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem; border-radius: var(--btn-radius);
+      font-size: 0.9375rem; font-weight: 600; line-height: 1;
+      border: none; cursor: pointer; transition: all 0.15s ease;
+      white-space: nowrap; min-height: 44px;
+    }
+    .btn-primary { background: var(--brand-primary); color: var(--txt-on-accent); }
+    .btn-primary:hover { background: var(--brand-primary-hover); transform: scale(1.02); }
+    .btn-outline { background: transparent; color: var(--txt-primary); border: 1px solid var(--border-subtle); }
+    .btn-outline:hover { border-color: var(--brand-primary); color: var(--brand-primary); }
+    .btn-ghost { background: transparent; color: var(--txt-secondary); padding: 0.5rem 0.75rem; }
+    .btn-ghost:hover { color: var(--txt-primary); }
+
+    .badge {
+      display: inline-flex; padding: 0.25rem 0.75rem;
+      background: var(--surface-teal); color: #EAF4F5;
+      border-radius: 999px; font-size: 0.75rem; font-weight: 500;
+    }
+    .badge-lime { background: var(--brand-primary); color: var(--txt-on-accent); }
+    .badge-green { background: var(--brand-secondary); color: #fff; }
+
+    /* Price card */
+    .price-card {
+      background: var(--surface); border: 1px solid var(--border-subtle);
+      border-radius: 16px; padding: 2rem; transition: border-color 0.2s;
+    }
+    .price-card.featured {
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 1px var(--brand-primary);
+    }
+    .price-card .price { font-size: 2.5rem; font-weight: 700; line-height: 1; }
+    .price-card .price span { font-size: 1rem; font-weight: 400; color: var(--txt-secondary); }
+
+    /* Grid */
+    .grid { display: grid; gap: 1.5rem; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .grid-3 { grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .grid-2 { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+    /* Step connector */
+    .step { display: flex; gap: 1rem; align-items: flex-start; }
+    .step-number { flex-shrink: 0; width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--brand-primary); color: var(--txt-on-accent); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.125rem; }
+    .step-line { width: 2px; flex-shrink: 0; background: var(--border-subtle); margin: 0 auto; min-height: 2rem; }
+
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid var(--border-subtle); }
+    .faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; background: none; border: none; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--txt-primary); text-align: left; min-height: 44px; }
+    .faq-question:hover { color: var(--brand-primary); }
+    .faq-answer { overflow: hidden; }
+    .faq-answer-inner { padding-bottom: 1.25rem; color: var(--txt-secondary); line-height: 1.6; }
+
+    /* Comparison table */
+    .cmp-row { display: flex; border-bottom: 1px solid var(--border-subtle); }
+    .cmp-row:last-child { border-bottom: none; }
+    .cmp-cell { flex: 1; padding: 1rem 0.75rem; font-size: 0.875rem; }
+    .cmp-cell:first-child { font-weight: 500; flex: 0 0 40%; }
+    .cmp-cell.offline { color: var(--brand-secondary); font-weight: 600; }
+    .cmp-cell.offline i { margin-right: 0.25rem; }
+
+    /* Modal */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 1.5rem; }
+    .modal-content { background: var(--surface); border-radius: 16px; padding: 2rem; max-width: 28rem; width: 100%; position: relative; max-height: 80vh; overflow-y: auto; }
+
+    /* Code syntax pattern */
+    .code-grid-bg {
+      background-image:
+        linear-gradient(rgba(207,244,52,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(207,244,52,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    /* ========== HERO ========== */
+    .hero { min-height: 85dvh; display: flex; align-items: center; position: relative; overflow: hidden; }
+    .hero-grid {
+      background-image:
+        linear-gradient(rgba(207,244,52,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(207,244,52,0.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (min-width: 640px) {
+      .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 768px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+      .grid-4 { grid-template-columns: repeat(4, 1fr); }
+      .cmp-cell { padding: 1rem 1.5rem; }
+      .cmp-cell:first-child { flex: 0 0 30%; }
+    }
+    @media (min-width: 1024px) {
+      .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip link -->
+  <a href="#main" class="sr-only focus:not-sr-only" style="position:absolute;top:0;left:0;padding:0.75rem 1.5rem;background:var(--brand-primary);color:var(--txt-on-accent);z-index:300;font-weight:600;border-radius:0 0 8px 0;">
+    Saltar al contenido
+  </a>
+
+  <!-- ========== NAV ========== -->
+  <nav class="nav" :class="{ 'nav-scrolled': scrolled }" role="navigation" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a href="#" class="flex items-center gap-2" aria-label="AHAguilera inicio">
+        <img src="./brand/logo-wordmark.svg" alt="AHAguilera" style="height:1.5rem;">
+      </a>
+      <div class="nav-links">
+        <a href="#apps" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Apps</a>
+        <a href="#precios" @click.prevent="document.getElementById('precios').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Precios</a>
+        <a href="#como-funciona" @click.prevent="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Cómo funciona</a>
+        <a href="#faq" @click.prevent="document.getElementById('faq').scrollIntoView({behavior:'smooth'}); mobileOpen=false">FAQ</a>
+        <a href="#sobre-mi" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Sobre mí</a>
+      </div>
+      <div class="nav-actions">
+        <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-primary" style="padding:0.5rem 1.25rem;font-size:0.8125rem;">
+          <i class="bi bi-whatsapp"></i> Contactar
+        </a>
+        <button class="nav-hamburger btn btn-ghost" @click="mobileOpen = !mobileOpen" aria-label="Menú de navegación" :aria-expanded="mobileOpen">
+          <i class="bi text-xl" :class="mobileOpen ? 'bi-x-lg' : 'bi-list'"></i>
+        </button>
+        <button @click="lang = lang === 'es' ? 'en' : 'es'; localStorage.setItem('lang', lang)"
+                class="btn btn-ghost" style="padding:0.5rem;font-size:0.75rem;font-weight:600;" aria-label="Cambiar idioma">
+          <span :class="lang === 'es' ? 'text-txt-primary' : 'txt-muted'">ES</span>
+          <span class="txt-muted">/</span>
+          <span :class="lang === 'en' ? 'text-txt-primary' : 'txt-muted'">EN</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div x-show="mobileOpen" x-cloak class="mobile-menu" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0">
+      <a href="#apps" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Apps</a>
+      <a href="#precios" @click.prevent="document.getElementById('precios').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Precios</a>
+      <a href="#como-funciona" @click.prevent="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Cómo funciona</a>
+      <a href="#faq" @click.prevent="document.getElementById('faq').scrollIntoView({behavior:'smooth'}); mobileOpen=false">FAQ</a>
+      <a href="#sobre-mi" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Sobre mí</a>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero hero-grid" id="hero" aria-label="Hero principal">
+    <div class="container-narrow" style="text-align:center;padding-top:5rem;">
+      <div class="reveal visible" style="margin-bottom:2rem;">
+        <img src="./brand/logo-full.svg" alt="AHAguilera" style="height:3rem;margin:0 auto;">
+      </div>
+      <h1 class="display reveal visible delay-1" style="margin-bottom:1.5rem;">
+        <span x-show="lang === 'es'">Apps que funcionan<br>sin internet.</span>
+        <span x-show="lang === 'en'" x-cloak>Apps that work<br>without internet.</span>
+      </h1>
+      <p class="body-lg reveal visible delay-2" style="font-size:1.125rem;color:var(--txt-secondary);max-width:36rem;margin:0 auto 2rem;">
+        <span x-show="lang === 'es'">Sin servidores. Sin mensualidades. Sin complicaciones.<br>Tu app, tus datos, tu control.</span>
+        <span x-show="lang === 'en'" x-cloak>No servers. No monthly fees. No complications.<br>Your app, your data, your control.</span>
+      </p>
+      <div class="reveal visible delay-3" style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+        <a href="#apps" class="btn btn-primary" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
+          <i class="bi bi-grid-3x3-gap"></i> <span x-show="lang==='es'">Ver catálogo</span><span x-show="lang==='en'" x-cloak>View catalog</span>
+        </a>
+        <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-outline">
+          <i class="bi bi-chat-dots"></i> <span x-show="lang==='es'">Cuéntame tu idea</span><span x-show="lang==='en'" x-cloak>Tell me your idea</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+
+  <!-- ========== PROPUESTA DE VALOR ========== -->
+  <section class="section" id="valor" aria-label="Propuesta de valor">
+    <div class="container">
+      <p class="eyebrow text-center reveal">OFFLINE-FIRST</p>
+      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:3rem;">
+        <span x-show="lang==='es'">El 60% de las apps fallan<br>cuando no hay internet.</span>
+        <span x-show="lang==='en'" x-cloak>60% of apps fail<br>when there is no internet.</span>
+      </h2>
+      <div class="grid grid-3">
+        <div class="card reveal delay-1" style="text-align:center;padding:2rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-file-earmark-code"></i></div>
+          <h3 class="h3" style="margin-bottom:0.5rem;">
+<span x-show="lang==='es'">Sin instalación</span>
+          <span x-show="lang==='en'" x-cloak>No installation</span>
+          </h3>
+          <p class="body-sm txt-secondary">
+<span x-show="lang==='es'">No necesitas instalar nada. Abres el archivo y la app está lista.</span>
+            <span x-show="lang==='en'" x-cloak>Nothing to install. Open the file and the app is ready.</span>
+          </p>
+        </div>
+        <div class="card reveal delay-2" style="text-align:center;padding:2rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-shield-check"></i></div>
+          <h3 class="h3" style="margin-bottom:0.5rem;">
+            <span x-show="lang==='es'">Tus datos son tuyos</span>
+            <span x-show="lang==='en'" x-cloak>Your data stays yours</span>
+          </h3>
+          <p class="body-sm txt-secondary">
+            <span x-show="lang==='es'">Todo se guarda en tu dispositivo. Nadie más tiene acceso. Cifrado incluido.</span>
+            <span x-show="lang==='en'" x-cloak>Everything is stored on your device. No one else has access.</span>
+          </p>
+        </div>
+        <div class="card reveal delay-3" style="text-align:center;padding:2rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-cloud-slash"></i></div>
+          <h3 class="h3" style="margin-bottom:0.5rem;">
+            <span x-show="lang==='es'">Sin servidores</span>
+            <span x-show="lang==='en'" x-cloak>No servers</span>
+          </h3>
+          <p class="body-sm txt-secondary">
+            <span x-show="lang==='es'">Cero mensualidades. Cero hosting. La app vive en tu escritorio, no en la nube.</span>
+            <span x-show="lang==='en'" x-cloak>Zero monthly fees. Zero hosting. The app lives on your desktop.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== APPS POPULARES ========== -->
+  <section class="section code-grid-bg" id="apps" aria-label="Apps populares">
+    <div class="container">
+      <p class="eyebrow text-center reveal">
+        <span x-show="lang==='es'">APPS LISTAS PARA LLEVAR</span>
+        <span x-show="lang==='en'" x-cloak>READY-TO-GO APPS</span>
+      </p>
+      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:0.5rem;">
+        <span x-show="lang==='es'">Aplicaciones que resuelven<br>problemas reales</span>
+        <span x-show="lang==='en'" x-cloak>Apps that solve<br>real problems</span>
+      </h2>
+      <p class="body-sm txt-secondary text-center reveal delay-2" style="margin-bottom:3rem;">
+<span x-show="lang==='es'">Seleccionadas por ser las más solicitadas. ¿No encuentras la tuya? La construyo.</span>
+          <span x-show="lang==='en'" x-cloak>The most requested apps. Can't find yours? I'll build it.</span>
+      </p>
+      <div class="grid grid-2" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+        <!-- App 1 -->
+        <div class="card reveal delay-1" @click="activeModal='taskflow'" role="button" tabindex="0" @keydown.enter="activeModal='taskflow'" aria-label="TaskFlow - Gestor de tareas">
+          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
+            <div style="width:3rem;height:3rem;border-radius:12px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--txt-on-accent);">
+              <i class="bi bi-check2-square"></i>
+            </div>
+            <div>
+              <h3 class="h3">TaskFlow</h3>
+              <span class="badge" style="font-size:0.6875rem;">Productividad</span>
+            </div>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Gestor de tareas offline. Etiquetas, prioridades y recordatorios.</span>
+            <span x-show="lang==='en'" x-cloak>Offline task manager. Labels, priorities, reminders.</span>
+          </p>
+          <div class="flex items-center justify-between">
+            <span style="font-size:1.5rem;font-weight:700;">$49 <span class="caption txt-muted">USD</span></span>
+            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20TaskFlow" target="_blank" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8125rem;">
+              <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Comprar</span><span x-show="lang==='en'" x-cloak>Buy</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 2 -->
+        <div class="card reveal delay-2" @click="activeModal='finanza'" role="button" tabindex="0" @keydown.enter="activeModal='finanza'" aria-label="FinanzaLocal - Presupuesto familiar">
+          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
+            <div style="width:3rem;height:3rem;border-radius:12px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--txt-on-accent);">
+              <i class="bi bi-wallet2"></i>
+            </div>
+            <div>
+              <h3 class="h3">FinanzaLocal</h3>
+              <span class="badge" style="font-size:0.6875rem;">Finanzas</span>
+            </div>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Presupuesto familiar con gráficos, categorías y exportación PDF.</span>
+            <span x-show="lang==='en'" x-cloak>Family budget with charts, categories, and PDF export.</span>
+          </p>
+          <div class="flex items-center justify-between">
+            <span style="font-size:1.5rem;font-weight:700;">$99 <span class="caption txt-muted">USD</span></span>
+            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20FinanzaLocal" target="_blank" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8125rem;">
+              <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Comprar</span><span x-show="lang==='en'" x-cloak>Buy</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 3 -->
+        <div class="card reveal delay-3" @click="activeModal='inventario'" role="button" tabindex="0" @keydown.enter="activeModal='inventario'" aria-label="InventarioPRO - Control de inventario">
+          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
+            <div style="width:3rem;height:3rem;border-radius:12px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--txt-on-accent);">
+              <i class="bi bi-box-seam"></i>
+            </div>
+            <div>
+              <h3 class="h3">InventarioPRO</h3>
+              <span class="badge" style="font-size:0.6875rem;">Negocio</span>
+            </div>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Control de inventario con alertas de stock mínimo y reportes.</span>
+            <span x-show="lang==='en'" x-cloak>Inventory control with low stock alerts and reports.</span>
+          </p>
+          <div class="flex items-center justify-between">
+            <span style="font-size:1.5rem;font-weight:700;">$99 <span class="caption txt-muted">USD</span></span>
+            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20InventarioPRO" target="_blank" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8125rem;">
+              <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Comprar</span><span x-show="lang==='en'" x-cloak>Buy</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 4 -->
+        <div class="card reveal delay-4" @click="activeModal='salud'" role="button" tabindex="0" @keydown.enter="activeModal='salud'" aria-label="SaludTracker - Registro de salud">
+          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
+            <div style="width:3rem;height:3rem;border-radius:12px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--txt-on-accent);">
+              <i class="bi bi-heart-pulse"></i>
+            </div>
+            <div>
+              <h3 class="h3">SaludTracker</h3>
+              <span class="badge" style="font-size:0.6875rem;">Salud</span>
+            </div>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Registro de peso, presión, medicamentos y citas médicas.</span>
+            <span x-show="lang==='en'" x-cloak>Track weight, blood pressure, medications, and appointments.</span>
+          </p>
+          <div class="flex items-center justify-between">
+            <span style="font-size:1.5rem;font-weight:700;">$49 <span class="caption txt-muted">USD</span></span>
+            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20SaludTracker" target="_blank" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8125rem;">
+              <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Comprar</span><span x-show="lang==='en'" x-cloak>Buy</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA desarrollo a medida -->
+      <div class="card reveal" style="margin-top:2rem;text-align:center;padding:2.5rem;border-style:dashed;">
+        <div style="font-size:2.5rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-lightbulb"></i></div>
+        <h3 class="h2" style="margin-bottom:0.5rem;">
+          <span x-show="lang==='es'">¿No encuentras lo que buscas?</span>
+          <span x-show="lang==='en'" x-cloak>Can'"'"'t find what you need?</span>
+        </h3>
+        <p class="body-sm txt-secondary" style="margin-bottom:1.5rem;max-width:24rem;margin-left:auto;margin-right:auto;">
+          <span x-show="lang==='es'">Te construyo la app que necesitas. Cuéntame tu idea y te presupuesto sin compromiso.</span>
+          <span x-show="lang==='en'" x-cloak>I'll build the app you need. Tell me your idea for a free quote.</span>
+        </p>
+        <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-primary">
+          <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Solicitar desarrollo a medida</span><span x-show="lang==='en'" x-cloak>Request custom development</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PRECIOS ========== -->
+  <section class="section" id="precios" aria-label="Planes y precios">
+    <div class="container">
+      <p class="eyebrow text-center reveal">
+        <span x-show="lang==='es'">PRECIOS</span>
+        <span x-show="lang==='en'" x-cloak>PRICING</span>
+      </p>
+      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:3rem;">
+        <span x-show="lang==='es'">Inversión clara,<br>sin sorpresas</span>
+        <span x-show="lang==='en'" x-cloak>Clear pricing,<br>no surprises</span>
+      </h2>
+      <div class="grid grid-3" style="align-items:start;">
+        <!-- Lite -->
+        <div class="price-card reveal delay-1">
+          <h3 class="h3" style="margin-bottom:0.25rem;">
+            <span x-show="lang==='es'">Lite</span>
+            <span x-show="lang==='en'" x-cloak>Lite</span>
+          </h3>
+          <p class="caption txt-muted" style="margin-bottom:1.5rem;">
+            <span x-show="lang==='es'">Para necesidades simples</span>
+            <span x-show="lang==='en'" x-cloak>For simple needs</span>
+          </p>
+          <div class="price" style="margin-bottom:1.5rem;">$49 <span class="caption">/ único</span></div>
+          <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">1 módulo funcional</span><span x-show="lang==='en'" x-cloak>1 functional module</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Datos locales</span><span x-show="lang==='en'" x-cloak>Local data</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Sin cifrado</span><span x-show="lang==='en'" x-cloak>No encryption</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Doble clic y funciona</span><span x-show="lang==='en'" x-cloak>Double click to run</span></li>
+          </ul>
+          <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20plan%20Lite" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;">
+            <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Elegir Lite</span><span x-show="lang==='en'" x-cloak>Choose Lite</span>
+          </a>
+        </div>
+
+        <!-- Standard -->
+        <div class="price-card featured reveal delay-2" style="position:relative;">
+          <span class="badge badge-lime" style="position:absolute;top:-0.75rem;right:1.5rem;">
+            <span x-show="lang==='es'">MÁS ELEGIDO</span>
+            <span x-show="lang==='en'" x-cloak>MOST POPULAR</span>
+          </span>
+          <h3 class="h3" style="margin-bottom:0.25rem;">
+            <span x-show="lang==='es'">Standard</span>
+            <span x-show="lang==='en'" x-cloak>Standard</span>
+          </h3>
+          <p class="caption txt-muted" style="margin-bottom:1.5rem;">
+            <span x-show="lang==='es'">La opción más equilibrada</span>
+            <span x-show="lang==='en'" x-cloak>The balanced choice</span>
+          </p>
+          <div class="price" style="margin-bottom:1.5rem;">$99 <span class="caption">/ único</span></div>
+          <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Hasta 3 módulos</span><span x-show="lang==='en'" x-cloak>Up to 3 modules</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Cifrado de datos</span><span x-show="lang==='en'" x-cloak>Data encryption</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Exportación PDF</span><span x-show="lang==='en'" x-cloak>PDF export</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Gráficos incluidos</span><span x-show="lang==='en'" x-cloak>Charts included</span></li>
+          </ul>
+          <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20plan%20Standard" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">
+            <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Elegir Standard</span><span x-show="lang==='en'" x-cloak>Choose Standard</span>
+          </a>
+        </div>
+
+        <!-- Custom -->
+        <div class="price-card reveal delay-3">
+          <h3 class="h3" style="margin-bottom:0.25rem;">
+            <span x-show="lang==='es'">Custom</span>
+            <span x-show="lang==='en'" x-cloak>Custom</span>
+          </h3>
+          <p class="caption txt-muted" style="margin-bottom:1.5rem;">
+            <span x-show="lang==='es'">Todo lo que necesites</span>
+            <span x-show="lang==='en'" x-cloak>Everything you need</span>
+          </p>
+          <div class="price" style="margin-bottom:1.5rem;">$199+ <span class="caption">/ único</span></div>
+          <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Módulos ilimitados</span><span x-show="lang==='en'" x-cloak>Unlimited modules</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Todo lo de Standard +</span><span x-show="lang==='en'" x-cloak>Everything in Standard +</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Excel / CSV export</span><span x-show="lang==='en'" x-cloak>Excel / CSV export</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Funcionalidades a medida</span><span x-show="lang==='en'" x-cloak>Custom features</span></li>
+          </ul>
+          <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20plan%20Custom" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;">
+            <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Consultar</span><span x-show="lang==='en'" x-cloak>Inquire</span>
+          </a>
+        </div>
+      </div>
+      <p class="caption txt-muted text-center reveal" style="margin-top:2rem;">
+        <span x-show="lang==='es'">* Precios base en USD. Complejidad adicional = precio proporcional.</span>
+        <span x-show="lang==='en'" x-cloak>* Base prices in USD. Additional complexity = proportional pricing.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== CÓMO FUNCIONA ========== -->
+  <section class="section code-grid-bg" id="como-funciona" aria-label="Cómo funciona">
+    <div class="container-narrow">
+      <p class="eyebrow text-center reveal">
+        <span x-show="lang==='es'">CÓMO FUNCIONA</span>
+        <span x-show="lang==='en'" x-cloak>HOW IT WORKS</span>
+      </p>
+      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:3rem;">
+        <span x-show="lang==='es'">Tres pasos para<br>tu app</span>
+        <span x-show="lang==='en'" x-cloak>Three steps to<br>your app</span>
+      </h2>
+      <div class="reveal">
+        <!-- Paso 1 -->
+        <div class="step">
+          <div class="step-number">1</div>
+          <div>
+            <h3 class="h3" style="margin-bottom:0.25rem;">
+              <span x-show="lang==='es'">Cuéntame tu idea</span>
+              <span x-show="lang==='en'" x-cloak>Tell me your idea</span>
+            </h3>
+            <p class="body-sm txt-secondary">
+              <span x-show="lang==='es'">Hablamos de qué necesitas, para qué y cómo lo usarás. Sin compromiso.</span>
+              <span x-show="lang==='en'" x-cloak>We talk about what you need, why and how you will use it. No obligation.</span>
+            </p>
+          </div>
+        </div>
+        <div class="step-line" style="margin:0.5rem 0 0.5rem 1.15rem;"></div>
+        <!-- Paso 2 -->
+        <div class="step">
+          <div class="step-number">2</div>
+          <div>
+            <h3 class="h3" style="margin-bottom:0.25rem;">
+              <span x-show="lang==='es'">Desarrollo la app</span>
+              <span x-show="lang==='en'" x-cloak>I build the app</span>
+            </h3>
+            <p class="body-sm txt-secondary">
+              <span x-show="lang==='es'">La creo con mi stack offline-first. Te entrego actualizaciones en el proceso.</span>
+              <span x-show="lang==='en'" x-cloak>I create it with my offline-first stack. I deliver updates along the way.</span>
+            </p>
+          </div>
+        </div>
+        <div class="step-line" style="margin:0.5rem 0 0.5rem 1.15rem;"></div>
+        <!-- Paso 3 -->
+        <div class="step">
+          <div class="step-number">3</div>
+          <div>
+            <h3 class="h3" style="margin-bottom:0.25rem;">
+              <span x-show="lang==='es'">Descargas y usas</span>
+              <span x-show="lang==='en'" x-cloak>Download and use</span>
+            </h3>
+            <p class="body-sm txt-secondary">
+              <span x-show="lang==='es'">Recibes tu app. Abres con doble clic y funciona para siempre. Sin mensualidades.</span>
+              <span x-show="lang==='en'" x-cloak>You receive your app. Double click and it works forever. No monthly fees.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STACK TÉCNICO ========== -->
+  <section class="section" id="stack" aria-label="Stack técnico">
+    <div class="container">
+      <p class="eyebrow text-center reveal">STACK TÉCNICO</p>
+      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:3rem;">
+<span x-show="lang==='es'">Stack que no<br>depende de nadie</span>
+          <span x-show="lang==='en'" x-cloak>Technology that<br>answers to no one</span>
+      </h2>
+      <div class="grid grid-3" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;">
+        <div class="card reveal delay-1" style="text-align:center;padding:1.5rem 1rem;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;color:var(--brand-primary);"><i class="bi bi-lightning"></i></div>
+          <div class="body-sm" style="font-weight:600;">Alpine.js</div>
+        </div>
+        <div class="card reveal delay-2" style="text-align:center;padding:1.5rem 1rem;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;color:var(--brand-primary);"><i class="bi bi-database"></i></div>
+          <div class="body-sm" style="font-weight:600;">Dexie.js</div>
+        </div>
+        <div class="card reveal delay-3" style="text-align:center;padding:1.5rem 1rem;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;color:var(--brand-primary);"><i class="bi bi-lock"></i></div>
+          <div class="body-sm" style="font-weight:600;">CryptoJS</div>
+        </div>
+        <div class="card reveal delay-1" style="text-align:center;padding:1.5rem 1rem;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;color:var(--brand-primary);"><i class="bi bi-brush"></i></div>
+          <div class="body-sm" style="font-weight:600;">Tailwind</div>
+        </div>
+        <div class="card reveal delay-2" style="text-align:center;padding:1.5rem 1rem;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;color:var(--brand-primary);"><i class="bi bi-palette"></i></div>
+          <div class="body-sm" style="font-weight:600;">DaisyUI</div>
+        </div>
+        <div class="card reveal delay-3" style="text-align:center;padding:1.5rem 1rem;">
+          <div style="font-size:2rem;margin-bottom:0.5rem;color:var(--brand-primary);"><i class="bi bi-file-spreadsheet"></i></div>
+          <div class="body-sm" style="font-weight:600;">Bootstrap Icons</div>
+        </div>
+      </div>
+      <p class="body-sm txt-secondary text-center reveal" style="margin-top:2rem;">
+        <span x-show="lang==='es'">Cada librería se descarga una vez. El runtime no pide nada a nadie.</span>
+        <span x-show="lang==='en'" x-cloak>Each library is downloaded once. The runtime asks nothing from anyone.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== COMPARATIVA ========== -->
+  <section class="section code-grid-bg" id="comparativa" aria-label="Comparativa">
+    <div class="container-narrow">
+      <p class="eyebrow text-center reveal">
+        <span x-show="lang==='es'">OFFLINE-FIRST vs TRADICIONAL</span>
+        <span x-show="lang==='en'" x-cloak>OFFLINE-FIRST vs TRADITIONAL</span>
+      </p>
+      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:2rem;">
+        <span x-show="lang==='es'">¿Por qué elegir<br>offline-first?</span>
+        <span x-show="lang==='en'" x-cloak>Why choose<br>offline-first?</span>
+      </h2>
+
+      <div class="card reveal" style="padding:0;overflow:hidden;">
+        <div class="cmp-row" style="background:var(--surface-hover);font-weight:600;">
+          <div class="cmp-cell caption" style="text-transform:uppercase;letter-spacing:0.05em;">
+            <span x-show="lang==='es'">Característica</span>
+            <span x-show="lang==='en'" x-cloak>Feature</span>
+          </div>
+          <div class="cmp-cell caption" style="text-transform:uppercase;letter-spacing:0.05em;color:var(--brand-secondary);">
+            <span x-show="lang==='es'">Offline-first</span>
+            <span x-show="lang==='en'" x-cloak>Offline-first</span>
+          </div>
+          <div class="cmp-cell caption" style="text-transform:uppercase;letter-spacing:0.05em;color:var(--txt-muted);">
+            <span x-show="lang==='es'">Tradicional</span>
+            <span x-show="lang==='en'" x-cloak>Traditional</span>
+          </div>
+        </div>
+        <div class="cmp-row reveal delay-1">
+          <div class="cmp-cell"><span x-show="lang==='es'">Internet</span><span x-show="lang==='en'" x-cloak>Internet</span></div>
+          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">No requiere</span><span x-show="lang==='en'" x-cloak>Not required</span></div>
+          <div class="cmp-cell txt-muted"><i class="bi bi-x-circle"></i> <span x-show="lang==='es'">Siempre necesario</span><span x-show="lang==='en'" x-cloak>Always needed</span></div>
+        </div>
+        <div class="cmp-row reveal delay-2">
+          <div class="cmp-cell"><span x-show="lang==='es'">Costo mensual</span><span x-show="lang==='en'" x-cloak>Monthly cost</span></div>
+          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> $0</div>
+          <div class="cmp-cell txt-muted">$20 – $500+</div>
+        </div>
+        <div class="cmp-row reveal delay-3">
+          <div class="cmp-cell"><span x-show="lang==='es'">Velocidad</span><span x-show="lang==='en'" x-cloak>Speed</span></div>
+          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">Instantánea</span><span x-show="lang==='en'" x-cloak>Instant</span></div>
+          <div class="cmp-cell txt-muted"><span x-show="lang==='es'">Depende de la red</span><span x-show="lang==='en'" x-cloak>Depends on network</span></div>
+        </div>
+        <div class="cmp-row reveal delay-4">
+          <div class="cmp-cell"><span x-show="lang==='es'">Privacidad</span><span x-show="lang==='en'" x-cloak>Privacy</span></div>
+          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> 100% local</div>
+          <div class="cmp-cell txt-muted"><span x-show="lang==='es'">En sus servidores</span><span x-show="lang==='en'" x-cloak>On their servers</span></div>
+        </div>
+        <div class="cmp-row reveal delay-5">
+          <div class="cmp-cell"><span x-show="lang==='es'">Instalación</span><span x-show="lang==='en'" x-cloak>Setup</span></div>
+          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">Doble clic</span><span x-show="lang==='en'" x-cloak>Double click</span></div>
+          <div class="cmp-cell txt-muted">CI/CD + servidor</div>
+        </div>
+        <div class="cmp-row reveal delay-6" style="border-bottom:none;">
+          <div class="cmp-cell"><span x-show="lang==='es'">Uptime</span><span x-show="lang==='en'" x-cloak>Uptime</span></div>
+          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> 100%</div>
+          <div class="cmp-cell txt-muted">99.9% <span class="caption">(o menos)</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section class="section" id="faq" aria-label="Preguntas frecuentes" x-data="landing">
+    <div class="container-narrow">
+      <p class="eyebrow text-center reveal">
+        <span x-show="lang==='es'">PREGUNTAS FRECUENTES</span>
+        <span x-show="lang==='en'" x-cloak>FAQ</span>
+      </p>
+      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:2rem;">
+        <span x-show="lang==='es'">Todo lo que necesitas saber</span>
+        <span x-show="lang==='en'" x-cloak>Everything you need to know</span>
+      </h2>
+
+      <div>
+        <template x-for="(faq, i) in faqs" :key="i">
+          <div class="faq-item reveal" :style="'transition-delay:'+(i*100)+'ms'">
+            <button class="faq-question" @click="faqOpen = faqOpen === i ? null : i" :aria-expanded="faqOpen === i">
+              <span x-text="lang === 'es' ? faq.q_es : faq.q_en"></span>
+              <i class="bi" :class="faqOpen === i ? 'bi-chevron-up' : 'bi-chevron-down'" style="transition:transform 0.2s;flex-shrink:0;margin-left:0.5rem;"></i>
+            </button>
+            <div x-show="faqOpen === i" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+              <div class="faq-answer-inner body-sm" x-text="lang === 'es' ? faq.a_es : faq.a_en"></div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SOBRE MÍ ========== -->
+  <section class="section code-grid-bg" id="sobre-mi" aria-label="Sobre mí">
+    <div class="container-narrow">
+      <p class="eyebrow text-center reveal">
+        <span x-show="lang==='es'">SOBRE MÍ</span>
+        <span x-show="lang==='en'" x-cloak>ABOUT ME</span>
+      </p>
+      <div class="card reveal" style="text-align:center;padding:2.5rem;">
+        <div style="width:5rem;height:5rem;border-radius:16px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2.5rem;font-weight:700;color:var(--txt-on-accent);">AH</div>
+        <h2 class="h2" style="margin-bottom:0.25rem;">Angel Hernández Aguilera</h2>
+        <p class="body-sm txt-secondary" style="margin-bottom:1.5rem;">
+          <span x-show="lang==='es'">Desarrollador Freelance</span>
+          <span x-show="lang==='en'" x-cloak>Freelance Developer</span>
+        </p>
+        <blockquote style="font-style:italic;color:var(--txt-secondary);margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;">
+          "Libertad tecnológica. Calidad freelance. Simplicidad radical."
+        </blockquote>
+        <p class="body-sm txt-secondary" style="margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;">
+          <span x-show="lang==='es'">Construyo apps que funcionan sin internet. Sin servidores, sin mensualidades, sin complicaciones. Cada app es un producto terminado: validado, documentado y listo para usar.</span>
+          <span x-show="lang==='en'" x-cloak>I build apps that work without internet. No servers, no monthly fees, no complications. Each app is a finished product: validated, documented, and ready to use.</span>
+        </p>
+        <div class="flex items-center justify-center gap-2" style="flex-wrap:wrap;">
+          <span class="badge" style="background:var(--brand-primary);color:var(--txt-on-accent);">Alpine.js</span>
+          <span class="badge" style="background:var(--brand-primary);color:var(--txt-on-accent);">Dexie.js</span>
+          <span class="badge" style="background:var(--brand-primary);color:var(--txt-on-accent);">CryptoJS</span>
+          <span class="badge" style="background:var(--brand-primary);color:var(--txt-on-accent);">Tailwind</span>
+          <span class="badge" style="background:var(--brand-primary);color:var(--txt-on-accent);">DaisyUI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA FINAL ========== -->
+  <section class="section" id="contacto" aria-label="Contacto" style="padding-bottom:4rem;">
+    <div class="container-narrow">
+      <div class="card reveal" style="text-align:center;padding:3rem 2rem;border:2px solid var(--brand-primary);">
+        <div style="font-size:3rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-rocket-takeoff"></i></div>
+        <h2 class="display" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:0.75rem;">
+          <span x-show="lang==='es'">¿Listo para empezar?</span>
+          <span x-show="lang==='en'" x-cloak>Ready to get started?</span>
+        </h2>
+        <p class="body-sm txt-secondary" style="margin-bottom:2rem;max-width:24rem;margin-left:auto;margin-right:auto;">
+          <span x-show="lang==='es'">Cuéntame tu idea y te digo cómo hacerla realidad offline-first.</span>
+          <span x-show="lang==='en'" x-cloak>Tell me your idea and I'll tell you how to make it real, offline-first.</span>
+        </p>
+        <div class="flex items-center justify-center gap-3" style="flex-wrap:wrap;">
+          <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-primary" style="padding:1rem 2rem;font-size:1.0625rem;">
+            <i class="bi bi-whatsapp" style="font-size:1.25rem;"></i> WhatsApp
+          </a>
+          <a href="mailto:angel@ahaguilera.dev" class="btn btn-outline" style="padding:1rem 2rem;font-size:1.0625rem;">
+            <i class="bi bi-envelope" style="font-size:1.25rem;"></i> Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer style="border-top:1px solid var(--border-subtle);padding:3rem 0 2rem;" role="contentinfo">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:1.5rem;">
+        <img src="./brand/logo-wordmark.svg" alt="AHAguilera" style="height:1.5rem;margin:0 auto;">
+      </div>
+      <div class="flex items-center justify-center gap-4" style="margin-bottom:1.5rem;flex-wrap:wrap;">
+        <a href="#apps" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
+          <span x-show="lang==='es'">Apps</span><span x-show="lang==='en'" x-cloak>Apps</span>
+        </a>
+        <a href="#precios" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('precios').scrollIntoView({behavior:'smooth'})">
+          <span x-show="lang==='es'">Precios</span><span x-show="lang==='en'" x-cloak>Pricing</span>
+        </a>
+        <a href="#stack" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('stack').scrollIntoView({behavior:'smooth'})">
+          <span x-show="lang==='es'">Stack</span><span x-show="lang==='en'" x-cloak>Stack</span>
+        </a>
+        <a href="#faq" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">
+          <span x-show="lang==='es'">FAQ</span><span x-show="lang==='en'" x-cloak>FAQ</span>
+        </a>
+        <a href="#sobre-mi" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'})">
+          <span x-show="lang==='es'">Sobre mí</span><span x-show="lang==='en'" x-cloak>About</span>
+        </a>
+      </div>
+      <div style="text-align:center;">
+        <p class="caption txt-muted">© 2026 AHAguilera · MIT License</p>
+        <p class="caption txt-muted" style="margin-top:0.25rem;">
+          <span x-show="lang==='es'">100% offline · Sin CDN · Doble clic</span>
+          <span x-show="lang==='en'" x-cloak>100% offline · No CDN · Double click</span>
+        </p>
+      </div>
+      <!-- Palette bar -->
+      <div style="display:flex;justify-content:center;gap:0.25rem;margin-top:2rem;">
+        <span style="display:block;width:1.5rem;height:0.25rem;border-radius:2px;background:#EAF4F5;"></span>
+        <span style="display:block;width:1.5rem;height:0.25rem;border-radius:2px;background:#CFF434;"></span>
+        <span style="display:block;width:1.5rem;height:0.25rem;border-radius:2px;background:#07D16E;"></span>
+        <span style="display:block;width:1.5rem;height:0.25rem;border-radius:2px;background:#024653;"></span>
+        <span style="display:block;width:1.5rem;height:0.25rem;border-radius:2px;background:#171614;"></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script defer src="./assets/js/libs/alpine.js"></script>
+
+  
+
+  <script>
+    // FAQ data for Alpine
+    const FAQ_DATA = [
+      {
+        q_es: '¿Necesito internet para usar la app?',
+        a_es: 'No. La app funciona 100% sin internet. Todos los datos se guardan en tu dispositivo. Puedes usarla en el campo, en el metro, o donde no llegue la señal.',
+        q_en: 'Do I need internet to use the app?',
+        a_en: 'No. The app works 100% without internet. All data is stored on your device.'
+      },
+      {
+        q_es: '¿Mis datos están seguros?',
+        a_es: 'Sí. Los datos se guardan localmente en tu dispositivo. En los planes Standard y Custom, además se cifran con AES-256. Nadie más tiene acceso a ellos.',
+        q_en: 'Is my data safe?',
+        a_en: 'Yes. Data is stored locally on your device. Standard and Custom plans include AES-256 encryption.'
+      },
+      {
+        q_es: '¿Puedo personalizar la app después?',
+        a_es: 'Sí. Todas las apps se entregan con el código fuente. Puedo agregar funcionalidades o modificar lo que necesites.',
+        q_en: 'Can I customize the app later?',
+        a_en: 'Yes. All apps come with source code. I can add features or modify anything you need.'
+      },
+      {
+        q_es: '¿Qué pasa si quiero agregar funcionalidades?',
+        a_es: 'Las apps son modulares. Agregar un módulo nuevo tiene un costo adicional según la complejidad. El código está diseñado para crecer.',
+        q_en: 'What if I want to add features?',
+        a_en: 'Apps are modular. Adding a new module has an additional cost based on complexity.'
+      },
+      {
+        q_es: '¿Funciona en celular?',
+        a_es: 'Sí. Las apps son responsivas y funcionan en cualquier navegador moderno: Chrome, Firefox, Safari, Edge. En escritorio y móvil.',
+        q_en: 'Does it work on mobile?',
+        a_en: 'Yes. Apps are responsive and work on any modern browser: Chrome, Firefox, Safari, Edge.'
+      },
+      {
+        q_es: '¿Cuánto tarda en estar lista?',
+        a_es: 'Una app Lite puede estar lista en 2-3 días. Una Standard en 5-7 días. Una Custom depende de la complejidad. Siempre te doy una fecha estimada antes de empezar.',
+        q_en: 'How long does it take?',
+        a_en: 'A Lite app can be ready in 2-3 days. Standard in 5-7 days. Custom depends on complexity.'
+      }
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // ===== Scroll reveal =====
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // ===== Active nav highlight =====
+      const sections = document.querySelectorAll('section[id]');
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+              const isActive = link.getAttribute('href') === '#' + id;
+              link.classList.toggle('active', isActive);
+              link.setAttribute('aria-current', isActive ? 'true' : 'false');
+            });
+          }
+        });
+      }, { threshold: 0.3 });
+
+      sections.forEach(section => navObserver.observe(section));
+    });
+
+    // Expose FAQ data to Alpine
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('landing', () => ({
+        faqs: FAQ_DATA,
+        faqOpen: null
+      }));
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+

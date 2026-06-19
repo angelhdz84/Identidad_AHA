@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 120" fill="none">
+  <rect width="600" height="120" rx="24" fill="#171614"/>
+
+  <!-- "A" -->
+  <text x="36" y="78" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="56" font-weight="800" fill="#CFF434" letter-spacing="-2">
+    A
+  </text>
+  <!-- "H" -->
+  <text x="92" y="78" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="56" font-weight="800" fill="#EAF4F5" letter-spacing="-2">
+    H
+  </text>
+  <!-- "A" -->
+  <text x="150" y="78" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="56" font-weight="800" fill="#CFF434" letter-spacing="-2">
+    A
+  </text>
+  <!-- "guilera" -->
+  <text x="208" y="78" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="50" font-weight="400" fill="#EAF4F5" letter-spacing="-1.5">
+    guilera
+  </text>
+
+  <!-- Accent underline -->
+  <line x1="36" y1="94" x2="174" y2="94" stroke="#07D16E" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Tagline -->
+  <text x="36" y="106" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#024653" letter-spacing="4">
+    SOFTWARE FREELANCE
+  </text>
+</svg>

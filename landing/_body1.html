@@ -1,0 +1,239 @@
+﻿
+  <!-- ========== NAV ========== -->
+  <nav class="nav" :class="{ 'nav-scrolled': scrolled }" role="navigation" aria-label="Navegación principal">
+    <div class="nav-inner">
+      <a href="#" class="flex items-center gap-2" aria-label="AHAguilera inicio">
+        <img src="./brand/logo-wordmark.svg" alt="AHAguilera" style="height:1.5rem;">
+      </a>
+      <div class="nav-links">
+        <a href="#apps" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Apps</a>
+        <a href="#precios" @click.prevent="document.getElementById('precios').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Precios</a>
+        <a href="#como-funciona" @click.prevent="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Cómo funciona</a>
+        <a href="#faq" @click.prevent="document.getElementById('faq').scrollIntoView({behavior:'smooth'}); mobileOpen=false">FAQ</a>
+        <a href="#sobre-mi" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Sobre mí</a>
+      </div>
+      <div class="nav-actions">
+        <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-primary" style="padding:0.5rem 1.25rem;font-size:0.8125rem;">
+          <i class="bi bi-whatsapp"></i> Contactar
+        </a>
+        <button class="nav-hamburger btn btn-ghost" @click="mobileOpen = !mobileOpen" aria-label="Menú de navegación" :aria-expanded="mobileOpen">
+          <i class="bi text-xl" :class="mobileOpen ? 'bi-x-lg' : 'bi-list'"></i>
+        </button>
+        <button @click="lang = lang === 'es' ? 'en' : 'es'; localStorage.setItem('lang', lang)"
+                class="btn btn-ghost" style="padding:0.5rem;font-size:0.75rem;font-weight:600;" aria-label="Cambiar idioma">
+          <span :class="lang === 'es' ? 'text-txt-primary' : 'txt-muted'">ES</span>
+          <span class="txt-muted">/</span>
+          <span :class="lang === 'en' ? 'text-txt-primary' : 'txt-muted'">EN</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div x-show="mobileOpen" x-cloak class="mobile-menu" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0">
+      <a href="#apps" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Apps</a>
+      <a href="#precios" @click.prevent="document.getElementById('precios').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Precios</a>
+      <a href="#como-funciona" @click.prevent="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Cómo funciona</a>
+      <a href="#faq" @click.prevent="document.getElementById('faq').scrollIntoView({behavior:'smooth'}); mobileOpen=false">FAQ</a>
+      <a href="#sobre-mi" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Sobre mí</a>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero hero-grid" id="hero" aria-label="Hero principal">
+    <div class="container-narrow" style="text-align:center;padding-top:5rem;">
+      <div class="reveal visible" style="margin-bottom:2rem;">
+        <img src="./brand/logo-full.svg" alt="AHAguilera" style="height:3rem;margin:0 auto;">
+      </div>
+      <h1 class="display reveal visible delay-1" style="margin-bottom:1.5rem;">
+        <span x-show="lang === 'es'">Apps que funcionan<br>sin internet.</span>
+        <span x-show="lang === 'en'" x-cloak>Apps that work<br>without internet.</span>
+      </h1>
+      <p class="body-lg reveal visible delay-2" style="font-size:1.125rem;color:var(--txt-secondary);max-width:36rem;margin:0 auto 2rem;">
+        <span x-show="lang === 'es'">Sin servidores. Sin mensualidades. Sin complicaciones.<br>Tu app, tus datos, tu control.</span>
+        <span x-show="lang === 'en'" x-cloak>No servers. No monthly fees. No complications.<br>Your app, your data, your control.</span>
+      </p>
+      <div class="reveal visible delay-3" style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+        <a href="#apps" class="btn btn-primary" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
+          <i class="bi bi-grid-3x3-gap"></i> <span x-show="lang==='es'">Ver catálogo</span><span x-show="lang==='en'" x-cloak>View catalog</span>
+        </a>
+        <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-outline">
+          <i class="bi bi-chat-dots"></i> <span x-show="lang==='es'">Cuéntame tu idea</span><span x-show="lang==='en'" x-cloak>Tell me your idea</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+
+  <!-- ========== PROPUESTA DE VALOR ========== -->
+  <section class="section" id="valor" aria-label="Propuesta de valor">
+    <div class="container">
+      <p class="eyebrow text-center reveal">OFFLINE-FIRST</p>
+      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:3rem;">
+        <span x-show="lang==='es'">El 60% de las apps fallan<br>cuando no hay internet.</span>
+        <span x-show="lang==='en'" x-cloak>60% of apps fail<br>when there is no internet.</span>
+      </h2>
+      <div class="grid grid-3">
+        <div class="card reveal delay-1" style="text-align:center;padding:2rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-file-earmark-code"></i></div>
+          <h3 class="h3" style="margin-bottom:0.5rem;">
+            <span x-show="lang==='es'">Doble clic y funciona</span>
+            <span x-show="lang==='en'" x-cloak>Double click and it works</span>
+          </h3>
+          <p class="body-sm txt-secondary">
+            <span x-show="lang==='es'">No necesitas instalar nada. Abres el archivo y la app está lista. Literalmente.</span>
+            <span x-show="lang==='en'" x-cloak>Nothing to install. Open the file and the app is ready. Literally.</span>
+          </p>
+        </div>
+        <div class="card reveal delay-2" style="text-align:center;padding:2rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-shield-check"></i></div>
+          <h3 class="h3" style="margin-bottom:0.5rem;">
+            <span x-show="lang==='es'">Tus datos son tuyos</span>
+            <span x-show="lang==='en'" x-cloak>Your data stays yours</span>
+          </h3>
+          <p class="body-sm txt-secondary">
+            <span x-show="lang==='es'">Todo se guarda en tu dispositivo. Nadie más tiene acceso. Cifrado incluido.</span>
+            <span x-show="lang==='en'" x-cloak>Everything is stored on your device. No one else has access.</span>
+          </p>
+        </div>
+        <div class="card reveal delay-3" style="text-align:center;padding:2rem;">
+          <div style="font-size:2rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-cloud-slash"></i></div>
+          <h3 class="h3" style="margin-bottom:0.5rem;">
+            <span x-show="lang==='es'">Sin servidores</span>
+            <span x-show="lang==='en'" x-cloak>No servers</span>
+          </h3>
+          <p class="body-sm txt-secondary">
+            <span x-show="lang==='es'">Cero mensualidades. Cero hosting. La app vive en tu escritorio, no en la nube.</span>
+            <span x-show="lang==='en'" x-cloak>Zero monthly fees. Zero hosting. The app lives on your desktop.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== APPS POPULARES ========== -->
+  <section class="section code-grid-bg" id="apps" aria-label="Apps populares">
+    <div class="container">
+      <p class="eyebrow text-center reveal">
+        <span x-show="lang==='es'">APPS LISTAS PARA LLEVAR</span>
+        <span x-show="lang==='en'" x-cloak>READY-TO-GO APPS</span>
+      </p>
+      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:0.5rem;">
+        <span x-show="lang==='es'">Aplicaciones que resuelven<br>problemas reales</span>
+        <span x-show="lang==='en'" x-cloak>Apps that solve<br>real problems</span>
+      </h2>
+      <p class="body-sm txt-secondary text-center reveal delay-2" style="margin-bottom:3rem;">
+        <span x-show="lang==='es'">Seleccionadas por ser las más solicitadas. ¿No encuentras la tuya? La construimos.</span>
+        <span x-show="lang==='en'" x-cloak>The most requested apps. Can'"'"'t find yours? We build it.</span>
+      </p>
+      <div class="grid grid-2" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+        <!-- App 1 -->
+        <div class="card reveal delay-1" @click="activeModal='taskflow'" role="button" tabindex="0" @keydown.enter="activeModal='taskflow'" aria-label="TaskFlow - Gestor de tareas">
+          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
+            <div style="width:3rem;height:3rem;border-radius:12px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--txt-on-accent);">
+              <i class="bi bi-check2-square"></i>
+            </div>
+            <div>
+              <h3 class="h3">TaskFlow</h3>
+              <span class="badge" style="font-size:0.6875rem;">Productividad</span>
+            </div>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Gestor de tareas offline. Etiquetas, prioridades y recordatorios.</span>
+            <span x-show="lang==='en'" x-cloak>Offline task manager. Labels, priorities, reminders.</span>
+          </p>
+          <div class="flex items-center justify-between">
+            <span style="font-size:1.5rem;font-weight:700;">$49 <span class="caption txt-muted">USD</span></span>
+            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20TaskFlow" target="_blank" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8125rem;">
+              <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Comprar</span><span x-show="lang==='en'" x-cloak>Buy</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 2 -->
+        <div class="card reveal delay-2" @click="activeModal='finanza'" role="button" tabindex="0" @keydown.enter="activeModal='finanza'" aria-label="FinanzaLocal - Presupuesto familiar">
+          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
+            <div style="width:3rem;height:3rem;border-radius:12px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--txt-on-accent);">
+              <i class="bi bi-wallet2"></i>
+            </div>
+            <div>
+              <h3 class="h3">FinanzaLocal</h3>
+              <span class="badge" style="font-size:0.6875rem;">Finanzas</span>
+            </div>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Presupuesto familiar con gráficos, categorías y exportación PDF.</span>
+            <span x-show="lang==='en'" x-cloak>Family budget with charts, categories, and PDF export.</span>
+          </p>
+          <div class="flex items-center justify-between">
+            <span style="font-size:1.5rem;font-weight:700;">$99 <span class="caption txt-muted">USD</span></span>
+            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20FinanzaLocal" target="_blank" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8125rem;">
+              <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Comprar</span><span x-show="lang==='en'" x-cloak>Buy</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 3 -->
+        <div class="card reveal delay-3" @click="activeModal='inventario'" role="button" tabindex="0" @keydown.enter="activeModal='inventario'" aria-label="InventarioPRO - Control de inventario">
+          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
+            <div style="width:3rem;height:3rem;border-radius:12px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--txt-on-accent);">
+              <i class="bi bi-box-seam"></i>
+            </div>
+            <div>
+              <h3 class="h3">InventarioPRO</h3>
+              <span class="badge" style="font-size:0.6875rem;">Negocio</span>
+            </div>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Control de inventario con alertas de stock mínimo y reportes.</span>
+            <span x-show="lang==='en'" x-cloak>Inventory control with low stock alerts and reports.</span>
+          </p>
+          <div class="flex items-center justify-between">
+            <span style="font-size:1.5rem;font-weight:700;">$99 <span class="caption txt-muted">USD</span></span>
+            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20InventarioPRO" target="_blank" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8125rem;">
+              <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Comprar</span><span x-show="lang==='en'" x-cloak>Buy</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 4 -->
+        <div class="card reveal delay-4" @click="activeModal='salud'" role="button" tabindex="0" @keydown.enter="activeModal='salud'" aria-label="SaludTracker - Registro de salud">
+          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
+            <div style="width:3rem;height:3rem;border-radius:12px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--txt-on-accent);">
+              <i class="bi bi-heart-pulse"></i>
+            </div>
+            <div>
+              <h3 class="h3">SaludTracker</h3>
+              <span class="badge" style="font-size:0.6875rem;">Salud</span>
+            </div>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Registro de peso, presión, medicamentos y citas médicas.</span>
+            <span x-show="lang==='en'" x-cloak>Track weight, blood pressure, medications, and appointments.</span>
+          </p>
+          <div class="flex items-center justify-between">
+            <span style="font-size:1.5rem;font-weight:700;">$49 <span class="caption txt-muted">USD</span></span>
+            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20SaludTracker" target="_blank" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8125rem;">
+              <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Comprar</span><span x-show="lang==='en'" x-cloak>Buy</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA desarrollo a medida -->
+      <div class="card reveal" style="margin-top:2rem;text-align:center;padding:2.5rem;border-style:dashed;">
+        <div style="font-size:2.5rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-lightbulb"></i></div>
+        <h3 class="h2" style="margin-bottom:0.5rem;">
+          <span x-show="lang==='es'">¿No encuentras lo que buscas?</span>
+          <span x-show="lang==='en'" x-cloak>Can'"'"'t find what you need?</span>
+        </h3>
+        <p class="body-sm txt-secondary" style="margin-bottom:1.5rem;max-width:24rem;margin-left:auto;margin-right:auto;">
+          <span x-show="lang==='es'">Te construyo la app que necesitas. Cuéntame tu idea y te presupuesto sin compromiso.</span>
+          <span x-show="lang==='en'" x-cloak>I will build the app you need. Tell me your idea and I will quote you.</span>
+        </p>
+        <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-primary">
+          <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Solicitar desarrollo a medida</span><span x-show="lang==='en'" x-cloak>Request custom development</span>
+        </a>
+      </div>
+    </div>
+  </section>

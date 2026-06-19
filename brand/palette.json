@@ -1,0 +1,63 @@
+{
+  "brand": "AHAguilera",
+  "version": "1.0",
+  "description": "Paleta oficial de la marca AHAguilera — identidad visual para desarrollo freelance",
+
+  "colors": {
+    "surface": {
+      "base":        { "hex": "#171614", "description": "Fondo principal, oscuro profundo con calidez mínima" },
+      "elevated":    { "hex": "#1f1d1a", "description": "Cards, modales, superficies elevadas" },
+      "highlight":   { "hex": "#2a2824", "description": "Hover states, bordes sutiles, separadores" },
+      "teal":        { "hex": "#024653", "description": "Superficies destacadas, secciones alternas, tags" },
+      "teal-light":  { "hex": "#035f6e", "description": "Hover sobre superficies teal" }
+    },
+
+    "text": {
+      "primary":     { "hex": "#EAF4F5", "description": "Texto principal sobre fondo oscuro" },
+      "secondary":   { "hex": "#9ba8a9", "description": "Texto secundario, metadata, body" },
+      "muted":       { "hex": "#5e696a", "description": "Texto desactivado, placeholders" },
+      "on-accent":   { "hex": "#171614", "description": "Texto sobre acentos brillantes (CFF434, 07D16E)" }
+    },
+
+    "accent": {
+      "primary":     { "hex": "#CFF434", "description": "Acento principal neón amarillo-verde. CTAs, links, highlights" },
+      "primary-hover": { "hex": "#dbf65a", "description": "Hover del acento primario" },
+      "secondary":   { "hex": "#07D16E", "description": "Acento secundario verde vibrante. Éxito, badges secundarios" },
+      "secondary-hover": { "hex": "#1ae87f", "description": "Hover del acento secundario" }
+    },
+
+    "border": {
+      "subtle":      { "hex": "#2a2824", "description": "Bordes por defecto" },
+      "hover":       { "hex": "#3a3834", "description": "Bordes en hover" },
+      "accent":      { "hex": "#CFF434", "description": "Borde acentuado (focus rings)" }
+    },
+
+    "semantic": {
+      "success":     { "hex": "#07D16E", "description": "Operaciones exitosas" },
+      "warning":     { "hex": "#CFF434", "description": "Advertencias (usa acento primario)" },
+      "error":       { "hex": "#ef4444", "description": "Errores" },
+      "info":        { "hex": "#024653", "description": "Información" }
+    },
+
+    "light-theme": {
+      "surface-base":    { "hex": "#EAF4F5", "description": "Fondo principal en tema claro" },
+      "surface-elevated":{ "hex": "#ffffff", "description": "Cards en tema claro" },
+      "text-primary":    { "hex": "#171614", "description": "Texto principal en tema claro" },
+      "text-secondary":  { "hex": "#5e696a", "description": "Texto secundario en tema claro" }
+    }
+  },
+
+  "aliases": {
+    "--surface":             "surface.base",
+    "--surface-elevated":    "surface.elevated",
+    "--text":                "text.primary",
+    "--text-secondary":      "text.secondary",
+    "--accent":              "accent.primary",
+    "--accent-secondary":    "accent.secondary",
+    "--border":              "border.subtle",
+    "--success":             "semantic.success",
+    "--warning":             "semantic.warning",
+    "--error":               "semantic.error",
+    "--info":                "semantic.info"
+  }
+}

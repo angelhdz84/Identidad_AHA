@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" fill="none">
+  <rect width="800" height="200" rx="28" fill="#171614"/>
+
+  <!-- Icon mark (simplified AHA) -->
+  <rect x="40" y="50" width="100" height="100" rx="20" fill="#024653"/>
+  <text x="58" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#CFF434" letter-spacing="-2">
+    A
+  </text>
+  <text x="88" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#EAF4F5" letter-spacing="-2">
+    H
+  </text>
+  <text x="118" y="120" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="44" font-weight="800" fill="#07D16E" letter-spacing="-2">
+    A
+  </text>
+
+  <!-- Wordmark -->
+  <text x="170" y="118" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="64" font-weight="800" fill="#CFF434" letter-spacing="-2.5">
+    AHA
+  </text>
+  <text x="340" y="118" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="56" font-weight="400" fill="#EAF4F5" letter-spacing="-1.5">
+    guilera
+  </text>
+
+  <!-- Tagline -->
+  <text x="172" y="148" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#024653" letter-spacing="4.5">
+    DESARROLLO FREELANCE · APPS OFFLINE-FIRST
+  </text>
+
+  <!-- Accent line under the wordmark -->
+  <line x1="170" y1="138" x2="310" y2="138" stroke="#07D16E" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,13 @@
+{
+  "name": "AHAguilera",
+  "short_name": "AHA",
+  "description": "Desarrollo freelance moderno — apps offline-first",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#171614",
+  "theme_color": "#171614",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "apple-touch-icon.svg", "sizes": "180x180", "type": "image/svg+xml" }
+  ]
+}
