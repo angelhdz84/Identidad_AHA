@@ -9,7 +9,7 @@
 
 ## 1. Filosofía de diseño
 
-**Pergamino digital.** Fondo cálido `#EAF4F5` como canvas principal. 
+**Pergamino digital.** Fondo cálido `#F5F0EB` (beige natural) como canvas principal. 
 Las secciones respiran con whitespace generoso. La información se organiza en cards de `#FFFFFF` con bordes sutiles.
 
 **Lime como voz, no como ruido.** `#CFF434` aparece solo donde importa:
@@ -21,9 +21,9 @@ Las secciones respiran con whitespace generoso. La información se organiza en c
 Máximo 10% del área visual. Cuando aparece, que se note.
 
 **Elevación por contraste, no por sombra.** 
-- Canvas: `#EAF4F5` (fondo base)
+- Canvas: `#F5F0EB` (fondo base beige natural)
 - Cards: `#FFFFFF` (un paso más claro)
-- Bordes: `#d0dbdc` (sutiles, 1px)
+- Bordes: `#E0D6CE` (sutiles, 1px, tono cálido)
 - Hover: borde pasa a `#CFF434`
 
 **Tipografía como jerarquía.** 
@@ -39,9 +39,9 @@ Máximo 10% del área visual. Cuando aparece, que se note.
 
 | Token | Hex | Uso |
 |-------|-----|-----|
-| `--canvas` | `#EAF4F5` | Fondo de página — cálido, claro, fresco |
+| `--canvas` | `#F5F0EB` | Fondo de página — beige natural, cálido |
 | `--surface` | `#FFFFFF` | Cards, tarjetas, secciones destacadas |
-| `--surface-hover` | `#f7fbfb` | Hover de cards |
+| `--surface-hover` | `#F0EBE6` | Hover de cards |
 | `--surface-teal` | `#024653` | Badges, tags decorativos |
 | `--brand-primary` | `#CFF434` | Acento lime — CTAs, hover, highlights |
 | `--brand-primary-hover` | `#dbf65a` | Hover del acento lime |
@@ -50,7 +50,7 @@ Máximo 10% del área visual. Cuando aparece, que se note.
 | `--txt-secondary` | `#5a6a6b` | Texto secundario, body |
 | `--txt-muted` | `#8a9a9b` | Texto desactivado, metadata |
 | `--txt-on-accent` | `#171614` | Texto sobre fondo lime |
-| `--border-subtle` | `#d0dbdc` | Bordes de cards, inputs |
+| `--border-subtle` | `#E0D6CE` | Bordes de cards, inputs |
 | `--border-hover` | `#CFF434` | Borde en hover de interactivos |
 | `--border-accent` | `#CFF434` | Focus rings |
 | `--shadow-card` | `0 1px 3px rgba(0,0,0,0.06)` | Sombra mínima en cards |
@@ -141,7 +141,7 @@ Máximo 10% del área visual. Cuando aparece, que se note.
 ### Nav
 ```css
 .nav-glass {
-  background: rgba(234, 244, 245, 0.85);
+  background: rgba(245, 240, 235, 0.85);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -154,7 +154,7 @@ Estado inicial: transparente. Al scrollear > 50px: nav-glass.
   display: inline-flex;
   padding: 0.25rem 0.75rem;
   background: var(--surface-teal);
-  color: #EAF4F5;
+  color: #F5F0EB;
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 500;

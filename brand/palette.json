@@ -40,7 +40,7 @@
     },
 
     "light-theme": {
-      "surface-base":    { "hex": "#EAF4F5", "description": "Fondo principal en tema claro" },
+      "surface-base":    { "hex": "#F5F0EB", "description": "Fondo principal en tema claro — beige natural" },
       "surface-elevated":{ "hex": "#ffffff", "description": "Cards en tema claro" },
       "text-primary":    { "hex": "#171614", "description": "Texto principal en tema claro" },
       "text-secondary":  { "hex": "#5e696a", "description": "Texto secundario en tema claro" }
