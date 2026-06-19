@@ -4,7 +4,6 @@ name: Deploy Landing to Pages
 on:
   push:
     branches: ["master"]
-    paths: ["landing/**"]
 
 permissions:
   contents: read
