@@ -1,83 +1,237 @@
 ﻿
+  <!-- ========== APPS ========== -->
+  <section class="section section-dark" id="apps" aria-label="Apps populares">
+    <div class="container">
+      <p class="eyebrow text-center reveal">
+        <span x-show="lang==='es'">APPS LISTAS PARA LLEVAR</span>
+        <span x-show="lang==='en'" x-cloak>READY-TO-GO APPS</span>
+      </p>
+      <h2 class="display text-center reveal delay-1" style="margin-bottom:0.5rem;">
+        <span x-show="lang==='es'">Apps que resuelven<br>problemas reales</span>
+        <span x-show="lang==='en'" x-cloak>Apps that solve<br>real problems</span>
+      </h2>
+      <p class="body-sm txt-secondary text-center reveal delay-2" style="margin-bottom:3rem;">
+        <span x-show="lang==='es'">Seleccionadas por ser las más solicitadas. ¿No encuentras la tuya? La construimos.</span>
+        <span x-show="lang==='en'" x-cloak>The most requested apps. Can't find yours? I'll build it.</span>
+      </p>
+      <div class="grid stagger" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+        <!-- App 1 -->
+        <div class="card-dark reveal" style="transition-delay:0ms" @click="activeModal='inventario'" role="button" tabindex="0" @keydown.enter="activeModal='inventario'" aria-label="InventarioPRO">
+          <!-- Mockup SVG -->
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div class="mockup-row" style="width:60%;"></div>
+              <div class="mockup-row" style="width:40%;"></div>
+              <div class="mockup-block" style="margin-top:0.25rem;"></div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:1;height:24px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:24px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">InventarioPRO</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">Negocio</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Control de stock con alertas, reportes y escaneo sin internet.</span>
+            <span x-show="lang==='en'" x-cloak>Inventory control with alerts, reports, offline scanning.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato">🖥️+📱</span>
+            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20InventarioPRO" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 2 -->
+        <div class="card-dark reveal" style="transition-delay:100ms" @click="activeModal='factura'" role="button" tabindex="0" @keydown.enter="activeModal='factura'" aria-label="FacturaExpress">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div class="mockup-row" style="width:50%;"></div>
+              <div class="mockup-row" style="width:75%;"></div>
+              <div class="mockup-block" style="margin-top:0.25rem;height:30px;"></div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:2;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">FacturaExpress</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">Negocio</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Facturación offline. Con RFC, PDF export y catálogo de productos.</span>
+            <span x-show="lang==='en'" x-cloak>Offline invoicing. With tax ID, PDF export, product catalog.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato">🖥️+📱</span>
+            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20FacturaExpress" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 3 -->
+        <div class="card-dark reveal" style="transition-delay:200ms" @click="activeModal='cliente'" role="button" tabindex="0" @keydown.enter="activeModal='cliente'" aria-label="ClienteSeguro CRM">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div class="mockup-row" style="width:65%;"></div>
+              <div class="mockup-row" style="width:45%;"></div>
+              <div style="display:flex;gap:4px;margin-top:8px;">
+                <div style="flex:1;height:32px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:32px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:32px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">ClienteSeguro</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">CRM</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">CRM offline con historial, notas y seguimiento de clientes.</span>
+            <span x-show="lang==='en'" x-cloak>Offline CRM with history, notes, and client tracking.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato">🖥️+📱</span>
+            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20ClienteSeguro" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 4 -->
+        <div class="card-dark reveal" style="transition-delay:300ms" @click="activeModal='gastos'" role="button" tabindex="0" @keydown.enter="activeModal='gastos'" aria-label="GastosDiarios">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div class="mockup-row" style="width:45%;"></div>
+              <div class="mockup-row" style="width:55%;"></div>
+              <div style="display:flex;gap:4px;margin-top:8px;">
+                <div style="flex:3;height:24px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:24px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+              </div>
+              <div style="margin-top:4px;height:40px;border-radius:6px;background:rgba(207,244,52,0.04);display:flex;gap:2px;padding:4px;">
+                <div style="flex:2;background:rgba(207,244,52,0.1);border-radius:3px;"></div>
+                <div style="flex:1;background:rgba(207,244,52,0.05);border-radius:3px;"></div>
+                <div style="flex:1;background:rgba(207,244,52,0.07);border-radius:3px;"></div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">GastosDiarios</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">Finanzas</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Control de gastos con gráficos, categorías y exportación a Excel.</span>
+            <span x-show="lang==='en'" x-cloak>Expense tracking with charts, categories, Excel export.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato">🖥️+📱</span>
+            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20GastosDiarios" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA custom -->
+      <div class="card-dark reveal" style="margin-top:2rem;text-align:center;padding:2.5rem;border-style:dashed;border-color:rgba(207,244,52,0.15);">
+        <div style="font-size:2.5rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-lightbulb"></i></div>
+        <h3 class="h2" style="margin-bottom:0.5rem;color:#fff;">
+          <span x-show="lang==='es'">¿No encuentras lo que buscas?</span>
+          <span x-show="lang==='en'" x-cloak>Can't find what you need?</span>
+        </h3>
+        <p class="body-sm txt-secondary" style="margin-bottom:1.5rem;max-width:24rem;margin-left:auto;margin-right:auto;">
+          <span x-show="lang==='es'">Te construyo la app que necesitas. Cuéntame tu idea y te presupuesto sin compromiso.</span>
+          <span x-show="lang==='en'" x-cloak>I'll build the app you need. Tell me your idea and I'll quote you.</span>
+        </p>
+        <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-primary">
+          <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Solicitar desarrollo a medida</span><span x-show="lang==='en'" x-cloak>Request custom development</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== PRECIOS ========== -->
-  <section class="section" id="precios" aria-label="Planes y precios">
+  <section class="section section-dark" id="precios" aria-label="Planes y precios">
     <div class="container">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">PRECIOS</span>
         <span x-show="lang==='en'" x-cloak>PRICING</span>
       </p>
-      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:3rem;">
+      <h2 class="display text-center reveal delay-1" style="margin-bottom:0.5rem;">
         <span x-show="lang==='es'">Inversión clara,<br>sin sorpresas</span>
         <span x-show="lang==='en'" x-cloak>Clear pricing,<br>no surprises</span>
       </h2>
-      <div class="grid grid-3" style="align-items:start;">
+      <p class="body-sm txt-secondary text-center reveal delay-2" style="margin-bottom:3rem;">
+        <span x-show="lang==='es'">Pago único. Sin mensualidades. Sin letras chiquitas.</span>
+        <span x-show="lang==='en'" x-cloak>One-time payment. No monthly fees. No fine print.</span>
+      </p>
+      <div class="grid grid-3 stagger" style="align-items:start;">
         <!-- Lite -->
-        <div class="price-card reveal delay-1">
-          <h3 class="h3" style="margin-bottom:0.25rem;">
-            <span x-show="lang==='es'">Lite</span>
-            <span x-show="lang==='en'" x-cloak>Lite</span>
-          </h3>
-          <p class="caption txt-muted" style="margin-bottom:1.5rem;">
-            <span x-show="lang==='es'">Para necesidades simples</span>
-            <span x-show="lang==='en'" x-cloak>For simple needs</span>
+        <div class="price-card reveal" style="transition-delay:0ms">
+          <h3 class="h3" style="margin-bottom:0.25rem;">Lite</h3>
+          <p class="caption txt-muted" style="margin-bottom:0.5rem;">
+            <span x-show="lang==='es'">Para empezar con estilo</span>
+            <span x-show="lang==='en'" x-cloak>To start in style</span>
           </p>
-          <div class="price" style="margin-bottom:1.5rem;">$49 <span class="caption">/ único</span></div>
+          <div class="price" style="margin-bottom:0.25rem;">$49 <span>/ único</span></div>
+          <p class="caption txt-muted" style="margin-bottom:1.5rem;">Solo .exe</p>
           <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
             <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">1 módulo funcional</span><span x-show="lang==='en'" x-cloak>1 functional module</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Datos locales</span><span x-show="lang==='en'" x-cloak>Local data</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Sin cifrado</span><span x-show="lang==='en'" x-cloak>No encryption</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Formato .exe (Windows)</span><span x-show="lang==='en'" x-cloak>.exe format (Windows)</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Datos locales sin cifrado</span><span x-show="lang==='en'" x-cloak>Local data, no encryption</span></li>
             <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Doble clic y funciona</span><span x-show="lang==='en'" x-cloak>Double click to run</span></li>
           </ul>
-          <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20plan%20Lite" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;">
-            <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Elegir Lite</span><span x-show="lang==='en'" x-cloak>Choose Lite</span>
+          <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20plan%20Lite" target="_blank" class="btn btn-outline-dark" style="width:100%;justify-content:center;">
+            <span x-show="lang==='es'">Elegir Lite</span><span x-show="lang==='en'" x-cloak>Choose Lite</span>
           </a>
         </div>
 
         <!-- Standard -->
-        <div class="price-card featured reveal delay-2" style="position:relative;">
+        <div class="price-card featured reveal" style="transition-delay:100ms">
           <span class="badge badge-lime" style="position:absolute;top:-0.75rem;right:1.5rem;">
-            <span x-show="lang==='es'">MÁS ELEGIDO</span>
-            <span x-show="lang==='en'" x-cloak>MOST POPULAR</span>
+            <span x-show="lang==='es'">POPULAR</span>
+            <span x-show="lang==='en'" x-cloak>POPULAR</span>
           </span>
-          <h3 class="h3" style="margin-bottom:0.25rem;">
-            <span x-show="lang==='es'">Standard</span>
-            <span x-show="lang==='en'" x-cloak>Standard</span>
-          </h3>
-          <p class="caption txt-muted" style="margin-bottom:1.5rem;">
-            <span x-show="lang==='es'">La opción más equilibrada</span>
-            <span x-show="lang==='en'" x-cloak>The balanced choice</span>
+          <h3 class="h3" style="margin-bottom:0.25rem;">Standard</h3>
+          <p class="caption txt-muted" style="margin-bottom:0.5rem;">
+            <span x-show="lang==='es'">La que todo mundo elige</span>
+            <span x-show="lang==='en'" x-cloak>Everyone's choice</span>
           </p>
-          <div class="price" style="margin-bottom:1.5rem;">$99 <span class="caption">/ único</span></div>
+          <div class="price" style="margin-bottom:0.25rem;">$99 <span>/ único</span></div>
+          <p class="caption" style="color:var(--brand-primary);margin-bottom:1.5rem;">🖥️+📱 .exe + .apk</p>
           <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
             <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Hasta 3 módulos</span><span x-show="lang==='en'" x-cloak>Up to 3 modules</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Cifrado de datos</span><span x-show="lang==='en'" x-cloak>Data encryption</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Exportación PDF</span><span x-show="lang==='en'" x-cloak>PDF export</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Gráficos incluidos</span><span x-show="lang==='en'" x-cloak>Charts included</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">.exe + .apk incluidos</span><span x-show="lang==='en'" x-cloak>.exe + .apk included</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Cifrado AES-256</span><span x-show="lang==='en'" x-cloak>AES-256 encryption</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Gráficos + exportación PDF</span><span x-show="lang==='en'" x-cloak>Charts + PDF export</span></li>
           </ul>
           <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20plan%20Standard" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">
-            <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Elegir Standard</span><span x-show="lang==='en'" x-cloak>Choose Standard</span>
+            <span x-show="lang==='es'">Elegir Standard →</span><span x-show="lang==='en'" x-cloak>Choose Standard →</span>
           </a>
         </div>
 
         <!-- Custom -->
-        <div class="price-card reveal delay-3">
-          <h3 class="h3" style="margin-bottom:0.25rem;">
-            <span x-show="lang==='es'">Custom</span>
-            <span x-show="lang==='en'" x-cloak>Custom</span>
-          </h3>
-          <p class="caption txt-muted" style="margin-bottom:1.5rem;">
-            <span x-show="lang==='es'">Todo lo que necesites</span>
-            <span x-show="lang==='en'" x-cloak>Everything you need</span>
+        <div class="price-card reveal" style="transition-delay:200ms">
+          <h3 class="h3" style="margin-bottom:0.25rem;">Custom</h3>
+          <p class="caption txt-muted" style="margin-bottom:0.5rem;">
+            <span x-show="lang==='es'">Tu idea, tu app, tus reglas</span>
+            <span x-show="lang==='en'" x-cloak>Your idea, your app, your rules</span>
           </p>
-          <div class="price" style="margin-bottom:1.5rem;">$199+ <span class="caption">/ único</span></div>
+          <div class="price" style="margin-bottom:0.25rem;">$199+ <span>/ único</span></div>
+          <p class="caption txt-muted" style="margin-bottom:1.5rem;">🖥️+📱 + código fuente</p>
           <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Módulos ilimitados</span><span x-show="lang==='en'" x-cloak>Unlimited modules</span></li>
             <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Todo lo de Standard +</span><span x-show="lang==='en'" x-cloak>Everything in Standard +</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Excel / CSV export</span><span x-show="lang==='en'" x-cloak>Excel / CSV export</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Funcionalidades a medida</span><span x-show="lang==='en'" x-cloak>Custom features</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Diseño UI personalizado</span><span x-show="lang==='en'" x-cloak>Custom UI design</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Funciones a medida</span><span x-show="lang==='en'" x-cloak>Custom features</span></li>
+            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Código fuente incluido</span><span x-show="lang==='en'" x-cloak>Source code included</span></li>
           </ul>
-          <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20plan%20Custom" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;">
-            <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Consultar</span><span x-show="lang==='en'" x-cloak>Inquire</span>
+          <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20plan%20Custom" target="_blank" class="btn btn-outline-dark" style="width:100%;justify-content:center;">
+            <span x-show="lang==='es'">Cotizar →</span><span x-show="lang==='en'" x-cloak>Get quote →</span>
           </a>
         </div>
       </div>
@@ -89,15 +243,15 @@
   </section>
 
   <!-- ========== CÓMO FUNCIONA ========== -->
-  <section class="section code-grid-bg" id="como-funciona" aria-label="Cómo funciona">
+  <section class="section section-light" id="como-funciona" aria-label="Cómo funciona">
     <div class="container-narrow">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">CÓMO FUNCIONA</span>
         <span x-show="lang==='en'" x-cloak>HOW IT WORKS</span>
       </p>
-      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:3rem;">
-        <span x-show="lang==='es'">Tres pasos para<br>tu app</span>
-        <span x-show="lang==='en'" x-cloak>Three steps to<br>your app</span>
+      <h2 class="display text-center reveal delay-1" style="margin-bottom:3rem;">
+        <span x-show="lang==='es'">De tu idea a tu<br>escritorio y bolsillo</span>
+        <span x-show="lang==='en'" x-cloak>From your idea to<br>your desktop and pocket</span>
       </h2>
       <div class="reveal">
         <!-- Paso 1 -->
@@ -105,12 +259,12 @@
           <div class="step-number">1</div>
           <div>
             <h3 class="h3" style="margin-bottom:0.25rem;">
-              <span x-show="lang==='es'">Cuéntame tu idea</span>
-              <span x-show="lang==='en'" x-cloak>Tell me your idea</span>
+              <span x-show="lang==='es'">Me cuentas qué necesitas</span>
+              <span x-show="lang==='en'" x-cloak>Tell me what you need</span>
             </h3>
             <p class="body-sm txt-secondary">
-              <span x-show="lang==='es'">Hablamos de qué necesitas, para qué y cómo lo usarás. Sin compromiso.</span>
-              <span x-show="lang==='en'" x-cloak>We talk about what you need, why and how you will use it. No obligation.</span>
+              <span x-show="lang==='es'">Un WhatsApp, una llamada o un café. Me dices qué problema resuelves y para qué. Sin compromiso.</span>
+              <span x-show="lang==='en'" x-cloak>A WhatsApp, a call, or a coffee. Tell me what problem you solve and why. No obligation.</span>
             </p>
           </div>
         </div>
@@ -120,12 +274,12 @@
           <div class="step-number">2</div>
           <div>
             <h3 class="h3" style="margin-bottom:0.25rem;">
-              <span x-show="lang==='es'">Desarrollo la app</span>
-              <span x-show="lang==='en'" x-cloak>I build the app</span>
+              <span x-show="lang==='es'">Construyo tu app</span>
+              <span x-show="lang==='en'" x-cloak>I build your app</span>
             </h3>
             <p class="body-sm txt-secondary">
-              <span x-show="lang==='es'">La creo con mi stack offline-first. Te entrego actualizaciones en el proceso.</span>
-              <span x-show="lang==='en'" x-cloak>I create it with my offline-first stack. I deliver updates along the way.</span>
+              <span x-show="lang==='es'">La creo con Alpine + Dexie + CryptoJS. Cien por ciento offline. Te entrego avances en el proceso.</span>
+              <span x-show="lang==='en'" x-cloak>I build it with Alpine + Dexie + CryptoJS. 100% offline. I share progress along the way.</span>
             </p>
           </div>
         </div>
@@ -135,56 +289,30 @@
           <div class="step-number">3</div>
           <div>
             <h3 class="h3" style="margin-bottom:0.25rem;">
-              <span x-show="lang==='es'">Descargas y usas</span>
-              <span x-show="lang==='en'" x-cloak>Download and use</span>
+              <span x-show="lang==='es'">La empaqueto en dos formatos</span>
+              <span x-show="lang==='en'" x-cloak>I package it in two formats</span>
             </h3>
             <p class="body-sm txt-secondary">
-              <span x-show="lang==='es'">Recibes tu app. Abres con doble clic y funciona para siempre. Sin mensualidades.</span>
-              <span x-show="lang==='en'" x-cloak>You receive your app. Double click and it works forever. No monthly fees.</span>
+              <span x-show="lang==='es'">Un solo desarrollo. Lo convierto en .exe para Windows y .apk para Android. Tu app en todos lados.</span>
+              <span x-show="lang==='en'" x-cloak>One codebase. I convert it to .exe for Windows and .apk for Android. Your app everywhere.</span>
+            </p>
+          </div>
+        </div>
+        <div class="step-line" style="margin:0.5rem 0 0.5rem 1.15rem;"></div>
+        <!-- Paso 4 -->
+        <div class="step">
+          <div class="step-number">4</div>
+          <div>
+            <h3 class="h3" style="margin-bottom:0.25rem;">
+              <span x-show="lang==='es'">Te los entrego</span>
+              <span x-show="lang==='en'" x-cloak>I deliver them to you</span>
+            </h3>
+            <p class="body-sm txt-secondary">
+              <span x-show="lang==='es'">Recibes tu .exe y tu .apk. Pagas una vez. La app es tuya para siempre.</span>
+              <span x-show="lang==='en'" x-cloak>You receive your .exe and .apk. Pay once. The app is yours forever.</span>
             </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ========== STACK TÉCNICO ========== -->
-  <section class="section" id="stack" aria-label="Stack técnico">
-    <div class="container">
-      <p class="eyebrow text-center reveal">STACK TÉCNICO</p>
-      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:3rem;">
-        <span x-show="lang==='es'">Tecnologías que no<br>dependen de nadie</span>
-        <span x-show="lang==='en'" x-cloak>Technology that<br>depends on no one</span>
-      </h2>
-      <div class="grid grid-3" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;">
-        <div class="card reveal delay-1" style="text-align:center;padding:1.5rem 1rem;">
-          <div style="font-size:2rem;margin-bottom:0.5rem;color:var(--brand-primary);"><i class="bi bi-lightning"></i></div>
-          <div class="body-sm" style="font-weight:600;">Alpine.js</div>
-        </div>
-        <div class="card reveal delay-2" style="text-align:center;padding:1.5rem 1rem;">
-          <div style="font-size:2rem;margin-bottom:0.5rem;color:var(--brand-primary);"><i class="bi bi-database"></i></div>
-          <div class="body-sm" style="font-weight:600;">Dexie.js</div>
-        </div>
-        <div class="card reveal delay-3" style="text-align:center;padding:1.5rem 1rem;">
-          <div style="font-size:2rem;margin-bottom:0.5rem;color:var(--brand-primary);"><i class="bi bi-lock"></i></div>
-          <div class="body-sm" style="font-weight:600;">CryptoJS</div>
-        </div>
-        <div class="card reveal delay-1" style="text-align:center;padding:1.5rem 1rem;">
-          <div style="font-size:2rem;margin-bottom:0.5rem;color:var(--brand-primary);"><i class="bi bi-brush"></i></div>
-          <div class="body-sm" style="font-weight:600;">Tailwind</div>
-        </div>
-        <div class="card reveal delay-2" style="text-align:center;padding:1.5rem 1rem;">
-          <div style="font-size:2rem;margin-bottom:0.5rem;color:var(--brand-primary);"><i class="bi bi-palette"></i></div>
-          <div class="body-sm" style="font-weight:600;">DaisyUI</div>
-        </div>
-        <div class="card reveal delay-3" style="text-align:center;padding:1.5rem 1rem;">
-          <div style="font-size:2rem;margin-bottom:0.5rem;color:var(--brand-primary);"><i class="bi bi-file-spreadsheet"></i></div>
-          <div class="body-sm" style="font-weight:600;">Bootstrap Icons</div>
-        </div>
-      </div>
-      <p class="body-sm txt-secondary text-center reveal" style="margin-top:2rem;">
-        <span x-show="lang==='es'">Cada librería se descarga una vez. El runtime no pide nada a nadie.</span>
-        <span x-show="lang==='en'" x-cloak>Each library is downloaded once. The runtime asks nothing from anyone.</span>
-      </p>
     </div>
   </section>
