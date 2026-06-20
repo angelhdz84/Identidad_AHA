@@ -1,4 +1,126 @@
 ﻿
+  <!-- ========== IA JUTIA ========== -->
+  <section class="section section-dark" id="ia-jutia" aria-label="IA Jutia">
+    <div class="container">
+      <p class="eyebrow text-center reveal">
+        <span x-show="lang==='es'">IA JUTIA</span>
+        <span x-show="lang==='en'" x-cloak>IA JUTIA</span>
+      </p>
+      <h2 class="display text-center reveal delay-1" style="margin-bottom:0.75rem;">
+        <span x-show="lang==='es'">Tu app con inteligencia<br>propia. Sin enviar datos a nadie.</span>
+        <span x-show="lang==='en'" x-cloak>Your app with a mind<br>of its own. No data leaves.</span>
+      </h2>
+      <p class="body-sm txt-secondary text-center reveal delay-2" style="max-width:32rem;margin:0 auto 2.5rem;">
+        <span x-show="lang==='es'">Cada app incluye una Mini IA que busca, predice y responde preguntas. Corre 100% local en Windows y Android. Sin internet. Sin costo extra. Incluida.</span>
+        <span x-show="lang==='en'" x-cloak>Every app includes a Mini AI that searches, predicts, and answers questions. Runs 100% locally on Windows and Android. No internet. No extra cost. Included.</span>
+      </p>
+
+      <!-- Perfiles -->
+      <div class="grid grid-2 stagger" style="margin-bottom:2.5rem;">
+        <!-- Lite profile -->
+        <div class="card-dark reveal" style="transition-delay:0ms;padding:2rem;">
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+            <div style="width:2.5rem;height:2.5rem;border-radius:10px;background:rgba(207,244,52,0.1);display:flex;align-items:center;justify-content:center;color:var(--brand-primary);font-size:1.25rem;">
+              <i class="bi bi-search"></i>
+            </div>
+            <div>
+              <h3 class="h3" style="color:#fff;margin-bottom:0;">Perfil Lite</h3>
+              <p class="caption" style="color:var(--brand-primary);">
+                <span x-show="lang==='es'">Incluido en todos los planes</span>
+                <span x-show="lang==='en'" x-cloak>Included in all plans</span>
+              </p>
+            </div>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:0.6rem;">
+            <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
+              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'"><strong>Búsqueda instantánea</strong> — escribe y encuentra al instante</span>
+              <span x-show="lang==='en'" x-cloak><strong>Instant search</strong> — type and find instantly</span>
+            </li>
+            <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
+              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'"><strong>Estadísticas inteligentes</strong> — analiza tus datos automáticamente</span>
+              <span x-show="lang==='en'" x-cloak><strong>Smart statistics</strong> — analyzes your data automatically</span>
+            </li>
+            <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
+              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'"><strong>Predicciones</strong> — "¿cuándo se va a acabar este producto?"</span>
+              <span x-show="lang==='en'" x-cloak><strong>Predictions</strong> — "when will this product run out?"</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Full profile -->
+        <div class="card-dark reveal" style="transition-delay:100ms;padding:2rem;border-color:rgba(207,244,52,0.2);">
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+            <div style="width:2.5rem;height:2.5rem;border-radius:10px;background:rgba(207,244,52,0.1);display:flex;align-items:center;justify-content:center;color:var(--brand-primary);font-size:1.25rem;">
+              <i class="bi bi-stars"></i>
+            </div>
+            <div>
+              <h3 class="h3" style="color:#fff;margin-bottom:0;">Perfil Full</h3>
+              <p class="caption" style="color:var(--brand-primary);">
+                <span x-show="lang==='es'">Planes Standard y Custom</span>
+                <span x-show="lang==='en'" x-cloak>Standard & Custom plans</span>
+              </p>
+            </div>
+          </div>
+          <ul style="display:flex;flex-direction:column;gap:0.6rem;">
+            <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
+              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'">Todo lo de Lite +</span>
+              <span x-show="lang==='en'" x-cloak>Everything in Lite +</span>
+            </li>
+            <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
+              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'"><strong>Ingesta de documentos</strong> — lee PDF, Excel, Word y CSV</span>
+              <span x-show="lang==='en'" x-cloak><strong>Document ingestion</strong> — reads PDF, Excel, Word, CSV</span>
+            </li>
+            <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
+              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'"><strong>QA extractivo</strong> — pregúntale a tus datos en español</span>
+              <span x-show="lang==='en'" x-cloak><strong>Extractive QA</strong> — ask your data in Spanish</span>
+            </li>
+            <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
+              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'"><strong>Atajo global</strong> — <code style="background:rgba(255,255,255,0.08);padding:0.15rem 0.4rem;border-radius:4px;font-size:0.75rem;">Cmd+K</code> desde cualquier pantalla</span>
+              <span x-show="lang==='en'" x-cloak><strong>Global shortcut</strong> — <code style="background:rgba(255,255,255,0.08);padding:0.15rem 0.4rem;border-radius:4px;font-size:0.75rem;">Cmd+K</code> from any screen</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Competencia no puede -->
+      <div class="card-dark reveal" style="padding:1.5rem;border-color:rgba(207,244,52,0.08);">
+        <p class="caption" style="color:var(--brand-primary);margin-bottom:0.75rem;font-weight:600;">
+          <span x-show="lang==='es'">⚡ Lo que la competencia no puede decir</span>
+          <span x-show="lang==='en'" x-cloak>⚡ What competitors can't say</span>
+        </p>
+        <div class="grid grid-2" style="gap:0.5rem;">
+          <div class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
+            <i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
+            <span x-show="lang==='es'">"Nuestra IA corre 100% local" — ellos envían tus datos a OpenAI</span>
+            <span x-show="lang==='en'" x-cloak>"Our AI runs 100% locally" — they send your data to OpenAI</span>
+          </div>
+          <div class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
+            <i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
+            <span x-show="lang==='es'">"La IA viene incluida" — ellos la venden como add-on</span>
+            <span x-show="lang==='en'" x-cloak>"AI is included" — they sell it as an add-on</span>
+          </div>
+          <div class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
+            <i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
+            <span x-show="lang==='es'">"Misma IA en escritorio y móvil" — ellos tienen versiones distintas</span>
+            <span x-show="lang==='en'" x-cloak>"Same AI on desktop and mobile" — they have different versions</span>
+          </div>
+          <div class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
+            <i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
+            <span x-show="lang==='es'">"Sin internet" — ellos necesitan cloud</span>
+            <span x-show="lang==='en'" x-cloak>"No internet needed" — they require the cloud</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== STACK FLIP ========== -->
   <section class="section section-dark" id="stack" aria-label="Stack técnico">
     <div class="container">
@@ -21,7 +143,7 @@
               <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-lightning"></i></div>
               <div class="body-sm" style="font-weight:600;">Alpine.js</div>
             </div>
-            <div class="stack-back">reactividad · 8kB</div>
+            <div class="stack-back">La app responde al instante</div>
           </div>
         </div>
         <div class="stack-card reveal" style="transition-delay:100ms">
@@ -30,7 +152,7 @@
               <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-database"></i></div>
               <div class="body-sm" style="font-weight:600;">Dexie.js</div>
             </div>
-            <div class="stack-back">IndexedDB · offline</div>
+            <div class="stack-back">Tus datos nunca suben a servidores</div>
           </div>
         </div>
         <div class="stack-card reveal" style="transition-delay:200ms">
@@ -39,7 +161,7 @@
               <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-lock"></i></div>
               <div class="body-sm" style="font-weight:600;">CryptoJS</div>
             </div>
-            <div class="stack-back">AES-256 · cifrado</div>
+            <div class="stack-back">Ni yo puedo ver tus datos</div>
           </div>
         </div>
         <div class="stack-card reveal" style="transition-delay:0ms">
@@ -48,7 +170,7 @@
               <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-file-earmark-zip"></i></div>
               <div class="body-sm" style="font-weight:600;">pako</div>
             </div>
-            <div class="stack-back">compresión · zip</div>
+            <div class="stack-back">App más ligera, carga más rápido</div>
           </div>
         </div>
         <div class="stack-card reveal" style="transition-delay:100ms">
@@ -57,7 +179,7 @@
               <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-filetype-pdf"></i></div>
               <div class="body-sm" style="font-weight:600;">jsPDF</div>
             </div>
-            <div class="stack-back">PDF · reportes</div>
+            <div class="stack-back">Crea reportes PDF sin internet</div>
           </div>
         </div>
         <div class="stack-card reveal" style="transition-delay:200ms">
@@ -66,7 +188,7 @@
               <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-file-spreadsheet"></i></div>
               <div class="body-sm" style="font-weight:600;">SheetJS</div>
             </div>
-            <div class="stack-back">Excel · XLSX</div>
+            <div class="stack-back">Abre y guarda Excel sin conexión</div>
           </div>
         </div>
       </div>
@@ -191,6 +313,7 @@
           <span class="badge badge-lime">Alpine.js</span>
           <span class="badge badge-lime">Dexie.js</span>
           <span class="badge badge-lime">CryptoJS</span>
+          <span class="badge badge-lime">IA Jutia</span>
           <span class="badge" style="background:var(--surface-dark-hover);">SQLite</span>
           <span class="badge badge-lime">jsPDF</span>
           <span class="badge badge-lime">SheetJS</span>
@@ -238,6 +361,9 @@
         </a>
         <a href="#precios" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('precios').scrollIntoView({behavior:'smooth'})">
           <span x-show="lang==='es'">Precios</span><span x-show="lang==='en'" x-cloak>Pricing</span>
+        </a>
+        <a href="#ia-jutia" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('ia-jutia').scrollIntoView({behavior:'smooth'})">
+          IA
         </a>
         <a href="#stack" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('stack').scrollIntoView({behavior:'smooth'})">
           Stack
@@ -308,6 +434,12 @@
         a_es: 'Cero. Pagas una vez y la app es tuya para siempre. No hay servidores que mantener, no hay suscripciones, no hay sorpresas.',
         q_en: 'Really no monthly fees?',
         a_en: 'Zero. You pay once and the app is yours forever. No servers to maintain, no subscriptions, no surprises.'
+      },
+      {
+        q_es: '¿Qué es IA Jutia y cómo funciona en mi app?',
+        a_es: 'Es una Mini IA que corre 100% local dentro de tu app. Busca datos al instante, predice tendencias y responde preguntas en español. No envía datos a ningún servidor. Viene incluida en el precio de tu app, en los dos formatos .exe y .apk. En los planes Standard y Custom además puedes subirle documentos (PDF, Excel, Word) y hacerle preguntas sobre ellos.',
+        q_en: 'What is IA Jutia and how does it work in my app?',
+        a_en: 'It is a Mini AI that runs 100% locally inside your app. It instantly searches data, predicts trends, and answers questions in Spanish. It sends no data to any server. It is included in the price of your app, in both .exe and .apk formats. Standard and Custom plans also let you upload documents (PDF, Excel, Word) and ask questions about them.'
       }
     ];
 
