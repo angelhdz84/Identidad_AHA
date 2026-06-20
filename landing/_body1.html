@@ -16,10 +16,10 @@
       </div>
       <div class="nav-actions">
         <a href="https://wa.me/5355944628" target="_blank" class="btn btn-primary" style="padding:0.5rem 1.25rem;font-size:0.8125rem;">
-          <i class="bi bi-whatsapp"></i> Contactar
+          <i aria-hidden="true" class="bi bi-whatsapp"></i> Contactar
         </a>
         <button class="nav-hamburger btn btn-ghost" @click="mobileOpen = !mobileOpen" aria-label="Menú de navegación" :aria-expanded="mobileOpen">
-          <i class="bi" style="font-size:1.25rem;" :class="mobileOpen ? 'bi-x-lg' : 'bi-list'"></i>
+          <i aria-hidden="true" class="bi" style="font-size:1.25rem;" :class="mobileOpen ? 'bi-x-lg' : 'bi-list'"></i>
         </button>
         <button @click="lang = lang === 'es' ? 'en' : 'es'; localStorage.setItem('lang', lang)"
                 class="btn btn-ghost" style="padding:0.5rem;font-size:0.75rem;font-weight:600;" aria-label="Cambiar idioma">
@@ -70,15 +70,15 @@
         <span x-show="lang==='en'" x-cloak>But they're code. Your app. On your desktop. In your pocket.</span>
       </p>
       <p class="hero-fade hero-fade-3" style="font-weight:600;margin-bottom:2rem;">
-        <span class="badge-formato" x-show="lang==='es'">🖥️ .exe + 📱 .apk — Sin internet · Sin mensualidades</span>
-        <span class="badge-formato" x-show="lang==='en'" x-cloak>🖥️ .exe + 📱 .apk — No internet · No monthly fees</span>
+        <span class="badge-formato" x-show="lang==='es'"><i aria-hidden="true" class="bi bi-laptop"></i> .exe + <i aria-hidden="true" class="bi bi-phone"></i> .apk — Sin internet · Sin mensualidades</span>
+        <span class="badge-formato" x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-laptop"></i> .exe + <i aria-hidden="true" class="bi bi-phone"></i> .apk — No internet · No monthly fees</span>
       </p>
       <div class="hero-fade hero-fade-4" style="display:flex;gap:0.75rem;flex-wrap:wrap;">
         <a href="#apps" class="btn btn-primary" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
           <span x-show="lang==='es'">Crear mi app →</span><span x-show="lang==='en'" x-cloak>Create my app →</span>
         </a>
         <a href="https://wa.me/5355944628" target="_blank" class="btn btn-outline-dark">
-          <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Ver catálogo</span><span x-show="lang==='en'" x-cloak>View catalog</span>
+          <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Ver catálogo</span><span x-show="lang==='en'" x-cloak>View catalog</span>
         </a>
       </div>
 
@@ -114,30 +114,31 @@
         <!-- Pain points -->
         <div>
           <p class="caption" style="color:var(--txt-muted);margin-bottom:1rem;font-weight:600;">
-            <span x-show="lang==='es'">❌ CÓMO FUNCIONA EL SOFTWARE NORMAL</span>
-            <span x-show="lang==='en'" x-cloak>❌ HOW NORMAL SOFTWARE WORKS</span>
+            <span x-show="lang==='es'"><i aria-hidden="true" class="bi bi-x-circle"></i> CÓMO FUNCIONA EL SOFTWARE NORMAL</span>
+            <span x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-x-circle"></i> HOW NORMAL SOFTWARE WORKS</span>
           </p>
-          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm">💰 <span x-show="lang==='es'">Pagas mensualidad por un servidor</span><span x-show="lang==='en'" x-cloak>You pay monthly for a server</span></span></div>
-          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm">🌐 <span x-show="lang==='es'">Dependes de internet para trabajar</span><span x-show="lang==='en'" x-cloak>You depend on internet to work</span></span></div>
-          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm">🔒 <span x-show="lang==='es'">Tus datos están en manos de un tercero</span><span x-show="lang==='en'" x-cloak>Your data is in someone else's hands</span></span></div>
-          <div class="card"><span class="body-sm">👥 <span x-show="lang==='es'">Pagas por usuario, por función, por todo</span><span x-show="lang==='en'" x-cloak>Pay per user, per feature, per everything</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm"><i aria-hidden="true" class="bi bi-credit-card"></i> <span x-show="lang==='es'">Pagas mensualidad por un servidor</span><span x-show="lang==='en'" x-cloak>You pay monthly for a server</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm"><i aria-hidden="true" class="bi bi-globe"></i> <span x-show="lang==='es'">Dependes de internet para trabajar</span><span x-show="lang==='en'" x-cloak>You depend on internet to work</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm"><i aria-hidden="true" class="bi bi-lock"></i> <span x-show="lang==='es'">Tus datos están en manos de un tercero</span><span x-show="lang==='en'" x-cloak>Your data is in someone else's hands</span></span></div>
+          <div class="card"><span class="body-sm"><i aria-hidden="true" class="bi bi-people"></i> <span x-show="lang==='es'">Pagas por usuario, por función, por todo</span><span x-show="lang==='en'" x-cloak>Pay per user, per feature, per everything</span></span></div>
         </div>
         <!-- Solution -->
         <div>
           <p class="caption" style="color:var(--brand-primary);margin-bottom:1rem;font-weight:600;">
-            <span x-show="lang==='es'">✅ CÓMO TRABAJO YO</span>
-            <span x-show="lang==='en'" x-cloak>✅ HOW I WORK</span>
+            <span x-show="lang==='es'"><i aria-hidden="true" class="bi bi-check-circle"></i> CÓMO TRABAJO YO</span>
+            <span x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-check-circle"></i> HOW I WORK</span>
           </p>
-          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm">💵 <span x-show="lang==='es'"><strong>Pagas una vez.</strong> Sin mensualidades, sin sorpresas</span><span x-show="lang==='en'" x-cloak><strong>Pay once.</strong> No subscriptions, no surprises</span></span></div>
-          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm">📡 <span x-show="lang==='es'"><strong>Cero internet necesario.</strong> IndexedDB + SQLite local</span><span x-show="lang==='en'" x-cloak><strong>Zero internet required.</strong> IndexedDB + SQLite local</span></span></div>
-          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm">🔐 <span x-show="lang==='es'"><strong>Tus datos son tuyos.</strong> Cifrados con CryptoJS. Ni yo tengo acceso</span><span x-show="lang==='en'" x-cloak><strong>Your data is yours.</strong> Encrypted with CryptoJS. Not even I can access it</span></span></div>
-          <div class="card" style="border-color:rgba(207,244,52,0.3);"><span class="body-sm">📦 <span x-show="lang==='es'"><strong>.exe + .apk.</strong> Una app, dos formatos. Escritorio y móvil</span><span x-show="lang==='en'" x-cloak><strong>.exe + .apk.</strong> One app, two formats. Desktop and mobile</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm"><i aria-hidden="true" class="bi bi-cash"></i> <span x-show="lang==='es'"><strong>Pagas una vez.</strong> Sin mensualidades, sin sorpresas</span><span x-show="lang==='en'" x-cloak><strong>Pay once.</strong> No subscriptions, no surprises</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm"><i aria-hidden="true" class="bi bi-wifi-off"></i> <span x-show="lang==='es'"><strong>Cero internet necesario.</strong> IndexedDB + SQLite local</span><span x-show="lang==='en'" x-cloak><strong>Zero internet required.</strong> IndexedDB + SQLite local</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm"><i aria-hidden="true" class="bi bi-shield-lock"></i> <span x-show="lang==='es'"><strong>Tus datos son tuyos.</strong> Cifrados con CryptoJS. Ni yo tengo acceso</span><span x-show="lang==='en'" x-cloak><strong>Your data is yours.</strong> Encrypted with CryptoJS. Not even I can access it</span></span></div>
+          <div class="card" style="border-color:rgba(207,244,52,0.3);"><span class="body-sm"><i aria-hidden="true" class="bi bi-box-seam"></i> <span x-show="lang==='es'"><strong>.exe + .apk.</strong> Una app, dos formatos. Escritorio y móvil</span><span x-show="lang==='en'" x-cloak><strong>.exe + .apk.</strong> One app, two formats. Desktop and mobile</span></span></div>
         </div>
       </div>
       <div class="text-center reveal">
         <a href="https://wa.me/5355944628" target="_blank" class="btn btn-primary" style="padding:1rem 2.5rem;font-size:1.0625rem;">
-          <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Quiero mi .exe + .apk →</span><span x-show="lang==='en'" x-cloak>I want my .exe + .apk →</span>
+          <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Quiero mi .exe + .apk →</span><span x-show="lang==='en'" x-cloak>I want my .exe + .apk →</span>
         </a>
       </div>
     </div>
   </section>
+

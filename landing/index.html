@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+Ôªø<!DOCTYPE html>
 <html lang="es" x-data="{ lang: localStorage.getItem('lang') || 'es', mobileOpen: false, scrolled: false, scrolledLight: false, activeModal: null, faqOpen: null }" :class="{ 'lang-en': lang === 'en' }" x-init="scrollListener = () => { const y = window.scrollY; scrolled = y > 50; scrolledLight = y > 600; }; window.addEventListener('scroll', scrollListener)" x-cloak>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AHAguilera ó Apps Offline-First | .exe + .apk sin mensualidades</title>
-  <meta name="description" content="Apps offline-first para Mipymes. Una app, dos formatos: .exe (Windows) + .apk (Android). Pago ˙nico, sin servidores, sin mensualidades. Alpine.js + Dexie + CryptoJS.">
+  <title>AHAguilera ‚Äî Apps Offline-First | .exe + .apk sin mensualidades</title>
+  <meta name="description" content="Apps offline-first para Mipymes. Una app, dos formatos: .exe (Windows) + .apk (Android). Pago √∫nico, sin servidores, sin mensualidades. Alpine.js + Dexie + CryptoJS.">
   <meta name="keywords" content="offline-first, apps, Alpine.js, Dexie, .exe, .apk, Windows, Android, freelance, desarrollo de software, Mipymes">
-  <meta property="og:title" content="AHAguilera ó Apps offline-first que parecen magia">
-  <meta property="og:description" content="Tu app en .exe + .apk. Pago ˙nico. Sin internet necesario. Sin mensualidades.">
+  <meta property="og:title" content="AHAguilera ‚Äî Apps offline-first que parecen magia">
+  <meta property="og:description" content="Tu app en .exe + .apk. Pago √∫nico. Sin internet necesario. Sin mensualidades.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
   <meta property="og:locale:alternate" content="en_US">
@@ -26,7 +26,7 @@
       --brand-success: #07D16E;
       --txt-primary: #171614;
       --txt-secondary: #6B6560;
-      --txt-muted: #9CA3AF;
+      --txt-muted: #6E6E6E;
       --txt-on-accent: #171614;
       --border-subtle: #E0D6CE;
       --border-hover: #CFF434;
@@ -39,7 +39,7 @@
       --surface-dark-hover: #333333;
       --txt-primary-dark: #EAF4F5;
       --txt-secondary-dark: #9CA3AF;
-      --txt-muted-dark: #6B7280;
+      --txt-muted-dark: #8B95A5;
       --border-subtle-dark: rgba(255,255,255,0.08);
       --border-hover-dark: rgba(207,244,52,0.3);
       --shadow-card-dark: 0 1px 3px rgba(0,0,0,0.3);
@@ -170,7 +170,7 @@
 
     @media (min-width: 768px) {
       .nav-links { display: flex; }
-      .nav-hamburger { display: none; }
+      button.nav-hamburger { display: none; }
     }
     .mobile-menu { position: fixed; inset: 0; top: 3.5rem; background: var(--surface); z-index: 99; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
     .mobile-menu a { padding: 1rem; font-size: 1.125rem; font-weight: 500; color: var(--txt-primary); border-radius: 0.75rem; }
@@ -286,7 +286,7 @@
       position: relative; width: 100%; height: 120px;
       transition: transform 0.4s ease-out; transform-style: preserve-3d;
     }
-    .stack-card:hover .stack-inner { transform: rotateY(180deg); }
+    .stack-card:hover .stack-inner, .stack-card.flipped .stack-inner { transform: rotateY(180deg); }
     .stack-front, .stack-back {
       position: absolute; inset: 0; backface-visibility: hidden;
       border-radius: var(--card-radius);
@@ -428,7 +428,7 @@
   </a>
 
   <!-- ========== NAV DUAL GLASS ========== -->
-  <nav class="nav" :class="{ 'hero-mode': !scrolledLight, 'light-mode': scrolledLight }" role="navigation" aria-label="NavegaciÛn principal">
+  <nav class="nav" :class="{ 'hero-mode': !scrolledLight, 'light-mode': scrolledLight }" role="navigation" aria-label="Navegaci√≥n principal">
     <div class="nav-inner">
       <a href="#" class="flex items-center gap-2" aria-label="AHAguilera inicio">
         <img src="./brand/logo-wordmark.svg" alt="AHAguilera" class="nav-logo-light" style="height:1.5rem;">
@@ -438,16 +438,16 @@
         <a href="#apps" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Apps</a>
         <a href="#precios" @click.prevent="document.getElementById('precios').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Precios</a>
         <a href="#ia-jutia" @click.prevent="document.getElementById('ia-jutia').scrollIntoView({behavior:'smooth'}); mobileOpen=false">IA</a>
-        <a href="#como-funciona" @click.prevent="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'}); mobileOpen=false">CÛmo funciona</a>
+        <a href="#como-funciona" @click.prevent="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'}); mobileOpen=false">C√≥mo funciona</a>
         <a href="#faq" @click.prevent="document.getElementById('faq').scrollIntoView({behavior:'smooth'}); mobileOpen=false">FAQ</a>
-        <a href="#sobre-mi" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Sobre mÌ</a>
+        <a href="#sobre-mi" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Sobre m√≠</a>
       </div>
       <div class="nav-actions">
         <a href="https://wa.me/5355944628" target="_blank" class="btn btn-primary" style="padding:0.5rem 1.25rem;font-size:0.8125rem;">
-          <i class="bi bi-whatsapp"></i> Contactar
+          <i aria-hidden="true" class="bi bi-whatsapp"></i> Contactar
         </a>
-        <button class="nav-hamburger btn btn-ghost" @click="mobileOpen = !mobileOpen" aria-label="Men˙ de navegaciÛn" :aria-expanded="mobileOpen">
-          <i class="bi" style="font-size:1.25rem;" :class="mobileOpen ? 'bi-x-lg' : 'bi-list'"></i>
+        <button class="nav-hamburger btn btn-ghost" @click="mobileOpen = !mobileOpen" aria-label="Men√∫ de navegaci√≥n" :aria-expanded="mobileOpen">
+          <i aria-hidden="true" class="bi" style="font-size:1.25rem;" :class="mobileOpen ? 'bi-x-lg' : 'bi-list'"></i>
         </button>
         <button @click="lang = lang === 'es' ? 'en' : 'es'; localStorage.setItem('lang', lang)"
                 class="btn btn-ghost" style="padding:0.5rem;font-size:0.75rem;font-weight:600;" aria-label="Cambiar idioma">
@@ -463,9 +463,9 @@
       <a href="#apps" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Apps</a>
       <a href="#precios" @click.prevent="document.getElementById('precios').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Precios</a>
       <a href="#ia-jutia" @click.prevent="document.getElementById('ia-jutia').scrollIntoView({behavior:'smooth'}); mobileOpen=false">IA</a>
-      <a href="#como-funciona" @click.prevent="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'}); mobileOpen=false">CÛmo funciona</a>
+      <a href="#como-funciona" @click.prevent="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'}); mobileOpen=false">C√≥mo funciona</a>
       <a href="#faq" @click.prevent="document.getElementById('faq').scrollIntoView({behavior:'smooth'}); mobileOpen=false">FAQ</a>
-      <a href="#sobre-mi" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Sobre mÌ</a>
+      <a href="#sobre-mi" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Sobre m√≠</a>
     </div>
   </nav>
 
@@ -494,19 +494,19 @@
         <span x-show="lang === 'en'" x-cloak>Offline-first apps<br>that look like magic.</span>
       </h1>
       <p class="hero-sub hero-fade hero-fade-3" style="margin-bottom:0.25rem;">
-        <span x-show="lang==='es'">Pero son cÛdigo. Tu app. En tu escritorio. En tu bolsillo.</span>
+        <span x-show="lang==='es'">Pero son c√≥digo. Tu app. En tu escritorio. En tu bolsillo.</span>
         <span x-show="lang==='en'" x-cloak>But they're code. Your app. On your desktop. In your pocket.</span>
       </p>
       <p class="hero-fade hero-fade-3" style="font-weight:600;margin-bottom:2rem;">
-        <span class="badge-formato" x-show="lang==='es'">??? .exe + ?? .apk ó Sin internet ∑ Sin mensualidades</span>
-        <span class="badge-formato" x-show="lang==='en'" x-cloak>??? .exe + ?? .apk ó No internet ∑ No monthly fees</span>
+        <span class="badge-formato" x-show="lang==='es'"><i aria-hidden="true" class="bi bi-laptop"></i> .exe + <i aria-hidden="true" class="bi bi-phone"></i> .apk ‚Äî Sin internet ¬∑ Sin mensualidades</span>
+        <span class="badge-formato" x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-laptop"></i> .exe + <i aria-hidden="true" class="bi bi-phone"></i> .apk ‚Äî No internet ¬∑ No monthly fees</span>
       </p>
       <div class="hero-fade hero-fade-4" style="display:flex;gap:0.75rem;flex-wrap:wrap;">
         <a href="#apps" class="btn btn-primary" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
-          <span x-show="lang==='es'">Crear mi app ?</span><span x-show="lang==='en'" x-cloak>Create my app ?</span>
+          <span x-show="lang==='es'">Crear mi app ‚Üí</span><span x-show="lang==='en'" x-cloak>Create my app ‚Üí</span>
         </a>
         <a href="https://wa.me/5355944628" target="_blank" class="btn btn-outline-dark">
-          <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Ver cat·logo</span><span x-show="lang==='en'" x-cloak>View catalog</span>
+          <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Ver cat√°logo</span><span x-show="lang==='en'" x-cloak>View catalog</span>
         </a>
       </div>
 
@@ -522,7 +522,7 @@
         </div>
         <div style="text-align:center;">
           <div class="stat-number" x-data="counter(4)" x-init="init()" x-text="count">0</div>
-          <div class="stat-label"><span x-show="lang==='es'">aÒos construyendo</span><span x-show="lang==='en'" x-cloak>years building</span></div>
+          <div class="stat-label"><span x-show="lang==='es'">a√±os construyendo</span><span x-show="lang==='en'" x-cloak>years building</span></div>
         </div>
       </div>
     </div>
@@ -535,40 +535,41 @@
     <div class="container">
       <p class="eyebrow text-center reveal">OFFLINE-FIRST</p>
       <h2 class="display text-center reveal delay-1" style="margin-bottom:3rem;">
-        <span x-show="lang==='es'">El software normal te ata.<br>El mÌo te libera.</span>
+        <span x-show="lang==='es'">El software normal te ata.<br>El m√≠o te libera.</span>
         <span x-show="lang==='en'" x-cloak>Normal software ties you down.<br>Mine sets you free.</span>
       </h2>
       <div class="grid grid-2" style="margin-bottom:3rem;">
         <!-- Pain points -->
         <div>
           <p class="caption" style="color:var(--txt-muted);margin-bottom:1rem;font-weight:600;">
-            <span x-show="lang==='es'">? C”MO FUNCIONA EL SOFTWARE NORMAL</span>
-            <span x-show="lang==='en'" x-cloak>? HOW NORMAL SOFTWARE WORKS</span>
+            <span x-show="lang==='es'"><i aria-hidden="true" class="bi bi-x-circle"></i> C√ìMO FUNCIONA EL SOFTWARE NORMAL</span>
+            <span x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-x-circle"></i> HOW NORMAL SOFTWARE WORKS</span>
           </p>
-          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm">?? <span x-show="lang==='es'">Pagas mensualidad por un servidor</span><span x-show="lang==='en'" x-cloak>You pay monthly for a server</span></span></div>
-          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm">?? <span x-show="lang==='es'">Dependes de internet para trabajar</span><span x-show="lang==='en'" x-cloak>You depend on internet to work</span></span></div>
-          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm">?? <span x-show="lang==='es'">Tus datos est·n en manos de un tercero</span><span x-show="lang==='en'" x-cloak>Your data is in someone else's hands</span></span></div>
-          <div class="card"><span class="body-sm">?? <span x-show="lang==='es'">Pagas por usuario, por funciÛn, por todo</span><span x-show="lang==='en'" x-cloak>Pay per user, per feature, per everything</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm"><i aria-hidden="true" class="bi bi-credit-card"></i> <span x-show="lang==='es'">Pagas mensualidad por un servidor</span><span x-show="lang==='en'" x-cloak>You pay monthly for a server</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm"><i aria-hidden="true" class="bi bi-globe"></i> <span x-show="lang==='es'">Dependes de internet para trabajar</span><span x-show="lang==='en'" x-cloak>You depend on internet to work</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm"><i aria-hidden="true" class="bi bi-lock"></i> <span x-show="lang==='es'">Tus datos est√°n en manos de un tercero</span><span x-show="lang==='en'" x-cloak>Your data is in someone else's hands</span></span></div>
+          <div class="card"><span class="body-sm"><i aria-hidden="true" class="bi bi-people"></i> <span x-show="lang==='es'">Pagas por usuario, por funci√≥n, por todo</span><span x-show="lang==='en'" x-cloak>Pay per user, per feature, per everything</span></span></div>
         </div>
         <!-- Solution -->
         <div>
           <p class="caption" style="color:var(--brand-primary);margin-bottom:1rem;font-weight:600;">
-            <span x-show="lang==='es'">? C”MO TRABAJO YO</span>
-            <span x-show="lang==='en'" x-cloak>? HOW I WORK</span>
+            <span x-show="lang==='es'"><i aria-hidden="true" class="bi bi-check-circle"></i> C√ìMO TRABAJO YO</span>
+            <span x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-check-circle"></i> HOW I WORK</span>
           </p>
-          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm">?? <span x-show="lang==='es'"><strong>Pagas una vez.</strong> Sin mensualidades, sin sorpresas</span><span x-show="lang==='en'" x-cloak><strong>Pay once.</strong> No subscriptions, no surprises</span></span></div>
-          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm">?? <span x-show="lang==='es'"><strong>Cero internet necesario.</strong> IndexedDB + SQLite local</span><span x-show="lang==='en'" x-cloak><strong>Zero internet required.</strong> IndexedDB + SQLite local</span></span></div>
-          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm">?? <span x-show="lang==='es'"><strong>Tus datos son tuyos.</strong> Cifrados con CryptoJS. Ni yo tengo acceso</span><span x-show="lang==='en'" x-cloak><strong>Your data is yours.</strong> Encrypted with CryptoJS. Not even I can access it</span></span></div>
-          <div class="card" style="border-color:rgba(207,244,52,0.3);"><span class="body-sm">?? <span x-show="lang==='es'"><strong>.exe + .apk.</strong> Una app, dos formatos. Escritorio y mÛvil</span><span x-show="lang==='en'" x-cloak><strong>.exe + .apk.</strong> One app, two formats. Desktop and mobile</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm"><i aria-hidden="true" class="bi bi-cash"></i> <span x-show="lang==='es'"><strong>Pagas una vez.</strong> Sin mensualidades, sin sorpresas</span><span x-show="lang==='en'" x-cloak><strong>Pay once.</strong> No subscriptions, no surprises</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm"><i aria-hidden="true" class="bi bi-wifi-off"></i> <span x-show="lang==='es'"><strong>Cero internet necesario.</strong> IndexedDB + SQLite local</span><span x-show="lang==='en'" x-cloak><strong>Zero internet required.</strong> IndexedDB + SQLite local</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm"><i aria-hidden="true" class="bi bi-shield-lock"></i> <span x-show="lang==='es'"><strong>Tus datos son tuyos.</strong> Cifrados con CryptoJS. Ni yo tengo acceso</span><span x-show="lang==='en'" x-cloak><strong>Your data is yours.</strong> Encrypted with CryptoJS. Not even I can access it</span></span></div>
+          <div class="card" style="border-color:rgba(207,244,52,0.3);"><span class="body-sm"><i aria-hidden="true" class="bi bi-box-seam"></i> <span x-show="lang==='es'"><strong>.exe + .apk.</strong> Una app, dos formatos. Escritorio y m√≥vil</span><span x-show="lang==='en'" x-cloak><strong>.exe + .apk.</strong> One app, two formats. Desktop and mobile</span></span></div>
         </div>
       </div>
       <div class="text-center reveal">
         <a href="https://wa.me/5355944628" target="_blank" class="btn btn-primary" style="padding:1rem 2.5rem;font-size:1.0625rem;">
-          <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Quiero mi .exe + .apk ?</span><span x-show="lang==='en'" x-cloak>I want my .exe + .apk ?</span>
+          <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Quiero mi .exe + .apk ‚Üí</span><span x-show="lang==='en'" x-cloak>I want my .exe + .apk ‚Üí</span>
         </a>
       </div>
     </div>
   </section>
+
 
   <!-- ========== APPS ========== -->
   <section class="section section-dark" id="apps" aria-label="Apps populares">
@@ -582,7 +583,7 @@
         <span x-show="lang==='en'" x-cloak>Apps that solve<br>real problems</span>
       </h2>
       <p class="body-sm txt-secondary text-center reveal delay-2" style="margin-bottom:3rem;">
-        <span x-show="lang==='es'">Seleccionadas por ser las m·s solicitadas. øNo encuentras la tuya? La construimos.</span>
+        <span x-show="lang==='es'">Seleccionadas por ser las m√°s solicitadas. ¬øNo encuentras la tuya? La construimos.</span>
         <span x-show="lang==='en'" x-cloak>The most requested apps. Can't find yours? I'll build it.</span>
       </p>
       <div class="grid stagger" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
@@ -609,9 +610,9 @@
             <span x-show="lang==='en'" x-cloak>Inventory control with alerts, reports, offline scanning.</span>
           </p>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato">???+??</span>
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
             <a href="https://wa.me/5355944628?text=Quiero%20InventarioPRO" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver m·s ?</span><span x-show="lang==='en'" x-cloak>See more ?</span>
+              <span x-show="lang==='es'">Ver m√°s ‚Üí</span><span x-show="lang==='en'" x-cloak>See more ‚Üí</span>
             </a>
           </div>
         </div>
@@ -634,13 +635,13 @@
             <span class="badge badge-lime" style="font-size:0.65rem;">Negocio</span>
           </div>
           <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">FacturaciÛn offline. Con RFC, PDF export y cat·logo de productos.</span>
+            <span x-show="lang==='es'">Facturaci√≥n offline. Con RFC, PDF export y cat√°logo de productos.</span>
             <span x-show="lang==='en'" x-cloak>Offline invoicing. With tax ID, PDF export, product catalog.</span>
           </p>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato">???+??</span>
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
             <a href="https://wa.me/5355944628?text=Quiero%20FacturaExpress" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver m·s ?</span><span x-show="lang==='en'" x-cloak>See more ?</span>
+              <span x-show="lang==='es'">Ver m√°s ‚Üí</span><span x-show="lang==='en'" x-cloak>See more ‚Üí</span>
             </a>
           </div>
         </div>
@@ -667,9 +668,9 @@
             <span x-show="lang==='en'" x-cloak>Offline CRM with history, notes, and client tracking.</span>
           </p>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato">???+??</span>
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
             <a href="https://wa.me/5355944628?text=Quiero%20ClienteSeguro" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver m·s ?</span><span x-show="lang==='en'" x-cloak>See more ?</span>
+              <span x-show="lang==='es'">Ver m√°s ‚Üí</span><span x-show="lang==='en'" x-cloak>See more ‚Üí</span>
             </a>
           </div>
         </div>
@@ -696,13 +697,13 @@
             <span class="badge badge-lime" style="font-size:0.65rem;">Finanzas</span>
           </div>
           <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Control de gastos con gr·ficos, categorÌas y exportaciÛn a Excel.</span>
+            <span x-show="lang==='es'">Control de gastos con gr√°ficos, categor√≠as y exportaci√≥n a Excel.</span>
             <span x-show="lang==='en'" x-cloak>Expense tracking with charts, categories, Excel export.</span>
           </p>
           <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato">???+??</span>
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
             <a href="https://wa.me/5355944628?text=Quiero%20GastosDiarios" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver m·s ?</span><span x-show="lang==='en'" x-cloak>See more ?</span>
+              <span x-show="lang==='es'">Ver m√°s ‚Üí</span><span x-show="lang==='en'" x-cloak>See more ‚Üí</span>
             </a>
           </div>
         </div>
@@ -710,17 +711,17 @@
 
       <!-- CTA custom -->
       <div class="card-dark reveal" style="margin-top:2rem;text-align:center;padding:2.5rem;border-style:dashed;border-color:rgba(207,244,52,0.15);">
-        <div style="font-size:2.5rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-lightbulb"></i></div>
+        <div style="font-size:2.5rem;margin-bottom:1rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-lightbulb"></i></div>
         <h3 class="h2" style="margin-bottom:0.5rem;color:#fff;">
-          <span x-show="lang==='es'">øNo encuentras lo que buscas?</span>
+          <span x-show="lang==='es'">¬øNo encuentras lo que buscas?</span>
           <span x-show="lang==='en'" x-cloak>Can't find what you need?</span>
         </h3>
         <p class="body-sm txt-secondary" style="margin-bottom:1.5rem;max-width:24rem;margin-left:auto;margin-right:auto;">
-          <span x-show="lang==='es'">Te construyo la app que necesitas. CuÈntame tu idea y te presupuesto sin compromiso.</span>
+          <span x-show="lang==='es'">Te construyo la app que necesitas. Cu√©ntame tu idea y te presupuesto sin compromiso.</span>
           <span x-show="lang==='en'" x-cloak>I'll build the app you need. Tell me your idea and I'll quote you.</span>
         </p>
         <a href="https://wa.me/5355944628" target="_blank" class="btn btn-primary">
-          <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Solicitar desarrollo a medida</span><span x-show="lang==='en'" x-cloak>Request custom development</span>
+          <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Solicitar desarrollo a medida</span><span x-show="lang==='en'" x-cloak>Request custom development</span>
         </a>
       </div>
     </div>
@@ -734,11 +735,11 @@
         <span x-show="lang==='en'" x-cloak>PRICING</span>
       </p>
       <h2 class="display text-center reveal delay-1" style="margin-bottom:0.5rem;">
-        <span x-show="lang==='es'">InversiÛn clara,<br>sin sorpresas</span>
+        <span x-show="lang==='es'">Inversi√≥n clara,<br>sin sorpresas</span>
         <span x-show="lang==='en'" x-cloak>Clear pricing,<br>no surprises</span>
       </h2>
       <p class="body-sm txt-secondary text-center reveal delay-2" style="margin-bottom:3rem;">
-        <span x-show="lang==='es'">Pago ˙nico. Sin mensualidades. Sin letras chiquitas.</span>
+        <span x-show="lang==='es'">Pago √∫nico. Sin mensualidades. Sin letras chiquitas.</span>
         <span x-show="lang==='en'" x-cloak>One-time payment. No monthly fees. No fine print.</span>
       </p>
       <div class="grid grid-3 stagger" style="align-items:start;">
@@ -749,14 +750,14 @@
             <span x-show="lang==='es'">Para empezar con estilo</span>
             <span x-show="lang==='en'" x-cloak>To start in style</span>
           </p>
-          <div class="price" style="margin-bottom:0.25rem;">$49 <span>/ ˙nico</span></div>
+          <div class="price" style="margin-bottom:0.25rem;">$49 <span>/ √∫nico</span></div>
           <p class="caption txt-muted" style="margin-bottom:1.5rem;">Solo .exe</p>
           <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">1 mÛdulo funcional</span><span x-show="lang==='en'" x-cloak>1 functional module</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Formato .exe (Windows)</span><span x-show="lang==='en'" x-cloak>.exe format (Windows)</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Datos locales sin cifrado</span><span x-show="lang==='en'" x-cloak>Local data, no encryption</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">IA Jutia: b˙squeda + predicciones</span><span x-show="lang==='en'" x-cloak>IA Jutia: search + predictions</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Doble clic y funciona</span><span x-show="lang==='en'" x-cloak>Double click to run</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">1 m√≥dulo funcional</span><span x-show="lang==='en'" x-cloak>1 functional module</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Formato .exe (Windows)</span><span x-show="lang==='en'" x-cloak>.exe format (Windows)</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Datos locales sin cifrado</span><span x-show="lang==='en'" x-cloak>Local data, no encryption</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">IA Jutia: b√∫squeda + predicciones</span><span x-show="lang==='en'" x-cloak>IA Jutia: search + predictions</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Doble clic y funciona</span><span x-show="lang==='en'" x-cloak>Double click to run</span></li>
           </ul>
           <a href="https://wa.me/5355944628?text=Quiero%20plan%20Lite" target="_blank" class="btn btn-outline-dark" style="width:100%;justify-content:center;">
             <span x-show="lang==='es'">Elegir Lite</span><span x-show="lang==='en'" x-cloak>Choose Lite</span>
@@ -774,17 +775,17 @@
             <span x-show="lang==='es'">La que todo mundo elige</span>
             <span x-show="lang==='en'" x-cloak>Everyone's choice</span>
           </p>
-          <div class="price" style="margin-bottom:0.25rem;">$99 <span>/ ˙nico</span></div>
-          <p class="caption" style="color:var(--brand-primary);margin-bottom:1.5rem;">???+?? .exe + .apk</p>
+          <div class="price" style="margin-bottom:0.25rem;">$99 <span>/ √∫nico</span></div>
+          <p class="caption" style="color:var(--brand-primary);margin-bottom:1.5rem;"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i> .exe + .apk</p>
           <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Hasta 3 mÛdulos</span><span x-show="lang==='en'" x-cloak>Up to 3 modules</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">.exe + .apk incluidos</span><span x-show="lang==='en'" x-cloak>.exe + .apk included</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Cifrado AES-256</span><span x-show="lang==='en'" x-cloak>AES-256 encryption</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">IA Jutia Full: QA + ingesta documentos</span><span x-show="lang==='en'" x-cloak>IA Jutia Full: QA + document ingestion</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Gr·ficos + exportaciÛn PDF</span><span x-show="lang==='en'" x-cloak>Charts + PDF export</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Hasta 3 m√≥dulos</span><span x-show="lang==='en'" x-cloak>Up to 3 modules</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">.exe + .apk incluidos</span><span x-show="lang==='en'" x-cloak>.exe + .apk included</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Cifrado AES-256</span><span x-show="lang==='en'" x-cloak>AES-256 encryption</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">IA Jutia Full: QA + ingesta documentos</span><span x-show="lang==='en'" x-cloak>IA Jutia Full: QA + document ingestion</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Gr√°ficos + exportaci√≥n PDF</span><span x-show="lang==='en'" x-cloak>Charts + PDF export</span></li>
           </ul>
           <a href="https://wa.me/5355944628?text=Quiero%20plan%20Standard" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">
-            <span x-show="lang==='es'">Elegir Standard ?</span><span x-show="lang==='en'" x-cloak>Choose Standard ?</span>
+            <span x-show="lang==='es'">Elegir Standard ‚Üí</span><span x-show="lang==='en'" x-cloak>Choose Standard ‚Üí</span>
           </a>
         </div>
 
@@ -795,17 +796,17 @@
             <span x-show="lang==='es'">Tu idea, tu app, tus reglas</span>
             <span x-show="lang==='en'" x-cloak>Your idea, your app, your rules</span>
           </p>
-          <div class="price" style="margin-bottom:0.25rem;">$199+ <span>/ ˙nico</span></div>
-          <p class="caption txt-muted" style="margin-bottom:1.5rem;">???+?? + cÛdigo fuente</p>
+          <div class="price" style="margin-bottom:0.25rem;">$199+ <span>/ √∫nico</span></div>
+          <p class="caption txt-muted" style="margin-bottom:1.5rem;"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i> + c√≥digo fuente</p>
           <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Todo lo de Standard +</span><span x-show="lang==='en'" x-cloak>Everything in Standard +</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">DiseÒo UI personalizado</span><span x-show="lang==='en'" x-cloak>Custom UI design</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">IA Jutia Full + ingesta documentos ilimitada</span><span x-show="lang==='en'" x-cloak>IA Jutia Full + unlimited document ingestion</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Funciones a medida</span><span x-show="lang==='en'" x-cloak>Custom features</span></li>
-            <li class="body-sm flex items-center gap-2"><i class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">CÛdigo fuente incluido</span><span x-show="lang==='en'" x-cloak>Source code included</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Todo lo de Standard +</span><span x-show="lang==='en'" x-cloak>Everything in Standard +</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Dise√±o UI personalizado</span><span x-show="lang==='en'" x-cloak>Custom UI design</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">IA Jutia Full + ingesta documentos ilimitada</span><span x-show="lang==='en'" x-cloak>IA Jutia Full + unlimited document ingestion</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Funciones a medida</span><span x-show="lang==='en'" x-cloak>Custom features</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">C√≥digo fuente incluido</span><span x-show="lang==='en'" x-cloak>Source code included</span></li>
           </ul>
           <a href="https://wa.me/5355944628?text=Quiero%20plan%20Custom" target="_blank" class="btn btn-outline-dark" style="width:100%;justify-content:center;">
-            <span x-show="lang==='es'">Cotizar ?</span><span x-show="lang==='en'" x-cloak>Get quote ?</span>
+            <span x-show="lang==='es'">Cotizar ‚Üí</span><span x-show="lang==='en'" x-cloak>Get quote ‚Üí</span>
           </a>
         </div>
       </div>
@@ -816,11 +817,11 @@
     </div>
   </section>
 
-  <!-- ========== C”MO FUNCIONA ========== -->
-  <section class="section section-light" id="como-funciona" aria-label="CÛmo funciona">
+  <!-- ========== C√ìMO FUNCIONA ========== -->
+  <section class="section section-light" id="como-funciona" aria-label="C√≥mo funciona">
     <div class="container-narrow">
       <p class="eyebrow text-center reveal">
-        <span x-show="lang==='es'">C”MO FUNCIONA</span>
+        <span x-show="lang==='es'">C√ìMO FUNCIONA</span>
         <span x-show="lang==='en'" x-cloak>HOW IT WORKS</span>
       </p>
       <h2 class="display text-center reveal delay-1" style="margin-bottom:3rem;">
@@ -833,11 +834,11 @@
           <div class="step-number">1</div>
           <div>
             <h3 class="h3" style="margin-bottom:0.25rem;">
-              <span x-show="lang==='es'">Me cuentas quÈ necesitas</span>
+              <span x-show="lang==='es'">Me cuentas qu√© necesitas</span>
               <span x-show="lang==='en'" x-cloak>Tell me what you need</span>
             </h3>
             <p class="body-sm txt-secondary">
-              <span x-show="lang==='es'">Un WhatsApp, una llamada o un cafÈ. Me dices quÈ problema resuelves y para quÈ. Sin compromiso.</span>
+              <span x-show="lang==='es'">Un WhatsApp, una llamada o un caf√©. Me dices qu√© problema resuelves y para qu√©. Sin compromiso.</span>
               <span x-show="lang==='en'" x-cloak>A WhatsApp, a call, or a coffee. Tell me what problem you solve and why. No obligation.</span>
             </p>
           </div>
@@ -891,6 +892,7 @@
     </div>
   </section>
 
+
   <!-- ========== IA JUTIA ========== -->
   <section class="section section-dark" id="ia-jutia" aria-label="IA Jutia">
     <div class="container">
@@ -913,7 +915,7 @@
         <div class="card-dark reveal" style="transition-delay:0ms;padding:2rem;">
           <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
             <div style="width:2.5rem;height:2.5rem;border-radius:10px;background:rgba(207,244,52,0.1);display:flex;align-items:center;justify-content:center;color:var(--brand-primary);font-size:1.25rem;">
-              <i class="bi bi-search"></i>
+              <i aria-hidden="true" class="bi bi-search"></i>
             </div>
             <div>
               <h3 class="h3" style="color:#fff;margin-bottom:0;">Perfil Lite</h3>
@@ -925,19 +927,19 @@
           </div>
           <ul style="display:flex;flex-direction:column;gap:0.6rem;">
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
-              <span x-show="lang==='es'"><strong>B˙squeda instant·nea</strong> ó escribe y encuentra al instante</span>
-              <span x-show="lang==='en'" x-cloak><strong>Instant search</strong> ó type and find instantly</span>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'"><strong>B√∫squeda instant√°nea</strong> ‚Äî escribe y encuentra al instante</span>
+              <span x-show="lang==='en'" x-cloak><strong>Instant search</strong> ‚Äî type and find instantly</span>
             </li>
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
-              <span x-show="lang==='es'"><strong>EstadÌsticas inteligentes</strong> ó analiza tus datos autom·ticamente</span>
-              <span x-show="lang==='en'" x-cloak><strong>Smart statistics</strong> ó analyzes your data automatically</span>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'"><strong>Estad√≠sticas inteligentes</strong> ‚Äî analiza tus datos autom√°ticamente</span>
+              <span x-show="lang==='en'" x-cloak><strong>Smart statistics</strong> ‚Äî analyzes your data automatically</span>
             </li>
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
-              <span x-show="lang==='es'"><strong>Predicciones</strong> ó "øcu·ndo se va a acabar este producto?"</span>
-              <span x-show="lang==='en'" x-cloak><strong>Predictions</strong> ó "when will this product run out?"</span>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'"><strong>Predicciones</strong> ‚Äî "¬øcu√°ndo se va a acabar este producto?"</span>
+              <span x-show="lang==='en'" x-cloak><strong>Predictions</strong> ‚Äî "when will this product run out?"</span>
             </li>
           </ul>
         </div>
@@ -946,7 +948,7 @@
         <div class="card-dark reveal" style="transition-delay:100ms;padding:2rem;border-color:rgba(207,244,52,0.2);">
           <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
             <div style="width:2.5rem;height:2.5rem;border-radius:10px;background:rgba(207,244,52,0.1);display:flex;align-items:center;justify-content:center;color:var(--brand-primary);font-size:1.25rem;">
-              <i class="bi bi-stars"></i>
+              <i aria-hidden="true" class="bi bi-stars"></i>
             </div>
             <div>
               <h3 class="h3" style="color:#fff;margin-bottom:0;">Perfil Full</h3>
@@ -958,24 +960,24 @@
           </div>
           <ul style="display:flex;flex-direction:column;gap:0.6rem;">
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
               <span x-show="lang==='es'">Todo lo de Lite +</span>
               <span x-show="lang==='en'" x-cloak>Everything in Lite +</span>
             </li>
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
-              <span x-show="lang==='es'"><strong>Ingesta de documentos</strong> ó lee PDF, Excel, Word y CSV</span>
-              <span x-show="lang==='en'" x-cloak><strong>Document ingestion</strong> ó reads PDF, Excel, Word, CSV</span>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'"><strong>Ingesta de documentos</strong> ‚Äî lee PDF, Excel, Word y CSV</span>
+              <span x-show="lang==='en'" x-cloak><strong>Document ingestion</strong> ‚Äî reads PDF, Excel, Word, CSV</span>
             </li>
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
-              <span x-show="lang==='es'"><strong>QA extractivo</strong> ó preg˙ntale a tus datos en espaÒol</span>
-              <span x-show="lang==='en'" x-cloak><strong>Extractive QA</strong> ó ask your data in Spanish</span>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'"><strong>QA extractivo</strong> ‚Äî preg√∫ntale a tus datos en espa√±ol</span>
+              <span x-show="lang==='en'" x-cloak><strong>Extractive QA</strong> ‚Äî ask your data in Spanish</span>
             </li>
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
-              <span x-show="lang==='es'"><strong>Atajo global</strong> ó <code style="background:rgba(255,255,255,0.08);padding:0.15rem 0.4rem;border-radius:4px;font-size:0.75rem;">Cmd+K</code> desde cualquier pantalla</span>
-              <span x-show="lang==='en'" x-cloak><strong>Global shortcut</strong> ó <code style="background:rgba(255,255,255,0.08);padding:0.15rem 0.4rem;border-radius:4px;font-size:0.75rem;">Cmd+K</code> from any screen</span>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <span x-show="lang==='es'"><strong>Atajo global</strong> ‚Äî <code style="background:rgba(255,255,255,0.08);padding:0.15rem 0.4rem;border-radius:4px;font-size:0.75rem;">Cmd+K</code> desde cualquier pantalla</span>
+              <span x-show="lang==='en'" x-cloak><strong>Global shortcut</strong> ‚Äî <code style="background:rgba(255,255,255,0.08);padding:0.15rem 0.4rem;border-radius:4px;font-size:0.75rem;">Cmd+K</code> from any screen</span>
             </li>
           </ul>
         </div>
@@ -984,29 +986,29 @@
       <!-- Competencia no puede -->
       <div class="card-dark reveal" style="padding:1.5rem;border-color:rgba(207,244,52,0.08);">
         <p class="caption" style="color:var(--brand-primary);margin-bottom:0.75rem;font-weight:600;">
-          <span x-show="lang==='es'">? Lo que la competencia no puede decir</span>
-          <span x-show="lang==='en'" x-cloak>? What competitors can't say</span>
+          <span x-show="lang==='es'"><i aria-hidden="true" class="bi bi-lightning-fill"></i> Lo que la competencia no puede decir</span>
+          <span x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-lightning-fill"></i> What competitors can't say</span>
         </p>
         <div class="grid grid-2" style="gap:0.5rem;">
           <div class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-            <i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
-            <span x-show="lang==='es'">"Nuestra IA corre 100% local" ó ellos envÌan tus datos a OpenAI</span>
-            <span x-show="lang==='en'" x-cloak>"Our AI runs 100% locally" ó they send your data to OpenAI</span>
+            <i aria-hidden="true" class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
+            <span x-show="lang==='es'">"Nuestra IA corre 100% local" ‚Äî ellos env√≠an tus datos a OpenAI</span>
+            <span x-show="lang==='en'" x-cloak>"Our AI runs 100% locally" ‚Äî they send your data to OpenAI</span>
           </div>
           <div class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-            <i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
-            <span x-show="lang==='es'">"La IA viene incluida" ó ellos la venden como add-on</span>
-            <span x-show="lang==='en'" x-cloak>"AI is included" ó they sell it as an add-on</span>
+            <i aria-hidden="true" class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
+            <span x-show="lang==='es'">"La IA viene incluida" ‚Äî ellos la venden como add-on</span>
+            <span x-show="lang==='en'" x-cloak>"AI is included" ‚Äî they sell it as an add-on</span>
           </div>
           <div class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-            <i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
-            <span x-show="lang==='es'">"Misma IA en escritorio y mÛvil" ó ellos tienen versiones distintas</span>
-            <span x-show="lang==='en'" x-cloak>"Same AI on desktop and mobile" ó they have different versions</span>
+            <i aria-hidden="true" class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
+            <span x-show="lang==='es'">"Misma IA en escritorio y m√≥vil" ‚Äî ellos tienen versiones distintas</span>
+            <span x-show="lang==='en'" x-cloak>"Same AI on desktop and mobile" ‚Äî they have different versions</span>
           </div>
           <div class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-            <i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
-            <span x-show="lang==='es'">"Sin internet" ó ellos necesitan cloud</span>
-            <span x-show="lang==='en'" x-cloak>"No internet needed" ó they require the cloud</span>
+            <i aria-hidden="true" class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
+            <span x-show="lang==='es'">"Sin internet" ‚Äî ellos necesitan cloud</span>
+            <span x-show="lang==='en'" x-cloak>"No internet needed" ‚Äî they require the cloud</span>
           </div>
         </div>
       </div>
@@ -1014,78 +1016,78 @@
   </section>
 
   <!-- ========== STACK FLIP ========== -->
-  <section class="section section-dark" id="stack" aria-label="Stack tÈcnico">
+  <section class="section section-dark" id="stack" aria-label="Stack t√©cnico">
     <div class="container">
       <p class="eyebrow text-center reveal">
-        <span x-show="lang==='es'">STACK T…CNICO</span>
+        <span x-show="lang==='es'">STACK T√âCNICO</span>
         <span x-show="lang==='en'" x-cloak>TECH STACK</span>
       </p>
       <h2 class="display text-center reveal delay-1" style="margin-bottom:0.5rem;">
-        <span x-show="lang==='es'">TecnologÌas que no<br>dependen de nadie</span>
+        <span x-show="lang==='es'">Tecnolog√≠as que no<br>dependen de nadie</span>
         <span x-show="lang==='en'" x-cloak>Technology that<br>depends on no one</span>
       </h2>
       <p class="body-sm txt-secondary text-center reveal delay-2" style="margin-bottom:3rem;">
-        <span x-show="lang==='es'">Pasa el mouse sobre cada card para ver quÈ hace.</span>
+        <span x-show="lang==='es'">Pasa el mouse sobre cada card para ver qu√© hace.</span>
         <span x-show="lang==='en'" x-cloak>Hover each card to see what it does.</span>
       </p>
       <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;">
-        <div class="stack-card reveal" style="transition-delay:0ms">
+        <div class="stack-card reveal" style="transition-delay:0ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
           <div class="stack-inner">
             <div class="stack-front">
-              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-lightning"></i></div>
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-lightning"></i></div>
               <div class="body-sm" style="font-weight:600;">Alpine.js</div>
             </div>
             <div class="stack-back">La app responde al instante</div>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:100ms">
+        <div class="stack-card reveal" style="transition-delay:100ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
           <div class="stack-inner">
             <div class="stack-front">
-              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-database"></i></div>
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-database"></i></div>
               <div class="body-sm" style="font-weight:600;">Dexie.js</div>
             </div>
             <div class="stack-back">Tus datos nunca suben a servidores</div>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:200ms">
+        <div class="stack-card reveal" style="transition-delay:200ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
           <div class="stack-inner">
             <div class="stack-front">
-              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-lock"></i></div>
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-lock"></i></div>
               <div class="body-sm" style="font-weight:600;">CryptoJS</div>
             </div>
             <div class="stack-back">Ni yo puedo ver tus datos</div>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:0ms">
+        <div class="stack-card reveal" style="transition-delay:0ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
           <div class="stack-inner">
             <div class="stack-front">
-              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-file-earmark-zip"></i></div>
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-file-earmark-zip"></i></div>
               <div class="body-sm" style="font-weight:600;">pako</div>
             </div>
-            <div class="stack-back">App m·s ligera, carga m·s r·pido</div>
+            <div class="stack-back">App m√°s ligera, carga m√°s r√°pido</div>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:100ms">
+        <div class="stack-card reveal" style="transition-delay:100ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
           <div class="stack-inner">
             <div class="stack-front">
-              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-filetype-pdf"></i></div>
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-filetype-pdf"></i></div>
               <div class="body-sm" style="font-weight:600;">jsPDF</div>
             </div>
             <div class="stack-back">Crea reportes PDF sin internet</div>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:200ms">
+        <div class="stack-card reveal" style="transition-delay:200ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
           <div class="stack-inner">
             <div class="stack-front">
-              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-file-spreadsheet"></i></div>
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-file-spreadsheet"></i></div>
               <div class="body-sm" style="font-weight:600;">SheetJS</div>
             </div>
-            <div class="stack-back">Abre y guarda Excel sin conexiÛn</div>
+            <div class="stack-back">Abre y guarda Excel sin conexi√≥n</div>
           </div>
         </div>
       </div>
       <p class="body-sm txt-secondary text-center reveal" style="margin-top:2rem;">
-        <span x-show="lang==='es'">Cada librerÌa se descarga una vez. El runtime no pide nada a nadie.</span>
+        <span x-show="lang==='es'">Cada librer√≠a se descarga una vez. El runtime no pide nada a nadie.</span>
         <span x-show="lang==='en'" x-cloak>Each library is downloaded once. The runtime asks nothing from anyone.</span>
       </p>
     </div>
@@ -1099,14 +1101,14 @@
         <span x-show="lang==='en'" x-cloak>OFFLINE-FIRST vs TRADITIONAL</span>
       </p>
       <h2 class="display text-center reveal delay-1" style="margin-bottom:2rem;">
-        <span x-show="lang==='es'">øPor quÈ elegir<br>offline-first?</span>
+        <span x-show="lang==='es'">¬øPor qu√© elegir<br>offline-first?</span>
         <span x-show="lang==='en'" x-cloak>Why choose<br>offline-first?</span>
       </h2>
 
       <div class="card-dark reveal" style="padding:0;overflow:hidden;">
         <div class="cmp-row" style="background:rgba(255,255,255,0.03);font-weight:600;">
           <div class="cmp-cell caption" style="text-transform:uppercase;letter-spacing:0.05em;color:var(--txt-primary-dark);">
-            <span x-show="lang==='es'">CaracterÌstica</span>
+            <span x-show="lang==='es'">Caracter√≠stica</span>
             <span x-show="lang==='en'" x-cloak>Feature</span>
           </div>
           <div class="cmp-cell caption" style="text-transform:uppercase;letter-spacing:0.05em;color:var(--brand-primary);">
@@ -1120,32 +1122,32 @@
         </div>
         <div class="cmp-row reveal" style="border-color:var(--border-subtle-dark);">
           <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Internet</span><span x-show="lang==='en'" x-cloak>Internet</span></div>
-          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">No requiere</span><span x-show="lang==='en'" x-cloak>Not required</span></div>
-          <div class="cmp-cell txt-muted"><i class="bi bi-x-circle"></i> <span x-show="lang==='es'">Siempre necesario</span><span x-show="lang==='en'" x-cloak>Always needed</span></div>
+          <div class="cmp-cell offline"><i aria-hidden="true" class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">No requiere</span><span x-show="lang==='en'" x-cloak>Not required</span></div>
+          <div class="cmp-cell txt-muted"><i aria-hidden="true" class="bi bi-x-circle"></i> <span x-show="lang==='es'">Siempre necesario</span><span x-show="lang==='en'" x-cloak>Always needed</span></div>
         </div>
         <div class="cmp-row reveal delay-1" style="border-color:var(--border-subtle-dark);">
           <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Costo mensual</span><span x-show="lang==='en'" x-cloak>Monthly cost</span></div>
-          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> $0</div>
-          <div class="cmp-cell txt-muted">$20 ñ $500+</div>
+          <div class="cmp-cell offline"><i aria-hidden="true" class="bi bi-check-circle-fill"></i> $0</div>
+          <div class="cmp-cell txt-muted">$20 ‚Äì $500+</div>
         </div>
         <div class="cmp-row reveal delay-2" style="border-color:var(--border-subtle-dark);">
           <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Velocidad</span><span x-show="lang==='en'" x-cloak>Speed</span></div>
-          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">Instant·nea</span><span x-show="lang==='en'" x-cloak>Instant</span></div>
+          <div class="cmp-cell offline"><i aria-hidden="true" class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">Instant√°nea</span><span x-show="lang==='en'" x-cloak>Instant</span></div>
           <div class="cmp-cell txt-muted"><span x-show="lang==='es'">Depende de la red</span><span x-show="lang==='en'" x-cloak>Depends on network</span></div>
         </div>
         <div class="cmp-row reveal delay-3" style="border-color:var(--border-subtle-dark);">
           <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Privacidad</span><span x-show="lang==='en'" x-cloak>Privacy</span></div>
-          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> 100% local</div>
+          <div class="cmp-cell offline"><i aria-hidden="true" class="bi bi-check-circle-fill"></i> 100% local</div>
           <div class="cmp-cell txt-muted"><span x-show="lang==='es'">En sus servidores</span><span x-show="lang==='en'" x-cloak>On their servers</span></div>
         </div>
         <div class="cmp-row reveal delay-4" style="border-color:var(--border-subtle-dark);">
-          <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">InstalaciÛn</span><span x-show="lang==='en'" x-cloak>Setup</span></div>
-          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">Doble clic</span><span x-show="lang==='en'" x-cloak>Double click</span></div>
+          <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Instalaci√≥n</span><span x-show="lang==='en'" x-cloak>Setup</span></div>
+          <div class="cmp-cell offline"><i aria-hidden="true" class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">Doble clic</span><span x-show="lang==='en'" x-cloak>Double click</span></div>
           <div class="cmp-cell txt-muted">CI/CD + servidor</div>
         </div>
         <div class="cmp-row reveal delay-5" style="border-bottom:none;">
           <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Uptime</span><span x-show="lang==='en'" x-cloak>Uptime</span></div>
-          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> 100%</div>
+          <div class="cmp-cell offline"><i aria-hidden="true" class="bi bi-check-circle-fill"></i> 100%</div>
           <div class="cmp-cell txt-muted">99.9% <span class="caption">(o menos)</span></div>
         </div>
       </div>
@@ -1169,7 +1171,7 @@
           <div class="faq-item reveal" :style="'transition-delay:'+(i*100)+'ms'">
             <button class="faq-question" @click="faqOpen = faqOpen === i ? null : i" :aria-expanded="faqOpen === i">
               <span x-text="lang === 'es' ? faq.q_es : faq.q_en"></span>
-              <i class="bi" :class="faqOpen === i ? 'bi-chevron-up' : 'bi-chevron-down'" style="transition:transform 0.2s;flex-shrink:0;margin-left:0.5rem;"></i>
+              <i aria-hidden="true" class="bi" :class="faqOpen === i ? 'bi-chevron-up' : 'bi-chevron-down'" style="transition:transform 0.2s;flex-shrink:0;margin-left:0.5rem;"></i>
             </button>
             <div x-show="faqOpen === i" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
               <div class="faq-answer-inner body-sm" x-text="lang === 'es' ? faq.a_es : faq.a_en"></div>
@@ -1180,22 +1182,22 @@
     </div>
   </section>
 
-  <!-- ========== SOBRE MÕ ========== -->
-  <section class="section section-dark" id="sobre-mi" aria-label="Sobre mÌ">
+  <!-- ========== SOBRE M√ç ========== -->
+  <section class="section section-dark" id="sobre-mi" aria-label="Sobre m√≠">
     <div class="container-narrow">
       <p class="eyebrow text-center reveal">
-        <span x-show="lang==='es'">SOBRE MÕ</span>
+        <span x-show="lang==='es'">SOBRE M√ç</span>
         <span x-show="lang==='en'" x-cloak>ABOUT ME</span>
       </p>
       <div class="card-dark reveal" style="text-align:center;padding:2.5rem;">
         <div style="width:5rem;height:5rem;border-radius:16px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2.5rem;font-weight:700;color:var(--txt-on-accent);">AH</div>
-        <h2 class="h2" style="margin-bottom:0.25rem;color:#fff;">Angel Hern·ndez Aguilera</h2>
+        <h2 class="h2" style="margin-bottom:0.25rem;color:#fff;">Angel Hern√°ndez Aguilera</h2>
         <p class="body-sm" style="margin-bottom:1.5rem;color:var(--txt-secondary-dark);">
           <span x-show="lang==='es'">Desarrollador Freelance</span>
           <span x-show="lang==='en'" x-cloak>Freelance Developer</span>
         </p>
         <blockquote style="font-style:italic;color:var(--txt-secondary-dark);margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;">
-          "Libertad tecnolÛgica. Calidad freelance. Simplicidad radical."
+          "Libertad tecnol√≥gica. Calidad freelance. Simplicidad radical."
         </blockquote>
         <p class="body-sm" style="margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;color:var(--txt-secondary-dark);">
           <span x-show="lang==='es'">Construyo apps que funcionan sin internet. Sin servidores, sin mensualidades, sin complicaciones. Cada app es un producto terminado: validado, documentado y listo para usar.</span>
@@ -1218,21 +1220,21 @@
   <section class="section section-light" id="contacto" aria-label="Contacto" style="padding-bottom:4rem;">
     <div class="container-narrow">
       <div class="card reveal" style="text-align:center;padding:3rem 2rem;border:2px solid var(--brand-primary);">
-        <div style="font-size:3rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-rocket-takeoff"></i></div>
+        <div style="font-size:3rem;margin-bottom:1rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-rocket-takeoff"></i></div>
         <h2 class="display" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:0.75rem;">
-          <span x-show="lang==='es'">øListo para empezar?</span>
+          <span x-show="lang==='es'">¬øListo para empezar?</span>
           <span x-show="lang==='en'" x-cloak>Ready to get started?</span>
         </h2>
         <p class="body-sm txt-secondary" style="margin-bottom:2rem;max-width:24rem;margin-left:auto;margin-right:auto;">
-          <span x-show="lang==='es'">CuÈntame tu idea y te digo cÛmo hacerla realidad offline-first.</span>
+          <span x-show="lang==='es'">Cu√©ntame tu idea y te digo c√≥mo hacerla realidad offline-first.</span>
           <span x-show="lang==='en'" x-cloak>Tell me your idea and I'll tell you how to make it real, offline-first.</span>
         </p>
         <div class="flex items-center justify-center gap-3" style="flex-wrap:wrap;">
           <a href="https://wa.me/5355944628" target="_blank" class="btn-cta-final">
-            <i class="bi bi-whatsapp" style="font-size:1.25rem;"></i> <span x-show="lang==='es'">Empezar ahora</span><span x-show="lang==='en'" x-cloak>Start now</span>
+            <i aria-hidden="true" class="bi bi-whatsapp" style="font-size:1.25rem;"></i> <span x-show="lang==='es'">Empezar ahora</span><span x-show="lang==='en'" x-cloak>Start now</span>
           </a>
           <a href="mailto:angel@ahaguilera.dev" class="btn btn-outline-light" style="padding:1rem 2rem;font-size:1.0625rem;">
-            <i class="bi bi-envelope" style="font-size:1.25rem;"></i> Email
+            <i aria-hidden="true" class="bi bi-envelope" style="font-size:1.25rem;"></i> Email
           </a>
         </div>
       </div>
@@ -1264,14 +1266,14 @@
           FAQ
         </a>
         <a href="#sobre-mi" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'})">
-          <span x-show="lang==='es'">Sobre mÌ</span><span x-show="lang==='en'" x-cloak>About</span>
+          <span x-show="lang==='es'">Sobre m√≠</span><span x-show="lang==='en'" x-cloak>About</span>
         </a>
       </div>
       <div style="text-align:center;">
-        <p class="caption txt-muted">© 2026 AHAguilera ∑ MIT License</p>
+        <p class="caption txt-muted">¬© 2026 AHAguilera ¬∑ MIT License</p>
         <p class="caption txt-muted" style="margin-top:0.25rem;">
-          <span x-show="lang==='es'">100% offline ∑ Sin CDN ∑ .exe + .apk</span>
-          <span x-show="lang==='en'" x-cloak>100% offline ∑ No CDN ∑ .exe + .apk</span>
+          <span x-show="lang==='es'">100% offline ¬∑ Sin CDN ¬∑ .exe + .apk</span>
+          <span x-show="lang==='en'" x-cloak>100% offline ¬∑ No CDN ¬∑ .exe + .apk</span>
         </p>
       </div>
       <!-- Palette bar -->
@@ -1292,44 +1294,44 @@
     // ===== FAQ data =====
     const FAQ_DATA = [
       {
-        q_es: 'øNecesito internet para usar la app?',
-        a_es: 'No. La app funciona 100% sin internet. Todos los datos se guardan en tu dispositivo. Puedes usarla en el campo, en el metro, o donde no llegue la seÒal.',
+        q_es: '¬øNecesito internet para usar la app?',
+        a_es: 'No. La app funciona 100% sin internet. Todos los datos se guardan en tu dispositivo. Puedes usarla en el campo, en el metro, o donde no llegue la se√±al.',
         q_en: 'Do I need internet to use the app?',
         a_en: 'No. The app works 100% without internet. All data is stored on your device. You can use it in the field, on the subway, or anywhere without signal.'
       },
       {
-        q_es: 'øMis datos est·n seguros?',
-        a_es: 'SÌ. Los datos se guardan localmente en tu dispositivo. En los planes Standard y Custom, adem·s se cifran con AES-256. Nadie m·s tiene acceso a ellos, ni yo.',
+        q_es: '¬øMis datos est√°n seguros?',
+        a_es: 'S√≠. Los datos se guardan localmente en tu dispositivo. En los planes Standard y Custom, adem√°s se cifran con AES-256. Nadie m√°s tiene acceso a ellos, ni yo.',
         q_en: 'Is my data safe?',
         a_en: 'Yes. Data is stored locally on your device. Standard and Custom plans include AES-256 encryption. Not even I can access it.'
       },
       {
-        q_es: 'øQuÈ es eso de .exe y .apk?',
+        q_es: '¬øQu√© es eso de .exe y .apk?',
         a_es: 'Tu app se entrega en dos formatos: .exe para Windows (doble clic y funciona) y .apk para Android (instalas como cualquier app). Un solo desarrollo, dos dispositivos.',
         q_en: 'What is .exe and .apk?',
         a_en: 'Your app is delivered in two formats: .exe for Windows (double click to run) and .apk for Android (install like any app). One codebase, two devices.'
       },
       {
-        q_es: 'øPuedo personalizar la app despuÈs?',
-        a_es: 'SÌ. Todas las apps se entregan con el cÛdigo fuente. Puedo agregar funcionalidades o modificar lo que necesites. El cÛdigo est· diseÒado para crecer.',
+        q_es: '¬øPuedo personalizar la app despu√©s?',
+        a_es: 'S√≠. Todas las apps se entregan con el c√≥digo fuente. Puedo agregar funcionalidades o modificar lo que necesites. El c√≥digo est√° dise√±ado para crecer.',
         q_en: 'Can I customize the app later?',
         a_en: 'Yes. All apps come with source code. I can add features or modify anything you need. The code is designed to grow.'
       },
       {
-        q_es: 'øCu·nto tarda en estar lista?',
-        a_es: 'Una app Lite puede estar lista en 2-3 dÌas. Una Standard en 5-7 dÌas. Una Custom depende de la complejidad. Siempre te doy una fecha estimada antes de empezar.',
+        q_es: '¬øCu√°nto tarda en estar lista?',
+        a_es: 'Una app Lite puede estar lista en 2-3 d√≠as. Una Standard en 5-7 d√≠as. Una Custom depende de la complejidad. Siempre te doy una fecha estimada antes de empezar.',
         q_en: 'How long does it take?',
         a_en: 'A Lite app can be ready in 2-3 days. Standard in 5-7 days. Custom depends on complexity. I always give you an estimate before starting.'
       },
       {
-        q_es: 'øRealmente no hay mensualidades?',
+        q_es: '¬øRealmente no hay mensualidades?',
         a_es: 'Cero. Pagas una vez y la app es tuya para siempre. No hay servidores que mantener, no hay suscripciones, no hay sorpresas.',
         q_en: 'Really no monthly fees?',
         a_en: 'Zero. You pay once and the app is yours forever. No servers to maintain, no subscriptions, no surprises.'
       },
       {
-        q_es: 'øQuÈ es IA Jutia y cÛmo funciona en mi app?',
-        a_es: 'Es una Mini IA que corre 100% local dentro de tu app. Busca datos al instante, predice tendencias y responde preguntas en espaÒol. No envÌa datos a ning˙n servidor. Viene incluida en el precio de tu app, en los dos formatos .exe y .apk. En los planes Standard y Custom adem·s puedes subirle documentos (PDF, Excel, Word) y hacerle preguntas sobre ellos.',
+        q_es: '¬øQu√© es IA Jutia y c√≥mo funciona en mi app?',
+        a_es: 'Es una Mini IA que corre 100% local dentro de tu app. Busca datos al instante, predice tendencias y responde preguntas en espa√±ol. No env√≠a datos a ning√∫n servidor. Viene incluida en el precio de tu app, en los dos formatos .exe y .apk. En los planes Standard y Custom adem√°s puedes subirle documentos (PDF, Excel, Word) y hacerle preguntas sobre ellos.',
         q_en: 'What is IA Jutia and how does it work in my app?',
         a_en: 'It is a Mini AI that runs 100% locally inside your app. It instantly searches data, predicts trends, and answers questions in Spanish. It sends no data to any server. It is included in the price of your app, in both .exe and .apk formats. Standard and Custom plans also let you upload documents (PDF, Excel, Word) and ask questions about them.'
       }
@@ -1424,7 +1426,11 @@
           }
         });
       }, { threshold: 0.3 });
-      sections.forEach(section => navObserver.observe(section));
+            sections.forEach(section => navObserver.observe(section));
+
+      // Set first nav link active by default
+      const firstLink = document.querySelector('nav a[href^="#"]');
+      if (firstLink) { firstLink.classList.add('active'); firstLink.setAttribute('aria-current', 'true'); }
     });
   </script>
 

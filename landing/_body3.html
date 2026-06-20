@@ -21,7 +21,7 @@
         <div class="card-dark reveal" style="transition-delay:0ms;padding:2rem;">
           <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
             <div style="width:2.5rem;height:2.5rem;border-radius:10px;background:rgba(207,244,52,0.1);display:flex;align-items:center;justify-content:center;color:var(--brand-primary);font-size:1.25rem;">
-              <i class="bi bi-search"></i>
+              <i aria-hidden="true" class="bi bi-search"></i>
             </div>
             <div>
               <h3 class="h3" style="color:#fff;margin-bottom:0;">Perfil Lite</h3>
@@ -33,17 +33,17 @@
           </div>
           <ul style="display:flex;flex-direction:column;gap:0.6rem;">
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
               <span x-show="lang==='es'"><strong>Búsqueda instantánea</strong> — escribe y encuentra al instante</span>
               <span x-show="lang==='en'" x-cloak><strong>Instant search</strong> — type and find instantly</span>
             </li>
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
               <span x-show="lang==='es'"><strong>Estadísticas inteligentes</strong> — analiza tus datos automáticamente</span>
               <span x-show="lang==='en'" x-cloak><strong>Smart statistics</strong> — analyzes your data automatically</span>
             </li>
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
               <span x-show="lang==='es'"><strong>Predicciones</strong> — "¿cuándo se va a acabar este producto?"</span>
               <span x-show="lang==='en'" x-cloak><strong>Predictions</strong> — "when will this product run out?"</span>
             </li>
@@ -54,7 +54,7 @@
         <div class="card-dark reveal" style="transition-delay:100ms;padding:2rem;border-color:rgba(207,244,52,0.2);">
           <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
             <div style="width:2.5rem;height:2.5rem;border-radius:10px;background:rgba(207,244,52,0.1);display:flex;align-items:center;justify-content:center;color:var(--brand-primary);font-size:1.25rem;">
-              <i class="bi bi-stars"></i>
+              <i aria-hidden="true" class="bi bi-stars"></i>
             </div>
             <div>
               <h3 class="h3" style="color:#fff;margin-bottom:0;">Perfil Full</h3>
@@ -66,22 +66,22 @@
           </div>
           <ul style="display:flex;flex-direction:column;gap:0.6rem;">
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
               <span x-show="lang==='es'">Todo lo de Lite +</span>
               <span x-show="lang==='en'" x-cloak>Everything in Lite +</span>
             </li>
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
               <span x-show="lang==='es'"><strong>Ingesta de documentos</strong> — lee PDF, Excel, Word y CSV</span>
               <span x-show="lang==='en'" x-cloak><strong>Document ingestion</strong> — reads PDF, Excel, Word, CSV</span>
             </li>
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
               <span x-show="lang==='es'"><strong>QA extractivo</strong> — pregúntale a tus datos en español</span>
               <span x-show="lang==='en'" x-cloak><strong>Extractive QA</strong> — ask your data in Spanish</span>
             </li>
             <li class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-              <i class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
+              <i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i>
               <span x-show="lang==='es'"><strong>Atajo global</strong> — <code style="background:rgba(255,255,255,0.08);padding:0.15rem 0.4rem;border-radius:4px;font-size:0.75rem;">Cmd+K</code> desde cualquier pantalla</span>
               <span x-show="lang==='en'" x-cloak><strong>Global shortcut</strong> — <code style="background:rgba(255,255,255,0.08);padding:0.15rem 0.4rem;border-radius:4px;font-size:0.75rem;">Cmd+K</code> from any screen</span>
             </li>
@@ -92,27 +92,27 @@
       <!-- Competencia no puede -->
       <div class="card-dark reveal" style="padding:1.5rem;border-color:rgba(207,244,52,0.08);">
         <p class="caption" style="color:var(--brand-primary);margin-bottom:0.75rem;font-weight:600;">
-          <span x-show="lang==='es'">⚡ Lo que la competencia no puede decir</span>
-          <span x-show="lang==='en'" x-cloak>⚡ What competitors can't say</span>
+          <span x-show="lang==='es'"><i aria-hidden="true" class="bi bi-lightning-fill"></i> Lo que la competencia no puede decir</span>
+          <span x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-lightning-fill"></i> What competitors can't say</span>
         </p>
         <div class="grid grid-2" style="gap:0.5rem;">
           <div class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-            <i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
+            <i aria-hidden="true" class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
             <span x-show="lang==='es'">"Nuestra IA corre 100% local" — ellos envían tus datos a OpenAI</span>
             <span x-show="lang==='en'" x-cloak>"Our AI runs 100% locally" — they send your data to OpenAI</span>
           </div>
           <div class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-            <i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
+            <i aria-hidden="true" class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
             <span x-show="lang==='es'">"La IA viene incluida" — ellos la venden como add-on</span>
             <span x-show="lang==='en'" x-cloak>"AI is included" — they sell it as an add-on</span>
           </div>
           <div class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-            <i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
+            <i aria-hidden="true" class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
             <span x-show="lang==='es'">"Misma IA en escritorio y móvil" — ellos tienen versiones distintas</span>
             <span x-show="lang==='en'" x-cloak>"Same AI on desktop and mobile" — they have different versions</span>
           </div>
           <div class="body-sm flex items-center gap-2" style="color:var(--txt-secondary-dark);">
-            <i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
+            <i aria-hidden="true" class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i>
             <span x-show="lang==='es'">"Sin internet" — ellos necesitan cloud</span>
             <span x-show="lang==='en'" x-cloak>"No internet needed" — they require the cloud</span>
           </div>
@@ -137,55 +137,55 @@
         <span x-show="lang==='en'" x-cloak>Hover each card to see what it does.</span>
       </p>
       <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;">
-        <div class="stack-card reveal" style="transition-delay:0ms">
+        <div class="stack-card reveal" style="transition-delay:0ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
           <div class="stack-inner">
             <div class="stack-front">
-              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-lightning"></i></div>
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-lightning"></i></div>
               <div class="body-sm" style="font-weight:600;">Alpine.js</div>
             </div>
             <div class="stack-back">La app responde al instante</div>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:100ms">
+        <div class="stack-card reveal" style="transition-delay:100ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
           <div class="stack-inner">
             <div class="stack-front">
-              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-database"></i></div>
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-database"></i></div>
               <div class="body-sm" style="font-weight:600;">Dexie.js</div>
             </div>
             <div class="stack-back">Tus datos nunca suben a servidores</div>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:200ms">
+        <div class="stack-card reveal" style="transition-delay:200ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
           <div class="stack-inner">
             <div class="stack-front">
-              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-lock"></i></div>
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-lock"></i></div>
               <div class="body-sm" style="font-weight:600;">CryptoJS</div>
             </div>
             <div class="stack-back">Ni yo puedo ver tus datos</div>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:0ms">
+        <div class="stack-card reveal" style="transition-delay:0ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
           <div class="stack-inner">
             <div class="stack-front">
-              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-file-earmark-zip"></i></div>
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-file-earmark-zip"></i></div>
               <div class="body-sm" style="font-weight:600;">pako</div>
             </div>
             <div class="stack-back">App más ligera, carga más rápido</div>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:100ms">
+        <div class="stack-card reveal" style="transition-delay:100ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
           <div class="stack-inner">
             <div class="stack-front">
-              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-filetype-pdf"></i></div>
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-filetype-pdf"></i></div>
               <div class="body-sm" style="font-weight:600;">jsPDF</div>
             </div>
             <div class="stack-back">Crea reportes PDF sin internet</div>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:200ms">
+        <div class="stack-card reveal" style="transition-delay:200ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
           <div class="stack-inner">
             <div class="stack-front">
-              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-file-spreadsheet"></i></div>
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-file-spreadsheet"></i></div>
               <div class="body-sm" style="font-weight:600;">SheetJS</div>
             </div>
             <div class="stack-back">Abre y guarda Excel sin conexión</div>
@@ -228,32 +228,32 @@
         </div>
         <div class="cmp-row reveal" style="border-color:var(--border-subtle-dark);">
           <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Internet</span><span x-show="lang==='en'" x-cloak>Internet</span></div>
-          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">No requiere</span><span x-show="lang==='en'" x-cloak>Not required</span></div>
-          <div class="cmp-cell txt-muted"><i class="bi bi-x-circle"></i> <span x-show="lang==='es'">Siempre necesario</span><span x-show="lang==='en'" x-cloak>Always needed</span></div>
+          <div class="cmp-cell offline"><i aria-hidden="true" class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">No requiere</span><span x-show="lang==='en'" x-cloak>Not required</span></div>
+          <div class="cmp-cell txt-muted"><i aria-hidden="true" class="bi bi-x-circle"></i> <span x-show="lang==='es'">Siempre necesario</span><span x-show="lang==='en'" x-cloak>Always needed</span></div>
         </div>
         <div class="cmp-row reveal delay-1" style="border-color:var(--border-subtle-dark);">
           <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Costo mensual</span><span x-show="lang==='en'" x-cloak>Monthly cost</span></div>
-          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> $0</div>
+          <div class="cmp-cell offline"><i aria-hidden="true" class="bi bi-check-circle-fill"></i> $0</div>
           <div class="cmp-cell txt-muted">$20 – $500+</div>
         </div>
         <div class="cmp-row reveal delay-2" style="border-color:var(--border-subtle-dark);">
           <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Velocidad</span><span x-show="lang==='en'" x-cloak>Speed</span></div>
-          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">Instantánea</span><span x-show="lang==='en'" x-cloak>Instant</span></div>
+          <div class="cmp-cell offline"><i aria-hidden="true" class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">Instantánea</span><span x-show="lang==='en'" x-cloak>Instant</span></div>
           <div class="cmp-cell txt-muted"><span x-show="lang==='es'">Depende de la red</span><span x-show="lang==='en'" x-cloak>Depends on network</span></div>
         </div>
         <div class="cmp-row reveal delay-3" style="border-color:var(--border-subtle-dark);">
           <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Privacidad</span><span x-show="lang==='en'" x-cloak>Privacy</span></div>
-          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> 100% local</div>
+          <div class="cmp-cell offline"><i aria-hidden="true" class="bi bi-check-circle-fill"></i> 100% local</div>
           <div class="cmp-cell txt-muted"><span x-show="lang==='es'">En sus servidores</span><span x-show="lang==='en'" x-cloak>On their servers</span></div>
         </div>
         <div class="cmp-row reveal delay-4" style="border-color:var(--border-subtle-dark);">
           <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Instalación</span><span x-show="lang==='en'" x-cloak>Setup</span></div>
-          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">Doble clic</span><span x-show="lang==='en'" x-cloak>Double click</span></div>
+          <div class="cmp-cell offline"><i aria-hidden="true" class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">Doble clic</span><span x-show="lang==='en'" x-cloak>Double click</span></div>
           <div class="cmp-cell txt-muted">CI/CD + servidor</div>
         </div>
         <div class="cmp-row reveal delay-5" style="border-bottom:none;">
           <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Uptime</span><span x-show="lang==='en'" x-cloak>Uptime</span></div>
-          <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> 100%</div>
+          <div class="cmp-cell offline"><i aria-hidden="true" class="bi bi-check-circle-fill"></i> 100%</div>
           <div class="cmp-cell txt-muted">99.9% <span class="caption">(o menos)</span></div>
         </div>
       </div>
@@ -277,7 +277,7 @@
           <div class="faq-item reveal" :style="'transition-delay:'+(i*100)+'ms'">
             <button class="faq-question" @click="faqOpen = faqOpen === i ? null : i" :aria-expanded="faqOpen === i">
               <span x-text="lang === 'es' ? faq.q_es : faq.q_en"></span>
-              <i class="bi" :class="faqOpen === i ? 'bi-chevron-up' : 'bi-chevron-down'" style="transition:transform 0.2s;flex-shrink:0;margin-left:0.5rem;"></i>
+              <i aria-hidden="true" class="bi" :class="faqOpen === i ? 'bi-chevron-up' : 'bi-chevron-down'" style="transition:transform 0.2s;flex-shrink:0;margin-left:0.5rem;"></i>
             </button>
             <div x-show="faqOpen === i" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
               <div class="faq-answer-inner body-sm" x-text="lang === 'es' ? faq.a_es : faq.a_en"></div>
@@ -326,7 +326,7 @@
   <section class="section section-light" id="contacto" aria-label="Contacto" style="padding-bottom:4rem;">
     <div class="container-narrow">
       <div class="card reveal" style="text-align:center;padding:3rem 2rem;border:2px solid var(--brand-primary);">
-        <div style="font-size:3rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-rocket-takeoff"></i></div>
+        <div style="font-size:3rem;margin-bottom:1rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-rocket-takeoff"></i></div>
         <h2 class="display" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:0.75rem;">
           <span x-show="lang==='es'">¿Listo para empezar?</span>
           <span x-show="lang==='en'" x-cloak>Ready to get started?</span>
@@ -337,10 +337,10 @@
         </p>
         <div class="flex items-center justify-center gap-3" style="flex-wrap:wrap;">
           <a href="https://wa.me/5355944628" target="_blank" class="btn-cta-final">
-            <i class="bi bi-whatsapp" style="font-size:1.25rem;"></i> <span x-show="lang==='es'">Empezar ahora</span><span x-show="lang==='en'" x-cloak>Start now</span>
+            <i aria-hidden="true" class="bi bi-whatsapp" style="font-size:1.25rem;"></i> <span x-show="lang==='es'">Empezar ahora</span><span x-show="lang==='en'" x-cloak>Start now</span>
           </a>
           <a href="mailto:angel@ahaguilera.dev" class="btn btn-outline-light" style="padding:1rem 2rem;font-size:1.0625rem;">
-            <i class="bi bi-envelope" style="font-size:1.25rem;"></i> Email
+            <i aria-hidden="true" class="bi bi-envelope" style="font-size:1.25rem;"></i> Email
           </a>
         </div>
       </div>
@@ -532,7 +532,11 @@
           }
         });
       }, { threshold: 0.3 });
-      sections.forEach(section => navObserver.observe(section));
+            sections.forEach(section => navObserver.observe(section));
+
+      // Set first nav link active by default
+      const firstLink = document.querySelector('nav a[href^="#"]');
+      if (firstLink) { firstLink.classList.add('active'); firstLink.setAttribute('aria-current', 'true'); }
     });
   </script>
 
