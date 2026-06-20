@@ -1,9 +1,10 @@
 ﻿
-  <!-- ========== NAV ========== -->
-  <nav class="nav" :class="{ 'nav-scrolled': scrolled }" role="navigation" aria-label="Navegación principal">
+  <!-- ========== NAV DUAL GLASS ========== -->
+  <nav class="nav" :class="{ 'hero-mode': !scrolledLight, 'light-mode': scrolledLight }" role="navigation" aria-label="Navegación principal">
     <div class="nav-inner">
       <a href="#" class="flex items-center gap-2" aria-label="AHAguilera inicio">
-        <img src="./brand/logo-wordmark.svg" alt="AHAguilera" style="height:1.5rem;">
+        <img src="./brand/logo-wordmark.svg" alt="AHAguilera" class="nav-logo-light" style="height:1.5rem;">
+        <img src="./brand/logo-full.svg" alt="AHAguilera" class="nav-logo-dark" style="height:1.25rem;">
       </a>
       <div class="nav-links">
         <a href="#apps" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Apps</a>
@@ -17,13 +18,13 @@
           <i class="bi bi-whatsapp"></i> Contactar
         </a>
         <button class="nav-hamburger btn btn-ghost" @click="mobileOpen = !mobileOpen" aria-label="Menú de navegación" :aria-expanded="mobileOpen">
-          <i class="bi text-xl" :class="mobileOpen ? 'bi-x-lg' : 'bi-list'"></i>
+          <i class="bi" style="font-size:1.25rem;" :class="mobileOpen ? 'bi-x-lg' : 'bi-list'"></i>
         </button>
         <button @click="lang = lang === 'es' ? 'en' : 'es'; localStorage.setItem('lang', lang)"
                 class="btn btn-ghost" style="padding:0.5rem;font-size:0.75rem;font-weight:600;" aria-label="Cambiar idioma">
-          <span :class="lang === 'es' ? 'text-txt-primary' : 'txt-muted'">ES</span>
+          <span :class="lang === 'es' ? '' : 'txt-muted'" style="font-weight:600;">ES</span>
           <span class="txt-muted">/</span>
-          <span :class="lang === 'en' ? 'text-txt-primary' : 'txt-muted'">EN</span>
+          <span :class="lang === 'en' ? '' : 'txt-muted'" style="font-weight:600;">EN</span>
         </button>
       </div>
     </div>
@@ -38,27 +39,61 @@
     </div>
   </nav>
 
-  <!-- ========== HERO ========== -->
-  <section class="hero hero-grid" id="hero" aria-label="Hero principal">
-    <div class="container-narrow" style="text-align:center;padding-top:5rem;">
-      <div class="reveal visible" style="margin-bottom:2rem;">
-        <img src="./brand/logo-full.svg" alt="AHAguilera" style="height:3rem;margin:0 auto;">
+  <!-- ========== HERO DARK ========== -->
+  <section class="hero-dark" id="hero" aria-label="Hero principal">
+    <!-- Code hex background -->
+    <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:0.12;">
+      <div style="position:absolute;top:10%;left:5%;" class="hex-code" x-data="codigoVivo()" x-init="init()">
+        <template x-for="(linea, i) in lineas" :key="i">
+          <div><span x-text="linea"></span></div>
+        </template>
       </div>
-      <h1 class="display reveal visible delay-1" style="margin-bottom:1.5rem;">
-        <span x-show="lang === 'es'">Apps que funcionan<br>sin internet.</span>
-        <span x-show="lang === 'en'" x-cloak>Apps that work<br>without internet.</span>
+      <div style="position:absolute;bottom:15%;right:5%;transform:rotate(180deg);" class="hex-code" x-data="codigoVivo()" x-init="init()">
+        <template x-for="(linea, i) in lineas" :key="i">
+          <div><span x-text="linea"></span></div>
+        </template>
+      </div>
+    </div>
+
+    <div class="container" style="position:relative;z-index:1;padding-top:5rem;">
+      <div class="hero-fade hero-fade-1" style="margin-bottom:0.75rem;">
+        <span class="badge badge-lime">Offline-first</span>
+      </div>
+      <h1 class="display hero-fade hero-fade-2" style="max-width:48rem;margin-bottom:0.75rem;">
+        <span x-show="lang === 'es'">Apps offline-first<br>que parecen magia.</span>
+        <span x-show="lang === 'en'" x-cloak>Offline-first apps<br>that look like magic.</span>
       </h1>
-      <p class="body-lg reveal visible delay-2" style="font-size:1.125rem;color:var(--txt-secondary);max-width:36rem;margin:0 auto 2rem;">
-        <span x-show="lang === 'es'">Sin servidores. Sin mensualidades. Sin complicaciones.<br>Tu app, tus datos, tu control.</span>
-        <span x-show="lang === 'en'" x-cloak>No servers. No monthly fees. No complications.<br>Your app, your data, your control.</span>
+      <p class="hero-sub hero-fade hero-fade-3" style="margin-bottom:0.25rem;">
+        <span x-show="lang==='es'">Pero son código. Tu app. En tu escritorio. En tu bolsillo.</span>
+        <span x-show="lang==='en'" x-cloak>But they're code. Your app. On your desktop. In your pocket.</span>
       </p>
-      <div class="reveal visible delay-3" style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+      <p class="hero-fade hero-fade-3" style="font-weight:600;margin-bottom:2rem;">
+        <span class="badge-formato" x-show="lang==='es'">🖥️ .exe + 📱 .apk — Sin internet · Sin mensualidades</span>
+        <span class="badge-formato" x-show="lang==='en'" x-cloak>🖥️ .exe + 📱 .apk — No internet · No monthly fees</span>
+      </p>
+      <div class="hero-fade hero-fade-4" style="display:flex;gap:0.75rem;flex-wrap:wrap;">
         <a href="#apps" class="btn btn-primary" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
-          <i class="bi bi-grid-3x3-gap"></i> <span x-show="lang==='es'">Ver catálogo</span><span x-show="lang==='en'" x-cloak>View catalog</span>
+          <span x-show="lang==='es'">Crear mi app →</span><span x-show="lang==='en'" x-cloak>Create my app →</span>
         </a>
-        <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-outline">
-          <i class="bi bi-chat-dots"></i> <span x-show="lang==='es'">Cuéntame tu idea</span><span x-show="lang==='en'" x-cloak>Tell me your idea</span>
+        <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-outline-dark">
+          <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Ver catálogo</span><span x-show="lang==='en'" x-cloak>View catalog</span>
         </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="stat-bar hero-fade hero-fade-4" style="animation-delay:1s;">
+        <div style="text-align:center;">
+          <div class="stat-number" x-data="counter(12)" x-init="init()" x-text="count">0</div>
+          <div class="stat-label"><span x-show="lang==='es'">clientes</span><span x-show="lang==='en'" x-cloak>clients</span></div>
+        </div>
+        <div style="text-align:center;">
+          <div class="stat-number" x-data="counter(8)" x-init="init()" x-text="count">0</div>
+          <div class="stat-label"><span x-show="lang==='es'">apps entregadas</span><span x-show="lang==='en'" x-cloak>apps delivered</span></div>
+        </div>
+        <div style="text-align:center;">
+          <div class="stat-number" x-data="counter(4)" x-init="init()" x-text="count">0</div>
+          <div class="stat-label"><span x-show="lang==='es'">años construyendo</span><span x-show="lang==='en'" x-cloak>years building</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -66,173 +101,40 @@
   <main id="main">
 
   <!-- ========== PROPUESTA DE VALOR ========== -->
-  <section class="section" id="valor" aria-label="Propuesta de valor">
+  <section class="section section-light" id="valor" aria-label="Propuesta de valor">
     <div class="container">
       <p class="eyebrow text-center reveal">OFFLINE-FIRST</p>
-      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:3rem;">
-        <span x-show="lang==='es'">El 60% de las apps fallan<br>cuando no hay internet.</span>
-        <span x-show="lang==='en'" x-cloak>60% of apps fail<br>when there is no internet.</span>
+      <h2 class="display text-center reveal delay-1" style="margin-bottom:3rem;">
+        <span x-show="lang==='es'">El software normal te ata.<br>El mío te libera.</span>
+        <span x-show="lang==='en'" x-cloak>Normal software ties you down.<br>Mine sets you free.</span>
       </h2>
-      <div class="grid grid-3">
-        <div class="card reveal delay-1" style="text-align:center;padding:2rem;">
-          <div style="font-size:2rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-file-earmark-code"></i></div>
-          <h3 class="h3" style="margin-bottom:0.5rem;">
-            <span x-show="lang==='es'">Doble clic y funciona</span>
-            <span x-show="lang==='en'" x-cloak>Double click and it works</span>
-          </h3>
-          <p class="body-sm txt-secondary">
-            <span x-show="lang==='es'">No necesitas instalar nada. Abres el archivo y la app está lista. Literalmente.</span>
-            <span x-show="lang==='en'" x-cloak>Nothing to install. Open the file and the app is ready. Literally.</span>
+      <div class="grid grid-2" style="margin-bottom:3rem;">
+        <!-- Pain points -->
+        <div>
+          <p class="caption" style="color:var(--txt-muted);margin-bottom:1rem;font-weight:600;">
+            <span x-show="lang==='es'">❌ CÓMO FUNCIONA EL SOFTWARE NORMAL</span>
+            <span x-show="lang==='en'" x-cloak>❌ HOW NORMAL SOFTWARE WORKS</span>
           </p>
+          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm">💰 <span x-show="lang==='es'">Pagas mensualidad por un servidor</span><span x-show="lang==='en'" x-cloak>You pay monthly for a server</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm">🌐 <span x-show="lang==='es'">Dependes de internet para trabajar</span><span x-show="lang==='en'" x-cloak>You depend on internet to work</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;"><span class="body-sm">🔒 <span x-show="lang==='es'">Tus datos están en manos de un tercero</span><span x-show="lang==='en'" x-cloak>Your data is in someone else's hands</span></span></div>
+          <div class="card"><span class="body-sm">👥 <span x-show="lang==='es'">Pagas por usuario, por función, por todo</span><span x-show="lang==='en'" x-cloak>Pay per user, per feature, per everything</span></span></div>
         </div>
-        <div class="card reveal delay-2" style="text-align:center;padding:2rem;">
-          <div style="font-size:2rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-shield-check"></i></div>
-          <h3 class="h3" style="margin-bottom:0.5rem;">
-            <span x-show="lang==='es'">Tus datos son tuyos</span>
-            <span x-show="lang==='en'" x-cloak>Your data stays yours</span>
-          </h3>
-          <p class="body-sm txt-secondary">
-            <span x-show="lang==='es'">Todo se guarda en tu dispositivo. Nadie más tiene acceso. Cifrado incluido.</span>
-            <span x-show="lang==='en'" x-cloak>Everything is stored on your device. No one else has access.</span>
+        <!-- Solution -->
+        <div>
+          <p class="caption" style="color:var(--brand-primary);margin-bottom:1rem;font-weight:600;">
+            <span x-show="lang==='es'">✅ CÓMO TRABAJO YO</span>
+            <span x-show="lang==='en'" x-cloak>✅ HOW I WORK</span>
           </p>
-        </div>
-        <div class="card reveal delay-3" style="text-align:center;padding:2rem;">
-          <div style="font-size:2rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-cloud-slash"></i></div>
-          <h3 class="h3" style="margin-bottom:0.5rem;">
-            <span x-show="lang==='es'">Sin servidores</span>
-            <span x-show="lang==='en'" x-cloak>No servers</span>
-          </h3>
-          <p class="body-sm txt-secondary">
-            <span x-show="lang==='es'">Cero mensualidades. Cero hosting. La app vive en tu escritorio, no en la nube.</span>
-            <span x-show="lang==='en'" x-cloak>Zero monthly fees. Zero hosting. The app lives on your desktop.</span>
-          </p>
+          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm">💵 <span x-show="lang==='es'"><strong>Pagas una vez.</strong> Sin mensualidades, sin sorpresas</span><span x-show="lang==='en'" x-cloak><strong>Pay once.</strong> No subscriptions, no surprises</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm">📡 <span x-show="lang==='es'"><strong>Cero internet necesario.</strong> IndexedDB + SQLite local</span><span x-show="lang==='en'" x-cloak><strong>Zero internet required.</strong> IndexedDB + SQLite local</span></span></div>
+          <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm">🔐 <span x-show="lang==='es'"><strong>Tus datos son tuyos.</strong> Cifrados con CryptoJS. Ni yo tengo acceso</span><span x-show="lang==='en'" x-cloak><strong>Your data is yours.</strong> Encrypted with CryptoJS. Not even I can access it</span></span></div>
+          <div class="card" style="border-color:rgba(207,244,52,0.3);"><span class="body-sm">📦 <span x-show="lang==='es'"><strong>.exe + .apk.</strong> Una app, dos formatos. Escritorio y móvil</span><span x-show="lang==='en'" x-cloak><strong>.exe + .apk.</strong> One app, two formats. Desktop and mobile</span></span></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ========== APPS POPULARES ========== -->
-  <section class="section code-grid-bg" id="apps" aria-label="Apps populares">
-    <div class="container">
-      <p class="eyebrow text-center reveal">
-        <span x-show="lang==='es'">APPS LISTAS PARA LLEVAR</span>
-        <span x-show="lang==='en'" x-cloak>READY-TO-GO APPS</span>
-      </p>
-      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:0.5rem;">
-        <span x-show="lang==='es'">Aplicaciones que resuelven<br>problemas reales</span>
-        <span x-show="lang==='en'" x-cloak>Apps that solve<br>real problems</span>
-      </h2>
-      <p class="body-sm txt-secondary text-center reveal delay-2" style="margin-bottom:3rem;">
-        <span x-show="lang==='es'">Seleccionadas por ser las más solicitadas. ¿No encuentras la tuya? La construimos.</span>
-        <span x-show="lang==='en'" x-cloak>The most requested apps. Can'"'"'t find yours? We build it.</span>
-      </p>
-      <div class="grid grid-2" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
-        <!-- App 1 -->
-        <div class="card reveal delay-1" @click="activeModal='taskflow'" role="button" tabindex="0" @keydown.enter="activeModal='taskflow'" aria-label="TaskFlow - Gestor de tareas">
-          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
-            <div style="width:3rem;height:3rem;border-radius:12px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--txt-on-accent);">
-              <i class="bi bi-check2-square"></i>
-            </div>
-            <div>
-              <h3 class="h3">TaskFlow</h3>
-              <span class="badge" style="font-size:0.6875rem;">Productividad</span>
-            </div>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Gestor de tareas offline. Etiquetas, prioridades y recordatorios.</span>
-            <span x-show="lang==='en'" x-cloak>Offline task manager. Labels, priorities, reminders.</span>
-          </p>
-          <div class="flex items-center justify-between">
-            <span style="font-size:1.5rem;font-weight:700;">$49 <span class="caption txt-muted">USD</span></span>
-            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20TaskFlow" target="_blank" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8125rem;">
-              <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Comprar</span><span x-show="lang==='en'" x-cloak>Buy</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 2 -->
-        <div class="card reveal delay-2" @click="activeModal='finanza'" role="button" tabindex="0" @keydown.enter="activeModal='finanza'" aria-label="FinanzaLocal - Presupuesto familiar">
-          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
-            <div style="width:3rem;height:3rem;border-radius:12px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--txt-on-accent);">
-              <i class="bi bi-wallet2"></i>
-            </div>
-            <div>
-              <h3 class="h3">FinanzaLocal</h3>
-              <span class="badge" style="font-size:0.6875rem;">Finanzas</span>
-            </div>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Presupuesto familiar con gráficos, categorías y exportación PDF.</span>
-            <span x-show="lang==='en'" x-cloak>Family budget with charts, categories, and PDF export.</span>
-          </p>
-          <div class="flex items-center justify-between">
-            <span style="font-size:1.5rem;font-weight:700;">$99 <span class="caption txt-muted">USD</span></span>
-            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20FinanzaLocal" target="_blank" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8125rem;">
-              <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Comprar</span><span x-show="lang==='en'" x-cloak>Buy</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 3 -->
-        <div class="card reveal delay-3" @click="activeModal='inventario'" role="button" tabindex="0" @keydown.enter="activeModal='inventario'" aria-label="InventarioPRO - Control de inventario">
-          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
-            <div style="width:3rem;height:3rem;border-radius:12px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--txt-on-accent);">
-              <i class="bi bi-box-seam"></i>
-            </div>
-            <div>
-              <h3 class="h3">InventarioPRO</h3>
-              <span class="badge" style="font-size:0.6875rem;">Negocio</span>
-            </div>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Control de inventario con alertas de stock mínimo y reportes.</span>
-            <span x-show="lang==='en'" x-cloak>Inventory control with low stock alerts and reports.</span>
-          </p>
-          <div class="flex items-center justify-between">
-            <span style="font-size:1.5rem;font-weight:700;">$99 <span class="caption txt-muted">USD</span></span>
-            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20InventarioPRO" target="_blank" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8125rem;">
-              <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Comprar</span><span x-show="lang==='en'" x-cloak>Buy</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 4 -->
-        <div class="card reveal delay-4" @click="activeModal='salud'" role="button" tabindex="0" @keydown.enter="activeModal='salud'" aria-label="SaludTracker - Registro de salud">
-          <div class="flex items-center gap-3" style="margin-bottom:1rem;">
-            <div style="width:3rem;height:3rem;border-radius:12px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--txt-on-accent);">
-              <i class="bi bi-heart-pulse"></i>
-            </div>
-            <div>
-              <h3 class="h3">SaludTracker</h3>
-              <span class="badge" style="font-size:0.6875rem;">Salud</span>
-            </div>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Registro de peso, presión, medicamentos y citas médicas.</span>
-            <span x-show="lang==='en'" x-cloak>Track weight, blood pressure, medications, and appointments.</span>
-          </p>
-          <div class="flex items-center justify-between">
-            <span style="font-size:1.5rem;font-weight:700;">$49 <span class="caption txt-muted">USD</span></span>
-            <a href="https://wa.me/521XXXXXXXXXX?text=Quiero%20SaludTracker" target="_blank" class="btn btn-primary" style="padding:0.5rem 1rem;font-size:0.8125rem;">
-              <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Comprar</span><span x-show="lang==='en'" x-cloak>Buy</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTA desarrollo a medida -->
-      <div class="card reveal" style="margin-top:2rem;text-align:center;padding:2.5rem;border-style:dashed;">
-        <div style="font-size:2.5rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-lightbulb"></i></div>
-        <h3 class="h2" style="margin-bottom:0.5rem;">
-          <span x-show="lang==='es'">¿No encuentras lo que buscas?</span>
-          <span x-show="lang==='en'" x-cloak>Can'"'"'t find what you need?</span>
-        </h3>
-        <p class="body-sm txt-secondary" style="margin-bottom:1.5rem;max-width:24rem;margin-left:auto;margin-right:auto;">
-          <span x-show="lang==='es'">Te construyo la app que necesitas. Cuéntame tu idea y te presupuesto sin compromiso.</span>
-          <span x-show="lang==='en'" x-cloak>I will build the app you need. Tell me your idea and I will quote you.</span>
-        </p>
-        <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-primary">
-          <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Solicitar desarrollo a medida</span><span x-show="lang==='en'" x-cloak>Request custom development</span>
+      <div class="text-center reveal">
+        <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-primary" style="padding:1rem 2.5rem;font-size:1.0625rem;">
+          <i class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Quiero mi .exe + .apk →</span><span x-show="lang==='en'" x-cloak>I want my .exe + .apk →</span>
         </a>
       </div>
     </div>
