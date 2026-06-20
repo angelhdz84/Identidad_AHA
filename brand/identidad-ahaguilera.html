@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AHAguilera — Identidad de Marca</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --surface:#171614;
+  --surface-elevated:#1f1d1a;
+  --surface-hover:#2a2824;
+  --surface-teal:#024653;
+  --surface-teal-hover:#035f6e;
+  --text-primary:#EAF4F5;
+  --text-secondary:#9ba8a9;
+  --text-muted:#5e696a;
+  --accent:#CFF434;
+  --accent-hover:#dbf65a;
+  --accent-secondary:#07D16E;
+  --accent-secondary-hover:#1ae87f;
+  --error:#ef4444;
+  --border:#2a2824;
+  --border-hover:#3a3834;
+  --radius:16px;
+  --radius-sm:8px;
+  --beige-surface:#F5F0EB;
+  --beige-card:#FFFFFF;
+  --beige-text:#171614;
+  --beige-secondary:#6B6560;
+  --beige-border:#E0D6CE;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--surface);
+  color:var(--text-primary);
+  font-family:system-ui,-apple-system,'Segoe UI',sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased
+}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* ===== NAV ===== */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(23,22,20,0.94);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  transition:background 0.3s
+}
+nav .nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:56px;max-width:1100px;margin:0 auto;padding:0 24px
+}
+nav .logo-s{margin:0}
+nav .logo-s svg{height:24px;display:block}
+nav .nav-links{display:flex;gap:4px}
+nav .nav-links a{
+  color:var(--text-secondary);text-decoration:none;
+  font-size:12px;font-weight:500;padding:4px 10px;border-radius:6px;
+  transition:color 0.2s,background 0.2s
+}
+nav .nav-links a:hover{color:var(--accent);background:rgba(207,244,52,0.06)}
+nav .nav-links a.active{color:var(--accent);background:rgba(207,244,52,0.1)}
+.lang-btn{
+  background:none;border:1px solid var(--border);color:var(--text-secondary);
+  padding:4px 10px;border-radius:6px;font-size:11px;font-weight:600;
+  cursor:pointer;transition:border-color 0.2s,color 0.2s
+}
+.lang-btn:hover{border-color:var(--accent);color:var(--accent)}
+.lang-en{display:none}
+
+/* ===== HERO ===== */
+.hero{
+  padding:80px 0 60px;text-align:center;
+  background:linear-gradient(180deg,var(--surface) 0%,var(--surface-elevated) 100%)
+}
+.hero .logo-hero{display:inline-block;margin-bottom:20px}
+.hero .logo-hero svg{width:100%;max-width:720px;height:auto;display:block}
+.hero h1{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-1.5px;margin-bottom:8px}
+.hero h1 span{color:var(--accent)}
+.hero .sub{font-size:16px;color:var(--text-secondary);max-width:480px;margin:0 auto 20px}
+.hero .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.hero .badge-c{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--surface-hover);color:var(--text-secondary);
+  padding:4px 12px;border-radius:999px;font-size:11px;font-weight:500
+}
+.hero .badge-c .dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+
+/* ===== SECTIONS ===== */
+section{padding:60px 0}
+section+section{border-top:1px solid var(--border)}
+.section-beige{
+  background:var(--beige-surface);color:var(--beige-text)
+}
+.section-beige .s-label{color:var(--surface-teal)}
+.section-beige .s-desc{color:var(--beige-secondary)}
+.section-teal{
+  background:var(--surface-teal);color:var(--text-primary)
+}
+.section-teal .s-label{color:var(--accent)}
+.s-label{
+  font-size:11px;font-weight:600;color:var(--accent);
+  letter-spacing:3px;text-transform:uppercase;margin-bottom:6px
+}
+.s-title{
+  font-size:clamp(24px,3vw,36px);font-weight:700;letter-spacing:-1px;
+  margin-bottom:6px
+}
+.s-desc{color:var(--text-secondary);font-size:15px;max-width:600px;margin-bottom:36px}
+
+/* ===== CARDS ===== */
+.card{
+  background:var(--surface-elevated);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;transition:border-color 0.2s
+}
+.card:hover{border-color:var(--accent)}
+.card-beige{background:var(--beige-card);border:1px solid var(--beige-border);border-radius:var(--radius);padding:24px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+
+/* ===== SWATCHES ===== */
+.swatch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.swatch-c{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--surface-elevated)}
+.swatch-c .preview{height:80px;display:flex;align-items:flex-end;padding:10px}
+.swatch-c .preview .hex{
+  font-family:'Courier New',monospace;font-size:11px;font-weight:600;
+  padding:2px 8px;border-radius:4px;background:rgba(0,0,0,0.55);color:#fff;backdrop-filter:blur(4px)
+}
+.swatch-c .info{padding:12px}
+.swatch-c .info .name{font-size:13px;font-weight:600;margin-bottom:1px}
+.swatch-c .info .role{font-size:11px;color:var(--text-muted)}
+.swatch-c .info .token{font-family:'Courier New',monospace;font-size:10px;color:var(--accent-secondary);margin-top:4px}
+
+/* ===== TYPOGRAPHY ===== */
+.typo-grid{display:flex;flex-direction:column;gap:0}
+.typo-r{
+  display:grid;grid-template-columns:100px 1fr;gap:16px;
+  align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border)
+}
+.typo-r:last-child{border-bottom:none}
+.typo-meta{text-align:right}
+.typo-meta .size{font-size:11px;color:var(--accent-secondary);font-family:'Courier New',monospace}
+.typo-meta .weight{font-size:10px;color:var(--text-muted)}
+.typo-s{color:var(--text-primary)}
+.font-demo{
+  background:var(--surface-elevated);border-radius:var(--radius);
+  padding:20px;border:1px solid var(--border)
+}
+.font-demo .fd-label{font-size:10px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.font-demo .fd-preview{font-size:24px;margin-bottom:4px}
+.font-demo .fd-body{font-size:14px;color:var(--text-secondary)}
+.font-demo .fd-meta{font-size:11px;color:var(--text-muted);margin-top:10px;font-family:'Courier New',monospace}
+
+/* ===== TABLES ===== */
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--border)}
+th{color:var(--accent);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+td{color:var(--text-secondary)}
+td:first-child{color:var(--text-primary);font-weight:500}
+.section-beige td:first-child{color:var(--beige-text)}
+.section-beige td{color:var(--beige-secondary)}
+.section-beige th{color:var(--surface-teal)}
+.section-beige tr:last-child td{border-bottom:none}
+.section-teal td{color:rgba(234,244,245,0.8)}
+.section-teal td:first-child{color:#EAF4F5}
+
+/* ===== LISTS ===== */
+.rule-list{list-style:none;display:flex;flex-direction:column;gap:0}
+.rule-list li{
+  padding:10px 0;border-bottom:1px solid var(--border);display:grid;
+  grid-template-columns:60px 1fr;gap:12px;font-size:13px;
+  align-items:start
+}
+.rule-list li:last-child{border-bottom:none}
+.rule-list .tag{
+  display:inline-block;padding:2px 8px;border-radius:4px;
+  font-size:10px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;text-align:center
+}
+.tag-reject{background:rgba(239,68,68,0.15);color:var(--error)}
+.tag-ok{background:rgba(7,209,110,0.15);color:var(--accent-secondary)}
+.tag-required{background:rgba(207,244,52,0.15);color:var(--accent)}
+.tag-info{background:rgba(2,70,83,0.3);color:#EAF4F5}
+.tag-warn{background:rgba(239,68,68,0.12);color:var(--error)}
+
+/* ===== VOICE ===== */
+.voice-do,.voice-dont{
+  background:var(--surface-elevated);border-radius:var(--radius);
+  padding:20px;border:1px solid var(--border)
+}
+.voice-do h3{color:var(--accent-secondary);font-size:13px;margin-bottom:12px}
+.voice-dont h3{color:var(--error);font-size:13px;margin-bottom:12px}
+.v-item{padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
+.v-item:last-child{border-bottom:none}
+.v-item .ctx{font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.v-item .ok{color:var(--accent-secondary)}
+.v-item .no{color:var(--error)}
+
+/* ===== COMPONENT PREVIEWS ===== */
+.cmp-showcase{display:flex;flex-direction:column;gap:16px;padding:24px;background:var(--surface-elevated);border-radius:var(--radius);border:1px solid var(--border)}
+.cmp-label{font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.cmp-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn-demo{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 20px;border-radius:999px;font-size:13px;font-weight:700;
+  cursor:default;transition:none
+}
+.btn-primary-demo{background:var(--accent);color:var(--surface)}
+.btn-outline-demo{border:1px solid rgba(207,244,52,0.3);color:var(--accent)}
+.btn-ghost-demo{background:var(--surface-hover);color:var(--text-secondary)}
+.badge-demo{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:3px 10px;border-radius:999px;font-size:10px;font-weight:600
+}
+.badge-lime-demo{background:var(--accent);color:var(--surface)}
+.badge-teal-demo{background:var(--surface-teal);color:#EAF4F5}
+.card-demo{
+  background:var(--surface-elevated);border:1px solid var(--border);
+  border-radius:12px;padding:16px;max-width:260px
+}
+.card-demo.dark{background:var(--surface)}
+.stack-card-demo{
+  perspective:600px;width:100px;height:100px;cursor:default
+}
+.stack-card-demo .inner{
+  position:relative;width:100%;height:100%;
+  transition:transform 0.4s ease-out;transform-style:preserve-3d
+}
+.stack-card-demo:hover .inner{transform:rotateY(180deg)}
+.stack-card-demo .front,.stack-card-demo .back{
+  position:absolute;inset:0;backface-visibility:hidden;
+  border-radius:10px;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:6px;font-size:11px
+}
+.stack-card-demo .front{background:var(--beige-card);border:1px solid var(--beige-border);color:var(--beige-text)}
+.stack-card-demo .back{
+  background:var(--surface);border:1px solid rgba(207,244,52,0.2);
+  transform:rotateY(180deg);color:var(--accent);padding:8px;font-size:10px
+}
+
+/* ===== PALETTE BAR ===== */
+.palette-bar{display:flex;justify-content:center;gap:0;border-radius:6px;overflow:hidden;margin-top:24px}
+.palette-bar span{width:48px;height:20px;display:block}
+
+/* ===== SECTION MARKERS ===== */
+.section-count{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:6px;
+  background:rgba(207,244,52,0.1);color:var(--accent);
+  font-size:11px;font-weight:700;margin-right:8px;flex-shrink:0
+}
+
+/* ===== ANTI-PATTERN LIST ===== */
+.ap-item{
+  display:grid;grid-template-columns:28px 1fr;gap:8px;
+  padding:8px 0;border-bottom:1px solid var(--border);font-size:12px;align-items:start
+}
+.ap-item:last-child{border-bottom:none}
+.ap-num{
+  width:24px;height:24px;border-radius:6px;
+  background:rgba(239,68,68,0.08);color:var(--error);
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:700;flex-shrink:0
+}
+.ap-item .ap-bad{color:var(--error)}
+.ap-item .ap-good{color:var(--accent-secondary)}
+
+/* ===== LOGO SHOWCASE ===== */
+.logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.logo-card{
+  background:var(--surface-elevated);border-radius:var(--radius);
+  padding:28px 20px;border:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  transition:border-color 0.2s
+}
+.logo-card:hover{border-color:var(--accent)}
+.logo-card .preview{
+  width:100%;min-height:100px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px
+}
+.logo-card .preview svg{max-width:100%;height:auto}
+.logo-card .preview.icon-preview svg{width:80px;height:80px}
+.logo-card h3{font-size:14px;font-weight:600;margin-bottom:2px}
+.logo-card .fname{font-size:11px;color:var(--accent-secondary);font-family:'Courier New',monospace;margin-bottom:6px}
+.logo-card p{font-size:12px;color:var(--text-secondary)}
+.logo-card .usage{
+  display:inline-block;margin-top:8px;
+  padding:2px 10px;border-radius:999px;
+  font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase
+}
+.usage-favicon{background:var(--surface-teal);color:#EAF4F5}
+.usage-header{background:var(--accent);color:var(--surface)}
+.usage-landing{background:var(--accent-secondary);color:var(--surface)}
+
+/* ===== LOGO CONSTRUCTION ===== */
+.construction{
+  background:var(--surface-elevated);border-radius:var(--radius);
+  padding:20px;border:1px solid var(--border);margin-top:20px;
+  font-size:13px;line-height:1.8
+}
+.construction .letter-a{color:var(--accent);font-weight:700}
+.construction .letter-h{color:var(--text-primary);font-weight:700}
+.construction .letter-guilera{color:var(--text-secondary)}
+.construction .accent-line{color:var(--accent-secondary)}
+.construction .tagline-c{color:var(--surface-teal);font-weight:500;letter-spacing:2px;text-transform:uppercase;font-size:11px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .grid-2,.grid-3,.logo-grid{grid-template-columns:1fr}
+  .typo-r{grid-template-columns:1fr;gap:4px}
+  .typo-meta{text-align:left;display:flex;gap:8px;align-items:center}
+  nav .nav-links{gap:0}
+  nav .nav-links a{font-size:10px;padding:4px 6px}
+  .rule-list li{grid-template-columns:50px 1fr}
+  .hero .logo-hero svg{max-width:100%}
+}
+
+/* ===== UTILITIES ===== */
+.mt-1{margin-top:8px}.mt-2{margin-top:16px}.mt-3{margin-top:24px}.mb-1{margin-bottom:8px}.mb-2{margin-bottom:16px}.mb-3{margin-bottom:24px}
+.flex{display:flex}.flex-wrap{flex-wrap:wrap}.gap-1{gap:8px}.gap-2{gap:16px}.gap-3{gap:24px}
+.items-center{align-items:center}.justify-center{justify-content:center}
+.txt-center{text-align:center}.txt-mono{font-family:'Courier New',monospace}
+.txt-accent{color:var(--accent)}.txt-secondary{color:var(--text-secondary)}.txt-muted{color:var(--text-muted)}
+.w-full{width:100%}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;padding:40px 24px 32px;
+  color:var(--text-muted);font-size:12px
+}
+footer strong{color:var(--text-secondary)}
+footer .links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+footer .links a{color:var(--text-muted);text-decoration:none;font-size:12px;transition:color 0.2s}
+footer .links a:hover{color:var(--accent)}
+
+/* ===== MANIFESTO BLOCK ===== */
+.manifesto{font-size:18px;font-weight:500;color:var(--accent);text-align:center;padding:24px 0;font-style:italic;line-height:1.5;max-width:600px;margin:0 auto}
+.manifesto-sub{color:var(--text-muted);text-align:center;font-size:13px;margin-top:8px}
+
+/* ===== IA JUTIA ===== */
+.ia-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ia-card{
+  background:var(--surface-elevated);border-radius:var(--radius);
+  padding:20px;border:1px solid var(--border)
+}
+.ia-card h3{font-size:14px;font-weight:600;margin-bottom:4px}
+.ia-card .sub{font-size:11px;color:var(--accent);margin-bottom:10px}
+.ia-card ul{list-style:none}
+.ia-card ul li{
+  font-size:12px;color:var(--text-secondary);padding:5px 0;
+  display:flex;align-items:center;gap:6px
+}
+.ia-card ul li::before{content:'\2713';color:var(--accent);font-weight:700}
+
+/* ===== COMPLIANCE ===== */
+.compliance-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.comp-item{
+  background:var(--surface-elevated);border-radius:10px;
+  padding:16px;border:1px solid var(--border);font-size:12px
+}
+.comp-item .icon{font-size:16px;display:block;margin-bottom:6px}
+.comp-item h4{font-size:13px;font-weight:600;margin-bottom:4px}
+.comp-item p{color:var(--text-secondary)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo-s">
+      <svg viewBox="0 0 400 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="20" y="42" font-family="system-ui,sans-serif" font-size="32" font-weight="800" fill="#CFF434" letter-spacing="-1.5">A</text>
+        <text x="50" y="42" font-family="system-ui,sans-serif" font-size="32" font-weight="800" fill="#EAF4F5" letter-spacing="-1.5">H</text>
+        <text x="80" y="42" font-family="system-ui,sans-serif" font-size="32" font-weight="800" fill="#CFF434" letter-spacing="-1.5">A</text>
+        <text x="112" y="42" font-family="system-ui,sans-serif" font-size="28" font-weight="400" fill="#EAF4F5" letter-spacing="-1">guilera</text>
+      </svg>
+    </div>
+    <div class="nav-links">
+      <a href="#manifiesto">Manifiesto</a>
+      <a href="#logo">Logo</a>
+      <a href="#color">Color</a>
+      <a href="#tipografia">Tipo</a>
+      <a href="#diseno">Diseño</a>
+      <a href="#animaciones">Motion</a>
+      <a href="#voz">Voz</a>
+      <a href="#compliance">Stack</a>
+      <a href="#ia">IA</a>
+    </div>
+    <button class="lang-btn" onclick="toggleLang()">EN</button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="logo-hero">
+      <svg viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="50" width="100" height="100" rx="20" fill="#024653"/>
+        <text x="58" y="120" font-family="system-ui,sans-serif" font-size="44" font-weight="800" fill="#CFF434" letter-spacing="-2">A</text>
+        <text x="88" y="120" font-family="system-ui,sans-serif" font-size="44" font-weight="800" fill="#EAF4F5" letter-spacing="-2">H</text>
+        <text x="118" y="120" font-family="system-ui,sans-serif" font-size="44" font-weight="800" fill="#07D16E" letter-spacing="-2">A</text>
+        <text x="170" y="118" font-family="system-ui,sans-serif" font-size="64" font-weight="800" fill="#CFF434" letter-spacing="-2.5">AHA</text>
+        <text x="340" y="118" font-family="system-ui,sans-serif" font-size="56" font-weight="400" fill="#EAF4F5" letter-spacing="-1.5">guilera</text>
+        <text x="172" y="148" font-family="system-ui,sans-serif" font-size="13" font-weight="500" fill="#024653" letter-spacing="4.5">DESARROLLO FREELANCE — APPS OFFLINE-FIRST</text>
+        <line x1="170" y1="138" x2="310" y2="138" stroke="#07D16E" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1><span>Identidad</span> de Marca</h1>
+    <p class="sub lang-es">Documento de referencia de la identidad visual, verbal y técnica de AHAguilera. Todo en un solo archivo, sin depender de nada.</p>
+    <p class="sub lang-en">Brand identity reference: visual, verbal and technical identity of AHAguilera. Everything in one file, depending on nothing.</p>
+    <div class="badges">
+      <span class="badge-c"><span class="dot" style="background:#CFF434"></span>#CFF434</span>
+      <span class="badge-c"><span class="dot" style="background:#07D16E"></span>#07D16E</span>
+      <span class="badge-c"><span class="dot" style="background:#024653"></span>#024653</span>
+      <span class="badge-c"><span class="dot" style="background:#F5F0EB"></span>#F5F0EB</span>
+      <span class="badge-c"><span class="dot" style="background:#171614"></span>#171614</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 1. MANIFIESTO ===== -->
+<section class="section-teal" id="manifiesto">
+  <div class="container">
+    <div class="s-label txt-center"><span class="section-count">1</span> Manifiesto</div>
+    <h2 class="s-title txt-center">Filosofía de marca</h2>
+    <p class="s-desc txt-center lang-es">Libertad tecnológica. Calidad freelance. Simplicidad radical.</p>
+    <p class="s-desc txt-center lang-en">Technological freedom. Freelance quality. Radical simplicity.</p>
+
+    <div class="manifesto lang-es">"La mejor infraestructura es la que no existe."</div>
+    <div class="manifesto lang-en">"The best infrastructure is the one that doesn't exist."</div>
+    <p class="manifesto-sub lang-es">— Angel Hernández Aguilera</p>
+    <p class="manifesto-sub lang-en">— Angel Hernández Aguilera</p>
+
+    <div class="grid-3 mt-3">
+      <div class="card">
+        <div style="font-size:24px;color:var(--accent);margin-bottom:8px">⚡</div>
+        <h3 style="font-size:15px;font-weight:600;margin-bottom:6px" class="lang-es">Offline-first real</h3>
+        <h3 style="font-size:15px;font-weight:600;margin-bottom:6px" class="lang-en">True offline-first</h3>
+        <p style="font-size:13px;color:var(--text-secondary)" class="lang-es">La app funciona sin internet. No hay "modo offline" porque no hay "modo online". Los datos viven en el dispositivo del usuario.</p>
+        <p style="font-size:13px;color:var(--text-secondary)" class="lang-en">The app works without internet. There is no "offline mode" because there is no "online mode". Data lives on the user's device.</p>
+      </div>
+      <div class="card">
+        <div style="font-size:24px;color:var(--accent);margin-bottom:8px">🔒</div>
+        <h3 style="font-size:15px;font-weight:600;margin-bottom:6px" class="lang-es">Privacidad por diseño</h3>
+        <h3 style="font-size:15px;font-weight:600;margin-bottom:6px" class="lang-en">Privacy by design</h3>
+        <p style="font-size:13px;color:var(--text-secondary)" class="lang-es">Los datos del usuario nunca salen de su dispositivo. Cifrado AES-256 obligatorio. Ni el desarrollador tiene acceso.</p>
+        <p style="font-size:13px;color:var(--text-secondary)" class="lang-en">User data never leaves their device. AES-256 encryption mandatory. Not even the developer has access.</p>
+      </div>
+      <div class="card">
+        <div style="font-size:24px;color:var(--accent);margin-bottom:8px">📦</div>
+        <h3 style="font-size:15px;font-weight:600;margin-bottom:6px" class="lang-es">Sin servidores</h3>
+        <h3 style="font-size:15px;font-weight:600;margin-bottom:6px" class="lang-en">No servers</h3>
+        <p style="font-size:13px;color:var(--text-secondary)" class="lang-es">No backend, no API, no cloud. Zero DevOps. El deploy es copiar archivos. Una app, dos formatos: .exe + .apk.</p>
+        <p style="font-size:13px;color:var(--text-secondary)" class="lang-en">No backend, no API, no cloud. Zero DevOps. Deploy is copy files. One app, two formats: .exe + .apk.</p>
+      </div>
+    </div>
+
+    <div class="card mt-3" style="background:transparent;border-color:rgba(255,255,255,0.08);text-align:center">
+      <p style="font-size:13px;color:rgba(234,244,245,0.7);max-width:500px;margin:0 auto" class="lang-es">
+        Mientras la industria corre hacia más complejidad (microservicios, containers, edge functions, AI ops), AHAguilera corre hacia <strong style="color:var(--accent)">menos</strong>. El stack entero cabe en un <code style="background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px;font-size:11px">index.html</code>.
+      </p>
+      <p style="font-size:13px;color:rgba(234,244,245,0.7);max-width:500px;margin:0 auto" class="lang-en">
+        While the industry runs toward more complexity (microservices, containers, edge functions, AI ops), AHAguilera runs toward <strong style="color:var(--accent)">less</strong>. The entire stack fits in an <code style="background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px;font-size:11px">index.html</code>.
+      </p>
+    </div>
+
+    <div class="grid-3 mt-3">
+      <div class="card" style="text-align:center">
+        <div style="font-size:32px;color:var(--accent);margin-bottom:4px">$0</div>
+        <p style="font-size:12px;color:var(--text-muted)">mensualidades</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:32px;color:var(--accent);margin-bottom:4px">.exe + .apk</div>
+        <p style="font-size:12px;color:var(--text-muted)">dos formatos, un código</p>
+      </div>
+      <div class="card" style="text-align:center">
+        <div style="font-size:32px;color:var(--accent);margin-bottom:4px">100%</div>
+        <p style="font-size:12px;color:var(--text-muted)">offline, sin CDN</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. LOGO ===== -->
+<section id="logo">
+  <div class="container">
+    <div class="s-label"><span class="section-count">2</span> Logo</div>
+    <h2 class="s-title">Variantes del logotipo</h2>
+    <p class="s-desc lang-es">Tres variantes para diferentes contextos. Cada una optimizada para su uso específico con colores, pesos y proporciones definidas.</p>
+    <p class="s-desc lang-en">Three variants for different contexts. Each optimized for its specific use with defined colors, weights, and proportions.</p>
+
+    <div class="logo-grid">
+      <div class="logo-card">
+        <div class="preview icon-preview">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="120" height="120" rx="24" fill="#171614"/>
+            <path d="M26 82 L40 38 L54 82" stroke="#CFF434" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M32 68 L48 68" stroke="#CFF434" stroke-width="4" stroke-linecap="round"/>
+            <path d="M54 38 L54 82" stroke="#EAF4F5" stroke-width="7" stroke-linecap="round"/>
+            <path d="M80 38 L80 82" stroke="#EAF4F5" stroke-width="7" stroke-linecap="round"/>
+            <path d="M54 60 L80 60" stroke="#EAF4F5" stroke-width="4" stroke-linecap="round"/>
+            <path d="M66 82 L80 38 L94 82" stroke="#07D16E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M72 68 L88 68" stroke="#07D16E" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="26" cy="96" r="2" fill="#024653"/>
+            <circle cx="60" cy="96" r="2" fill="#024653"/>
+            <circle cx="94" cy="96" r="2" fill="#024653"/>
+          </svg>
+        </div>
+        <h3 class="lang-es">Icono</h3>
+        <h3 class="lang-en">Icon</h3>
+        <div class="fname">logo-icon.svg</div>
+        <p class="lang-es">Monograma AHA geométrico. Cada letra tiene su color de marca.</p>
+        <p class="lang-en">Geometric AHA monogram. Each letter in its brand color.</p>
+        <span class="usage usage-favicon">Favicon · App icon · Avatar</span>
+      </div>
+      <div class="logo-card">
+        <div class="preview">
+          <svg viewBox="0 0 600 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:380px">
+            <text x="36" y="78" font-family="system-ui,sans-serif" font-size="56" font-weight="800" fill="#CFF434" letter-spacing="-2">A</text>
+            <text x="92" y="78" font-family="system-ui,sans-serif" font-size="56" font-weight="800" fill="#EAF4F5" letter-spacing="-2">H</text>
+            <text x="150" y="78" font-family="system-ui,sans-serif" font-size="56" font-weight="800" fill="#CFF434" letter-spacing="-2">A</text>
+            <text x="208" y="78" font-family="system-ui,sans-serif" font-size="50" font-weight="400" fill="#EAF4F5" letter-spacing="-1.5">guilera</text>
+            <line x1="36" y1="94" x2="174" y2="94" stroke="#07D16E" stroke-width="2.5" stroke-linecap="round"/>
+            <text x="36" y="106" font-family="system-ui,sans-serif" font-size="11" font-weight="500" fill="#024653" letter-spacing="4">SOFTWARE FREELANCE</text>
+          </svg>
+        </div>
+        <h3 class="lang-es">Wordmark</h3>
+        <h3 class="lang-en">Wordmark</h3>
+        <div class="fname">logo-wordmark.svg</div>
+        <p class="lang-es">Marca textual con acento lime y línea verde. Para header web, docs, firma email.</p>
+        <p class="lang-en">Textual mark with lime accent and green line. For web header, docs, email signature.</p>
+        <span class="usage usage-header">Header · Docs · Email</span>
+      </div>
+      <div class="logo-card">
+        <div class="preview">
+          <svg viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:460px">
+            <rect x="40" y="50" width="100" height="100" rx="20" fill="#024653"/>
+            <text x="58" y="120" font-family="system-ui,sans-serif" font-size="44" font-weight="800" fill="#CFF434" letter-spacing="-2">A</text>
+            <text x="88" y="120" font-family="system-ui,sans-serif" font-size="44" font-weight="800" fill="#EAF4F5" letter-spacing="-2">H</text>
+            <text x="118" y="120" font-family="system-ui,sans-serif" font-size="44" font-weight="800" fill="#07D16E" letter-spacing="-2">A</text>
+            <text x="170" y="118" font-family="system-ui,sans-serif" font-size="64" font-weight="800" fill="#CFF434" letter-spacing="-2.5">AHA</text>
+            <text x="340" y="118" font-family="system-ui,sans-serif" font-size="56" font-weight="400" fill="#EAF4F5" letter-spacing="-1.5">guilera</text>
+            <text x="172" y="148" font-family="system-ui,sans-serif" font-size="13" font-weight="500" fill="#024653" letter-spacing="4.5">DESARROLLO FREELANCE — APPS OFFLINE-FIRST</text>
+            <line x1="170" y1="138" x2="310" y2="138" stroke="#07D16E" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="lang-es">Completo</h3>
+        <h3 class="lang-en">Full</h3>
+        <div class="fname">logo-full.svg</div>
+        <p class="lang-es">Icono + marca + tagline. Para landing page, presentaciones, marketing.</p>
+        <p class="lang-en">Icon + brand + tagline. For landing page, presentations, marketing.</p>
+        <span class="usage usage-landing">Landing · Presentaciones</span>
+      </div>
+    </div>
+
+    <div class="construction">
+      <h4 class="lang-es" style="font-size:13px;font-weight:600;margin-bottom:8px">Composición del wordmark</h4>
+      <h4 class="lang-en" style="font-size:13px;font-weight:600;margin-bottom:8px">Wordmark composition</h4>
+      <div>
+        <span class="letter-a">A</span><span class="letter-h">H</span><span class="letter-a">A</span><span class="letter-guilera">guilera</span>
+        <span class="accent-line"> —</span> línea verde bajo AHA
+        <br><span class="tagline-c">Software Freelance / Apps Offline-First</span>
+      </div>
+      <div class="mt-2" style="font-size:12px;color:var(--text-muted)">
+        <span class="lang-es"><strong style="color:var(--text-primary)">Reglas:</strong> No cambiar colores · No rotar/distorsionar · No sombras/gradientes · No separar icono del wordmark · Área de seguridad = 20% del alto · Icono mínimo 24px · Wordmark mínimo 120px</span>
+        <span class="lang-en"><strong style="color:var(--text-primary)">Rules:</strong> Don't change colors · Don't rotate/distort · No shadows/gradients · Don't separate icon from wordmark · Safe area = 20% of height · Icon min 24px · Wordmark min 120px</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. COLOR ===== -->
+<section class="section-beige" id="color">
+  <div class="container">
+    <div class="s-label"><span class="section-count">3</span> Color</div>
+    <h2 class="s-title">Paleta cromática</h2>
+    <p class="s-desc lang-es">Sistema de color dual-mode: oscuro para secciones tech, beige para secciones cálidas. El acento lime #CFF434 es universal y funciona sobre ambos modos.</p>
+    <p class="s-desc lang-en">Dual-mode color system: dark for tech sections, beige for warm sections. The lime accent #CFF434 is universal and works on both modes.</p>
+
+    <h3 class="lang-es" style="font-size:15px;font-weight:600;margin-bottom:12px;color:var(--surface-teal)">🎨 Modo oscuro (tech)</h3>
+    <h3 class="lang-en" style="font-size:15px;font-weight:600;margin-bottom:12px;color:var(--surface-teal)">🎨 Dark mode (tech)</h3>
+    <div class="swatch-grid mb-3">
+      <div class="swatch-c"><div class="preview" style="background:#171614"><span class="hex">#171614</span></div><div class="info"><div class="name">Surface</div><div class="role">Fondo principal</div><div class="token">--surface</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#1f1d1a"><span class="hex">#1f1d1a</span></div><div class="info"><div class="name">Surface Elevated</div><div class="role">Cards, modales</div><div class="token">--surface-elevated</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#2a2824"><span class="hex">#2a2824</span></div><div class="info"><div class="name">Surface Hover</div><div class="role">Hover states, bordes</div><div class="token">--surface-hover</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#024653"><span class="hex">#024653</span></div><div class="info"><div class="name">Surface Teal</div><div class="role">Secciones destacadas, tags</div><div class="token">--surface-teal</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#EAF4F5"><span class="hex">#EAF4F5</span></div><div class="info"><div class="name">Text Primary</div><div class="role">Texto sobre dark</div><div class="token">--text-primary</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#9ba8a9"><span class="hex">#9ba8a9</span></div><div class="info"><div class="name">Text Secondary</div><div class="role">Texto secundario</div><div class="token">--text-secondary</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#5e696a"><span class="hex">#5e696a</span></div><div class="info"><div class="name">Text Muted</div><div class="role">Placeholders, metadata</div><div class="token">--text-muted</div></div></div>
+    </div>
+
+    <h3 class="lang-es" style="font-size:15px;font-weight:600;margin-bottom:12px;color:var(--surface-teal)">🎨 Modo claro / beige (cálido)</h3>
+    <h3 class="lang-en" style="font-size:15px;font-weight:600;margin-bottom:12px;color:var(--surface-teal)">🎨 Light / beige mode (warm)</h3>
+    <div class="swatch-grid mb-3">
+      <div class="swatch-c"><div class="preview" style="background:#F5F0EB"><span class="hex">#F5F0EB</span></div><div class="info"><div class="name">Canvas</div><div class="role">Fondo beige natural</div><div class="token">--beige-surface</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#FFFFFF;border:1px solid #ddd"><span class="hex">#FFFFFF</span></div><div class="info"><div class="name">Card</div><div class="role">Cards en secciones beige</div><div class="token">--beige-card</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#171614;border:1px solid #333"><span class="hex">#171614</span></div><div class="info"><div class="name">Text Primary</div><div class="role">Texto sobre beige</div><div class="token">--beige-text</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#6B6560"><span class="hex">#6B6560</span></div><div class="info"><div class="name">Text Secondary</div><div class="role">Texto secundario beige</div><div class="token">--beige-secondary</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#E0D6CE"><span class="hex">#E0D6CE</span></div><div class="info"><div class="name">Border</div><div class="role">Bordes en modo beige</div><div class="token">--beige-border</div></div></div>
+    </div>
+
+    <h3 class="lang-es" style="font-size:15px;font-weight:600;margin-bottom:12px;color:var(--surface-teal)">🎨 Acentos (universales — funcionan en ambos modos)</h3>
+    <h3 class="lang-en" style="font-size:15px;font-weight:600;margin-bottom:12px;color:var(--surface-teal)">🎨 Accents (universal — work on both modes)</h3>
+    <div class="swatch-grid mb-3">
+      <div class="swatch-c"><div class="preview" style="background:#CFF434"><span class="hex" style="background:rgba(0,0,0,0.6);color:#CFF434">#CFF434</span></div><div class="info"><div class="name">Acento Primario</div><div class="role">CTAs, links, highlights. Máx 10% del área.</div><div class="token">--accent (--brand-primary)</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#dbf65a"><span class="hex" style="background:rgba(0,0,0,0.6);color:#dbf65a">#dbf65a</span></div><div class="info"><div class="name">Acento Hover</div><div class="role">Hover del acento primario</div><div class="token">--accent-hover</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#07D16E"><span class="hex" style="background:rgba(0,0,0,0.6);color:#07D16E">#07D16E</span></div><div class="info"><div class="name">Acento Secundario</div><div class="role">Éxito, badges, checks</div><div class="token">--accent-secondary</div></div></div>
+      <div class="swatch-c"><div class="preview" style="background:#ef4444"><span class="hex" style="background:rgba(0,0,0,0.6);color:#ef4444">#ef4444</span></div><div class="info"><div class="name">Error</div><div class="role">Errores, alertas críticas</div><div class="token">--error</div></div></div>
+    </div>
+
+    <div class="card mt-2" style="background:transparent;border-color:var(--beige-border)">
+      <h4 class="lang-es" style="font-size:13px;font-weight:600;margin-bottom:6px">📐 Jerarquía de color</h4>
+      <h4 class="lang-en" style="font-size:13px;font-weight:600;margin-bottom:6px">📐 Color hierarchy</h4>
+      <table>
+        <tr><th style="color:var(--surface-teal)">Elemento</th><th style="color:var(--surface-teal)">Color</th></tr>
+        <tr><td>Botón primario (CTA)</td><td>Fondo <strong>#CFF434</strong>, texto <strong>#171614</strong></td></tr>
+        <tr><td class="lang-es">Botón secundario</td><td class="lang-en">Secondary button</td><td>Borde <strong>#CFF434</strong> sobre fondo transparente</td></tr>
+        <tr><td>Links</td><td><strong>#CFF434</strong> subrayado</td></tr>
+        <tr><td class="lang-es">Éxito</td><td class="lang-en">Success</td><td><strong>#07D16E</strong></td></tr>
+        <tr><td class="lang-es">Tags / Badges</td><td class="lang-en">Tags / Badges</td><td>Fondo <strong>#024653</strong>, texto <strong>#EAF4F5</strong></td></tr>
+        <tr><td>Focus ring</td><td><strong>#CFF434</strong> con offset 2px</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. TIPOGRAFÍA ===== -->
+<section id="tipografia">
+  <div class="container">
+    <div class="s-label"><span class="section-count">4</span> Tipografía</div>
+    <h2 class="s-title">Escala tipográfica</h2>
+    <p class="s-desc lang-es">Inter para todo (UI, headings, body). JetBrains Mono para código. Una familia basta con pesos variados.</p>
+    <p class="s-desc lang-en">Inter for everything (UI, headings, body). JetBrains Mono for code. One family is enough with varied weights.</p>
+
+    <div class="grid-3 mb-3">
+      <div class="font-demo">
+        <div class="fd-label">UI · Headings · Body</div>
+        <div class="fd-preview" style="font-weight:800;letter-spacing:-0.5px">Inter</div>
+        <div class="fd-body">El veloz murciélago hindú comía feliz cardillo y kiwi. 1234567890</div>
+        <div class="fd-meta">Pesos: 400, 500, 600, 700, 800</div>
+      </div>
+      <div class="font-demo">
+        <div class="fd-label">Código · CLI</div>
+        <div class="fd-preview" style="font-family:'Courier New',monospace;font-weight:600;font-size:22px">JetBrains Mono</div>
+        <div class="fd-body" style="font-family:'Courier New',monospace;font-size:13px">const fn = (x) =&gt; x.map(n =&gt; n * 2);</div>
+        <div class="fd-meta">Pesos: 400, 600</div>
+      </div>
+      <div class="font-demo">
+        <div class="fd-label">Display (opcional)</div>
+        <div class="fd-preview" style="font-weight:700;letter-spacing:-1px">Space Grotesk</div>
+        <div class="fd-body">Para hero y títulos grandes cuando se busca un toque distintivo.</div>
+        <div class="fd-meta">Alternativa: Inter Bold</div>
+      </div>
+    </div>
+
+    <div class="typo-grid">
+      <div class="typo-r"><div class="typo-meta"><div class="size">72px</div><div class="weight">Bold 700</div></div><div class="typo-s" style="font-size:clamp(32px,5vw,72px);font-weight:700;letter-spacing:-0.03em;line-height:1">Display — Hero heading</div></div>
+      <div class="typo-r"><div class="typo-meta"><div class="size">48px</div><div class="weight">Bold 700</div></div><div class="typo-s" style="font-size:clamp(26px,3.5vw,48px);font-weight:700;letter-spacing:-0.02em">H1 — Título de sección</div></div>
+      <div class="typo-r"><div class="typo-meta"><div class="size">36px</div><div class="weight">Bold 700</div></div><div class="typo-s" style="font-size:clamp(22px,2.8vw,36px);font-weight:700;letter-spacing:-0.015em">H2 — Subsección</div></div>
+      <div class="typo-r"><div class="typo-meta"><div class="size">28px</div><div class="weight">Semibold 600</div></div><div class="typo-s" style="font-size:clamp(18px,2vw,28px);font-weight:600;letter-spacing:-0.01em">H3 — Card title</div></div>
+      <div class="typo-r"><div class="typo-meta"><div class="size">18px</div><div class="weight">Regular 400</div></div><div class="typo-s" style="font-size:18px;line-height:1.6">Body — Texto normal para párrafos. Máximo 64 caracteres por línea para legibilidad óptima en lectura continua.</div></div>
+      <div class="typo-r"><div class="typo-meta"><div class="size">14px</div><div class="weight">Regular 400</div></div><div class="typo-s" style="font-size:14px;color:var(--text-secondary)">Small — Texto secundario, metadatos, descripciones auxiliares</div></div>
+      <div class="typo-r"><div class="typo-meta"><div class="size">12px</div><div class="weight">Medium 500</div></div><div class="typo-s" style="font-size:12px;letter-spacing:0.02em;color:var(--text-muted)">Caption — Labels, timestamps, info de baja jerarquía</div></div>
+      <div class="typo-r"><div class="typo-meta"><div class="size">11px</div><div class="weight">Medium 500</div></div><div class="typo-s" style="font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent)">Tagline — Letter-spacing 0.3em · Siempre mayúsculas</div></div>
+      <div class="typo-r"><div class="typo-meta"><div class="size">14px</div><div class="weight">Regular 400</div></div><div class="typo-s" style="font-size:14px;color:var(--accent-secondary);font-family:'Courier New',monospace">const marca = new AHAguilera('offline-first'); // JetBrains Mono</div></div>
+    </div>
+
+    <div class="card mt-3">
+      <h4 class="lang-es" style="font-size:13px;font-weight:600;margin-bottom:8px">📐 Reglas tipográficas</h4>
+      <h4 class="lang-en" style="font-size:13px;font-weight:600;margin-bottom:8px">📐 Typography rules</h4>
+      <ul class="rule-list">
+        <li><span class="tag tag-ok">OBLIG</span><span class="lang-es">Body mínimo 16px. Máximo 64ch por línea.</span><span class="lang-en">Body min 16px. Max 64ch per line.</span></li>
+        <li><span class="tag tag-ok">OBLIG</span><span class="lang-es">Usar <code>rem</code>. Nunca <code>px</code> en font-size.</span><span class="lang-en">Use <code>rem</code>. Never <code>px</code> for font-size.</span></li>
+        <li><span class="tag tag-ok">OBLIG</span><span class="lang-es">Tagline siempre en caps con letter-spacing amplio (0.3em).</span><span class="lang-en">Tagline always caps with wide letter-spacing (0.3em).</span></li>
+        <li><span class="tag tag-ok">OBLIG</span><span class="lang-es">Código siempre en JetBrains Mono (o Courier New como fallback).</span><span class="lang-en">Code always in JetBrains Mono (or Courier New as fallback).</span></li>
+        <li><span class="tag tag-info">SUG</span><span class="lang-es">Una familia (Inter) basta. Pesos variados crean jerarquía.</span><span class="lang-en">One family (Inter) is enough. Varied weights create hierarchy.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. SISTEMA DE DISEÑO ===== -->
+<section class="section-beige" id="diseno">
+  <div class="container">
+    <div class="s-label"><span class="section-count">5</span> Sistema de diseño</div>
+    <h2 class="s-title">Componentes</h2>
+    <p class="s-desc lang-es">Componentes visuales del sistema dual-mode. Todos GPU-safe, WCAG AA, touch targets ≥ 44px.</p>
+    <p class="s-desc lang-en">Visual components of the dual-mode system. All GPU-safe, WCAG AA, touch targets ≥ 44px.</p>
+
+    <!-- Nav -->
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;color:var(--surface-teal)">Nav Glass</h3>
+    <div class="card-beige mb-3" style="padding:16px;display:flex;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:8px">
+        <svg viewBox="0 0 200 30" fill="none" style="height:18px">
+          <text x="10" y="22" font-family="system-ui,sans-serif" font-size="16" font-weight="800" fill="#171614" letter-spacing="-1">A</text>
+          <text x="26" y="22" font-family="system-ui,sans-serif" font-size="16" font-weight="800" fill="#171614" letter-spacing="-1">H</text>
+          <text x="42" y="22" font-family="system-ui,sans-serif" font-size="16" font-weight="800" fill="#171614" letter-spacing="-1">A</text>
+          <text x="58" y="22" font-family="system-ui,sans-serif" font-size="14" font-weight="400" fill="#171614" letter-spacing="-0.5">guilera</text>
+        </svg>
+      </div>
+      <div style="display:flex;gap:12px;font-size:11px;color:var(--beige-secondary)">
+        <span>Apps</span><span>Precios</span><span>IA</span><span>FAQ</span>
+      </div>
+      <span class="badge-demo badge-lime-demo" style="font-size:9px">Contactar</span>
+    </div>
+    <p style="font-size:12px;color:var(--beige-secondary);margin-bottom:20px" class="lang-es">
+      Nav fijo con glassmorphism. Cambia de fondo (oscuro → beige) al cruzar secciones beige. Logo cambia de lime a carbón.
+    </p>
+    <p style="font-size:12px;color:var(--beige-secondary);margin-bottom:20px" class="lang-en">
+      Fixed nav with glassmorphism. Background changes (dark → beige) when crossing beige sections. Logo switches from lime to charcoal.
+    </p>
+
+    <!-- Buttons -->
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;color:var(--surface-teal)">Botones</h3>
+    <div class="card-beige mb-3">
+      <div class="cmp-row">
+        <span class="btn-demo btn-primary-demo" class="lang-es">Empezar ahora →</span>
+        <span class="btn-demo btn-outline-demo" class="lang-es">Ver catálogo</span>
+        <span class="btn-demo btn-ghost-demo" class="lang-es">Cancelar</span>
+      </div>
+      <div class="cmp-row mt-2">
+        <span class="btn-demo btn-primary-demo" class="lang-en">Start now →</span>
+        <span class="btn-demo btn-outline-demo" class="lang-en">View catalog</span>
+      </div>
+      <div style="font-size:11px;color:var(--beige-secondary);margin-top:12px">
+        <span class="lang-es">Primario: fondo #CFF434, texto #171614, border-radius 999px. Sin bordes, sin sombras. Outline: borde rgba(207,244,52,0.3), texto #CFF434.</span>
+        <span class="lang-en">Primary: bg #CFF434, text #171614, border-radius 999px. No borders, no shadows. Outline: border rgba(207,244,52,0.3), text #CFF434.</span>
+      </div>
+    </div>
+
+    <!-- Badges -->
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;color:var(--surface-teal)">Badges</h3>
+    <div class="card-beige mb-3">
+      <div class="cmp-row">
+        <span class="badge-demo badge-lime-demo">POPULAR</span>
+        <span class="badge-demo badge-teal-demo">NEGOCIO</span>
+        <span class="badge-demo" style="border:1px solid rgba(207,244,52,0.3);color:var(--surface-teal);font-size:10px">🖥️+📱 .exe + .apk</span>
+      </div>
+      <div style="font-size:11px;color:var(--beige-secondary);margin-top:8px">
+        <span class="lang-es">Lime (#CFF434) para estados activos/destacados. Teal (#024653) para categorías. Formato con borde lime para .exe + .apk.</span>
+        <span class="lang-en">Lime (#CFF434) for active/highlighted states. Teal (#024653) for categories. Format badge with lime border for .exe + .apk.</span>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;color:var(--surface-teal)">Cards</h3>
+    <div class="grid-2 mb-3">
+      <div class="card-demo dark" style="background:var(--surface);border:1px solid rgba(255,255,255,0.08)">
+        <div style="height:80px;border-radius:8px;background:rgba(207,244,52,0.06);margin-bottom:10px;display:flex;gap:4px;padding:8px">
+          <div style="flex:1;border-radius:4px;background:rgba(207,244,52,0.08)"></div>
+          <div style="flex:1;border-radius:4px;background:rgba(207,244,52,0.04)"></div>
+        </div>
+        <div style="font-size:13px;font-weight:600;color:var(--text-primary);margin-bottom:4px">Card oscura</div>
+        <div style="font-size:11px;color:var(--text-secondary)">Hover: border lime + translateY(-4px) + glow</div>
+      </div>
+      <div class="card-demo" style="background:var(--beige-card);border:1px solid var(--beige-border)">
+        <div style="height:80px;border-radius:8px;background:rgba(2,70,83,0.04);margin-bottom:10px"></div>
+        <div style="font-size:13px;font-weight:600;color:var(--beige-text);margin-bottom:4px">Card beige</div>
+        <div style="font-size:11px;color:var(--beige-secondary)">Hover: border lime + translateY(-2px)</div>
+      </div>
+    </div>
+
+    <!-- Stack flip -->
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;color:var(--surface-teal)">Stack Flip Cards</h3>
+    <div style="display:flex;gap:12px;flex-wrap:wrap" class="mb-3">
+      <div class="stack-card-demo"><div class="inner"><div class="front"><span style="font-size:18px">⚡</span><span>Alpine.js</span></div><div class="back">Responde al instante</div></div></div>
+      <div class="stack-card-demo"><div class="inner"><div class="front"><span style="font-size:18px">🗄️</span><span>Dexie.js</span></div><div class="back">Datos nunca suben</div></div></div>
+      <div class="stack-card-demo"><div class="inner"><div class="front"><span style="font-size:18px">🔒</span><span>CryptoJS</span></div><div class="back">Ni yo veo tus datos</div></div></div>
+      <div class="stack-card-demo"><div class="inner"><div class="front"><span style="font-size:18px">📎</span><span>pako</span></div><div class="back">App más ligera</div></div></div>
+      <div class="stack-card-demo"><div class="inner"><div class="front"><span style="font-size:18px">📄</span><span>jsPDF</span></div><div class="back">PDF sin internet</div></div></div>
+      <div class="stack-card-demo"><div class="inner"><div class="front"><span style="font-size:18px">📊</span><span>SheetJS</span></div><div class="back">Excel sin conexión</div></div></div>
+    </div>
+
+    <!-- CTA Final -->
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:8px;color:var(--surface-teal)">CTA Final (con pulse)</h3>
+    <div class="card-beige mb-3" style="text-align:center;padding:24px">
+      <div style="font-size:28px;color:var(--surface-teal);margin-bottom:8px"><span>🚀</span></div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:4px" class="lang-es">¿Listo para empezar?</div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:4px" class="lang-en">Ready to get started?</div>
+      <div style="font-size:12px;color:var(--beige-secondary);margin-bottom:12px" class="lang-es">Cuéntame tu idea y te digo cómo hacerla realidad offline-first.</div>
+      <div style="font-size:12px;color:var(--beige-secondary);margin-bottom:12px" class="lang-en">Tell me your idea and I'll tell you how to make it real, offline-first.</div>
+      <div class="btn-demo btn-primary-demo" style="display:inline-flex;font-size:14px;padding:10px 28px" class="lang-es">Empezar ahora</div>
+      <div class="btn-demo btn-primary-demo" style="display:inline-flex;font-size:14px;padding:10px 28px" class="lang-en">Start now</div>
+      <div style="font-size:10px;color:var(--beige-secondary);margin-top:6px" class="lang-es">Animación pulse en box-shadow: 0 0 0 0 → 12px → 0, loop 4s</div>
+      <div style="font-size:10px;color:var(--beige-secondary);margin-top:6px" class="lang-en">Pulse animation: box-shadow 0 0 0 0 → 12px → 0, loop 4s</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 6. ANIMACIONES ===== -->
+<section id="animaciones">
+  <div class="container">
+    <div class="s-label"><span class="section-count">6</span> Motion Design</div>
+    <h2 class="s-title">Sistema de animaciones</h2>
+    <p class="s-desc lang-es">Todas GPU-safe (solo transform + opacity). Todas respetan prefers-reduced-motion.</p>
+    <p class="s-desc lang-en">All GPU-safe (only transform + opacity). All respect prefers-reduced-motion.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="font-size:14px;font-weight:600;margin-bottom:8px;color:var(--accent)">Reglas</h4>
+        <ul class="rule-list">
+          <li><span class="tag tag-ok">OBLIG</span>GPU-safe: solo <code>transform</code> + <code>opacity</code></li>
+          <li><span class="tag tag-ok">OBLIG</span>Respetar <code>prefers-reduced-motion</code></li>
+          <li><span class="tag tag-ok">OBLIG</span>Touch targets ≥ 44px</li>
+          <li><span class="tag tag-info">SUG</span>Duración: 150-400ms (100/300/500 rule)</li>
+          <li><span class="tag tag-info">SUG</span>Stagger delay: <code>i * 80ms</code></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="font-size:14px;font-weight:600;margin-bottom:8px;color:var(--accent)">Elementos animados</h4>
+        <table>
+          <tr><th>Elemento</th><th>Animación</th><th>Duración</th></tr>
+          <tr><td>Scroll reveal</td><td>fadeIn + translateY(20→0)</td><td>600ms</td></tr>
+          <tr><td>Cards hover</td><td>translateY(-4px) + glow</td><td>200ms</td></tr>
+          <tr><td>Stack flip</td><td>rotateY(180deg) 3D</td><td>400ms</td></tr>
+          <tr><td>Stats counter</td><td>0→N ease-out</td><td>800ms</td></tr>
+          <tr><td>CTA pulse</td><td>box-shadow 0→12→0</td><td>4s loop</td></tr>
+          <tr><td>Nav glass</td><td>background + border-color</td><td>300ms</td></tr>
+          <tr><td>FAQ</td><td>fade + slide</td><td>300ms</td></tr>
+          <tr><td>Stagger grid</td><td>delay 0, 100, 200ms</td><td>por índice</td></tr>
+          <tr><td>Código hex hero</td><td>mutar un carácter c/3s</td><td>400ms fade</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7. VOZ Y TONO ===== -->
+<section class="section-beige" id="voz">
+  <div class="container">
+    <div class="s-label"><span class="section-count">7</span> Voz y tono</div>
+    <h2 class="s-title">Personalidad de marca</h2>
+    <p class="s-desc lang-es">Técnico pero accesible. Directo, sin relleno. En español siempre. Freelance profesional.</p>
+    <p class="s-desc lang-en">Technical but accessible. Direct, no filler. Always in Spanish. Professional freelance.</p>
+
+    <div class="grid-2">
+      <div class="voice-do">
+        <h3 class="lang-es">✓ Correcto</h3>
+        <h3 class="lang-en">✓ Correct</h3>
+        <div class="v-item"><div class="ctx">Hero</div><div class="ok">"Apps que funcionan sin internet"</div></div>
+        <div class="v-item"><div class="ctx">CTA</div><div class="ok">"Empezar ahora"</div></div>
+        <div class="v-item"><div class="ctx">Error</div><div class="ok">"No se pudo guardar. Reintenta."</div></div>
+        <div class="v-item"><div class="ctx">Técnico</div><div class="ok">"Dexie guarda en IndexedDB"</div></div>
+        <div class="v-item"><div class="ctx">Descripción</div><div class="ok">"Pago único. Sin mensualidades. Sin letras chiquitas."</div></div>
+      </div>
+      <div class="voice-dont">
+        <h3 class="lang-es">✗ Incorrecto</h3>
+        <h3 class="lang-en">✗ Incorrect</h3>
+        <div class="v-item"><div class="ctx">Hero</div><div class="no">"Soluciones cloud-native con arquitectura serverless"</div></div>
+        <div class="v-item"><div class="ctx">CTA</div><div class="no">"Iniciar prueba gratuita de 30 días"</div></div>
+        <div class="v-item"><div class="ctx">Error</div><div class="no">"Ha ocurrido un error inesperado en la operación"</div></div>
+        <div class="v-item"><div class="ctx">Técnico</div><div class="no">"Wrapper de object stores con promisificación"</div></div>
+        <div class="v-item"><div class="ctx">Precio</div><div class="no">"Plan Premium con facturación recurrente"</div></div>
+      </div>
+    </div>
+
+    <div class="card mt-3">
+      <h4 class="lang-es" style="font-size:13px;font-weight:600;margin-bottom:6px">📐 Reglas de voz</h4>
+      <h4 class="lang-en" style="font-size:13px;font-weight:600;margin-bottom:6px">📐 Voice rules</h4>
+      <table>
+        <tr><th class="lang-es">Atributo</th><th class="lang-en">Attribute</th><th class="lang-es">Cómo se manifiesta</th><th class="lang-en">How it manifests</th></tr>
+        <tr><td class="lang-es">Técnico pero accesible</td><td class="lang-en">Technical yet accessible</td><td colspan="2">Explica sin jargon. "Dexie guarda en IndexedDB", no "wrapper de object stores"</td></tr>
+        <tr><td class="lang-es">Directo, sin relleno</td><td class="lang-en">Direct, no filler</td><td colspan="2">Respuestas concisas. Sin introducciones ni conclusiones</td></tr>
+        <tr><td class="lang-es">Español siempre</td><td class="lang-en">Spanish always</td><td colspan="2">UI, comentarios, docs, variables, commits — todo en español</td></tr>
+        <tr><td class="lang-es">Freelance profesional</td><td class="lang-en">Professional freelance</td><td colspan="2">Cada entrega es producto terminado, no prototipo</td></tr>
+        <tr><td class="lang-es">Confianza silenciosa</td><td class="lang-en">Silent confidence</td><td colspan="2">No necesita adornos. El código habla</td></tr>
+        <tr><td class="lang-es">Sin emojis en UI</td><td class="lang-en">No emojis in UI</td><td colspan="2">Solo Bootstrap Icons. Emojis solo para docs internas</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 8. STACK COMPLIANCE ===== -->
+<section id="compliance">
+  <div class="container">
+    <div class="s-label"><span class="section-count">8</span> Stack Compliance</div>
+    <h2 class="s-title">Reglas no negociables</h2>
+    <p class="s-desc lang-es">Una IA debe verificar cada regla antes de generar código. Estas son determinísticas — si se violan, el output se rechaza.</p>
+    <p class="s-desc lang-en">An AI must verify each rule before generating code. These are deterministic — if violated, the output is rejected.</p>
+
+    <div class="compliance-grid">
+      <div class="comp-item">
+        <span class="icon">🚫</span>
+        <h4 class="lang-es">Sin ES6 imports</h4>
+        <h4 class="lang-en">No ES6 imports</h4>
+        <p class="lang-es">No <code>import</code>, <code>export</code>, <code>type="module"</code>. Variables globales (<code>window.</code>)</p>
+        <p class="lang-en">No <code>import</code>, <code>export</code>, <code>type="module"</code>. Global variables (<code>window.</code>)</p>
+      </div>
+      <div class="comp-item">
+        <span class="icon">🚫</span>
+        <h4 class="lang-es">Sin CDN en runtime</h4>
+        <h4 class="lang-en">No CDN at runtime</h4>
+        <p class="lang-es">No <code>&lt;script src="http..."&gt;</code>. Todo en <code>assets/</code></p>
+        <p class="lang-en">No <code>&lt;script src="http..."&gt;</code>. Everything in <code>assets/</code></p>
+      </div>
+      <div class="comp-item">
+        <span class="icon">🚫</span>
+        <h4 class="lang-es">Sin fetch/axios</h4>
+        <h4 class="lang-en">No fetch/axios</h4>
+        <p class="lang-es">No <code>fetch()</code>, <code>axios</code>, <code>XMLHttpRequest</code>. Solo Dexie (IndexedDB)</p>
+        <p class="lang-en">No <code>fetch()</code>, <code>axios</code>, <code>XMLHttpRequest</code>. Only Dexie (IndexedDB)</p>
+      </div>
+      <div class="comp-item">
+        <span class="icon">🔒</span>
+        <h4 class="lang-es">Cifrado obligatorio</h4>
+        <h4 class="lang-en">Encryption mandatory</h4>
+        <p class="lang-es"><code>cryptoHelpers.encrypt()</code> en campos sensibles. Si falta: RECHAZAR</p>
+        <p class="lang-en"><code>cryptoHelpers.encrypt()</code> on sensitive fields. Missing: REJECT</p>
+      </div>
+      <div class="comp-item">
+        <span class="icon">🎨</span>
+        <h4 class="lang-es">UI: DaisyUI + Bootstrap Icons</h4>
+        <h4 class="lang-en">UI: DaisyUI + Bootstrap Icons</h4>
+        <p class="lang-es">Sin excepciones. Sin frameworks UI alternativos</p>
+        <p class="lang-en">No exceptions. No alternative UI frameworks</p>
+      </div>
+      <div class="comp-item">
+        <span class="icon">🌐</span>
+        <h4 class="lang-es">Rutas relativas siempre</h4>
+        <h4 class="lang-en">Relative paths always</h4>
+        <p class="lang-es"><code>assets/js/libs/...</code> Sin rutas absolutas</p>
+        <p class="lang-en"><code>assets/js/libs/...</code> No absolute paths</p>
+      </div>
+      <div class="comp-item">
+        <span class="icon">📖</span>
+        <h4 class="lang-es">Español primario</h4>
+        <h4 class="lang-en">Spanish primary</h4>
+        <p class="lang-es">UI, comentarios, docs, variables, commits en español</p>
+        <p class="lang-en">UI, comments, docs, variables, commits in Spanish</p>
+      </div>
+      <div class="comp-item">
+        <span class="icon">📦</span>
+        <h4 class="lang-es">Sin builds</h4>
+        <h4 class="lang-en">No builds</h4>
+        <p class="lang-es">No webpack, vite, bundler. Abrir <code>index.html</code> con doble clic debe funcionar</p>
+        <p class="lang-en">No webpack, vite, bundler. Double-click <code>index.html</code> must work</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. ANTI-PATRONES ===== -->
+<section class="section-beige" id="antipatrones">
+  <div class="container">
+    <div class="s-label"><span class="section-count">9</span> Anti-patrones</div>
+    <h2 class="s-title">AI Tells — patrones que delatan UI genérica</h2>
+    <p class="s-desc lang-es">34 patrones detectables con grep. Marcan diseño no distintivo hecho por IA.</p>
+    <p class="s-desc lang-en">34 patterns detectable via grep. They mark non-distinctive AI-generated design.</p>
+
+    <div class="grid-2">
+      <div>
+        <div class="ap-item"><span class="ap-num">1</span><div><span class="ap-bad">border-l-4 border-primary</span> → <span class="ap-good">Fondo tintado o icono leading</span></div></div>
+        <div class="ap-item"><span class="ap-num">2</span><div><span class="ap-bad">gradient text (from-purple to-blue)</span> → <span class="ap-good">Color sólido</span></div></div>
+        <div class="ap-item"><span class="ap-num">3</span><div><span class="ap-bad">Glassmorphism decorativo</span> → <span class="ap-good">Solo si cumple propósito funcional</span></div></div>
+        <div class="ap-item"><span class="ap-num">4</span><div><span class="ap-bad">Big number + small label (métrica plantilla)</span> → <span class="ap-good">Contenido real, testimonios</span></div></div>
+        <div class="ap-item"><span class="ap-num">5</span><div><span class="ap-bad">Card grids idénticos (icon+heading+text repetido)</span> → <span class="ap-good">Variar layouts, mezclar tipos</span></div></div>
+        <div class="ap-item"><span class="ap-num">6</span><div><span class="ap-bad">Modal como primera opción</span> → <span class="ap-good">Agotar alternativas inline primero</span></div></div>
+        <div class="ap-item"><span class="ap-num">7</span><div><span class="ap-bad">Cards anidadas</span> → <span class="ap-good">Extraer contenido a su sección</span></div></div>
+        <div class="ap-item"><span class="ap-num">8</span><div><span class="ap-bad">text-gray-500 sobre bg-primary</span> → <span class="ap-good">Shade más oscuro del color de fondo</span></div></div>
+        <div class="ap-item"><span class="ap-num">9</span><div><span class="ap-bad">#000 o #fff puro</span> → <span class="ap-good">Tintar hacia hue brand (chroma 0.005-0.01)</span></div></div>
+        <div class="ap-item"><span class="ap-num">10</span><div><span class="ap-bad">Bounce/elastic easing</span> → <span class="ap-good">ease-out-quart / quint / expo</span></div></div>
+        <div class="ap-item"><span class="ap-num">11</span><div><span class="ap-bad">Animación de layout properties</span> → <span class="ap-good">Solo transform + opacity</span></div></div>
+        <div class="ap-item"><span class="ap-num">12</span><div><span class="ap-bad">Purple-to-blue gradients</span> → <span class="ap-good">Elegir UN color sólido como acento</span></div></div>
+        <div class="ap-item"><span class="ap-num">13</span><div><span class="ap-bad">Inter como única tipográfica</span> → <span class="ap-good">system-ui o fuente con personalidad</span></div></div>
+        <div class="ap-item"><span class="ap-num">14</span><div><span class="ap-bad">Rounded-square icon tile arriba de headings</span> → <span class="ap-good">Quitar icon tile o icono inline</span></div></div>
+        <div class="ap-item"><span class="ap-num">15</span><div><span class="ap-bad">Em dashes en copy (—)</span> → <span class="ap-good">Coma, dos puntos o paréntesis</span></div></div>
+        <div class="ap-item"><span class="ap-num">16</span><div><span class="ap-bad">Tiny uppercase tracked labels sobre cada sección</span> → <span class="ap-good">Un kicker fuerte basta</span></div></div>
+        <div class="ap-item"><span class="ap-num">17</span><div><span class="ap-bad">Monospace como shorthand "técnico"</span> → <span class="ap-good">Solo si la marca es genuinamente técnica</span></div></div>
+      </div>
+      <div>
+        <div class="ap-item"><span class="ap-num">18</span><div><span class="ap-bad">Dark mode = light mode invertido</span> → <span class="ap-good">Jerarquía propia (surface lighter = depth)</span></div></div>
+        <div class="ap-item"><span class="ap-num">19</span><div><span class="ap-bad">Centered stack hero con icon-card-grid</span> → <span class="ap-good">Asimetría, left-aligned</span></div></div>
+        <div class="ap-item"><span class="ap-num">20</span><div><span class="ap-bad">All-caps body copy</span> → <span class="ap-good">Reservar caps para labels cortos</span></div></div>
+        <div class="ap-item"><span class="ap-num">21</span><div><span class="ap-bad">Placeholder text con bajo contraste</span> → <span class="ap-good">4.5:1 mínimo también en placeholder</span></div></div>
+        <div class="ap-item"><span class="ap-num">22</span><div><span class="ap-bad">Heavy color en estados inactivos</span> → <span class="ap-good">Inactivo = muted, activo = acento</span></div></div>
+        <div class="ap-item"><span class="ap-num">23</span><div><span class="ap-bad">Nested modales</span> → <span class="ap-good">Steps progresivos en línea</span></div></div>
+        <div class="ap-item"><span class="ap-num">24</span><div><span class="ap-bad">Sin skeleton states en carga</span> → <span class="ap-good">Skeleton > spinner-in-the-middle</span></div></div>
+        <div class="ap-item"><span class="ap-num">25</span><div><span class="ap-bad">Sin empty states que enseñen</span> → <span class="ap-good">Empty state que guía al primer paso</span></div></div>
+        <div class="ap-item"><span class="ap-num">26</span><div><span class="ap-bad">Display fonts en UI labels o botones</span> → <span class="ap-good">Sans para UI, display solo para branding</span></div></div>
+        <div class="ap-item"><span class="ap-num">27</span><div><span class="ap-bad">Sin state coverage (hover/focus/active/disabled)</span> → <span class="ap-good">Cada interactivo tiene sus 5 estados</span></div></div>
+        <div class="ap-item"><span class="ap-num">28</span><div><span class="ap-bad">Acentos saturados >80%</span> → <span class="ap-good">Desaturar a chroma &lt; 0.08</span></div></div>
+        <div class="ap-item"><span class="ap-num">29</span><div><span class="ap-bad">Nombres genéricos ("Acme Corp", "SmartFlow")</span> → <span class="ap-good">Nombres reales o contextuales</span></div></div>
+        <div class="ap-item"><span class="ap-num">30</span><div><span class="ap-bad">Números falsos (99.99%, $100.00)</span> → <span class="ap-good">Datos orgánicos (47.2%)</span></div></div>
+        <div class="ap-item"><span class="ap-num">31</span><div><span class="ap-bad">Lorem Ipsum / placeholder text</span> → <span class="ap-good">Copy real</span></div></div>
+        <div class="ap-item"><span class="ap-num">32</span><div><span class="ap-bad">Emojis en UI</span> → <span class="ap-good">Bootstrap Icons o SVG</span></div></div>
+        <div class="ap-item"><span class="ap-num">33</span><div><span class="ap-bad">h-screen</span> → <span class="ap-good">min-h-[100dvh]</span></div></div>
+        <div class="ap-item"><span class="ap-num">34</span><div><span class="ap-bad">Icons sin label contextual</span> → <span class="ap-good">sr-only o aria-label</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 10. IA JUTIA ===== -->
+<section id="ia">
+  <div class="container">
+    <div class="s-label"><span class="section-count">10</span> IA Jutia</div>
+    <h2 class="s-title">Mini IA incluida en cada app</h2>
+    <p class="s-desc lang-es">Cada app incluye inteligencia artificial local. Corre 100% en el dispositivo. Sin enviar datos a servidores. Sin costo extra.</p>
+    <p class="s-desc lang-en">Every app includes local artificial intelligence. Runs 100% on device. No data sent to servers. No extra cost.</p>
+
+    <div class="ia-grid">
+      <div class="ia-card">
+        <h3 class="lang-es">Perfil Lite</h3>
+        <h3 class="lang-en">Lite Profile</h3>
+        <div class="sub lang-es">Incluido en todos los planes</div>
+        <div class="sub lang-en">Included in all plans</div>
+        <ul>
+          <li class="lang-es"><strong>Búsqueda instantánea</strong> — FlexSearch, escribe y encuentra</li>
+          <li class="lang-en"><strong>Instant search</strong> — FlexSearch, type and find</li>
+          <li class="lang-es"><strong>Estadísticas inteligentes</strong> — analiza datos automáticamente</li>
+          <li class="lang-en"><strong>Smart statistics</strong> — analyzes data automatically</li>
+          <li class="lang-es"><strong>Predicciones</strong> — "¿cuándo se va a acabar este producto?"</li>
+          <li class="lang-en"><strong>Predictions</strong> — "when will this product run out?"</li>
+        </ul>
+      </div>
+      <div class="ia-card" style="border-color:rgba(207,244,52,0.2)">
+        <h3 class="lang-es">Perfil Full</h3>
+        <h3 class="lang-en">Full Profile</h3>
+        <div class="sub lang-es">Planes Standard y Custom</div>
+        <div class="sub lang-en">Standard & Custom plans</div>
+        <ul>
+          <li class="lang-es">Todo lo de Lite +</li>
+          <li class="lang-en">Everything in Lite +</li>
+          <li class="lang-es"><strong>Ingesta de documentos</strong> — lee PDF, Excel, Word, CSV</li>
+          <li class="lang-en"><strong>Document ingestion</strong> — reads PDF, Excel, Word, CSV</li>
+          <li class="lang-es"><strong>QA extractivo</strong> — pregúntale a tus datos en español</li>
+          <li class="lang-en"><strong>Extractive QA</strong> — ask your data in Spanish</li>
+          <li class="lang-es"><strong>Atajo global</strong> — Cmd+K desde cualquier pantalla</li>
+          <li class="lang-en"><strong>Global shortcut</strong> — Cmd+K from any screen</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card mt-2">
+      <h4 class="lang-es" style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--accent)">⚡ Lo que la competencia no puede decir</h4>
+      <h4 class="lang-en" style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--accent)">⚡ What competitors can't say</h4>
+      <div class="grid-2" style="gap:6px;font-size:13px;color:var(--text-secondary)">
+        <div>✓ "Nuestra IA corre 100% local" — ellos envían tus datos a OpenAI</div>
+        <div>✓ "La IA viene incluida" — ellos la venden como add-on</div>
+        <div>✓ "Misma IA en escritorio y móvil" — ellos tienen versiones distintas</div>
+        <div>✓ "Sin internet" — ellos necesitan cloud</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 11. RECURSOS ===== -->
+<section class="section-teal" id="recursos">
+  <div class="container">
+    <div class="s-label"><span class="section-count">11</span> Recursos</div>
+    <h2 class="s-title">Assets y referencias</h2>
+    <p class="s-desc lang-es">Archivos, favicons, palette bar y enlaces de la marca.</p>
+    <p class="s-desc lang-en">Files, favicons, palette bar and brand links.</p>
+
+    <div class="grid-2">
+      <div class="card" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.06)">
+        <h4 style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--accent)">📁 Archivos de marca</h4>
+        <table>
+          <tr><th>Archivo</th><th>Uso</th></tr>
+          <tr><td style="font-family:'Courier New',monospace;font-size:11px">brand/logo-icon.svg</td><td>Favicon, app icon, avatar</td></tr>
+          <tr><td style="font-family:'Courier New',monospace;font-size:11px">brand/logo-wordmark.svg</td><td>Header web, docs, email</td></tr>
+          <tr><td style="font-family:'Courier New',monospace;font-size:11px">brand/logo-full.svg</td><td>Landing, presentaciones</td></tr>
+          <tr><td style="font-family:'Courier New',monospace;font-size:11px">brand/palette.json</td><td>Tokens de color completos</td></tr>
+          <tr><td style="font-family:'Courier New',monospace;font-size:11px">brand/guidelines.md</td><td>Guía de marca extendida</td></tr>
+          <tr><td style="font-family:'Courier New',monospace;font-size:11px">brand/guia-estilos.html</td><td>Guía visual anterior</td></tr>
+          <tr><td style="font-family:'Courier New',monospace;font-size:11px">colores.txt</td><td>Referencia rápida 5 colores</td></tr>
+        </table>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.06)">
+        <h4 style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--accent)">🔗 Enlaces</h4>
+        <table>
+          <tr><th>Recurso</th><th>URL</th></tr>
+          <tr><td>Landing</td><td style="font-size:11px;word-break:break-all">https://angelhdz84.github.io/Identidad_AHA/</td></tr>
+          <tr><td>GitHub</td><td style="font-size:11px">github.com/angelhdz84</td></tr>
+          <tr><td>Email</td><td style="font-size:11px">angel@ahaguilera.dev</td></tr>
+          <tr><td>WhatsApp</td><td style="font-size:11px">wa.me/5355944628</td></tr>
+          <tr><td>Licencia</td><td>MIT</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="grid-2 mt-2">
+      <div class="card" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.06)">
+        <h4 style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--accent)">🗂️ Favicon</h4>
+        <table>
+          <tr><th>Archivo</th><th>Formato</th></tr>
+          <tr><td style="font-family:'Courier New',monospace;font-size:11px">brand/favicon/favicon.svg</td><td>Vector, todos los tamaños</td></tr>
+          <tr><td style="font-family:'Courier New',monospace;font-size:11px">brand/favicon/apple-touch-icon.svg</td><td>180×180 iOS</td></tr>
+          <tr><td style="font-family:'Courier New',monospace;font-size:11px">brand/favicon/site.webmanifest</td><td>PWA manifest</td></tr>
+        </table>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.06)">
+        <h4 style="font-size:13px;font-weight:600;margin-bottom:8px;color:var(--accent)">🎨 Palette Bar</h4>
+        <p style="font-size:12px;color:rgba(234,244,245,0.7);margin-bottom:8px" class="lang-es">Barra de 5 colores que aparece en el footer de toda superficie de marca.</p>
+        <p style="font-size:12px;color:rgba(234,244,245,0.7);margin-bottom:8px" class="lang-en">5-color bar appearing at the footer of every brand surface.</p>
+        <div class="palette-bar">
+          <span style="background:#171614"></span>
+          <span style="background:#CFF434"></span>
+          <span style="background:#07D16E"></span>
+          <span style="background:#024653"></span>
+          <span style="background:#F5F0EB"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="palette-bar">
+    <span style="background:#171614"></span>
+    <span style="background:#CFF434"></span>
+    <span style="background:#07D16E"></span>
+    <span style="background:#024653"></span>
+    <span style="background:#F5F0EB"></span>
+  </div>
+  <div class="links">
+    <a href="#manifiesto">Manifiesto</a>
+    <a href="#logo">Logo</a>
+    <a href="#color">Color</a>
+    <a href="#tipografia">Tipografía</a>
+    <a href="#diseno">Diseño</a>
+    <a href="#voz">Voz</a>
+    <a href="#compliance">Stack</a>
+    <a href="#ia">IA</a>
+  </div>
+  <strong>AHAguilera</strong> — Identidad de Marca v2.0<br>
+  100% offline · Sin CDN · Abrir con doble clic
+</footer>
+
+<script>
+// Language toggle
+function toggleLang() {
+  const es = document.querySelectorAll('.lang-es');
+  const en = document.querySelectorAll('.lang-en');
+  const btn = document.querySelector('.lang-btn');
+  const isEN = btn.textContent === 'ES';
+  es.forEach(el => el.style.display = isEN ? 'none' : '');
+  en.forEach(el => el.style.display = isEN ? '' : 'none');
+  btn.textContent = isEN ? 'EN' : 'ES';
+}
+
+// Active nav link on scroll
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('.nav-links a');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+});
+</script>
+</body>
+</html>
