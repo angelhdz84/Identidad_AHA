@@ -1,58 +1,136 @@
 ﻿
+  <!-- ========== STACK FLIP ========== -->
+  <section class="section section-dark" id="stack" aria-label="Stack técnico">
+    <div class="container">
+      <p class="eyebrow text-center reveal">
+        <span x-show="lang==='es'">STACK TÉCNICO</span>
+        <span x-show="lang==='en'" x-cloak>TECH STACK</span>
+      </p>
+      <h2 class="display text-center reveal delay-1" style="margin-bottom:0.5rem;">
+        <span x-show="lang==='es'">Tecnologías que no<br>dependen de nadie</span>
+        <span x-show="lang==='en'" x-cloak>Technology that<br>depends on no one</span>
+      </h2>
+      <p class="body-sm txt-secondary text-center reveal delay-2" style="margin-bottom:3rem;">
+        <span x-show="lang==='es'">Pasa el mouse sobre cada card para ver qué hace.</span>
+        <span x-show="lang==='en'" x-cloak>Hover each card to see what it does.</span>
+      </p>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;">
+        <div class="stack-card reveal" style="transition-delay:0ms">
+          <div class="stack-inner">
+            <div class="stack-front">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-lightning"></i></div>
+              <div class="body-sm" style="font-weight:600;">Alpine.js</div>
+            </div>
+            <div class="stack-back">reactividad · 8kB</div>
+          </div>
+        </div>
+        <div class="stack-card reveal" style="transition-delay:100ms">
+          <div class="stack-inner">
+            <div class="stack-front">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-database"></i></div>
+              <div class="body-sm" style="font-weight:600;">Dexie.js</div>
+            </div>
+            <div class="stack-back">IndexedDB · offline</div>
+          </div>
+        </div>
+        <div class="stack-card reveal" style="transition-delay:200ms">
+          <div class="stack-inner">
+            <div class="stack-front">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-lock"></i></div>
+              <div class="body-sm" style="font-weight:600;">CryptoJS</div>
+            </div>
+            <div class="stack-back">AES-256 · cifrado</div>
+          </div>
+        </div>
+        <div class="stack-card reveal" style="transition-delay:0ms">
+          <div class="stack-inner">
+            <div class="stack-front">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-file-earmark-zip"></i></div>
+              <div class="body-sm" style="font-weight:600;">pako</div>
+            </div>
+            <div class="stack-back">compresión · zip</div>
+          </div>
+        </div>
+        <div class="stack-card reveal" style="transition-delay:100ms">
+          <div class="stack-inner">
+            <div class="stack-front">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-filetype-pdf"></i></div>
+              <div class="body-sm" style="font-weight:600;">jsPDF</div>
+            </div>
+            <div class="stack-back">PDF · reportes</div>
+          </div>
+        </div>
+        <div class="stack-card reveal" style="transition-delay:200ms">
+          <div class="stack-inner">
+            <div class="stack-front">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i class="bi bi-file-spreadsheet"></i></div>
+              <div class="body-sm" style="font-weight:600;">SheetJS</div>
+            </div>
+            <div class="stack-back">Excel · XLSX</div>
+          </div>
+        </div>
+      </div>
+      <p class="body-sm txt-secondary text-center reveal" style="margin-top:2rem;">
+        <span x-show="lang==='es'">Cada librería se descarga una vez. El runtime no pide nada a nadie.</span>
+        <span x-show="lang==='en'" x-cloak>Each library is downloaded once. The runtime asks nothing from anyone.</span>
+      </p>
+    </div>
+  </section>
+
   <!-- ========== COMPARATIVA ========== -->
-  <section class="section code-grid-bg" id="comparativa" aria-label="Comparativa">
+  <section class="section section-dark" id="comparativa" aria-label="Comparativa">
     <div class="container-narrow">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">OFFLINE-FIRST vs TRADICIONAL</span>
         <span x-show="lang==='en'" x-cloak>OFFLINE-FIRST vs TRADITIONAL</span>
       </p>
-      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:2rem;">
+      <h2 class="display text-center reveal delay-1" style="margin-bottom:2rem;">
         <span x-show="lang==='es'">¿Por qué elegir<br>offline-first?</span>
         <span x-show="lang==='en'" x-cloak>Why choose<br>offline-first?</span>
       </h2>
 
-      <div class="card reveal" style="padding:0;overflow:hidden;">
-        <div class="cmp-row" style="background:var(--surface-hover);font-weight:600;">
-          <div class="cmp-cell caption" style="text-transform:uppercase;letter-spacing:0.05em;">
+      <div class="card-dark reveal" style="padding:0;overflow:hidden;">
+        <div class="cmp-row" style="background:rgba(255,255,255,0.03);font-weight:600;">
+          <div class="cmp-cell caption" style="text-transform:uppercase;letter-spacing:0.05em;color:var(--txt-primary-dark);">
             <span x-show="lang==='es'">Característica</span>
             <span x-show="lang==='en'" x-cloak>Feature</span>
           </div>
-          <div class="cmp-cell caption" style="text-transform:uppercase;letter-spacing:0.05em;color:var(--brand-secondary);">
+          <div class="cmp-cell caption" style="text-transform:uppercase;letter-spacing:0.05em;color:var(--brand-primary);">
             <span x-show="lang==='es'">Offline-first</span>
             <span x-show="lang==='en'" x-cloak>Offline-first</span>
           </div>
-          <div class="cmp-cell caption" style="text-transform:uppercase;letter-spacing:0.05em;color:var(--txt-muted);">
+          <div class="cmp-cell caption" style="text-transform:uppercase;letter-spacing:0.05em;color:var(--txt-muted-dark);">
             <span x-show="lang==='es'">Tradicional</span>
             <span x-show="lang==='en'" x-cloak>Traditional</span>
           </div>
         </div>
-        <div class="cmp-row reveal delay-1">
-          <div class="cmp-cell"><span x-show="lang==='es'">Internet</span><span x-show="lang==='en'" x-cloak>Internet</span></div>
+        <div class="cmp-row reveal" style="border-color:var(--border-subtle-dark);">
+          <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Internet</span><span x-show="lang==='en'" x-cloak>Internet</span></div>
           <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">No requiere</span><span x-show="lang==='en'" x-cloak>Not required</span></div>
           <div class="cmp-cell txt-muted"><i class="bi bi-x-circle"></i> <span x-show="lang==='es'">Siempre necesario</span><span x-show="lang==='en'" x-cloak>Always needed</span></div>
         </div>
-        <div class="cmp-row reveal delay-2">
-          <div class="cmp-cell"><span x-show="lang==='es'">Costo mensual</span><span x-show="lang==='en'" x-cloak>Monthly cost</span></div>
+        <div class="cmp-row reveal delay-1" style="border-color:var(--border-subtle-dark);">
+          <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Costo mensual</span><span x-show="lang==='en'" x-cloak>Monthly cost</span></div>
           <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> $0</div>
           <div class="cmp-cell txt-muted">$20 – $500+</div>
         </div>
-        <div class="cmp-row reveal delay-3">
-          <div class="cmp-cell"><span x-show="lang==='es'">Velocidad</span><span x-show="lang==='en'" x-cloak>Speed</span></div>
+        <div class="cmp-row reveal delay-2" style="border-color:var(--border-subtle-dark);">
+          <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Velocidad</span><span x-show="lang==='en'" x-cloak>Speed</span></div>
           <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">Instantánea</span><span x-show="lang==='en'" x-cloak>Instant</span></div>
           <div class="cmp-cell txt-muted"><span x-show="lang==='es'">Depende de la red</span><span x-show="lang==='en'" x-cloak>Depends on network</span></div>
         </div>
-        <div class="cmp-row reveal delay-4">
-          <div class="cmp-cell"><span x-show="lang==='es'">Privacidad</span><span x-show="lang==='en'" x-cloak>Privacy</span></div>
+        <div class="cmp-row reveal delay-3" style="border-color:var(--border-subtle-dark);">
+          <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Privacidad</span><span x-show="lang==='en'" x-cloak>Privacy</span></div>
           <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> 100% local</div>
           <div class="cmp-cell txt-muted"><span x-show="lang==='es'">En sus servidores</span><span x-show="lang==='en'" x-cloak>On their servers</span></div>
         </div>
-        <div class="cmp-row reveal delay-5">
-          <div class="cmp-cell"><span x-show="lang==='es'">Instalación</span><span x-show="lang==='en'" x-cloak>Setup</span></div>
+        <div class="cmp-row reveal delay-4" style="border-color:var(--border-subtle-dark);">
+          <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Instalación</span><span x-show="lang==='en'" x-cloak>Setup</span></div>
           <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> <span x-show="lang==='es'">Doble clic</span><span x-show="lang==='en'" x-cloak>Double click</span></div>
           <div class="cmp-cell txt-muted">CI/CD + servidor</div>
         </div>
-        <div class="cmp-row reveal delay-6" style="border-bottom:none;">
-          <div class="cmp-cell"><span x-show="lang==='es'">Uptime</span><span x-show="lang==='en'" x-cloak>Uptime</span></div>
+        <div class="cmp-row reveal delay-5" style="border-bottom:none;">
+          <div class="cmp-cell" style="color:var(--txt-primary-dark);"><span x-show="lang==='es'">Uptime</span><span x-show="lang==='en'" x-cloak>Uptime</span></div>
           <div class="cmp-cell offline"><i class="bi bi-check-circle-fill"></i> 100%</div>
           <div class="cmp-cell txt-muted">99.9% <span class="caption">(o menos)</span></div>
         </div>
@@ -61,13 +139,13 @@
   </section>
 
   <!-- ========== FAQ ========== -->
-  <section class="section" id="faq" aria-label="Preguntas frecuentes" x-data="landing">
+  <section class="section section-light" id="faq" aria-label="Preguntas frecuentes" x-data="landing">
     <div class="container-narrow">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">PREGUNTAS FRECUENTES</span>
         <span x-show="lang==='en'" x-cloak>FAQ</span>
       </p>
-      <h2 class="display text-center reveal delay-1" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:2rem;">
+      <h2 class="display text-center reveal delay-1" style="margin-bottom:2rem;">
         <span x-show="lang==='es'">Todo lo que necesitas saber</span>
         <span x-show="lang==='en'" x-cloak>Everything you need to know</span>
       </h2>
@@ -89,39 +167,40 @@
   </section>
 
   <!-- ========== SOBRE MÍ ========== -->
-  <section class="section code-grid-bg" id="sobre-mi" aria-label="Sobre mí">
+  <section class="section section-dark" id="sobre-mi" aria-label="Sobre mí">
     <div class="container-narrow">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">SOBRE MÍ</span>
         <span x-show="lang==='en'" x-cloak>ABOUT ME</span>
       </p>
-      <div class="card reveal" style="text-align:center;padding:2.5rem;">
+      <div class="card-dark reveal" style="text-align:center;padding:2.5rem;">
         <div style="width:5rem;height:5rem;border-radius:16px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2.5rem;font-weight:700;color:var(--txt-on-accent);">AH</div>
-        <h2 class="h2" style="margin-bottom:0.25rem;">Angel Hernández Aguilera</h2>
-        <p class="body-sm txt-secondary" style="margin-bottom:1.5rem;">
+        <h2 class="h2" style="margin-bottom:0.25rem;color:#fff;">Angel Hernández Aguilera</h2>
+        <p class="body-sm" style="margin-bottom:1.5rem;color:var(--txt-secondary-dark);">
           <span x-show="lang==='es'">Desarrollador Freelance</span>
           <span x-show="lang==='en'" x-cloak>Freelance Developer</span>
         </p>
-        <blockquote style="font-style:italic;color:var(--txt-secondary);margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;">
+        <blockquote style="font-style:italic;color:var(--txt-secondary-dark);margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;">
           "Libertad tecnológica. Calidad freelance. Simplicidad radical."
         </blockquote>
-        <p class="body-sm txt-secondary" style="margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;">
+        <p class="body-sm" style="margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;color:var(--txt-secondary-dark);">
           <span x-show="lang==='es'">Construyo apps que funcionan sin internet. Sin servidores, sin mensualidades, sin complicaciones. Cada app es un producto terminado: validado, documentado y listo para usar.</span>
           <span x-show="lang==='en'" x-cloak>I build apps that work without internet. No servers, no monthly fees, no complications. Each app is a finished product: validated, documented, and ready to use.</span>
         </p>
         <div class="flex items-center justify-center gap-2" style="flex-wrap:wrap;">
-          <span class="badge" style="background:var(--brand-primary);color:var(--txt-on-accent);">Alpine.js</span>
-          <span class="badge" style="background:var(--brand-primary);color:var(--txt-on-accent);">Dexie.js</span>
-          <span class="badge" style="background:var(--brand-primary);color:var(--txt-on-accent);">CryptoJS</span>
-          <span class="badge" style="background:var(--brand-primary);color:var(--txt-on-accent);">Tailwind</span>
-          <span class="badge" style="background:var(--brand-primary);color:var(--txt-on-accent);">DaisyUI</span>
+          <span class="badge badge-lime">Alpine.js</span>
+          <span class="badge badge-lime">Dexie.js</span>
+          <span class="badge badge-lime">CryptoJS</span>
+          <span class="badge" style="background:var(--surface-dark-hover);">SQLite</span>
+          <span class="badge badge-lime">jsPDF</span>
+          <span class="badge badge-lime">SheetJS</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========== CTA FINAL ========== -->
-  <section class="section" id="contacto" aria-label="Contacto" style="padding-bottom:4rem;">
+  <section class="section section-light" id="contacto" aria-label="Contacto" style="padding-bottom:4rem;">
     <div class="container-narrow">
       <div class="card reveal" style="text-align:center;padding:3rem 2rem;border:2px solid var(--brand-primary);">
         <div style="font-size:3rem;margin-bottom:1rem;color:var(--brand-primary);"><i class="bi bi-rocket-takeoff"></i></div>
@@ -131,13 +210,13 @@
         </h2>
         <p class="body-sm txt-secondary" style="margin-bottom:2rem;max-width:24rem;margin-left:auto;margin-right:auto;">
           <span x-show="lang==='es'">Cuéntame tu idea y te digo cómo hacerla realidad offline-first.</span>
-          <span x-show="lang==='en'" x-cloak>Tell me your idea and I'"'"'ll tell you how to make it real, offline-first.</span>
+          <span x-show="lang==='en'" x-cloak>Tell me your idea and I'll tell you how to make it real, offline-first.</span>
         </p>
         <div class="flex items-center justify-center gap-3" style="flex-wrap:wrap;">
-          <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn btn-primary" style="padding:1rem 2rem;font-size:1.0625rem;">
-            <i class="bi bi-whatsapp" style="font-size:1.25rem;"></i> WhatsApp
+          <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="btn-cta-final">
+            <i class="bi bi-whatsapp" style="font-size:1.25rem;"></i> <span x-show="lang==='es'">Empezar ahora</span><span x-show="lang==='en'" x-cloak>Start now</span>
           </a>
-          <a href="mailto:angel@ahaguilera.dev" class="btn btn-outline" style="padding:1rem 2rem;font-size:1.0625rem;">
+          <a href="mailto:angel@ahaguilera.dev" class="btn btn-outline-light" style="padding:1rem 2rem;font-size:1.0625rem;">
             <i class="bi bi-envelope" style="font-size:1.25rem;"></i> Email
           </a>
         </div>
@@ -148,7 +227,7 @@
   </main>
 
   <!-- ========== FOOTER ========== -->
-  <footer style="border-top:1px solid var(--border-subtle);padding:3rem 0 2rem;" role="contentinfo">
+  <footer class="section-light" style="border-top:1px solid var(--border-subtle);padding:3rem 0 2rem;" role="contentinfo">
     <div class="container">
       <div style="text-align:center;margin-bottom:1.5rem;">
         <img src="./brand/logo-wordmark.svg" alt="AHAguilera" style="height:1.5rem;margin:0 auto;">
@@ -161,10 +240,10 @@
           <span x-show="lang==='es'">Precios</span><span x-show="lang==='en'" x-cloak>Pricing</span>
         </a>
         <a href="#stack" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('stack').scrollIntoView({behavior:'smooth'})">
-          <span x-show="lang==='es'">Stack</span><span x-show="lang==='en'" x-cloak>Stack</span>
+          Stack
         </a>
         <a href="#faq" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">
-          <span x-show="lang==='es'">FAQ</span><span x-show="lang==='en'" x-cloak>FAQ</span>
+          FAQ
         </a>
         <a href="#sobre-mi" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'})">
           <span x-show="lang==='es'">Sobre mí</span><span x-show="lang==='en'" x-cloak>About</span>
@@ -173,17 +252,17 @@
       <div style="text-align:center;">
         <p class="caption txt-muted">© 2026 AHAguilera · MIT License</p>
         <p class="caption txt-muted" style="margin-top:0.25rem;">
-          <span x-show="lang==='es'">100% offline · Sin CDN · Doble clic</span>
-          <span x-show="lang==='en'" x-cloak>100% offline · No CDN · Double click</span>
+          <span x-show="lang==='es'">100% offline · Sin CDN · .exe + .apk</span>
+          <span x-show="lang==='en'" x-cloak>100% offline · No CDN · .exe + .apk</span>
         </p>
       </div>
       <!-- Palette bar -->
       <div style="display:flex;justify-content:center;gap:0.25rem;margin-top:2rem;">
-        <span style="display:block;width:1.5rem;height:0.25rem;border-radius:2px;background:#EAF4F5;"></span>
+        <span style="display:block;width:1.5rem;height:0.25rem;border-radius:2px;background:#171614;"></span>
         <span style="display:block;width:1.5rem;height:0.25rem;border-radius:2px;background:#CFF434;"></span>
         <span style="display:block;width:1.5rem;height:0.25rem;border-radius:2px;background:#07D16E;"></span>
         <span style="display:block;width:1.5rem;height:0.25rem;border-radius:2px;background:#024653;"></span>
-        <span style="display:block;width:1.5rem;height:0.25rem;border-radius:2px;background:#171614;"></span>
+        <span style="display:block;width:1.5rem;height:0.25rem;border-radius:2px;background:#F5F0EB;"></span>
       </div>
     </div>
   </footer>
@@ -191,56 +270,113 @@
   <!-- ========== SCRIPTS ========== -->
   <script defer src="./assets/js/libs/alpine.js"></script>
 
-  <!-- Alpine.js plugins: collapse -->
   <script>
-    document.addEventListener('alpine:init', () => {
-      
-    });
-  </script>
-
-  <script>
-    // FAQ data for Alpine
+    // ===== FAQ data =====
     const FAQ_DATA = [
       {
         q_es: '¿Necesito internet para usar la app?',
         a_es: 'No. La app funciona 100% sin internet. Todos los datos se guardan en tu dispositivo. Puedes usarla en el campo, en el metro, o donde no llegue la señal.',
         q_en: 'Do I need internet to use the app?',
-        a_en: 'No. The app works 100% without internet. All data is stored on your device.'
+        a_en: 'No. The app works 100% without internet. All data is stored on your device. You can use it in the field, on the subway, or anywhere without signal.'
       },
       {
         q_es: '¿Mis datos están seguros?',
-        a_es: 'Sí. Los datos se guardan localmente en tu dispositivo. En los planes Standard y Custom, además se cifran con AES-256. Nadie más tiene acceso a ellos.',
+        a_es: 'Sí. Los datos se guardan localmente en tu dispositivo. En los planes Standard y Custom, además se cifran con AES-256. Nadie más tiene acceso a ellos, ni yo.',
         q_en: 'Is my data safe?',
-        a_en: 'Yes. Data is stored locally on your device. Standard and Custom plans include AES-256 encryption.'
+        a_en: 'Yes. Data is stored locally on your device. Standard and Custom plans include AES-256 encryption. Not even I can access it.'
+      },
+      {
+        q_es: '¿Qué es eso de .exe y .apk?',
+        a_es: 'Tu app se entrega en dos formatos: .exe para Windows (doble clic y funciona) y .apk para Android (instalas como cualquier app). Un solo desarrollo, dos dispositivos.',
+        q_en: 'What is .exe and .apk?',
+        a_en: 'Your app is delivered in two formats: .exe for Windows (double click to run) and .apk for Android (install like any app). One codebase, two devices.'
       },
       {
         q_es: '¿Puedo personalizar la app después?',
-        a_es: 'Sí. Todas las apps se entregan con el código fuente. Puedo agregar funcionalidades o modificar lo que necesites.',
+        a_es: 'Sí. Todas las apps se entregan con el código fuente. Puedo agregar funcionalidades o modificar lo que necesites. El código está diseñado para crecer.',
         q_en: 'Can I customize the app later?',
-        a_en: 'Yes. All apps come with source code. I can add features or modify anything you need.'
-      },
-      {
-        q_es: '¿Qué pasa si quiero agregar funcionalidades?',
-        a_es: 'Las apps son modulares. Agregar un módulo nuevo tiene un costo adicional según la complejidad. El código está diseñado para crecer.',
-        q_en: 'What if I want to add features?',
-        a_en: 'Apps are modular. Adding a new module has an additional cost based on complexity.'
-      },
-      {
-        q_es: '¿Funciona en celular?',
-        a_es: 'Sí. Las apps son responsivas y funcionan en cualquier navegador moderno: Chrome, Firefox, Safari, Edge. En escritorio y móvil.',
-        q_en: 'Does it work on mobile?',
-        a_en: 'Yes. Apps are responsive and work on any modern browser: Chrome, Firefox, Safari, Edge.'
+        a_en: 'Yes. All apps come with source code. I can add features or modify anything you need. The code is designed to grow.'
       },
       {
         q_es: '¿Cuánto tarda en estar lista?',
         a_es: 'Una app Lite puede estar lista en 2-3 días. Una Standard en 5-7 días. Una Custom depende de la complejidad. Siempre te doy una fecha estimada antes de empezar.',
         q_en: 'How long does it take?',
-        a_en: 'A Lite app can be ready in 2-3 days. Standard in 5-7 days. Custom depends on complexity.'
+        a_en: 'A Lite app can be ready in 2-3 days. Standard in 5-7 days. Custom depends on complexity. I always give you an estimate before starting.'
+      },
+      {
+        q_es: '¿Realmente no hay mensualidades?',
+        a_es: 'Cero. Pagas una vez y la app es tuya para siempre. No hay servidores que mantener, no hay suscripciones, no hay sorpresas.',
+        q_en: 'Really no monthly fees?',
+        a_en: 'Zero. You pay once and the app is yours forever. No servers to maintain, no subscriptions, no surprises.'
       }
     ];
 
+    // ===== Alpine Components =====
+    document.addEventListener('alpine:init', () => {
+      // FAQ data
+      Alpine.data('landing', () => ({
+        faqs: FAQ_DATA,
+        faqOpen: null
+      }));
+
+      // Codigo vivo animado
+      Alpine.data('codigoVivo', () => ({
+        lineas: [],
+        interval: null,
+        hexChars: '0123456789ABCDEF',
+        genLine(len) {
+          let s = '';
+          for (let i = 0; i < len; i++) {
+            s += this.hexChars[Math.floor(Math.random() * 16)];
+            if (i % 4 === 3 && i < len - 1) s += ' ';
+          }
+          return s;
+        },
+        init() {
+          // Generate initial lines
+          for (let i = 0; i < 16; i++) {
+            this.lineas.push(this.genLine(20 + Math.floor(Math.random() * 16)));
+          }
+          // Mutate every 3 seconds
+          this.interval = setInterval(() => {
+            const idx = Math.floor(Math.random() * this.lineas.length);
+            this.lineas[idx] = this.genLine(20 + Math.floor(Math.random() * 16));
+          }, 3000);
+        },
+        destroy() {
+          if (this.interval) clearInterval(this.interval);
+        }
+      }));
+
+      // Counter animation
+      Alpine.data('counter', (target) => ({
+        count: 0,
+        target: target,
+        init() {
+          const el = this.$el;
+          const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                let start = 0;
+                const duration = 1500;
+                const stepTime = Math.max(16, Math.floor(duration / this.target));
+                const interval = setInterval(() => {
+                  start++;
+                  this.count = start;
+                  if (start >= this.target) clearInterval(interval);
+                }, stepTime);
+                obs.unobserve(el);
+              }
+            });
+          }, { threshold: 0.5 });
+          obs.observe(el);
+        }
+      }));
+    });
+
+    // ===== DOM ready: Scroll reveal + Nav highlight =====
     document.addEventListener('DOMContentLoaded', () => {
-      // ===== Scroll reveal =====
+      // Scroll reveal
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -248,10 +384,9 @@
           }
         });
       }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-      // ===== Active nav highlight =====
+      // Active nav highlight
       const sections = document.querySelectorAll('section[id]');
       const navObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -265,21 +400,9 @@
           }
         });
       }, { threshold: 0.3 });
-
       sections.forEach(section => navObserver.observe(section));
-    });
-
-    // Expose FAQ data to Alpine
-    document.addEventListener('alpine:init', () => {
-      Alpine.data('landing', () => ({
-        faqs: FAQ_DATA,
-        faqOpen: null
-      }));
     });
   </script>
 
 </body>
 </html>
-
-
-
