@@ -556,7 +556,8 @@
     </div>
 
     <div class="container" style="position:relative;z-index:1;padding-top:5rem;padding-bottom:3rem;">
-      <div class="hero-fade hero-fade-1" style="margin-bottom:0.75rem;">
+      <div class="hero-fade hero-fade-1" style="margin-bottom:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;">
+        <span class="badge" style="background:rgba(207,244,52,0.08);color:var(--brand-primary);border:1px solid rgba(207,244,52,0.2);">AHApp</span>
         <span class="badge badge-lime">Offline-first</span>
       </div>
       <h1 class="display hero-fade hero-fade-2" style="max-width:48rem;margin-bottom:0.75rem;">
@@ -587,7 +588,7 @@
           <div class="stat-label"><span x-show="lang==='es'">clientes</span><span x-show="lang==='en'" x-cloak>clients</span></div>
         </div>
         <div style="text-align:center;">
-          <div class="stat-number" x-data="counter(8)" x-init="init()" x-text="count">0</div>
+          <div class="stat-number" x-data="counter(9)" x-init="init()" x-text="count">0</div>
           <div class="stat-label"><span x-show="lang==='es'">apps entregadas</span><span x-show="lang==='en'" x-cloak>apps delivered</span></div>
         </div>
         <div style="text-align:center;">
@@ -632,6 +633,41 @@
           <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm"><i aria-hidden="true" class="bi bi-wifi-off"></i> <span x-show="lang==='es'"><strong>Cero internet necesario.</strong> IndexedDB + SQLite local</span><span x-show="lang==='en'" x-cloak><strong>Zero internet required.</strong> IndexedDB + SQLite local</span></span></div>
           <div class="card" style="margin-bottom:0.75rem;border-color:rgba(207,244,52,0.3);"><span class="body-sm"><i aria-hidden="true" class="bi bi-shield-lock"></i> <span x-show="lang==='es'"><strong>Tus datos son tuyos.</strong> Cifrados con CryptoJS. Ni yo tengo acceso</span><span x-show="lang==='en'" x-cloak><strong>Your data is yours.</strong> Encrypted with CryptoJS. Not even I can access it</span></span></div>
           <div class="card" style="border-color:rgba(207,244,52,0.3);"><span class="body-sm"><i aria-hidden="true" class="bi bi-box-seam"></i> <span x-show="lang==='es'"><strong>.exe + .apk.</strong> Una app, dos formatos. Escritorio y móvil</span><span x-show="lang==='en'" x-cloak><strong>.exe + .apk.</strong> One app, two formats. Desktop and mobile</span></span></div>
+        </div>
+      </div>
+      <!-- El trato -->
+      <div class="reveal" style="max-width:36rem;margin:2rem auto 0;">
+        <div class="card" style="padding:1.5rem;border-color:rgba(2,70,83,0.12);">
+          <p class="caption" style="color:var(--surface-teal);font-weight:600;margin-bottom:1rem;text-align:center;">
+            <span x-show="lang==='es'"><i aria-hidden="true" class="bi bi-handshake"></i> EL TRATO — Sin letras chiquitas</span>
+            <span x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-handshake"></i> THE DEAL — No fine print</span>
+          </p>
+          <table style="width:100%;border-collapse:collapse;">
+            <tr style="border-bottom:1px solid rgba(2,70,83,0.08);">
+              <td class="caption" style="padding:0.5rem 0;color:var(--txt-muted);width:35%;">Pago</td>
+              <td class="body-sm" style="padding:0.5rem 0 0.5rem 1rem;"><span x-show="lang==='es'">Único. Nunca mensualidad</span><span x-show="lang==='en'" x-cloak>One-time. Never monthly</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(2,70,83,0.08);">
+              <td class="caption" style="padding:0.5rem 0;color:var(--txt-muted);">Formatos</td>
+              <td class="body-sm" style="padding:0.5rem 0 0.5rem 1rem;">.exe + .apk + ZIP</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(2,70,83,0.08);">
+              <td class="caption" style="padding:0.5rem 0;color:var(--txt-muted);">Internet</td>
+              <td class="body-sm" style="padding:0.5rem 0 0.5rem 1rem;"><span x-show="lang==='es'">Cero necesario</span><span x-show="lang==='en'" x-cloak>Zero required</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(2,70,83,0.08);">
+              <td class="caption" style="padding:0.5rem 0;color:var(--txt-muted);">Datos</td>
+              <td class="body-sm" style="padding:0.5rem 0 0.5rem 1rem;"><span x-show="lang==='es'">100% locales, cifrados AES-256</span><span x-show="lang==='en'" x-cloak>100% local, AES-256 encrypted</span></td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(2,70,83,0.08);">
+              <td class="caption" style="padding:0.5rem 0;color:var(--txt-muted);">Soporte</td>
+              <td class="body-sm" style="padding:0.5rem 0 0.5rem 1rem;"><span x-show="lang==='es'">Tú tienes el código, la app es tuya</span><span x-show="lang==='en'" x-cloak>You own the code, the app is yours</span></td>
+            </tr>
+            <tr>
+              <td class="caption" style="padding:0.5rem 0;color:var(--txt-muted);border-bottom:none;">Precio</td>
+              <td class="body-sm" style="padding:0.5rem 0 0.5rem 1rem;border-bottom:none;"><span x-show="lang==='es'">Según complejidad, no por usuario</span><span x-show="lang==='en'" x-cloak>By complexity, not per user</span></td>
+            </tr>
+          </table>
         </div>
       </div>
       <div class="text-center reveal">
@@ -818,6 +854,182 @@
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
             <a href="https://wa.me/5355944628?text=Quiero%20GastosDiarios" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 5 -->
+        <div class="card-dark reveal" style="transition-delay:400ms" @click="activeModal='comanda'" role="button" tabindex="0" @keydown.enter="activeModal='comanda'" aria-label="AHA Comanda">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div style="display:flex;gap:4px;margin-bottom:6px;">
+                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.08);"></div>
+              </div>
+              <div class="mockup-row" style="width:55%;"></div>
+              <div style="display:flex;gap:4px;margin-top:6px;">
+                <div style="flex:3;height:32px;border-radius:6px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:2;height:32px;border-radius:6px;background:rgba(207,244,52,0.1);"></div>
+              </div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+                <div style="flex:2;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">AHA Comanda</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">Restaurante</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Gestión de mesas, comandas y corte de caja para restaurantes y bares.</span>
+            <span x-show="lang==='en'" x-cloak>Table management, orders, and cash closing for restaurants and bars.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Comanda" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 6 -->
+        <div class="card-dark reveal" style="transition-delay:500ms" @click="activeModal='citas'" role="button" tabindex="0" @keydown.enter="activeModal='citas'" aria-label="AHA Citas">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div style="display:flex;gap:4px;margin-bottom:6px;">
+                <div style="flex:2;height:24px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:24px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div class="mockup-row" style="width:50%;"></div>
+              <div style="display:flex;gap:4px;margin-top:6px;">
+                <div style="flex:1;height:38px;border-radius:6px;background:rgba(207,244,52,0.05);"></div>
+                <div style="flex:1;height:38px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:38px;border-radius:6px;background:rgba(207,244,52,0.05);"></div>
+              </div>
+              <div style="margin-top:4px;height:16px;width:40%;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">AHA Citas</h3>
+            <span class="badge" style="font-size:0.65rem;background:rgba(207,244,52,0.1);color:var(--brand-primary);">Agenda</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Agenda offline para barberías, salones y consultorios. Sin internet.</span>
+            <span x-show="lang==='en'" x-cloak>Offline scheduling for barbershops, salons, and clinics.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Citas" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 7 -->
+        <div class="card-dark reveal" style="transition-delay:600ms" @click="activeModal='pos'" role="button" tabindex="0" @keydown.enter="activeModal='pos'" aria-label="AHA POS">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div style="display:flex;gap:4px;margin-bottom:6px;">
+                <div style="flex:1;height:18px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:3;height:18px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div style="display:flex;gap:4px;">
+                <div style="flex:2;height:40px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:40px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:1;height:24px;border-radius:4px;background:rgba(207,244,52,0.05);"></div>
+                <div style="flex:2;height:24px;border-radius:4px;background:rgba(207,244,52,0.07);"></div>
+              </div>
+              <div class="mockup-block" style="margin-top:6px;height:28px;width:70%;"></div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">AHA POS</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">Tienda</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Punto de venta con código de barras, carrito y corte de caja offline.</span>
+            <span x-show="lang==='en'" x-cloak>Point of sale with barcode scanner, cart, and offline cash closing.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20POS" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 8 -->
+        <div class="card-dark reveal" style="transition-delay:700ms" @click="activeModal='asistencia'" role="button" tabindex="0" @keydown.enter="activeModal='asistencia'" aria-label="AHA Asistencia">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div style="display:flex;gap:4px;margin-bottom:6px;">
+                <div style="flex:2;height:28px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:28px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div style="display:flex;gap:4px;">
+                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+                <div style="flex:3;height:16px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+              </div>
+              <div style="display:flex;gap:4px;margin-top:6px;">
+                <div style="flex:1;height:28px;border-radius:4px;background:rgba(207,244,52,0.05);"></div>
+                <div style="flex:1;height:28px;border-radius:4px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:28px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div class="mockup-block" style="margin-top:4px;"></div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">AHA Asistencia</h3>
+            <span class="badge" style="font-size:0.65rem;background:rgba(207,244,52,0.1);color:var(--brand-primary);">RRHH</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Control de asistencia con marcaje QR y reportes para RRHH.</span>
+            <span x-show="lang==='en'" x-cloak>Attendance tracking with QR check-in and HR reports.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Asistencia" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 9 -->
+        <div class="card-dark reveal" style="transition-delay:800ms" @click="activeModal='creador'" role="button" tabindex="0" @keydown.enter="activeModal='creador'" aria-label="AHA Creador">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div class="mockup-row" style="width:70%;"></div>
+              <div style="display:flex;gap:4px;margin-top:6px;">
+                <div style="flex:2;height:30px;border-radius:4px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:30px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.05);"></div>
+                <div style="flex:2;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div style="margin-top:4px;display:flex;gap:4px;">
+                <div style="flex:1;height:24px;border-radius:6px;background:rgba(207,244,52,0.07);"></div>
+                <div style="flex:1;height:24px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">AHA Creador</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">Contenido</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Banco de ideas, calendario y producción para creadores de contenido.</span>
+            <span x-show="lang==='en'" x-cloak>Idea bank, calendar, and production for content creators.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Creador" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
               <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
             </a>
           </div>
@@ -1223,6 +1435,24 @@
             <div class="stack-back">Abre y guarda Excel sin conexión</div>
           </div>
         </div>
+        <div class="stack-card reveal" style="transition-delay:50ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
+          <div class="stack-inner">
+            <div class="stack-front">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-window-stack"></i></div>
+              <div class="body-sm" style="font-weight:600;">NeutralinoJS</div>
+            </div>
+            <div class="stack-back">.exe nativo (~2MB). Sin Java ni Node</div>
+          </div>
+        </div>
+        <div class="stack-card reveal" style="transition-delay:150ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
+          <div class="stack-inner">
+            <div class="stack-front">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-phone-flip"></i></div>
+              <div class="body-sm" style="font-weight:600;">Capacitor</div>
+            </div>
+            <div class="stack-back">.apk nativo: cámara, GPS, notificaciones</div>
+          </div>
+        </div>
       </div>
       <p class="body-sm txt-secondary text-center reveal" style="margin-top:2rem;">
         <span x-show="lang==='es'">Cada librería se descarga una vez. El runtime no pide nada a nadie.</span>
@@ -1522,7 +1752,14 @@
       'chart.render("ventas", {type:"line", data})',
       'new FlexSearch.Document({document:{field:"nombre"}})',
       'let total = items.reduce((s,i) => s + i.precio, 0)',
-      'aplicacion.pdfExport(factura)'
+      'aplicacion.pdfExport(factura)',
+      'db.comandas.orderBy("mesa").toArray()',
+      'carta.calcularSplit(comensales, items)',
+      'await db.citas.where("fecha").equals(hoy).toArray()',
+      'pos.cobrar({carrito, metodoPago, cambio})',
+      'asistencia.marcarEmpleado(qrCode)',
+      'creador.proximoContenido(calendario)',
+      'db.insumos.where("stock").below(minimo).toArray()'
     ];
     const codigoPrecios = [
       'const planes = {lite:49, standard:99, custom:199}',
@@ -1555,7 +1792,10 @@
       'nuevo Chart(ctx, {type:"bar", data})',
       'jsPDF().text("Hola mundo", 10, 10)',
       'XLSX.utils.json_to_sheet(json)',
-      'Alpine.store("theme", {mode:"dark", accent:"lime"})'
+      'Alpine.store("theme", {mode:"dark", accent:"lime"})',
+      'Neutralino.os.execCommand("start app.exe")',
+      'Neutralino.filesystem.readFile("datos.json")',
+      'Capacitor.Plugins.Camera.getPhoto({quality:90})'
     ];
     const codigoComparativa = [
       'navigator.onLine ? sync() : guardarLocal()',
@@ -1570,13 +1810,14 @@
     ];
     const codigoSobreMi = [
       'const proyecto = {nombre:"Tu app", tipo:"offline-first"}',
-      'const apps = ["InventarioPRO","FacturaExpress","..."]',
-      'const stack = ["Alpine.js","Dexie","CryptoJS","SQLite"]',
-      'const anios = 4, clientes = 12, appsEntregadas = 8',
+      'const apps = ["Inventario","Comanda","CRM","POS","..."]',
+      'const stack = ["Alpine","Dexie","CryptoJS","Neutralino"]',
+      'const anios = 4, clientes = 12, appsEntregadas = 9',
       'const lema = "offline-first, siempre"',
       'const ia = {nombre:"Jutia", local:true, sinInternet:true}',
       'const cifrado = {aes:256, local:true, llavePropia:true}',
-      'aplicacion.autor("AHAguilera").licencia("MIT")'
+      'aplicacion.autor("AHAguilera").licencia("MIT")',
+      'new Neutralino.Capacitor().build({plataforma:"all"})'
     ];
 
     // ===== Alpine Components =====

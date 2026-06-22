@@ -205,6 +205,24 @@
             <div class="stack-back">Abre y guarda Excel sin conexión</div>
           </div>
         </div>
+        <div class="stack-card reveal" style="transition-delay:50ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
+          <div class="stack-inner">
+            <div class="stack-front">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-window-stack"></i></div>
+              <div class="body-sm" style="font-weight:600;">NeutralinoJS</div>
+            </div>
+            <div class="stack-back">.exe nativo (~2MB). Sin Java ni Node</div>
+          </div>
+        </div>
+        <div class="stack-card reveal" style="transition-delay:150ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
+          <div class="stack-inner">
+            <div class="stack-front">
+              <div style="font-size:2rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-phone-flip"></i></div>
+              <div class="body-sm" style="font-weight:600;">Capacitor</div>
+            </div>
+            <div class="stack-back">.apk nativo: cámara, GPS, notificaciones</div>
+          </div>
+        </div>
       </div>
       <p class="body-sm txt-secondary text-center reveal" style="margin-top:2rem;">
         <span x-show="lang==='es'">Cada librería se descarga una vez. El runtime no pide nada a nadie.</span>
@@ -504,7 +522,14 @@
       'chart.render("ventas", {type:"line", data})',
       'new FlexSearch.Document({document:{field:"nombre"}})',
       'let total = items.reduce((s,i) => s + i.precio, 0)',
-      'aplicacion.pdfExport(factura)'
+      'aplicacion.pdfExport(factura)',
+      'db.comandas.orderBy("mesa").toArray()',
+      'carta.calcularSplit(comensales, items)',
+      'await db.citas.where("fecha").equals(hoy).toArray()',
+      'pos.cobrar({carrito, metodoPago, cambio})',
+      'asistencia.marcarEmpleado(qrCode)',
+      'creador.proximoContenido(calendario)',
+      'db.insumos.where("stock").below(minimo).toArray()'
     ];
     const codigoPrecios = [
       'const planes = {lite:49, standard:99, custom:199}',
@@ -537,7 +562,10 @@
       'nuevo Chart(ctx, {type:"bar", data})',
       'jsPDF().text("Hola mundo", 10, 10)',
       'XLSX.utils.json_to_sheet(json)',
-      'Alpine.store("theme", {mode:"dark", accent:"lime"})'
+      'Alpine.store("theme", {mode:"dark", accent:"lime"})',
+      'Neutralino.os.execCommand("start app.exe")',
+      'Neutralino.filesystem.readFile("datos.json")',
+      'Capacitor.Plugins.Camera.getPhoto({quality:90})'
     ];
     const codigoComparativa = [
       'navigator.onLine ? sync() : guardarLocal()',
@@ -552,13 +580,14 @@
     ];
     const codigoSobreMi = [
       'const proyecto = {nombre:"Tu app", tipo:"offline-first"}',
-      'const apps = ["InventarioPRO","FacturaExpress","..."]',
-      'const stack = ["Alpine.js","Dexie","CryptoJS","SQLite"]',
-      'const anios = 4, clientes = 12, appsEntregadas = 8',
+      'const apps = ["Inventario","Comanda","CRM","POS","..."]',
+      'const stack = ["Alpine","Dexie","CryptoJS","Neutralino"]',
+      'const anios = 4, clientes = 12, appsEntregadas = 9',
       'const lema = "offline-first, siempre"',
       'const ia = {nombre:"Jutia", local:true, sinInternet:true}',
       'const cifrado = {aes:256, local:true, llavePropia:true}',
-      'aplicacion.autor("AHAguilera").licencia("MIT")'
+      'aplicacion.autor("AHAguilera").licencia("MIT")',
+      'new Neutralino.Capacitor().build({plataforma:"all"})'
     ];
 
     // ===== Alpine Components =====
