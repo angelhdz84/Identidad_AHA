@@ -1458,6 +1458,90 @@
       }
     ];
 
+    // ===== Terminal code pools (globales para Alpine x-data) =====
+    const codigoHero = [
+      'Alpine.data("app", () => ({ items: [] }))',
+      'Dexie.open().then(db => db.get("cliente"))',
+      'CryptoJS.AES.encrypt(data, key).toString()',
+      'db.inventario.where("stock").below(10).toArray()',
+      '$store.loading.phase = "ready"',
+      'await db.productos.bulkAdd(mapped)',
+      'navigator.onLine ? sync() : queue()',
+      'window.indexedDB.open("app_v2", 1)',
+      'x-data=\'{ open: false }\' @click="open = true"',
+      'Alpine.store("session", { user: null })',
+      'ciphertext.toString(CryptoJS.enc.Base64)',
+      'FlexSearch.create({ tokenize: "forward" })',
+      'pako.gzip(JSON.stringify(data))',
+      'navigator.serviceWorker.register("/sw.js")'
+    ];
+    const codigoApps = [
+      'db.productos.bulkAdd([{nombre,precio,stock}])',
+      'await db.inventario.where("stock").below(5).toArray()',
+      'factura.calcularTotal(items, impuesto)',
+      'const reporte = JSON.stringify(ventas)',
+      'db.facturas.orderBy("fecha").reverse().toArray()',
+      'crm.cliente.buscar(telefono).then(c => c.notas)',
+      'chart.render("ventas", {type:"line", data})',
+      'new FlexSearch.Document({document:{field:"nombre"}})',
+      'let total = items.reduce((s,i) => s + i.precio, 0)',
+      'aplicacion.pdfExport(factura)'
+    ];
+    const codigoPrecios = [
+      'const planes = {lite:49, standard:99, custom:199}',
+      'const formatos = {exe:true, apk:true, src:"opcional"}',
+      'const ia = {lite:"search+predict", full:"qa+ingest"}',
+      'const pago = {unico:true, mensual:false, sorpresas:false}',
+      'const cifrado = {metodo:"AES-256", libreria:"CryptoJS"}',
+      'const modulos = {lite:1, standard:3, custom:Infinity}',
+      'chart.donut({ingresos, planes, distribucion})',
+      'const stack = ["Alpine.js","Dexie","CryptoJS","Tailwind"]'
+    ];
+    const codigoIa = [
+      'FlexSearch.create({tokenize:"forward", cache:true})',
+      'const resultados = flex.search(q, {limit:5})',
+      'predict.proximo(productoId).then(p => render(p))',
+      'pipeline("question-answering", modelo).then(qa => {})',
+      'qa(pregunta, contexto).then(r => mostrarRespuesta(r))',
+      'await db.documentos.bulkAdd(docs.map(extraerTexto))',
+      'const embedding = tf.tensor(texto.split(" ").length)',
+      'ia.entrenar(datos).then(() => {ia.lista = true})',
+      'const tokens = tokenizer.encode(pregunta)',
+      'db.conocimiento.where("relevancia").above(0.8)'
+    ];
+    const codigoStack = [
+      'Alpine.data("componente", () => ({estado: null}))',
+      'Dexie.version(1).stores({tabla:"++id,nombre"})',
+      'CryptoJS.AES.encrypt(texto, clave).toString()',
+      'Tailwind.config({theme:{extend:{}}})',
+      'pako.gzip(JSON.stringify(data))',
+      'nuevo Chart(ctx, {type:"bar", data})',
+      'jsPDF().text("Hola mundo", 10, 10)',
+      'XLSX.utils.json_to_sheet(json)',
+      'Alpine.store("theme", {mode:"dark", accent:"lime"})'
+    ];
+    const codigoComparativa = [
+      'navigator.onLine ? sync() : guardarLocal()',
+      'caches.open("app-v1").then(c => c.addAll(["/"]))',
+      'navigator.serviceWorker.register("/sw.js")',
+      'self.addEventListener("sync", e => e.waitUntil(sync()))',
+      'db.sync.queue.push({accion, datos, timestamp})',
+      'localStorage.setItem("ultimoSync", Date.now())',
+      'document.addEventListener("offline", modoOffline)',
+      'caches.match(event.request).then(r => r || fetch)',
+      'db.backup.toJSON().then(d => descargar(d))'
+    ];
+    const codigoSobreMi = [
+      'const proyecto = {nombre:"Tu app", tipo:"offline-first"}',
+      'const apps = ["InventarioPRO","FacturaExpress","..."]',
+      'const stack = ["Alpine.js","Dexie","CryptoJS","SQLite"]',
+      'const anios = 4, clientes = 12, appsEntregadas = 8',
+      'const lema = "offline-first, siempre"',
+      'const ia = {nombre:"Jutia", local:true, sinInternet:true}',
+      'const cifrado = {aes:256, local:true, llavePropia:true}',
+      'aplicacion.autor("AHAguilera").licencia("MIT")'
+    ];
+
     // ===== Alpine Components =====
     document.addEventListener('alpine:init', () => {
       // FAQ data
@@ -1465,107 +1549,6 @@
         faqs: FAQ_DATA,
         faqOpen: null
       }));
-
-      // Terminal code pools per section
-      const codigoHero = [
-        'Alpine.data("app", () => ({ items: [] }))',
-        'Dexie.open().then(db => db.get("cliente"))',
-        'CryptoJS.AES.encrypt(data, key).toString()',
-        'db.inventario.where("stock").below(10).toArray()',
-        '$store.loading.phase = "ready"',
-        'await db.productos.bulkAdd(mapped)',
-        'navigator.onLine ? sync() : queue()',
-        'window.indexedDB.open("app_v2", 1)',
-        'x-data=\'{ open: false }\' @click="open = true"',
-        'Alpine.store("session", { user: null })',
-        'db.transaction("rw", items, () => {})',
-        'ciphertext.toString(CryptoJS.enc.Base64)',
-        'FlexSearch.create({ tokenize: "forward" })',
-        'pako.gzip(JSON.stringify(data))',
-        'navigator.serviceWorker.register("/sw.js")',
-        'window.syncManager.register("sync-tasks")'
-      ];
-      const codigoApps = [
-        'db.productos.bulkAdd([{nombre,precio,stock}])',
-        'await db.inventario.where("stock").below(5).toArray()',
-        'factura.calcularTotal(items, impuesto)',
-        'const reporte = JSON.stringify(ventas)',
-        'db.facturas.orderBy("fecha").reverse().toArray()',
-        'crm.cliente.buscar(telefono).then(c => c.notas)',
-        'await db.gastos.where("categoria").equals("oficina")',
-        'chart.render("ventas", {type:"line", data})',
-        'new FlexSearch.Document({document:{field:"nombre"}})',
-        'let total = items.reduce((s,i) => s + i.precio, 0)',
-        'aplicacion.pdfExport(factura)',
-        'navigator.share({text: JSON.stringify(data)})'
-      ];
-      const codigoPrecios = [
-        'const planes = {lite:49, standard:99, custom:199}',
-        'const formatos = {exe:true, apk:true, src:"opcional"}',
-        'const ia = {lite:"search+predict", full:"qa+ingest"}',
-        'const pago = {unico:true, mensual:false, sorpresas:false}',
-        'const cifrado = {metodo:"AES-256", libreria:"CryptoJS"}',
-        'const modulos = {lite:1, standard:3, custom:Infinity}',
-        'const garantia = {updates:"1 año", soporte:"vitalicio"}',
-        'chart.donut({ingresos, planes, distribucion})',
-        'const stack = ["Alpine.js","Dexie","CryptoJS","Tailwind"]',
-        'db.planes.where("activo").equals(1).count()'
-      ];
-      const codigoIa = [
-        'FlexSearch.create({tokenize:"forward", cache:true})',
-        'const resultados = flex.search(q, {limit:5})',
-        'predict.proximo(productoId).then(p => render(p))',
-        'pipeline("question-answering", modelo).then(qa => {})',
-        'qa(pregunta, contexto).then(r => mostrarRespuesta(r))',
-        'await db.documentos.bulkAdd(docs.map(extraerTexto))',
-        'const embedding = tf.tensor(texto.split(" ").length)',
-        'data.forEach(d => {d.embedding = encoder(d.texto)})',
-        'ia.entrenar(datos).then(() => {ia.lista = true})',
-        'const tokens = tokenizer.encode(pregunta)',
-        'db.conocimiento.where("relevancia").above(0.8)',
-        'nuevo Float64Array(dimensiones).fill(0)'
-      ];
-      const codigoStack = [
-        'Alpine.data("componente", () => ({estado: null}))',
-        'Dexie.version(1).stores({tabla:"++id,nombre"})',
-        'CryptoJS.AES.encrypt(texto, clave).toString()',
-        'Tailwind.config({theme:{extend:{}}})',
-        'pako.gzip(JSON.stringify(data))',
-        'nuevo Chart(ctx, {type:"bar", data})',
-        'jsPDF().text("Hola mundo", 10, 10)',
-        'XLSX.utils.json_to_sheet(json)',
-        'window.bootstrap = {modal: new Modal(el)}',
-        'document.querySelectorAll("[x-data]").length',
-        'window.indexedDB.open("app_v2", 1)',
-        'Alpine.store("theme", {mode:"dark", accent:"lime"})'
-      ];
-      const codigoComparativa = [
-        'navigator.onLine ? sync() : guardarLocal()',
-        'caches.open("app-v1").then(c => c.addAll(["/"]))',
-        'navigator.serviceWorker.register("/sw.js")',
-        'self.addEventListener("sync", e => e.waitUntil(sync()))',
-        'window.indexedDB.open("app", 1)',
-        'db.sync.queue.push({accion, datos, timestamp})',
-        'localStorage.setItem("ultimoSync", Date.now())',
-        'document.addEventListener("offline", modoOffline)',
-        'window.syncManager.register("sync-tasks")',
-        'const online = navigator.onLine',
-        'caches.match(event.request).then(r => r || fetch)',
-        'db.backup.toJSON().then(d => descargar(d))'
-      ];
-      const codigoSobreMi = [
-        'const proyecto = {nombre:"Tu app", tipo:"offline-first"}',
-        'const apps = ["InventarioPRO","FacturaExpress", "..."]',
-        'const stack = ["Alpine.js","Dexie","CryptoJS","SQLite"]',
-        'const anios = 4, clientes = 12, appsEntregadas = 8',
-        'const lema = "offline-first, siempre"',
-        'const proyectos = [{tipo:".exe"},{tipo:".apk"}]',
-        'const ia = {nombre:"Jutia", local:true, sinInternet:true}',
-        'const metodo = {pagoUnico:true, sinMensualidad:true}',
-        'const cifrado = {aes:256, local:true, llavePropia:true}',
-        'aplicacion.autor("AHAguilera").licencia("MIT")',
-        'console.log(`Listo — ${apps.length} apps entregadas`)'
-      ];
 
       // Terminal viva — componente que recibe un pool de código
       Alpine.data('terminalVivo', (codigo) => ({
