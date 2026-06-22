@@ -191,19 +191,21 @@
       75% { transform: rotateY(18deg) rotateX(-8deg); }
     }
 
-    /* ===== FLOATING LIGHT SECTIONS (no 3D, teal, organic) ===== */
+    /* ===== FLOATING LIGHT SECTIONS (grandes, decorativos) ===== */
     .float-light {
       position: absolute;
       pointer-events: none;
       user-select: none;
       z-index: 0;
-      opacity: 0.06;
-      font-size: 2rem;
+      opacity: 0.10;
+      font-size: clamp(6rem, 14vw, 12rem);
+      line-height: 1;
       color: var(--surface-teal);
+      transform-origin: center center;
     }
     .float-light-inner {
       display: inline-block;
-      animation: floatSway 14s ease-in-out infinite;
+      animation: floatSway 16s ease-in-out infinite;
     }
 
     /* ========== NAV (DUAL GLASS) ========== */
