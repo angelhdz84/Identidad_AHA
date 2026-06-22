@@ -120,7 +120,7 @@
     /* ===== UTILITIES ===== */
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
     .container-narrow { max-width: var(--max-w-narrow); margin: 0 auto; padding: 0 1.5rem; }
-    .section { padding: var(--section-py) 0; }
+    .section { padding: var(--section-py) 0; position: relative; overflow: hidden; }
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     .sr-only.focus\:not-sr-only:focus { position: static; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; }
     .flex { display: flex; }
@@ -189,6 +189,21 @@
       25% { transform: rotateY(25deg) rotateX(5deg); }
       50% { transform: rotateY(-10deg) rotateX(-5deg); }
       75% { transform: rotateY(18deg) rotateX(-8deg); }
+    }
+
+    /* ===== FLOATING LIGHT SECTIONS (no 3D, teal, organic) ===== */
+    .float-light {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      opacity: 0.06;
+      font-size: 2rem;
+      color: var(--surface-teal);
+    }
+    .float-light-inner {
+      display: inline-block;
+      animation: floatSway 14s ease-in-out infinite;
     }
 
     /* ========== NAV (DUAL GLASS) ========== */
@@ -396,6 +411,9 @@
       .btn-cta-final { animation: none; }
       .stack-inner { transition: none; }
       .stack-card:hover .stack-inner { transform: none; }
+      .terminal-cursor { animation: none; }
+      .float-card, .float-card-inner { animation: none !important; }
+      .float-light, .float-light-inner { animation: none !important; }
       html { scroll-behavior: auto; }
     }
 
@@ -513,7 +531,7 @@
     <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;">
       <!-- Terminal -->
       <div style="position:absolute;top:8%;left:4%;max-width:20rem;">
-        <div x-data="terminalVivo()" x-init="init()" class="terminal-line" style="opacity:0.12;">
+        <div x-data="terminalVivo(codigoHero)" x-init="init()" class="terminal-line" style="opacity:0.12;">
           <template x-for="(linea, i) in lineas" :key="i">
             <div style="margin-bottom:0.15rem;">
               <span style="opacity:0.5;">></span> <span x-text="linea"></span>
@@ -524,7 +542,7 @@
       </div>
       <!-- Second terminal (bottom-right, mirrored) -->
       <div style="position:absolute;bottom:12%;right:4%;transform:rotate(180deg);max-width:20rem;">
-        <div x-data="terminalVivo()" x-init="init()" class="terminal-line" style="opacity:0.10;">
+        <div x-data="terminalVivo(codigoHero)" x-init="init()" class="terminal-line" style="opacity:0.10;">
           <template x-for="(linea, i) in lineas" :key="i">
             <div style="margin-bottom:0.15rem;">
               <span style="opacity:0.5;">></span> <span x-text="linea"></span>
@@ -533,13 +551,6 @@
           <span class="terminal-cursor"></span>
         </div>
       </div>
-      <!-- Floating Tech Cards 3D -->
-      <div class="float-card" style="top:15%;left:12%;"><div class="float-card-inner" style="animation-duration:15s,8s;"><i class="bi bi-lightning-charge"></i></div></div>
-      <div class="float-card" style="top:50%;left:6%;"><div class="float-card-inner" style="animation-duration:13s,9s;animation-delay:-2s,-1s;"><i class="bi bi-database"></i></div></div>
-      <div class="float-card" style="top:70%;left:18%;"><div class="float-card-inner" style="animation-duration:14s,7s;animation-delay:-4s,-3s;"><i class="bi bi-lock"></i></div></div>
-      <div class="float-card" style="top:20%;right:15%;"><div class="float-card-inner" style="animation-duration:11s,10s;animation-delay:-1s,-2s;"><i class="bi bi-server"></i></div></div>
-      <div class="float-card" style="top:45%;right:8%;"><div class="float-card-inner" style="animation-duration:16s,8s;animation-delay:-5s,-4s;"><i class="bi bi-cpu"></i></div></div>
-      <div class="float-card" style="top:75%;right:20%;"><div class="float-card-inner" style="animation-duration:12s,9s;animation-delay:-3s,-5s;"><i class="bi bi-diagram-3"></i></div></div>
     </div>
 
     <div class="container" style="position:relative;z-index:1;padding-top:5rem;padding-bottom:3rem;">
@@ -589,6 +600,8 @@
 
   <!-- ========== PROPUESTA DE VALOR ========== -->
   <section class="section section-light" id="valor" aria-label="Propuesta de valor">
+    <div class="float-light" style="top:8%;right:5%;"><div class="float-light-inner"><i class="bi bi-palette"></i></div></div>
+    <div class="float-light" style="bottom:12%;left:4%;"><div class="float-light-inner" style="animation-delay:-5s;animation-duration:16s;"><i class="bi bi-stars"></i></div></div>
     <div class="container">
       <p class="eyebrow text-center reveal">OFFLINE-FIRST</p>
       <h2 class="display text-center reveal delay-1" style="margin-bottom:3rem;">
@@ -631,6 +644,13 @@
 
   <!-- ========== APPS ========== -->
   <section class="section section-dark" id="apps" aria-label="Apps populares">
+    <div style="position:absolute;bottom:1.5rem;right:1.5rem;max-width:17rem;opacity:0.07;pointer-events:none;">
+      <div x-data="terminalVivo(codigoApps)" x-init="init()" class="terminal-line" style="font-size:0.6rem;">
+        <template x-for="(linea, i) in lineas" :key="i">
+          <div style="margin-bottom:0.1rem;"><span style="opacity:0.4;">></span> <span x-text="linea"></span></div>
+        </template>
+      </div>
+    </div>
     <div class="container">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">APPS LISTAS PARA LLEVAR</span>
@@ -787,6 +807,13 @@
 
   <!-- ========== PRECIOS ========== -->
   <section class="section section-dark" id="precios" aria-label="Planes y precios">
+    <div style="position:absolute;top:2rem;right:1.5rem;max-width:16rem;opacity:0.07;pointer-events:none;">
+      <div x-data="terminalVivo(codigoPrecios)" x-init="init()" class="terminal-line" style="font-size:0.6rem;">
+        <template x-for="(linea, i) in lineas" :key="i">
+          <div style="margin-bottom:0.1rem;"><span style="opacity:0.4;">></span> <span x-text="linea"></span></div>
+        </template>
+      </div>
+    </div>
     <div class="container">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">PRECIOS</span>
@@ -877,6 +904,8 @@
 
   <!-- ========== CÓMO FUNCIONA ========== -->
   <section class="section section-light" id="como-funciona" aria-label="Cómo funciona">
+    <div class="float-light" style="top:5%;left:3%;"><div class="float-light-inner" style="animation-duration:13s;"><i class="bi bi-arrow-repeat"></i></div></div>
+    <div class="float-light" style="bottom:8%;right:3%;"><div class="float-light-inner" style="animation-delay:-4s;animation-duration:15s;"><i class="bi bi-compass"></i></div></div>
     <div class="container-narrow">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">CÓMO FUNCIONA</span>
@@ -953,6 +982,13 @@
 
   <!-- ========== IA JUTIA ========== -->
   <section class="section section-dark" id="ia-jutia" aria-label="IA Jutia">
+    <div style="position:absolute;top:50%;left:1.5rem;max-width:16rem;opacity:0.07;pointer-events:none;transform:translateY(-50%);">
+      <div x-data="terminalVivo(codigoIa)" x-init="init()" class="terminal-line" style="font-size:0.6rem;">
+        <template x-for="(linea, i) in lineas" :key="i">
+          <div style="margin-bottom:0.1rem;"><span style="opacity:0.4;">></span> <span x-text="linea"></span></div>
+        </template>
+      </div>
+    </div>
     <div class="container">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">IA JUTIA</span>
@@ -1075,6 +1111,13 @@
 
   <!-- ========== STACK FLIP ========== -->
   <section class="section section-dark" id="stack" aria-label="Stack técnico">
+    <div style="position:absolute;bottom:1.5rem;left:1.5rem;max-width:15rem;opacity:0.07;pointer-events:none;">
+      <div x-data="terminalVivo(codigoStack)" x-init="init()" class="terminal-line" style="font-size:0.6rem;">
+        <template x-for="(linea, i) in lineas" :key="i">
+          <div style="margin-bottom:0.1rem;"><span style="opacity:0.4;">></span> <span x-text="linea"></span></div>
+        </template>
+      </div>
+    </div>
     <div class="container">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">STACK TÉCNICO</span>
@@ -1153,6 +1196,13 @@
 
   <!-- ========== COMPARATIVA ========== -->
   <section class="section section-dark" id="comparativa" aria-label="Comparativa">
+    <div style="position:absolute;top:3rem;right:1.5rem;max-width:16rem;opacity:0.07;pointer-events:none;">
+      <div x-data="terminalVivo(codigoComparativa)" x-init="init()" class="terminal-line" style="font-size:0.6rem;">
+        <template x-for="(linea, i) in lineas" :key="i">
+          <div style="margin-bottom:0.1rem;"><span style="opacity:0.4;">></span> <span x-text="linea"></span></div>
+        </template>
+      </div>
+    </div>
     <div class="container-narrow">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">OFFLINE-FIRST vs TRADICIONAL</span>
@@ -1214,6 +1264,8 @@
 
   <!-- ========== FAQ ========== -->
   <section class="section section-light" id="faq" aria-label="Preguntas frecuentes" x-data="landing">
+    <div class="float-light" style="top:6%;right:2%;"><div class="float-light-inner" style="animation-duration:16s;"><i class="bi bi-chat-square-quote"></i></div></div>
+    <div class="float-light" style="bottom:6%;left:2%;"><div class="float-light-inner" style="animation-delay:-3s;animation-duration:14s;"><i class="bi bi-question-circle"></i></div></div>
     <div class="container-narrow">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">PREGUNTAS FRECUENTES</span>
@@ -1242,6 +1294,13 @@
 
   <!-- ========== SOBRE MÍ ========== -->
   <section class="section section-dark" id="sobre-mi" aria-label="Sobre mí">
+    <div style="position:absolute;bottom:1.5rem;right:1.5rem;max-width:15rem;opacity:0.07;pointer-events:none;">
+      <div x-data="terminalVivo(codigoSobreMi)" x-init="init()" class="terminal-line" style="font-size:0.6rem;">
+        <template x-for="(linea, i) in lineas" :key="i">
+          <div style="margin-bottom:0.1rem;"><span style="opacity:0.4;">></span> <span x-text="linea"></span></div>
+        </template>
+      </div>
+    </div>
     <div class="container-narrow">
       <p class="eyebrow text-center reveal">
         <span x-show="lang==='es'">SOBRE MÍ</span>
@@ -1276,6 +1335,8 @@
 
   <!-- ========== CTA FINAL ========== -->
   <section class="section section-light" id="contacto" aria-label="Contacto" style="padding-bottom:4rem;">
+    <div class="float-light" style="top:10%;left:5%;"><div class="float-light-inner" style="animation-duration:12s;"><i class="bi bi-rocket-takeoff"></i></div></div>
+    <div class="float-light" style="bottom:10%;right:5%;"><div class="float-light-inner" style="animation-delay:-6s;animation-duration:17s;"><i class="bi bi-send"></i></div></div>
     <div class="container-narrow">
       <div class="card reveal" style="text-align:center;padding:3rem 2rem;border:2px solid var(--brand-primary);">
         <div style="font-size:3rem;margin-bottom:1rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-rocket-takeoff"></i></div>
@@ -1302,7 +1363,9 @@
   </main>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="section-light" style="border-top:1px solid var(--border-subtle);padding:3rem 0 2rem;" role="contentinfo">
+  <footer class="section-light" style="border-top:1px solid var(--border-subtle);padding:3rem 0 2rem;position:relative;overflow:hidden;" role="contentinfo">
+    <div class="float-light" style="bottom:0.5rem;left:2rem;"><div class="float-light-inner" style="animation-duration:18s;"><i class="bi bi-flower2"></i></div></div>
+    <div class="float-light" style="top:0.5rem;right:2rem;"><div class="float-light-inner" style="animation-delay:-7s;animation-duration:15s;"><i class="bi bi-heart"></i></div></div>
     <div class="container">
       <div style="text-align:center;margin-bottom:1.5rem;">
         <img src="./brand/logotipo.jpg" alt="AHAguilera" style="height:2.5rem;margin:0 auto;border-radius:50%;">
@@ -1403,41 +1466,115 @@
         faqOpen: null
       }));
 
-      // Terminal viva — líneas de código real que aparecen una por una
-      Alpine.data('terminalVivo', () => ({
+      // Terminal code pools per section
+      const codigoHero = [
+        'Alpine.data("app", () => ({ items: [] }))',
+        'Dexie.open().then(db => db.get("cliente"))',
+        'CryptoJS.AES.encrypt(data, key).toString()',
+        'db.inventario.where("stock").below(10).toArray()',
+        '$store.loading.phase = "ready"',
+        'await db.productos.bulkAdd(mapped)',
+        'navigator.onLine ? sync() : queue()',
+        'window.indexedDB.open("app_v2", 1)',
+        'x-data=\'{ open: false }\' @click="open = true"',
+        'Alpine.store("session", { user: null })',
+        'db.transaction("rw", items, () => {})',
+        'ciphertext.toString(CryptoJS.enc.Base64)',
+        'FlexSearch.create({ tokenize: "forward" })',
+        'pako.gzip(JSON.stringify(data))',
+        'navigator.serviceWorker.register("/sw.js")',
+        'window.syncManager.register("sync-tasks")'
+      ];
+      const codigoApps = [
+        'db.productos.bulkAdd([{nombre,precio,stock}])',
+        'await db.inventario.where("stock").below(5).toArray()',
+        'factura.calcularTotal(items, impuesto)',
+        'const reporte = JSON.stringify(ventas)',
+        'db.facturas.orderBy("fecha").reverse().toArray()',
+        'crm.cliente.buscar(telefono).then(c => c.notas)',
+        'await db.gastos.where("categoria").equals("oficina")',
+        'chart.render("ventas", {type:"line", data})',
+        'new FlexSearch.Document({document:{field:"nombre"}})',
+        'let total = items.reduce((s,i) => s + i.precio, 0)',
+        'aplicacion.pdfExport(factura)',
+        'navigator.share({text: JSON.stringify(data)})'
+      ];
+      const codigoPrecios = [
+        'const planes = {lite:49, standard:99, custom:199}',
+        'const formatos = {exe:true, apk:true, src:"opcional"}',
+        'const ia = {lite:"search+predict", full:"qa+ingest"}',
+        'const pago = {unico:true, mensual:false, sorpresas:false}',
+        'const cifrado = {metodo:"AES-256", libreria:"CryptoJS"}',
+        'const modulos = {lite:1, standard:3, custom:Infinity}',
+        'const garantia = {updates:"1 año", soporte:"vitalicio"}',
+        'chart.donut({ingresos, planes, distribucion})',
+        'const stack = ["Alpine.js","Dexie","CryptoJS","Tailwind"]',
+        'db.planes.where("activo").equals(1).count()'
+      ];
+      const codigoIa = [
+        'FlexSearch.create({tokenize:"forward", cache:true})',
+        'const resultados = flex.search(q, {limit:5})',
+        'predict.proximo(productoId).then(p => render(p))',
+        'pipeline("question-answering", modelo).then(qa => {})',
+        'qa(pregunta, contexto).then(r => mostrarRespuesta(r))',
+        'await db.documentos.bulkAdd(docs.map(extraerTexto))',
+        'const embedding = tf.tensor(texto.split(" ").length)',
+        'data.forEach(d => {d.embedding = encoder(d.texto)})',
+        'ia.entrenar(datos).then(() => {ia.lista = true})',
+        'const tokens = tokenizer.encode(pregunta)',
+        'db.conocimiento.where("relevancia").above(0.8)',
+        'nuevo Float64Array(dimensiones).fill(0)'
+      ];
+      const codigoStack = [
+        'Alpine.data("componente", () => ({estado: null}))',
+        'Dexie.version(1).stores({tabla:"++id,nombre"})',
+        'CryptoJS.AES.encrypt(texto, clave).toString()',
+        'Tailwind.config({theme:{extend:{}}})',
+        'pako.gzip(JSON.stringify(data))',
+        'nuevo Chart(ctx, {type:"bar", data})',
+        'jsPDF().text("Hola mundo", 10, 10)',
+        'XLSX.utils.json_to_sheet(json)',
+        'window.bootstrap = {modal: new Modal(el)}',
+        'document.querySelectorAll("[x-data]").length',
+        'window.indexedDB.open("app_v2", 1)',
+        'Alpine.store("theme", {mode:"dark", accent:"lime"})'
+      ];
+      const codigoComparativa = [
+        'navigator.onLine ? sync() : guardarLocal()',
+        'caches.open("app-v1").then(c => c.addAll(["/"]))',
+        'navigator.serviceWorker.register("/sw.js")',
+        'self.addEventListener("sync", e => e.waitUntil(sync()))',
+        'window.indexedDB.open("app", 1)',
+        'db.sync.queue.push({accion, datos, timestamp})',
+        'localStorage.setItem("ultimoSync", Date.now())',
+        'document.addEventListener("offline", modoOffline)',
+        'window.syncManager.register("sync-tasks")',
+        'const online = navigator.onLine',
+        'caches.match(event.request).then(r => r || fetch)',
+        'db.backup.toJSON().then(d => descargar(d))'
+      ];
+      const codigoSobreMi = [
+        'const proyecto = {nombre:"Tu app", tipo:"offline-first"}',
+        'const apps = ["InventarioPRO","FacturaExpress", "..."]',
+        'const stack = ["Alpine.js","Dexie","CryptoJS","SQLite"]',
+        'const anios = 4, clientes = 12, appsEntregadas = 8',
+        'const lema = "offline-first, siempre"',
+        'const proyectos = [{tipo:".exe"},{tipo:".apk"}]',
+        'const ia = {nombre:"Jutia", local:true, sinInternet:true}',
+        'const metodo = {pagoUnico:true, sinMensualidad:true}',
+        'const cifrado = {aes:256, local:true, llavePropia:true}',
+        'aplicacion.autor("AHAguilera").licencia("MIT")',
+        'console.log(`Listo — ${apps.length} apps entregadas`)'
+      ];
+
+      // Terminal viva — componente que recibe un pool de código
+      Alpine.data('terminalVivo', (codigo) => ({
         lineas: [],
         interval: null,
         pauseTimer: null,
-        codigo: [
-          'Alpine.data("app", () => ({ items: [] }))',
-          'Dexie.open().then(db => db.get("cliente"))',
-          'CryptoJS.AES.encrypt(data, key).toString()',
-          'db.inventario.where("stock").below(10).toArray()',
-          'useEffect(() => { fetchLocal() }, [])',
-          '$store.loading.phase = "ready"',
-          'await db.productos.bulkAdd(mapped)',
-          'navigator.onLine ? sync() : queue()',
-          'aplicacion.render("main", contexto)',
-          'window.indexedDB.open("app_v2", 1)',
-          'x-data="{ open: false }" @click="open = true"',
-          'Alpine.store("session", { user: null })',
-          'db.transaction("rw", items, () => {})',
-          'ciphertext.toString(CryptoJS.enc.Base64)',
-          'FlexSearch.create({ tokenize: "forward" })',
-          'x-init="refreshCache().then(() => loader=false)"',
-          'pako.gzip(JSON.stringify(data))',
-          'Alpine.effect(() => console.log($store))',
-          'navigator.serviceWorker.register("/sw.js")',
-          'window.syncManager.register("sync-tasks")'
-        ],
         init() {
-          const tipo = Math.floor(Math.random() * 3);
-          let pool = [];
-          if (tipo === 0) pool = this.codigo.slice(0,7);
-          else if (tipo === 1) pool = this.codigo.slice(7,14);
-          else pool = this.codigo.slice(14);
-          for (let i = 0; i < 8; i++) {
-            this.lineas.push(pool[Math.floor(Math.random() * pool.length)]);
+          for (let i = 0; i < 5; i++) {
+            this.lineas.push(codigo[Math.floor(Math.random() * codigo.length)]);
           }
           this.loop();
         },
@@ -1449,9 +1586,8 @@
             } else {
               clearInterval(this.interval);
               this.pauseTimer = setTimeout(() => {
-                const pool = this.codigo;
                 for (let i = 0; i < this.lineas.length; i++) {
-                  this.lineas[i] = pool[Math.floor(Math.random() * pool.length)];
+                  this.lineas[i] = codigo[Math.floor(Math.random() * codigo.length)];
                 }
                 idx = 0;
                 this.loop();
