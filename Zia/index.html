@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>AHAguilera — Identidad de Marca</title>
+<meta name="description" content="Identidad visual, verbal y técnica de AHAguilera. Apps offline-first, desarrollo freelance.">
+<meta name="theme-color" content="#024653">
+<link rel="icon" href="favicons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicons/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="favicons/apple-touch-icon.png">
+<link rel="manifest" href="manifest/site.webmanifest">
+<meta property="og:image" content="social/og-image.png">
+<meta property="og:title" content="AHAguilera — Identidad de Marca">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="social/twitter-card.png">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --surface:#171614;
+  --surface-elevated:#1f1d1a;
+  --surface-hover:#2a2824;
+  --surface-teal:#024653;
+  --surface-teal-hover:#035f6e;
+  --text-primary:#EAF4F5;
+  --text-secondary:#9ba8a9;
+  --text-muted:#5e696a;
+  --accent:#CFF434;
+  --accent-hover:#dbf65a;
+  --accent-secondary:#07D16E;
+  --accent-secondary-hover:#1ae87f;
+  --error:#ef4444;
+  --warn:#f59e0b;
+  --border:#2a2824;
+  --border-hover:#3a3834;
+  --radius:16px;
+  --radius-sm:8px;
+  --beige-surface:#F5F0EB;
+  --beige-card:#FFFFFF;
+  --beige-text:#171614;
+  --beige-secondary:#6B6560;
+  --beige-border:#E0D6CE;
+  --font-sans:'Inter',system-ui,-apple-system,'Segoe UI','Helvetica Neue',sans-serif;
+  --font-mono:'JetBrains Mono','Fira Code','Courier New',monospace;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+html{scroll-behavior:smooth}
+body{
+  background:var(--surface);
+  color:var(--text-primary);
+  font-family:var(--font-sans);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  font-feature-settings:'cv02','cv03','cv04','cv11';
+}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* ===== NAV ===== */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(23,22,20,0.88);
+  backdrop-filter:blur(16px) saturate(1.4);
+  -webkit-backdrop-filter:blur(16px) saturate(1.4);
+  border-bottom:1px solid var(--border);
+}
+nav .nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;max-width:1140px;margin:0 auto;padding:0 24px
+}
+nav .logo-s{margin:0;display:flex;align-items:center;gap:10px}
+nav .logo-s .nav-mark{
+  width:32px;height:32px;border-radius:8px;
+  background:var(--surface-teal);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:14px;letter-spacing:-1px;
+  color:var(--accent);
+}
+nav .logo-s .nav-mark span:nth-child(2){color:var(--text-primary)}
+nav .logo-s .nav-mark span:nth-child(3){color:var(--accent-secondary)}
+nav .logo-s .nav-text{font-size:18px;font-weight:800;letter-spacing:-0.5px;color:var(--text-primary)}
+nav .logo-s .nav-text span{color:var(--accent)}
+nav .nav-links{display:flex;gap:2px}
+nav .nav-links a{
+  color:var(--text-secondary);text-decoration:none;
+  font-size:13px;font-weight:500;padding:6px 12px;border-radius:8px;
+  transition:color 0.2s,background 0.2s
+}
+nav .nav-links a:hover{color:var(--accent);background:rgba(207,244,52,0.06)}
+nav .nav-links a.active{color:var(--accent);background:rgba(207,244,52,0.1)}
+.nav-cta{
+  background:var(--accent);color:var(--surface);
+  padding:7px 14px;border-radius:999px;
+  font-size:12px;font-weight:700;text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:background 0.2s,transform 0.15s;
+}
+.nav-cta:hover{background:var(--accent-hover);transform:translateY(-1px)}
+.nav-cta::before{content:'↓';font-size:14px}
+
+/* ===== HERO ===== */
+.hero{
+  padding:88px 0 72px;text-align:center;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(207,244,52,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(7,209,110,0.05) 0%, transparent 40%),
+    linear-gradient(180deg,var(--surface) 0%,var(--surface-elevated) 100%);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle, rgba(2,70,83,0.4) 0%, transparent 70%);
+  pointer-events:none;
+}
+.hero .container{position:relative;z-index:1}
+.hero .logo-hero{display:inline-block;margin-bottom:24px;padding:20px 30px}
+.hero .logo-hero svg{width:100%;max-width:680px;height:auto;display:block}
+.hero h1{
+  font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-2px;
+  margin-bottom:12px;line-height:1.05
+}
+.hero h1 span{color:var(--accent)}
+.hero .sub{
+  font-size:17px;color:var(--text-secondary);
+  max-width:540px;margin:0 auto 24px
+}
+.hero .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.hero .badge-c{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--surface-hover);color:var(--text-secondary);
+  padding:6px 14px;border-radius:999px;font-size:12px;font-weight:500;
+  border:1px solid var(--border)
+}
+.hero .badge-c .dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
+.hero .hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{
+  background:var(--accent);color:var(--surface);
+  padding:12px 24px;border-radius:999px;
+  font-size:14px;font-weight:700;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:background 0.2s,transform 0.15s,box-shadow 0.2s;
+  box-shadow:0 4px 20px rgba(207,244,52,0.25);
+}
+.btn-primary:hover{background:var(--accent-hover);transform:translateY(-1px);box-shadow:0 6px 28px rgba(207,244,52,0.4)}
+.btn-ghost{
+  background:transparent;color:var(--text-secondary);
+  border:1px solid var(--border-hover);
+  padding:12px 24px;border-radius:999px;
+  font-size:14px;font-weight:600;text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:border-color 0.2s,color 0.2s,background 0.2s;
+}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);background:rgba(207,244,52,0.04)}
+
+/* ===== SECTIONS ===== */
+section{padding:80px 0;scroll-margin-top:80px}
+section+section{border-top:1px solid var(--border)}
+.section-beige{
+  background:var(--beige-surface);color:var(--beige-text)
+}
+.section-beige .s-label{color:var(--surface-teal)}
+.section-beige .s-desc{color:var(--beige-secondary)}
+.section-teal{
+  background:var(--surface-teal);color:var(--text-primary)
+}
+.section-teal .s-label{color:var(--accent)}
+.section-teal .s-desc{color:rgba(234,244,245,0.8)}
+.s-label{
+  font-size:11px;font-weight:700;color:var(--accent);
+  letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.s-label::before{content:'';width:18px;height:1px;background:currentColor;display:inline-block}
+.s-title{
+  font-size:clamp(26px,3.5vw,40px);font-weight:800;letter-spacing:-1.2px;
+  margin-bottom:10px;line-height:1.1
+}
+.s-desc{color:var(--text-secondary);font-size:16px;max-width:680px;margin-bottom:40px}
+
+/* ===== CARDS ===== */
+.card{
+  background:var(--surface-elevated);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px;transition:border-color 0.2s,transform 0.2s;
+  position:relative;overflow:hidden
+}
+.card:hover{border-color:rgba(207,244,52,0.4);transform:translateY(-2px)}
+.card-beige{background:var(--beige-card);border:1px solid var(--beige-border);border-radius:var(--radius);padding:28px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+@media (max-width:780px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
+}
+
+/* ===== SWATCHES ===== */
+.swatch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}
+.swatch-c{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--surface-elevated)}
+.swatch-c .preview{height:96px;display:flex;align-items:flex-end;padding:12px;position:relative}
+.swatch-c .preview .hex{
+  font-family:var(--font-mono);font-size:11px;font-weight:600;
+  padding:4px 10px;border-radius:6px;background:rgba(0,0,0,0.55);color:#fff;
+  backdrop-filter:blur(4px);letter-spacing:0.5px
+}
+.swatch-c .info{padding:14px}
+.swatch-c .info .name{font-size:14px;font-weight:600;margin-bottom:2px}
+.swatch-c .info .role{font-size:12px;color:var(--text-muted);line-height:1.4}
+.swatch-c .info .token{font-family:var(--font-mono);font-size:10px;color:var(--accent-secondary);margin-top:6px;display:inline-block;background:rgba(7,209,110,0.08);padding:2px 6px;border-radius:4px}
+
+/* ===== TYPOGRAPHY ===== */
+.typo-grid{display:flex;flex-direction:column;gap:0}
+.typo-r{
+  display:grid;grid-template-columns:110px 1fr;gap:20px;
+  align-items:baseline;padding:18px 0;border-bottom:1px solid var(--border)
+}
+.typo-r:last-child{border-bottom:none}
+.typo-meta{text-align:right}
+.typo-meta .size{font-size:12px;color:var(--accent-secondary);font-family:var(--font-mono);font-weight:500}
+.typo-meta .weight{font-size:11px;color:var(--text-muted);margin-top:2px}
+.typo-s{color:var(--text-primary)}
+.font-demo{
+  background:var(--surface-elevated);border-radius:var(--radius);
+  padding:24px;border:1px solid var(--border)
+}
+.font-demo .fd-label{font-size:10px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;font-weight:700}
+.font-demo .fd-preview{font-size:28px;margin-bottom:6px;font-weight:800;letter-spacing:-1px}
+.font-demo .fd-body{font-size:15px;color:var(--text-secondary);line-height:1.5}
+.font-demo .fd-meta{font-size:11px;color:var(--text-muted);margin-top:14px;font-family:var(--font-mono)}
+
+/* ===== TABLES ===== */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--border)}
+th{color:var(--accent);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:1.5px}
+td{color:var(--text-secondary)}
+td:first-child{color:var(--text-primary);font-weight:500}
+td code{font-family:var(--font-mono);font-size:12px;color:var(--accent-secondary);background:rgba(7,209,110,0.08);padding:2px 6px;border-radius:4px}
+.section-beige td:first-child{color:var(--beige-text)}
+.section-beige td{color:var(--beige-secondary)}
+.section-beige th{color:var(--surface-teal)}
+.section-beige tr:last-child td{border-bottom:none}
+
+/* ===== LISTS ===== */
+.rule-list{list-style:none;display:flex;flex-direction:column;gap:0}
+.rule-list li{
+  padding:14px 0;border-bottom:1px solid var(--border);display:grid;
+  grid-template-columns:80px 1fr;gap:16px;font-size:14px;
+  align-items:start
+}
+.rule-list li:last-child{border-bottom:none}
+.rule-list .tag{
+  display:inline-block;padding:4px 10px;border-radius:6px;
+  font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;text-align:center;
+  font-family:var(--font-mono)
+}
+.tag-reject{background:rgba(239,68,68,0.15);color:var(--error)}
+.tag-ok{background:rgba(7,209,110,0.15);color:var(--accent-secondary)}
+.tag-required{background:rgba(207,244,52,0.15);color:var(--accent)}
+.tag-info{background:rgba(2,70,83,0.5);color:#EAF4F5}
+.tag-warn{background:rgba(245,158,11,0.15);color:var(--warn)}
+
+/* ===== VOICE ===== */
+.voice-do,.voice-dont{
+  background:var(--surface-elevated);border-radius:var(--radius);
+  padding:24px;border:1px solid var(--border)
+}
+.voice-do{border-color:rgba(7,209,110,0.2)}
+.voice-dont{border-color:rgba(239,68,68,0.2)}
+.voice-do h3{color:var(--accent-secondary);font-size:14px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.voice-dont h3{color:var(--error);font-size:14px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.voice-do h3::before{content:'✓';font-size:16px;font-weight:800}
+.voice-dont h3::before{content:'✕';font-size:16px;font-weight:800}
+.v-item{padding:12px 0;border-bottom:1px solid var(--border);font-size:13px}
+.v-item:last-child{border-bottom:none}
+.v-item .ctx{font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;font-weight:600}
+.v-item .ok{color:var(--accent-secondary)}
+.v-item .no{color:var(--error)}
+
+/* ===== LOGO SHOWCASE ===== */
+.logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:780px){.logo-grid{grid-template-columns:1fr}}
+.logo-card{
+  background:var(--surface-elevated);border-radius:var(--radius);
+  padding:32px 24px;border:1px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  transition:border-color 0.2s,transform 0.2s;
+  min-height:280px;justify-content:space-between
+}
+.logo-card:hover{border-color:rgba(207,244,52,0.4);transform:translateY(-2px)}
+.logo-card .preview{
+  width:100%;min-height:120px;flex:1;
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px
+}
+.logo-card .preview img{max-width:100%;max-height:140px;height:auto}
+.logo-card .preview.icon-preview img{width:96px;height:96px;object-fit:contain}
+.logo-card h3{font-size:14px;font-weight:700;margin-bottom:4px}
+.logo-card .fname{font-size:11px;color:var(--accent-secondary);font-family:var(--font-mono);margin-bottom:8px;word-break:break-all}
+.logo-card p{font-size:12px;color:var(--text-secondary);line-height:1.5}
+.logo-card .usage{
+  display:inline-block;margin-top:10px;
+  padding:3px 12px;border-radius:999px;
+  font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase
+}
+.usage-favicon{background:var(--surface-teal);color:#EAF4F5}
+.usage-header{background:var(--accent);color:var(--surface)}
+.usage-landing{background:var(--accent-secondary);color:var(--surface)}
+.usage-print{background:var(--beige-surface);color:var(--beige-text);border:1px solid var(--beige-border)}
+
+/* logo card backgrounds */
+.logo-card.bg-dark{background:var(--surface)}
+.logo-card.bg-light{background:var(--beige-card);border-color:var(--beige-border)}
+.logo-card.bg-light h3{color:var(--beige-text)}
+.logo-card.bg-light p{color:var(--beige-secondary)}
+.logo-card.bg-light .fname{color:var(--surface-teal)}
+.logo-card.bg-teal{background:var(--surface-teal)}
+.logo-card.bg-lime{background:var(--accent)}
+.logo-card.bg-lime h3,.logo-card.bg-lime p,.logo-card.bg-lime .fname{color:var(--surface)}
+
+/* ===== PALETTE BAR ===== */
+.palette-bar{display:flex;justify-content:center;gap:0;border-radius:8px;overflow:hidden;margin-top:28px;height:32px}
+.palette-bar span{flex:1;display:block;position:relative}
+.palette-bar span::after{
+  content:attr(data-hex);
+  position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-mono);font-size:10px;color:var(--text-muted);white-space:nowrap
+}
+
+/* ===== COMPLIANCE / STACK ===== */
+.compliance-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:780px){.compliance-grid{grid-template-columns:1fr}}
+.comp-item{
+  background:var(--surface-elevated);border-radius:12px;
+  padding:20px;border:1px solid var(--border);font-size:13px
+}
+.comp-item .icon{
+  width:36px;height:36px;border-radius:8px;
+  background:rgba(207,244,52,0.1);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;margin-bottom:10px;font-weight:700
+}
+.comp-item h4{font-size:14px;font-weight:600;margin-bottom:6px}
+.comp-item p{color:var(--text-secondary);line-height:1.5;margin-bottom:6px}
+.comp-item .tech{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.comp-item .tech span{
+  font-family:var(--font-mono);font-size:10px;
+  background:var(--surface-hover);padding:3px 8px;border-radius:4px;
+  color:var(--text-secondary)
+}
+
+/* ===== DOWNLOADS ===== */
+.dl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.dl-item{
+  background:var(--surface-elevated);border:1px solid var(--border);
+  border-radius:12px;padding:18px;display:flex;align-items:center;gap:14px;
+  transition:border-color 0.2s;text-decoration:none;color:inherit;
+  position:relative;overflow:hidden
+}
+.dl-item:hover{border-color:var(--accent)}
+.dl-item .dl-icon{
+  width:44px;height:44px;border-radius:10px;
+  background:rgba(207,244,52,0.08);color:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;font-family:var(--font-mono);
+  flex-shrink:0
+}
+.dl-item .dl-text{flex:1;min-width:0}
+.dl-item .dl-text .dl-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.dl-item .dl-text .dl-meta{font-size:11px;color:var(--text-muted);font-family:var(--font-mono)}
+.dl-item .dl-arrow{color:var(--text-muted);font-size:18px;transition:color 0.2s,transform 0.2s}
+.dl-item:hover .dl-arrow{color:var(--accent);transform:translateY(2px)}
+
+/* ===== TIP SUGGESTION CARDS ===== */
+.suggestion-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.sug-card{
+  background:var(--surface-elevated);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;position:relative;
+  transition:border-color 0.2s
+}
+.sug-card:hover{border-color:rgba(207,244,52,0.3)}
+.sug-card .num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;border-radius:8px;
+  background:rgba(207,244,52,0.1);color:var(--accent);
+  font-size:12px;font-weight:700;margin-bottom:12px;font-family:var(--font-mono)
+}
+.sug-card h4{font-size:15px;font-weight:700;margin-bottom:8px;letter-spacing:-0.3px}
+.sug-card p{font-size:13px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px}
+.sug-card .example{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;padding:10px 12px;
+  font-family:var(--font-mono);font-size:11px;color:var(--accent-secondary);
+  word-break:break-all
+}
+
+/* ===== ASSET PREVIEW ===== */
+.asset-preview{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;text-align:center;
+  position:relative;overflow:hidden
+}
+.asset-preview .checkerboard{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(45deg,rgba(255,255,255,0.03) 25%,transparent 25%),
+    linear-gradient(-45deg,rgba(255,255,255,0.03) 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,rgba(255,255,255,0.03) 75%),
+    linear-gradient(-45deg,transparent 75%,rgba(255,255,255,0.03) 75%);
+  background-size:20px 20px;
+  background-position:0 0,0 10px,10px -10px,-10px 0;
+  z-index:0
+}
+.asset-preview img{position:relative;z-index:1;max-width:100%;height:auto;display:inline-block}
+.asset-preview .preview-row{display:flex;gap:20px;align-items:center;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.asset-preview .preview-row > div{display:flex;flex-direction:column;align-items:center;gap:8px}
+.asset-preview .preview-row .lbl{font-size:10px;color:var(--text-muted);font-family:var(--font-mono);letter-spacing:0.5px}
+
+/* ===== FOOTER ===== */
+footer{
+  padding:48px 0 32px;background:var(--surface);
+  border-top:1px solid var(--border);
+  font-size:13px;color:var(--text-muted)
+}
+footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer a{color:var(--text-secondary);text-decoration:none;transition:color 0.2s}
+footer a:hover{color:var(--accent)}
+
+/* ===== CODE BLOCKS ===== */
+.code-block{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:18px;
+  font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);
+  line-height:1.7;overflow-x:auto;position:relative
+}
+.code-block .cb-label{
+  position:absolute;top:8px;right:12px;
+  font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase
+}
+.code-block .k{color:var(--accent)}
+.code-block .s{color:var(--accent-secondary)}
+.code-block .c{color:var(--text-muted);font-style:italic}
+.code-block .t{color:#EAF4F5}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="logo-s" style="text-decoration:none">
+      <div class="nav-mark"><span>A</span><span>H</span><span>A</span></div>
+      <div class="nav-text"><span>AHA</span>guilera</div>
+    </a>
+    <div class="nav-links">
+      <a href="#manifiesto">Manifiesto</a>
+      <a href="#logo">Logo</a>
+      <a href="#color">Color</a>
+      <a href="#tipografia">Tipografía</a>
+      <a href="#diseno">Diseño</a>
+      <a href="#voz">Voz</a>
+      <a href="#assets">Assets</a>
+      <a href="#sugerencias">Sugerencias</a>
+    </div>
+    <a href="#assets" class="nav-cta">Descargar kit</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="logo-hero">
+      <svg viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="50" width="100" height="100" rx="20" fill="#024653"/>
+        <text x="58" y="120" font-family="system-ui,sans-serif" font-size="44" font-weight="800" fill="#CFF434" letter-spacing="-2">A</text>
+        <text x="88" y="120" font-family="system-ui,sans-serif" font-size="44" font-weight="800" fill="#EAF4F5" letter-spacing="-2">H</text>
+        <text x="118" y="120" font-family="system-ui,sans-serif" font-size="44" font-weight="800" fill="#07D16E" letter-spacing="-2">A</text>
+        <text x="170" y="118" font-family="system-ui,sans-serif" font-size="64" font-weight="800" fill="#CFF434" letter-spacing="-2.5">AHA</text>
+        <text x="340" y="118" font-family="system-ui,sans-serif" font-size="56" font-weight="400" fill="#EAF4F5" letter-spacing="-1.5">guilera</text>
+        <line x1="170" y1="138" x2="310" y2="138" stroke="#07D16E" stroke-width="2.5" stroke-linecap="round"/>
+        <text x="172" y="158" font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#9ba8a9" letter-spacing="4.5">DESARROLLO FREELANCE — APPS OFFLINE-FIRST</text>
+      </svg>
+    </div>
+    <h1><span>Identidad</span> de Marca</h1>
+    <p class="sub">Sistema visual, verbal y técnico de AHAguilera. Una sola fuente de verdad: logos, paleta, tipografía, componentes y assets descargables.</p>
+    <div class="badges">
+      <span class="badge-c"><span class="dot" style="background:#CFF434"></span>#CFF434</span>
+      <span class="badge-c"><span class="dot" style="background:#07D16E"></span>#07D16E</span>
+      <span class="badge-c"><span class="dot" style="background:#024653"></span>#024653</span>
+      <span class="badge-c"><span class="dot" style="background:#171614;border:1px solid #2a2824"></span>#171614</span>
+      <span class="badge-c"><span class="dot" style="background:#F5F0EB"></span>#F5F0EB</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#assets" class="btn-primary">Descargar brand kit completo ↓</a>
+      <a href="#manifiesto" class="btn-ghost">Leer manifiesto</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MANIFIESTO ===== -->
+<section id="manifiesto">
+  <div class="container">
+    <div class="s-label">Manifiesto</div>
+    <h2 class="s-title">Apps que funcionan sin permiso, sin red, sin excusas.</h2>
+    <p class="s-desc">AHAguilera desarrolla software offline-first: herramientas que respetan al usuario, sus datos y su tiempo. La identidad visual refleja esa filosofía — sistemas discretos, alta legibilidad, contraste funcional.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="s-label" style="margin-bottom:12px">Principio 01</div>
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px">Offline-first</h3>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6">La app funciona sin conexión. La red es una mejora, no una dependencia. Sincronización opcional, conflicto resuelto en cliente, datos locales siempre.</p>
+      </div>
+      <div class="card">
+        <div class="s-label" style="margin-bottom:12px">Principio 02</div>
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px">Sin tracking</h3>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6">Cero analíticas invasivas. Cero SDKs de terceros que exfiltran datos. Telemetría opcional, anónima y local-first si existe.</p>
+      </div>
+      <div class="card">
+        <div class="s-label" style="margin-bottom:12px">Principio 03</div>
+        <h3 style="font-size:18px;font-weight:700;margin-bottom:8px">Estándares abiertos</h3>
+        <p style="font-size:13px;color:var(--text-secondary);line-height:1.6">PWA, IndexedDB, Web Workers, Service Workers. Sin lock-in propietario. Sin permisos innecesarios. Sin binarios cerrados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOGO ===== -->
+<section id="logo" class="section-beige">
+  <div class="container">
+    <div class="s-label">Sistema de logo</div>
+    <h2 class="s-title">El monograma AHA tricolor.</h2>
+    <p class="s-desc">El núcleo de la marca es el cuadrado teal redondeado (radio 20%) con tres letras AHA en colores de marca: lime, blanco y verde. El wordmark extendido usa la misma cadencia — "AHA" en lime bold, "guilera" en regular blanco. Todas las variantes están disponibles en SVG vectorial y PNG transparente.</p>
+
+    <div class="logo-grid" style="margin-bottom:32px">
+      <div class="logo-card bg-light">
+        <div class="preview icon-preview">
+          <img src="logos/monogram.svg" alt="Monograma AHAguilera">
+        </div>
+        <div>
+          <h3>Monograma principal</h3>
+          <div class="fname">monogram.svg</div>
+          <p>Cuadrado teal + AHA tricolor. Para favicon, app icon, avatar.</p>
+          <span class="usage usage-favicon">Favicon</span>
+        </div>
+      </div>
+      <div class="logo-card bg-dark">
+        <div class="preview">
+          <img src="logos/wordmark-dark.svg" alt="Wordmark AHAguilera" style="max-height:80px">
+        </div>
+        <div>
+          <h3>Wordmark horizontal</h3>
+          <div class="fname">wordmark-dark.svg</div>
+          <p>AHA lime + guilera blanco + tagline. Para headers, footers.</p>
+          <span class="usage usage-header">Header</span>
+        </div>
+      </div>
+      <div class="logo-card bg-light">
+        <div class="preview">
+          <img src="logos/lockup-vertical.svg" alt="Lockup vertical AHAguilera" style="max-height:140px">
+        </div>
+        <div>
+          <h3>Lockup vertical</h3>
+          <div class="fname">lockup-vertical.svg</div>
+          <p>Monograma arriba + wordmark abajo. Para landing, social.</p>
+          <span class="usage usage-landing">Landing</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;margin:32px 0 16px;color:var(--surface-teal)">Variantes monocromáticas (para fondos contrarios)</h3>
+    <div class="logo-grid">
+      <div class="logo-card bg-dark">
+        <div class="preview icon-preview">
+          <img src="logos/monogram-white.svg" alt="Monograma blanco">
+        </div>
+        <div>
+          <h3>Monograma blanco</h3>
+          <div class="fname">monogram-white.svg</div>
+          <p>Sólo AHA blanco sin caja. Sobre fondos oscuros o teal.</p>
+        </div>
+      </div>
+      <div class="logo-card bg-light">
+        <div class="preview icon-preview">
+          <img src="logos/monogram-black.svg" alt="Monograma negro">
+        </div>
+        <div>
+          <h3>Monograma negro</h3>
+          <div class="fname">monogram-black.svg</div>
+          <p>Sólo AHA negro sin caja. Sobre fondos claros o beige.</p>
+        </div>
+      </div>
+      <div class="logo-card bg-dark">
+        <div class="preview icon-preview">
+          <img src="logos/monogram-lime.svg" alt="Monograma lime">
+        </div>
+        <div>
+          <h3>Monograma lime</h3>
+          <div class="fname">monogram-lime.svg</div>
+          <p>Sólo AHA lime. Para acentos, hover, estados activos.</p>
+        </div>
+      </div>
+      <div class="logo-card bg-light">
+        <div class="preview icon-preview">
+          <img src="logos/monogram-on-beige.svg" alt="Monograma sobre beige">
+        </div>
+        <div>
+          <h3>Caja beige</h3>
+          <div class="fname">monogram-on-beige.svg</div>
+          <p>Variante print con caja beige y AHA negro.</p>
+        </div>
+      </div>
+      <div class="logo-card bg-dark">
+        <div class="preview icon-preview">
+          <img src="logos/monogram-lime-bg.svg" alt="Monograma lime fondo">
+        </div>
+        <div>
+          <h3>Caja lime</h3>
+          <div class="fname">monogram-lime-bg.svg</div>
+          <p>Caja lime + AHA negro. Máximo contraste, uso puntual.</p>
+        </div>
+      </div>
+      <div class="logo-card bg-teal">
+        <div class="preview icon-preview">
+          <img src="logos/monogram-white.svg" alt="Monograma blanco sobre teal">
+        </div>
+        <div>
+          <h3>Sobre teal</h3>
+          <div class="fname">monogram-white.svg</div>
+          <p>AHA blanco sobre fondo teal sólido. Uso institucional.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;margin:40px 0 16px;color:var(--surface-teal)">Construcción del monograma</h3>
+    <div class="grid-2">
+      <div class="card-beige">
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:12px;color:var(--surface-teal)">Proporciones</h4>
+        <ul class="rule-list" style="font-size:13px">
+          <li><span class="tag tag-required">Canvas</span><div>Cuadrado <code style="font-family:var(--font-mono);color:var(--surface-teal)">512×512</code> para favicon / PWA.</div></li>
+          <li><span class="tag tag-required">Box</span><div>Caja interna al <strong>70%</strong> del canvas, centrada. Padding lateral 15%.</div></li>
+          <li><span class="tag tag-required">Radius</span><div>Esquinas redondeadas <strong>20%</strong> del lado de la caja (rx=72 sobre 360).</div></li>
+          <li><span class="tag tag-required">Letras</span><div>Tres letras A-H-A, font-weight 800, font-size 42% del lado de caja.</div></li>
+          <li><span class="tag tag-info">Spacing</span><div>Letter-spacing negativo <code style="font-family:var(--font-mono);color:var(--surface-teal)">-5%</code> del font-size. Sin kerning extra.</div></li>
+          <li><span class="tag tag-info">Baseline</span><div>Letras a <strong>70%</strong> de la altura de la caja (desde arriba).</div></li>
+        </ul>
+      </div>
+      <div class="card-beige">
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:12px;color:var(--surface-teal)">Clear space &amp; tamaño mínimo</h4>
+        <p style="font-size:13px;color:var(--beige-secondary);margin-bottom:14px;line-height:1.6">El clear space mínimo es la altura de la letra "A" del monograma, en los cuatro lados. No situar elementos tipográficos o visuales dentro de esa zona.</p>
+        <p style="font-size:13px;color:var(--beige-secondary);margin-bottom:14px;line-height:1.6">Tamaño mínimo digital: <strong>24px</strong> de caja. Tamaño mínimo print: <strong>8mm</strong>. Por debajo, usar la versión "A" sola en lime como avatar circular.</p>
+        <p style="font-size:13px;color:var(--beige-secondary);line-height:1.6">No estirar, no rotar, no aplicar sombras, no aplicar opacidad &lt; 30%, no poner sobre imágenes sin overlay. No recortar el monograma bajo ninguna circunstancia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COLOR ===== -->
+<section id="color">
+  <div class="container">
+    <div class="s-label">Sistema de color</div>
+    <h2 class="s-title">Cinco tonos. Tres roles.</h2>
+    <p class="s-desc">La paleta combina un fondo oscuro cálido (#171614), un teal profundo institucional (#024653) para el monograma y superficies secundarias, un lime eléctrico (#CFF434) como acento CTA, y un verde (#07D16E) para estados OK. El modo claro usa una superficie beige cálida (#F5F0EB) con el mismo acento lime.</p>
+
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:14px;color:var(--accent)">Paleta principal</h3>
+    <div class="swatch-grid" style="margin-bottom:32px">
+      <div class="swatch-c">
+        <div class="preview" style="background:#171614"><span class="hex">#171614</span></div>
+        <div class="info"><div class="name">Surface</div><div class="role">Fondo principal dark. Base del 90% de la UI.</div><span class="token">--surface</span></div>
+      </div>
+      <div class="swatch-c">
+        <div class="preview" style="background:#1f1d1a"><span class="hex">#1f1d1a</span></div>
+        <div class="info"><div class="name">Surface Elevated</div><div class="role">Cards, modales, inputs. Un paso sobre surface.</div><span class="token">--surface-elevated</span></div>
+      </div>
+      <div class="swatch-c">
+        <div class="preview" style="background:#024653"><span class="hex">#024653</span></div>
+        <div class="info"><div class="name">Surface Teal</div><div class="role">Fondo del monograma. Secciones institucionales.</div><span class="token">--surface-teal</span></div>
+      </div>
+      <div class="swatch-c">
+        <div class="preview" style="background:#CFF434"><span class="hex" style="background:rgba(0,0,0,0.7);color:#171614">#CFF434</span></div>
+        <div class="info"><div class="name">Accent Lime</div><div class="role">CTAs, links, hover. Máxima atención.</div><span class="token">--accent</span></div>
+      </div>
+      <div class="swatch-c">
+        <div class="preview" style="background:#07D16E"><span class="hex">#07D16E</span></div>
+        <div class="info"><div class="name">Accent Secondary</div><div class="role">Estados OK, success, validación.</div><span class="token">--accent-secondary</span></div>
+      </div>
+      <div class="swatch-c">
+        <div class="preview" style="background:#EAF4F5"><span class="hex" style="background:rgba(0,0,0,0.55)">#EAF4F5</span></div>
+        <div class="info"><div class="name">Text Primary</div><div class="role">Texto sobre dark. Off-white con tinte teal.</div><span class="token">--text-primary</span></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin-bottom:14px;color:var(--accent)">Paleta modo claro (beige)</h3>
+    <div class="swatch-grid" style="margin-bottom:32px">
+      <div class="swatch-c">
+        <div class="preview" style="background:#F5F0EB"><span class="hex" style="background:rgba(0,0,0,0.55)">#F5F0EB</span></div>
+        <div class="info"><div class="name">Beige Surface</div><div class="role">Fondo modo claro. Cálido, no blanco puro.</div><span class="token">--beige-surface</span></div>
+      </div>
+      <div class="swatch-c">
+        <div class="preview" style="background:#FFFFFF;border:1px solid #E0D6CE"><span class="hex" style="background:rgba(0,0,0,0.55)">#FFFFFF</span></div>
+        <div class="info"><div class="name">Beige Card</div><div class="role">Cards sobre superficie beige.</div><span class="token">--beige-card</span></div>
+      </div>
+      <div class="swatch-c">
+        <div class="preview" style="background:#171614"><span class="hex">#171614</span></div>
+        <div class="info"><div class="name">Beige Text</div><div class="role">Texto principal sobre beige. Reaprovecha surface.</div><span class="token">--beige-text</span></div>
+      </div>
+      <div class="swatch-c">
+        <div class="preview" style="background:#6B6560"><span class="hex">#6B6560</span></div>
+        <div class="info"><div class="name">Beige Secondary</div><div class="role">Texto secundario, descripciones, meta.</div><span class="token">--beige-secondary</span></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:14px 0">Paleta completa</h3>
+    <div class="palette-bar">
+      <span style="background:#171614" data-hex="#171614"></span>
+      <span style="background:#1f1d1a" data-hex="#1f1d1a"></span>
+      <span style="background:#2a2824" data-hex="#2a2824"></span>
+      <span style="background:#024653" data-hex="#024653"></span>
+      <span style="background:#035f6e" data-hex="#035f6e"></span>
+      <span style="background:#07D16E" data-hex="#07D16E"></span>
+      <span style="background:#CFF434" data-hex="#CFF434"></span>
+      <span style="background:#dbf65a" data-hex="#dbf65a"></span>
+      <span style="background:#EAF4F5" data-hex="#EAF4F5"></span>
+      <span style="background:#9ba8a9" data-hex="#9ba8a9"></span>
+      <span style="background:#5e696a" data-hex="#5e696a"></span>
+      <span style="background:#F5F0EB" data-hex="#F5F0EB"></span>
+      <span style="background:#ef4444" data-hex="#ef4444"></span>
+    </div>
+
+    <div style="height:32px"></div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:12px">Reglas de contraste</h4>
+        <ul class="rule-list" style="font-size:13px">
+          <li><span class="tag tag-required">Texto</span><div>Body text siempre <code>--text-primary</code> sobre <code>--surface</code>. Ratio AA mínimo 4.5:1.</div></li>
+          <li><span class="tag tag-ok">OK</span><div>Lime sobre dark = 13.2:1. Apto para texto grande y CTAs.</div></li>
+          <li><span class="tag tag-ok">OK</span><div>Teal sobre lime = 6.8:1. Apto para badges, no para body.</div></li>
+          <li><span class="tag tag-reject">No</span><div>Lime sobre beige. Contraste insuficiente (2.1:1). Usar teal.</div></li>
+          <li><span class="tag tag-reject">No</span><div>Verde sobre dark para texto. Sólo como acento iconográfico.</div></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:12px">Semántica de color</h4>
+        <ul class="rule-list" style="font-size:13px">
+          <li><span class="tag tag-info">Teal</span><div>Institucional, identidad. Header de secciones formales.</div></li>
+          <li><span class="tag tag-required">Lime</span><div>Acción principal. Botones primarios, links activos, focus rings.</div></li>
+          <li><span class="tag tag-ok">Verde</span><div>Confirmación, success, sync OK, validación de form.</div></li>
+          <li><span class="tag tag-warn">Rojo</span><div>Error destructivo. Borrar, eliminar, fallo crítico.</div></li>
+          <li><span class="tag tag-info">Grey</span><div>Meta, descripciones, placeholders. Nunca para acciones.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIPOGRAFIA ===== -->
+<section id="tipografia" class="section-beige">
+  <div class="container">
+    <div class="s-label">Tipografía</div>
+    <h2 class="s-title">Inter para todo. JetBrains Mono para código.</h2>
+    <p class="s-desc">La marca usa una única familia sans-serif — <strong>Inter</strong> — en toda la UI, con pesos 400/500/600/700/800. Para código, tokens y metadata se usa <strong>JetBrains Mono</strong>. Esta elección garantiza consistencia visual entre el logo (donde se simula system-ui bold) y el body text, con fallback a system-ui en cualquier dispositivo.</p>
+
+    <div class="font-demo" style="margin-bottom:32px;background:var(--beige-card);border-color:var(--beige-border)">
+      <div class="fd-label">Display — Inter 800</div>
+      <div class="fd-preview" style="font-family:'Inter',sans-serif;color:var(--beige-text)">AHAguilera offline-first</div>
+      <div class="fd-body" style="color:var(--beige-secondary)">El peso 800 con letter-spacing negativo (-2px) es la voz principal de la marca. Se usa en hero, títulos H1/H2 y el wordmark.</div>
+      <div class="fd-meta" style="color:var(--beige-secondary)">font-family: 'Inter', system-ui, sans-serif · font-weight: 800 · letter-spacing: -0.04em</div>
+    </div>
+
+    <div class="font-demo" style="margin-bottom:32px;background:var(--beige-card);border-color:var(--beige-border)">
+      <div class="fd-label">UI Body — Inter 400/500</div>
+      <div class="fd-preview" style="font-family:'Inter',sans-serif;font-weight:500;color:var(--beige-text)">El peso 500 para UI labels y énfasis.</div>
+      <div class="fd-body" style="color:var(--beige-secondary);font-family:'Inter',sans-serif">El peso 400 es la voz por defecto del cuerpo de texto. Es legible a 14-16px, soporta feature settings de variantes, y mantiene su personalidad en cualquier dispositivo vía fallback a system-ui. Se recomienda activar font-feature-settings 'cv02','cv03','cv04','cv11' para una apariencia más geométrica.</div>
+      <div class="fd-meta" style="color:var(--beige-secondary)">font-family: 'Inter', system-ui, sans-serif · font-weight: 400/500 · line-height: 1.6</div>
+    </div>
+
+    <div class="font-demo" style="margin-bottom:32px;background:var(--beige-card);border-color:var(--beige-border)">
+      <div class="fd-label">Mono — JetBrains Mono</div>
+      <div class="fd-preview" style="font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--surface-teal)">const offline = true</div>
+      <div class="fd-body" style="color:var(--beige-secondary);font-family:'JetBrains Mono',monospace;font-size:13px">JetBrains Mono se reserva para código, snippets, tokens CSS, nombres de archivo y metadatos técnicos. No se usa en body text, títulos o UI labels. Pesos 400 (regular) y 600 (bold).</div>
+      <div class="fd-meta" style="color:var(--beige-secondary)">font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace</div>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:32px 0 16px;color:var(--surface-teal)">Escala tipográfica</h3>
+    <div class="card-beige">
+      <div class="typo-grid">
+        <div class="typo-r">
+          <div class="typo-meta"><div class="size" style="color:var(--surface-teal)">48 / 800</div><div class="weight" style="color:var(--beige-secondary)">H1 Hero</div></div>
+          <div class="typo-s" style="font-family:'Inter',sans-serif;font-size:48px;font-weight:800;letter-spacing:-2px;color:var(--beige-text)">Apps que funcionan sin permiso</div>
+        </div>
+        <div class="typo-r">
+          <div class="typo-meta"><div class="size" style="color:var(--surface-teal)">36 / 800</div><div class="weight" style="color:var(--beige-secondary)">H2 Sección</div></div>
+          <div class="typo-s" style="font-family:'Inter',sans-serif;font-size:36px;font-weight:800;letter-spacing:-1.2px;color:var(--beige-text)">El monograma AHA tricolor</div>
+        </div>
+        <div class="typo-r">
+          <div class="typo-meta"><div class="size" style="color:var(--surface-teal)">24 / 700</div><div class="weight" style="color:var(--beige-secondary)">H3 Subsección</div></div>
+          <div class="typo-s" style="font-family:'Inter',sans-serif;font-size:24px;font-weight:700;letter-spacing:-0.5px;color:var(--beige-text)">Construcción y proporciones</div>
+        </div>
+        <div class="typo-r">
+          <div class="typo-meta"><div class="size" style="color:var(--surface-teal)">16 / 400</div><div class="weight" style="color:var(--beige-secondary)">Body</div></div>
+          <div class="typo-s" style="font-family:'Inter',sans-serif;font-size:16px;font-weight:400;color:var(--beige-text)">La marca usa una única familia sans-serif en toda la UI.</div>
+        </div>
+        <div class="typo-r">
+          <div class="typo-meta"><div class="size" style="color:var(--surface-teal)">14 / 500</div><div class="weight" style="color:var(--beige-secondary)">UI Label</div></div>
+          <div class="typo-s" style="font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--beige-text)">Button label, form label, table header</div>
+        </div>
+        <div class="typo-r">
+          <div class="typo-meta"><div class="size" style="color:var(--surface-teal)">12 / 600</div><div class="weight" style="color:var(--beige-secondary)">Caption</div></div>
+          <div class="typo-s" style="font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--beige-text)">DESARROLLO FREELANCE</div>
+        </div>
+        <div class="typo-r">
+          <div class="typo-meta"><div class="size" style="color:var(--surface-teal)">13 / 400</div><div class="weight" style="color:var(--beige-secondary)">Mono</div></div>
+          <div class="typo-s" style="font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--beige-text)">--accent: #CFF434;</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:32px"></div>
+
+    <div class="card-beige">
+      <h4 style="font-size:14px;font-weight:700;margin-bottom:12px;color:var(--surface-teal)">Integración CSS recomendada</h4>
+      <div class="code-block" style="background:var(--beige-text);color:#EAF4F5">
+<span class="cb-label">CSS</span><span class="c">/* Cargar Inter + JetBrains Mono vía @fontsource (self-hosted) */</span>
+<span class="k">@import</span> <span class="s">'@fontsource/inter/400.css'</span>;
+<span class="k">@import</span> <span class="s">'@fontsource/inter/500.css'</span>;
+<span class="k">@import</span> <span class="s">'@fontsource/inter/600.css'</span>;
+<span class="k">@import</span> <span class="s">'@fontsource/inter/700.css'</span>;
+<span class="k">@import</span> <span class="s">'@fontsource/inter/800.css'</span>;
+<span class="k">@import</span> <span class="s">'@fontsource/jetbrains-mono/400.css'</span>;
+<span class="k">@import</span> <span class="s">'@fontsource/jetbrains-mono/600.css'</span>;
+
+<span class="k">:root</span> {
+  <span class="t">--font-sans</span>: <span class="s">'Inter'</span>, system-ui, -apple-system, <span class="s">'Segoe UI'</span>, sans-serif;
+  <span class="t">--font-mono</span>: <span class="s">'JetBrains Mono'</span>, <span class="s">'Fira Code'</span>, <span class="s">'Courier New'</span>, monospace;
+}
+
+<span class="k">body</span> {
+  <span class="t">font-family</span>: <span class="k">var</span>(--font-sans);
+  <span class="t">font-feature-settings</span>: <span class="s">'cv02','cv03','cv04','cv11'</span>;
+  <span class="t">-webkit-font-smoothing</span>: antialiased;
+}
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DISEÑO / COMPONENTES ===== -->
+<section id="diseno">
+  <div class="container">
+    <div class="s-label">Sistema de diseño</div>
+    <h2 class="s-title">Componentes discretos. Contraste funcional.</h2>
+    <p class="s-desc">El sistema se construye sobre cuatro primitives: radius 16px para cards, 999px para CTAs, 8px para chips. Espaciado en base 4px (4/8/12/16/24/32/48/64). Bordes 1px. Sombras sólo en elevación real (modales). Sin blur decorativo.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:14px">Botones</h4>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div>
+            <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Primary</div>
+            <button style="background:var(--accent);color:var(--surface);border:none;padding:10px 22px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer">Crear proyecto</button>
+          </div>
+          <div>
+            <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Outline</div>
+            <button style="background:transparent;color:var(--accent);border:1px solid rgba(207,244,52,0.3);padding:10px 22px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer">Ver documentación</button>
+          </div>
+          <div>
+            <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Ghost</div>
+            <button style="background:var(--surface-hover);color:var(--text-secondary);border:none;padding:10px 22px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer">Cancelar</button>
+          </div>
+          <div>
+            <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Destructive</div>
+            <button style="background:rgba(239,68,68,0.12);color:var(--error);border:1px solid rgba(239,68,68,0.3);padding:10px 22px;border-radius:999px;font-size:13px;font-weight:600;cursor:pointer">Eliminar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:14px">Badges &amp; chips</h4>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div>
+            <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Status badges</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <span style="background:var(--accent);color:var(--surface);padding:4px 12px;border-radius:999px;font-size:10px;font-weight:700">LIME</span>
+              <span style="background:var(--surface-teal);color:var(--text-primary);padding:4px 12px;border-radius:999px;font-size:10px;font-weight:700">TEAL</span>
+              <span style="background:rgba(7,209,110,0.15);color:var(--accent-secondary);padding:4px 12px;border-radius:999px;font-size:10px;font-weight:700">OK</span>
+              <span style="background:rgba(239,68,68,0.15);color:var(--error);padding:4px 12px;border-radius:999px;font-size:10px;font-weight:700">ERROR</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Tag chips (mono)</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <span style="background:var(--surface-hover);color:var(--text-secondary);padding:4px 10px;border-radius:6px;font-size:11px;font-family:var(--font-mono)">PWA</span>
+              <span style="background:var(--surface-hover);color:var(--text-secondary);padding:4px 10px;border-radius:6px;font-size:11px;font-family:var(--font-mono)">OFFLINE</span>
+              <span style="background:var(--surface-hover);color:var(--text-secondary);padding:4px 10px;border-radius:6px;font-size:11px;font-family:var(--font-mono)">INDEXEDDB</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Code pill</div>
+            <code style="font-family:var(--font-mono);font-size:12px;color:var(--accent-secondary);background:rgba(7,209,110,0.08);padding:4px 10px;border-radius:6px">serviceWorker.register()</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:20px"></div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:14px">Input states</h4>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div>
+            <label style="font-size:11px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;display:block">Default</label>
+            <input type="text" placeholder="nombre@dominio.com" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text-primary);padding:10px 14px;border-radius:10px;font-size:14px;font-family:inherit;outline:none">
+          </div>
+          <div>
+            <label style="font-size:11px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;display:block">Focus</label>
+            <input type="text" value="contacto@ahaguilera.dev" style="width:100%;background:var(--surface);border:1px solid var(--accent);box-shadow:0 0 0 3px rgba(207,244,52,0.15);color:var(--text-primary);padding:10px 14px;border-radius:10px;font-size:14px;font-family:inherit;outline:none">
+          </div>
+          <div>
+            <label style="font-size:11px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;display:block">Error</label>
+            <input type="text" value="correo-sin-arroba" style="width:100%;background:var(--surface);border:1px solid var(--error);color:var(--text-primary);padding:10px 14px;border-radius:10px;font-size:14px;font-family:inherit;outline:none">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4 style="font-size:14px;font-weight:700;margin-bottom:14px">Cards &amp; surfaces</h4>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px">
+            <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Surface + border</div>
+            <div style="font-size:13px;color:var(--text-primary)">Card estándar — fondo surface, border 1px.</div>
+          </div>
+          <div style="background:var(--surface-elevated);border:1px solid var(--border);border-radius:12px;padding:14px">
+            <div style="font-size:10px;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Elevated</div>
+            <div style="font-size:13px;color:var(--text-primary)">Card elevada — un paso sobre surface.</div>
+          </div>
+          <div style="background:var(--surface-teal);border:1px solid var(--surface-teal-hover);border-radius:12px;padding:14px;color:#EAF4F5">
+            <div style="font-size:10px;color:rgba(234,244,245,0.6);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px">Teal surface</div>
+            <div style="font-size:13px">Card institucional — fondo teal.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VOZ ===== -->
+<section id="voz" class="section-teal">
+  <div class="container">
+    <div class="s-label">Voz de marca</div>
+    <h2 class="s-title">Directo, técnico, sin poses.</h2>
+    <p class="s-desc">La voz de AHAguilera habla al desarrollador que估值 el tiempo. Frases cortas. Vocabulario técnico preciso. Sin marketing inflamado. Sin promesas vacías. La marca promete offline-first y lo demuestra con cada interacción.</p>
+
+    <div class="grid-2">
+      <div class="voice-do" style="background:rgba(0,0,0,0.2);border-color:rgba(7,209,110,0.3)">
+        <h3>Hacer</h3>
+        <div class="v-item">
+          <div class="ctx">Error message</div>
+          <div class="ok">"No se pudo sincronizar. Los cambios quedan guardados localmente."</div>
+        </div>
+        <div class="v-item">
+          <div class="ctx">CTA button</div>
+          <div class="ok">"Crear proyecto" — verbo de acción concreta.</div>
+        </div>
+        <div class="v-item">
+          <div class="ctx">Empty state</div>
+          <div class="ok">"Aún no hay proyectos. Crea el primero — funciona sin conexión."</div>
+        </div>
+        <div class="v-item">
+          <div class="ctx">Tooltip</div>
+          <div class="ok">"Los datos se guardan en este dispositivo. Opcional: sincronizar cifrado."</div>
+        </div>
+        <div class="v-item">
+          <div class="ctx">Release note</div>
+          <div class="ok">"v2.1 — Service Worker reescrito. Sync 3× más rápido en LTE."</div>
+        </div>
+      </div>
+
+      <div class="voice-dont" style="background:rgba(0,0,0,0.2);border-color:rgba(239,68,68,0.3)">
+        <h3>Evitar</h3>
+        <div class="v-item">
+          <div class="ctx">Error message</div>
+          <div class="no">"Oops! Algo salió mal 😞. Nuestro equipo ha sido notificado."</div>
+        </div>
+        <div class="v-item">
+          <div class="ctx">CTA button</div>
+          <div class="no">"¡Comienza tu viaje ahora!" — marketing inflado.</div>
+        </div>
+        <div class="v-item">
+          <div class="ctx">Empty state</div>
+          <div class="no">"Tu aventura comienza aquí ✨"</div>
+        </div>
+        <div class="v-item">
+          <div class="ctx">Tooltip</div>
+          <div class="no">"Tus valiosos datos están seguros con nosotros 🔒"</div>
+        </div>
+        <div class="v-item">
+          <div class="ctx">Release note</div>
+          <div class="no">"¡Actualización increíble! Hemos mejorado tu experiencia."</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:32px"></div>
+
+    <div class="card" style="background:rgba(0,0,0,0.2);border-color:rgba(207,244,52,0.2)">
+      <h4 style="font-size:14px;font-weight:700;margin-bottom:12px;color:var(--accent)">Reglas de tono</h4>
+      <ul class="rule-list" style="font-size:13px">
+        <li><span class="tag tag-required">Sí</span><div>Segunda persona singular ("tú"). Trato directo, no formal.</div></li>
+        <li><span class="tag tag-required">Sí</span><div>Vocabulario técnico cuando aplica: sync, cache, IndexedDB, service worker.</div></li>
+        <li><span class="tag tag-required">Sí</span><div>Verbos de acción concreta: crear, guardar, sincronizar, exportar.</div></li>
+        <li><span class="tag tag-reject">No</span><div>Emojis en UI de producto (sí permitidos en marketing social).</div></li>
+        <li><span class="tag tag-reject">No</span><div>Adjetivos subjetivos: increíble, fantástico, revolucionario.</div></li>
+        <li><span class="tag tag-reject">No</span><div>Frases pasivas. "Se guardó el archivo" → "Archivo guardado".</div></li>
+        <li><span class="tag tag-info">Tech</span><div>Para comunicaciones técnicas (release notes, docs),允许 inglés sin traducir.</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SUGERENCIAS DE IDENTIDAD VISUAL ===== -->
+<section id="sugerencias">
+  <div class="container">
+    <div class="s-label">Sugerencias visuales</div>
+    <h2 class="s-title">Ideas para extender la marca.</h2>
+    <p class="s-desc">Propuestas para llevar la identidad más allá del logo: patrones, motion, micro-interacciones, mockups. Cada sugerencia es opcional y compatible con el sistema base.</p>
+
+    <div class="suggestion-grid">
+      <div class="sug-card">
+        <div class="num">01</div>
+        <h4>Patrón "grid teal + lime"</h4>
+        <p>Rejilla de 12×12 celdas teal con el monograma AHA disperso en lime al 8% de opacidad. Para fondos de hero, secciones de transición y wrappers de cards. Tile SVG de 80×80.</p>
+        <div class="example">background: url('pattern-grid.svg'); opacity: 0.08;</div>
+      </div>
+
+      <div class="sug-card">
+        <div class="num">02</div>
+        <h4>Motion "service worker pulse"</h4>
+        <p>Cuando un SW sincroniza, un anillo lime pulsa 1.2s alrededor del monograma en el header. Usa <code style="font-family:var(--font-mono);color:var(--accent-secondary)">@keyframes pulse-ring</code> con box-shadow. Refuerza "offline-first" visualmente.</p>
+        <div class="example">@keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(207,244,52,0.4) } 100% { box-shadow: 0 0 0 16px transparent } }</div>
+      </div>
+
+      <div class="sug-card">
+        <div class="num">03</div>
+        <h4>Cursor "sync dot"</h4>
+        <p>Pequeño círculo verde de 6px que sigue al cursor durante operaciones de sync o save. Se desvanece al completar. Detalle minimalista que comunica estado sin banners.</p>
+        <div class="example">.sync-cursor { width:6px; height:6px; border-radius:50%; background:#07D16E; transition: opacity 0.3s }</div>
+      </div>
+
+      <div class="sug-card">
+        <div class="num">04</div>
+        <h4>Estilo "terminal mono"</h4>
+        <p>Para docs técnicas y changelogs: fondo surface puro, texto JetBrains Mono 13px, con prompt lime <code style="font-family:var(--font-mono);color:var(--accent)">$</code> y argumentos en blanco. Refuerza la voz técnica.</p>
+        <div class="example">$ aha build --offline --target=pwa</div>
+      </div>
+
+      <div class="sug-card">
+        <div class="num">05</div>
+        <h4>Empty states ilustrados</h4>
+        <p>Para tablas y listas vacías: composición geométrica simple — tres cuadrados teal redondeados en perspectiva, con un AHA lime en el central. Estilo minimalista, sin personajes.</p>
+        <div class="example">SVG inline, 240×120, colores de marca</div>
+      </div>
+
+      <div class="sug-card">
+        <div class="num">06</div>
+        <h4>Color tokens semánticos</h4>
+        <p>Extender la paleta con roles funcionales: <code style="font-family:var(--font-mono);color:var(--accent-secondary)">--sync-active</code> (lime), <code style="font-family:var(--font-mono);color:var(--accent-secondary)">--sync-error</code> (red), <code style="font-family:var(--font-mono);color:var(--accent-secondary)">--offline-badge</code> (teal). Centraliza estados en design tokens.</p>
+        <div class="example">--sync-active: var(--accent); --offline: var(--surface-teal);</div>
+      </div>
+
+      <div class="sug-card">
+        <div class="num">07</div>
+        <h4>Favicon dinámico por estado</h4>
+        <p>Intercambiar favicon.svg en runtime según estado de la app: idle (teal), sync activo (lime parpadeante), error (red). Comunicación silenciosa del estado en el tab del navegador.</p>
+        <div class="example">document.querySelector('link[rel=icon]').href = '/favicons/favicon-sync.svg'</div>
+      </div>
+
+      <div class="sug-card">
+        <div class="num">08</div>
+        <h4>Esqueleto de carga "shimmer teal"</h4>
+        <p>Skeleton screens con gradiente animado de teal → teal-hover → teal en lugar del clásico gris. Refuerza identidad mientras carga. Duración 1.8s, easing ease-in-out.</p>
+        <div class="example">background: linear-gradient(90deg, #024653 0%, #035f6e 50%, #024653 100%); background-size: 200% 100%</div>
+      </div>
+
+      <div class="sug-card">
+        <div class="num">09</div>
+        <h4>Marca de agua institucional</h4>
+        <p>Para PDFs, contratos y docs formales: monograma en blanco al 6% de opacidad como marca de agua diagonal. Encima, footer con "AHAguilera — Desarrollo Freelance — ahaguilera.dev".</p>
+        <div class="example">opacity: 0.06; transform: rotate(-30deg); fill: #EAF4F5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ASSETS / DESCARGAS ===== -->
+<section id="assets" class="section-beige">
+  <div class="container">
+    <div class="s-label">Kit descargable</div>
+    <h2 class="s-title">Todos los assets, listos.</h2>
+    <p class="s-desc">Cada archivo es estático y autocontenido. Los SVG son editables en Figma, Illustrator o VS Code. Los PNG vienen en los tamaños estándar para web, PWA y social. El .ico embebe 16/32/48.</p>
+
+    <h3 style="font-size:15px;font-weight:700;margin:32px 0 14px;color:var(--surface-teal)">Favicons</h3>
+    <div class="dl-grid">
+      <a href="favicons/favicon.svg" class="dl-item" download>
+        <div class="dl-icon">SVG</div>
+        <div class="dl-text"><div class="dl-name">favicon.svg</div><div class="dl-meta">vector · multi-scale</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="favicons/favicon.ico" class="dl-item" download>
+        <div class="dl-icon">ICO</div>
+        <div class="dl-text"><div class="dl-name">favicon.ico</div><div class="dl-meta">16 / 32 / 48 embedded</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="favicons/favicon-16x16.png" class="dl-item" download>
+        <div class="dl-icon">PNG</div>
+        <div class="dl-text"><div class="dl-name">favicon-16x16.png</div><div class="dl-meta">16×16 · classic tab</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="favicons/favicon-32x32.png" class="dl-item" download>
+        <div class="dl-icon">PNG</div>
+        <div class="dl-text"><div class="dl-name">favicon-32x32.png</div><div class="dl-meta">32×32 · standard tab</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="favicons/apple-touch-icon.png" class="dl-item" download>
+        <div class="dl-icon">PNG</div>
+        <div class="dl-text"><div class="dl-name">apple-touch-icon.png</div><div class="dl-meta">180×180 · iOS home</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:32px 0 14px;color:var(--surface-teal)">PWA / Android</h3>
+    <div class="dl-grid">
+      <a href="pwa/android-chrome-192x192.png" class="dl-item" download>
+        <div class="dl-icon">PNG</div>
+        <div class="dl-text"><div class="dl-name">android-chrome-192.png</div><div class="dl-meta">192×192 · home screen</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="pwa/android-chrome-512x512.png" class="dl-item" download>
+        <div class="dl-icon">PNG</div>
+        <div class="dl-text"><div class="dl-name">android-chrome-512.png</div><div class="dl-meta">512×512 · splash</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="pwa/maskable-192x192.png" class="dl-item" download>
+        <div class="dl-icon">PNG</div>
+        <div class="dl-text"><div class="dl-name">maskable-192.png</div><div class="dl-meta">full-bleed · safe-zone 80%</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="pwa/maskable-512x512.png" class="dl-item" download>
+        <div class="dl-icon">PNG</div>
+        <div class="dl-text"><div class="dl-name">maskable-512.png</div><div class="dl-meta">full-bleed · safe-zone 80%</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="manifest/site.webmanifest" class="dl-item" download>
+        <div class="dl-icon">JSON</div>
+        <div class="dl-text"><div class="dl-name">site.webmanifest</div><div class="dl-meta">PWA manifest · icons + theme</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:32px 0 14px;color:var(--surface-teal)">Social</h3>
+    <div class="dl-grid">
+      <a href="social/og-image.png" class="dl-item" download>
+        <div class="dl-icon">PNG</div>
+        <div class="dl-text"><div class="dl-name">og-image.png</div><div class="dl-meta">1200×630 · Open Graph</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="social/twitter-card.png" class="dl-item" download>
+        <div class="dl-icon">PNG</div>
+        <div class="dl-text"><div class="dl-name">twitter-card.png</div><div class="dl-meta">1200×600 · Twitter/X</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:32px 0 14px;color:var(--surface-teal)">Logos — SVG + PNG</h3>
+    <div class="dl-grid">
+      <a href="logos/monogram.svg" class="dl-item" download>
+        <div class="dl-icon">SVG</div>
+        <div class="dl-text"><div class="dl-name">monogram.svg</div><div class="dl-meta">vector · color</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="logos/monogram.png" class="dl-item" download>
+        <div class="dl-icon">PNG</div>
+        <div class="dl-text"><div class="dl-name">monogram.png</div><div class="dl-meta">512×512 · transparent</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="logos/wordmark-dark.svg" class="dl-item" download>
+        <div class="dl-icon">SVG</div>
+        <div class="dl-text"><div class="dl-name">wordmark-dark.svg</div><div class="dl-meta">vector · for dark bg</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="logos/wordmark-dark.png" class="dl-item" download>
+        <div class="dl-icon">PNG</div>
+        <div class="dl-text"><div class="dl-name">wordmark-dark.png</div><div class="dl-meta">1200×360 · transparent</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="logos/lockup-vertical.svg" class="dl-item" download>
+        <div class="dl-icon">SVG</div>
+        <div class="dl-text"><div class="dl-name">lockup-vertical.svg</div><div class="dl-meta">vector · stacked</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="logos/lockup-vertical.png" class="dl-item" download>
+        <div class="dl-icon">PNG</div>
+        <div class="dl-text"><div class="dl-name">lockup-vertical.png</div><div class="dl-meta">800×900 · transparent</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="logos/monogram-white.svg" class="dl-item" download>
+        <div class="dl-icon">SVG</div>
+        <div class="dl-text"><div class="dl-name">monogram-white.svg</div><div class="dl-meta">vector · mono</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="logos/monogram-black.svg" class="dl-item" download>
+        <div class="dl-icon">SVG</div>
+        <div class="dl-text"><div class="dl-name">monogram-black.svg</div><div class="dl-meta">vector · mono</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+      <a href="logos/monogram-lime.svg" class="dl-item" download>
+        <div class="dl-icon">SVG</div>
+        <div class="dl-text"><div class="dl-name">monogram-lime.svg</div><div class="dl-meta">vector · mono</div></div>
+        <div class="dl-arrow">↓</div>
+      </a>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;margin:32px 0 14px;color:var(--surface-teal)">HTML head listo para copiar</h3>
+    <div class="code-block" style="background:var(--beige-text);color:#EAF4F5">
+<span class="cb-label">HTML</span><span class="c">&lt;!-- AHAguilera favicon + PWA + social --&gt;</span>
+<span class="k">&lt;link</span> <span class="t">rel</span>=<span class="s">"icon"</span> <span class="t">href</span>=<span class="s">"/favicons/favicon.svg"</span> <span class="t">type</span>=<span class="s">"image/svg+xml"</span><span class="k">&gt;</span>
+<span class="k">&lt;link</span> <span class="t">rel</span>=<span class="s">"icon"</span> <span class="t">href</span>=<span class="s">"/favicons/favicon.ico"</span> <span class="t">sizes</span>=<span class="s">"any"</span><span class="k">&gt;</span>
+<span class="k">&lt;link</span> <span class="t">rel</span>=<span class="s">"apple-touch-icon"</span> <span class="t">href</span>=<span class="s">"/favicons/apple-touch-icon.png"</span><span class="k">&gt;</span>
+<span class="k">&lt;link</span> <span class="t">rel</span>=<span class="s">"manifest"</span> <span class="t">href</span>=<span class="s">"/manifest/site.webmanifest"</span><span class="k">&gt;</span>
+<span class="k">&lt;meta</span> <span class="t">name</span>=<span class="s">"theme-color"</span> <span class="t">content</span>=<span class="s">"#024653"</span><span class="k">&gt;</span>
+<span class="k">&lt;meta</span> <span class="t">property</span>=<span class="s">"og:image"</span> <span class="t">content</span>=<span class="s">"/social/og-image.png"</span><span class="k">&gt;</span>
+<span class="k">&lt;meta</span> <span class="t">property</span>=<span class="s">"og:title"</span> <span class="t">content</span>=<span class="s">"AHAguilera — Apps offline-first"</span><span class="k">&gt;</span>
+<span class="k">&lt;meta</span> <span class="t">name</span>=<span class="s">"twitter:card"</span> <span class="t">content</span>=<span class="s">"summary_large_image"</span><span class="k">&gt;</span>
+<span class="k">&lt;meta</span> <span class="t">name</span>=<span class="s">"twitter:image"</span> <span class="t">content</span>=<span class="s">"/social/twitter-card.png"</span><span class="k">&gt;</span>
+</div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div>
+      <strong style="color:var(--text-primary)">AHAguilera</strong> — Identidad de marca · v2.0
+    </div>
+    <div style="display:flex;gap:20px">
+      <a href="#hero">↑ Top</a>
+      <a href="#assets">Descargas</a>
+      <a href="#sugerencias">Sugerencias</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth-scroll for nav links + active state
+  const links = document.querySelectorAll('nav .nav-links a');
+  const sections = [...links].map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  function onScroll(){
+    const y = window.scrollY + 100;
+    let activeIdx = 0;
+    sections.forEach((s, i) => { if (s.offsetTop <= y) activeIdx = i; });
+    links.forEach((a, i) => a.classList.toggle('active', i === activeIdx));
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+</script>
+</body>
+</html>
