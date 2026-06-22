@@ -3,8 +3,8 @@
   <nav class="nav" :class="{ 'hero-mode': !scrolledLight, 'light-mode': scrolledLight }" role="navigation" aria-label="Navegación principal">
     <div class="nav-inner">
       <a href="#" class="flex items-center gap-2" aria-label="AHAguilera inicio">
-        <img src="./brand/logotipo.jpg" alt="AHAguilera" class="nav-logo-light" style="height:2rem;">
-        <img src="./brand/logotipo.jpg" alt="AHAguilera" class="nav-logo-dark" style="height:2rem;">
+        <img src="./brand/logotipo.jpg" alt="AHAguilera" class="nav-logo-light" style="height:2rem;border-radius:50%;">
+        <img src="./brand/logotipo.jpg" alt="AHAguilera" class="nav-logo-dark" style="height:2rem;border-radius:50%;">
       </a>
       <div class="nav-links">
         <a href="#apps" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'}); mobileOpen=false">Apps</a>
