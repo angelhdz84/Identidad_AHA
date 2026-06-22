@@ -6,6 +6,60 @@ Brand identity meta-repo for **AHAguilera** (freelance dev, offline-first stack)
 
 **Also ships real code:** `landing/` is a production static site deployed to GitHub Pages. It is NOT just a meta-repo.
 
+## Landing: estado actual (Enfoque A — Cálido-Tech)
+
+La landing sigue el **Enfoque A** (Cálido-Tech): balancea profesionalismo, artesanal, destaca y tech/futurista. Diseño dual-mode:
+
+| Modo | Fondo | Secciones |
+|------|-------|-----------|
+| Beige (#F5F0EB) | Cálido, claro | Hero, Valor, Cómo funciona, FAQ, Footer |
+| Carbón (#171614) | Oscuro, tech | Nav flotante, Apps, IA Jutia, Precios, Stack, Comparativa, Sobre mí, CTA |
+| Gradiente orgánico | Beige→Carbón y viceversa | Transiciones suaves entre secciones |
+
+**Acento único**: `#CFF434` (lime) — funciona sobre ambos modos, máximo 10% del área visual.
+
+## Secciones de la landing (orden actual)
+
+1. **Nav dual-glass** — logo redondo, links, toggle ES/EN, hamburguesa móvil
+2. **Hero oscuro** — headline, subheadline, 2 CTAs, badge .exe+.apk, stats
+3. **Valor beige** — 3 cards con iconos + bloque comparativo "Software normal vs Cómo trabajo yo"
+4. **Apps oscuro** — Grid catálogo (InventarioPRO, FacturaExpress, ClienteSeguro, GastosDiarios)
+5. **IA Jutia oscuro** — Mini IA offline-first, perfiles Lite/Full, bloque comparativo competencia
+6. **Precios oscuro** — 3 planes (Lite $49, Standard $99⭐, Custom $199+) con IA Jutia incluida
+7. **Cómo funciona beige** — 3 pasos + timeline vertical
+8. **Stack flip técnico** — 6 cards con flip 3D (frontal = tecnología, trasera = beneficio cliente)
+9. **Comparativa offline-first** — tabla vs SaaS tradicional
+10. **FAQ beige** — acordeón con 7 preguntas (incluye "¿Qué es IA Jutia?")
+11. **Sobre mí oscuro** — bio, skills, badge IA Jutia
+12. **CTA Final oscuro** — WhatsApp + Email
+13. **Footer beige** — logo, links sociales, tagline
+
+## Logotipo
+
+- **Archivo único**: `landing/brand/logotipo.jpg` — circular (`border-radius: 50%`)
+- Usado como: logo en nav y footer, favicon del sitio (formato JPEG), OG Image, Twitter Card image
+- Tamaños: nav 2rem, footer 2.5rem
+- Favicon declarado como: `<link rel="icon" href="./brand/logotipo.jpg" type="image/jpeg">`
+
+## WhatsApp
+
+- Número real: **+5355944628** (Cuba)
+- Reemplazado en 25 enlaces (24 landing + 1 brand/identidad-ahaguilera.html)
+- Cada app del catálogo tiene su propio texto predefinido (ej: `?text=Quiero%20InventarioPRO`)
+
+## IA Jutia en la landing
+
+- Sección dedicada oscura entre Apps y Precios
+- Dos perfiles: **Lite** (búsqueda FlexSearch + predicciones) y **Full** (+ingesta documentos + QA extractivo)
+- Bloque comparativo: "Lo que la competencia no puede decir" (4 statements)
+- Pricing refleja IA incluida: Lite en plan Lite, Full en Standard y Custom
+
+## Stack flip cards (beneficio-cliente)
+
+Las 6 cards del stack tienen:
+- **Frontal**: tecnología (Alpine.js, Dexie, CryptoJS, Tailwind+DaisyUI, Bootstrap Icons, pako+jsPDF+SheetJS)
+- **Trasera**: beneficio para el cliente (app ligera, responde al instante, datos seguros, UX profesional, iconos claros, exportación)
+
 ## Key identity sources (read these first)
 
 | File | What it defines |
@@ -13,7 +67,8 @@ Brand identity meta-repo for **AHAguilera** (freelance dev, offline-first stack)
 | `filosofia-stack-ahaguilera.md` | Manifesto (§1), stack choices (§2), Lite/Full profiles (§3), pipeline (§4), compliance rules (§5.1), anti-patterns (§5.2), code patterns (§7), Spanish mandate (§8.1) |
 | `brand/guidelines.md` | Logo usage, colors, typography, voice & tone |
 | `brand/palette.json` | Machine-readable color tokens (surface, text, accent, semantic, light-theme) |
-| `brand/logo-*.svg` | Logo variants (icon, wordmark, full) |
+| `brand/identidad-ahaguilera.html` | Documento completo de identidad de marca (11 secciones, auto-contenido, sin CDN) |
+| `landing/brand/logotipo.jpg` | Logotipo único (JPEG, circular) — logo, favicon y OG image |
 | `colores.txt` | Quick hex: `171614`, `CFF434`, `F5F0EB`, `024653`, `07D16E` |
 
 ## Brand colors
@@ -38,16 +93,28 @@ Brand identity meta-repo for **AHAguilera** (freelance dev, offline-first stack)
 - All UI, comments, docs, and variables in Spanish (§8.1)
 - Before generating code for any AHAguilera-branded app: read §5 (Stack Compliance) and §7 (Code Patterns)
 
+## Encoding (critical)
+
+- **PowerShell `Set-Content` sin `-Encoding UTF8` corrompe acentos y emojis** — usar SIEMPRE `-Encoding UTF8`
+- Los parciales (`_head.html`, `_body*.html`) son editados por el `edit` tool que maneja UTF-8 correctamente
+- **`index.html` se genera concatenando parciales**: `Get-Content -Encoding UTF8 _head.html, _body1.html, _body2.html, _body3.html | Set-Content -Encoding UTF8 index.html`
+- Si ves caracteres raros (ó→Ã³, í→Ã­, etc.), regenerar index.html con UTF-8 explicito
+
 ## File map
 
 | Path | Purpose |
 |------|---------|
 | `filosofia-stack-ahaguilera.md` | Brand + stack source of truth |
 | `DESIGN.md` | **AuthKit — not AHAguilera.** Probably leftover; ignore for AHAguilera work |
-| `landing/DESIGN.md` | Design system for the landing page (dual-mode beige/dark, lime accent) |
+| `landing/DESIGN.md` | Design system Enfoque A — tokens dual-mode, componentes, animaciones, microcopy |
 | `landing/` | Production landing page (deployed) |
-| `landing/index.html` + `_head.html`, `_body*.html` | Landing page partials (assembled by agent during dev) |
-| `brand/` | Visual assets (logos, favicon, guidelines, palette, style guide HTML) |
-| `specs/landing-v2.md` | Spec that generated the current landing |
+| `landing/index.html` + `_head.html`, `_body1.html`, `_body2.html`, `_body3.html` | Landing page partials + generated index (re-generate con `-Encoding UTF8`) |
+| `landing/brand/logotipo.jpg` | Logotipo único (JPEG, circular) |
+| `brand/` | Visual assets (guidelines, palette, favicon SVGs legacy, identidad-ahaguilera.html) |
+| `brand/identidad-ahaguilera.html` | Documento identidad de marca (11 secciones, auto-contenido, sin CDN) |
+| `brand/favicon/` | Favicon legacy (ICONO_OK.svg, apple-touch-icon.svg — ya no referenciados) |
+| `brand/favicon/ICONO_OK.svg` | SVG original del icono (reemplazado por logotipo.jpg como logo/favicon) |
+| `specs/landing-v2.md` | Spec funcional de la landing (actualizar con Enfoque A) |
+| `docs/landing-aha-sell.md` | Estrategia de venta: IA Jutia, argumentos cliente, catálogo 13 apps, guiones WhatsApp |
 | `docs/` | Design docs, implementation plans |
 | `.superpowers/`, `+/` | Agent session data (gitignored — ignore) |

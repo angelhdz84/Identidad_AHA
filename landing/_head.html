@@ -140,25 +140,55 @@
     .txt-secondary { color: var(--txt-secondary); }
     .txt-muted { color: var(--txt-muted); }
 
-    /* ===== CODE HEX ANIMATION ===== */
-    .hex-code {
+    /* ===== TERMINAL VIVA ===== */
+    .terminal-line {
       font-family: 'Courier New', Consolas, monospace;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
+      line-height: 1.7;
       color: var(--brand-primary);
-      opacity: 0.2;
-      line-height: 1.8;
-      letter-spacing: 0.05em;
       pointer-events: none;
       user-select: none;
+      white-space: nowrap;
     }
-    .section-dark .hex-code { opacity: 0.25; }
-    .hex-char {
+    .terminal-cursor {
       display: inline-block;
-      transition: opacity 0.4s ease, color 0.4s ease;
+      width: 0.55rem;
+      height: 1.1rem;
+      background: var(--brand-primary);
+      animation: blink 0.6s step-end infinite;
+      vertical-align: text-bottom;
+      opacity: 0.25;
     }
-    .hex-char.flicker {
-      opacity: 0.3;
-      color: #fff;
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* ===== FLOATING TECH CARDS 3D ===== */
+    .float-card {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      opacity: 0.07;
+      font-size: 2.5rem;
+      color: var(--brand-primary);
+      perspective: 600px;
+    }
+    .float-card-inner {
+      display: inline-block;
+      transform-style: preserve-3d;
+      animation: floatSway 12s ease-in-out infinite, cardTilt 10s ease-in-out infinite;
+    }
+    @keyframes floatSway {
+      0%, 100% { transform: translateY(0px); }
+      33% { transform: translateY(-18px); }
+      66% { transform: translateY(-8px); }
+    }
+    @keyframes cardTilt {
+      0%, 100% { transform: rotateY(0deg) rotateX(0deg); }
+      25% { transform: rotateY(25deg) rotateX(5deg); }
+      50% { transform: rotateY(-10deg) rotateX(-5deg); }
+      75% { transform: rotateY(18deg) rotateX(-8deg); }
     }
 
     /* ========== NAV (DUAL GLASS) ========== */
@@ -173,11 +203,7 @@
     .nav-links a:hover { color: var(--brand-primary) !important; }
     .nav-links a.active { color: var(--brand-primary) !important; font-weight: 600; }
     .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
-    .nav-logo-dark { display: none; filter: brightness(0) invert(1); }
-    .nav.hero-mode .nav-logo-dark { display: inline; }
-    .nav.hero-mode .nav-logo-light { display: none; }
-    .nav.light-mode .nav-logo-dark { display: none; }
-    .nav.light-mode .nav-logo-light { display: inline; }
+    .nav-logo-dark, .nav.hero-mode .nav-logo-dark, .nav.light-mode .nav-logo-dark { display: none; }
 
     @media (min-width: 768px) {
       .nav-links { display: flex; }
@@ -277,7 +303,7 @@
     /* FAQ */
     .faq-item { border-bottom: 1px solid var(--border-subtle); }
     .faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; background: none; border: none; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--txt-primary); text-align: left; min-height: 44px; }
-    .faq-question:hover { color: var(--brand-primary); }
+    .faq-question:hover { color: var(--surface-teal); }
     .faq-answer { overflow: hidden; }
     .faq-answer-inner { padding-bottom: 1.25rem; color: var(--txt-secondary); line-height: 1.6; }
 
@@ -307,6 +333,7 @@
     .stack-front {
       background: var(--surface); border: 1px solid var(--border-subtle);
       flex-direction: column; gap: 0.5rem;
+      color: var(--txt-primary);
     }
     .stack-back {
       background: var(--surface-dark); border: 1px solid var(--border-hover-dark);
@@ -413,7 +440,7 @@
     }
 
     /* Stat bar */
-    .stat-bar { display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .stat-bar { display: flex; gap: 3.5rem; row-gap: 1.5rem; justify-content: center; flex-wrap: wrap; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
 
     /* ========== RESPONSIVE ========== */
     @media (min-width: 640px) {

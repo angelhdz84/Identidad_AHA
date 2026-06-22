@@ -140,25 +140,55 @@
     .txt-secondary { color: var(--txt-secondary); }
     .txt-muted { color: var(--txt-muted); }
 
-    /* ===== CODE HEX ANIMATION ===== */
-    .hex-code {
+    /* ===== TERMINAL VIVA ===== */
+    .terminal-line {
       font-family: 'Courier New', Consolas, monospace;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
+      line-height: 1.7;
       color: var(--brand-primary);
-      opacity: 0.2;
-      line-height: 1.8;
-      letter-spacing: 0.05em;
       pointer-events: none;
       user-select: none;
+      white-space: nowrap;
     }
-    .section-dark .hex-code { opacity: 0.25; }
-    .hex-char {
+    .terminal-cursor {
       display: inline-block;
-      transition: opacity 0.4s ease, color 0.4s ease;
+      width: 0.55rem;
+      height: 1.1rem;
+      background: var(--brand-primary);
+      animation: blink 0.6s step-end infinite;
+      vertical-align: text-bottom;
+      opacity: 0.25;
     }
-    .hex-char.flicker {
-      opacity: 0.3;
-      color: #fff;
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    /* ===== FLOATING TECH CARDS 3D ===== */
+    .float-card {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      opacity: 0.07;
+      font-size: 2.5rem;
+      color: var(--brand-primary);
+      perspective: 600px;
+    }
+    .float-card-inner {
+      display: inline-block;
+      transform-style: preserve-3d;
+      animation: floatSway 12s ease-in-out infinite, cardTilt 10s ease-in-out infinite;
+    }
+    @keyframes floatSway {
+      0%, 100% { transform: translateY(0px); }
+      33% { transform: translateY(-18px); }
+      66% { transform: translateY(-8px); }
+    }
+    @keyframes cardTilt {
+      0%, 100% { transform: rotateY(0deg) rotateX(0deg); }
+      25% { transform: rotateY(25deg) rotateX(5deg); }
+      50% { transform: rotateY(-10deg) rotateX(-5deg); }
+      75% { transform: rotateY(18deg) rotateX(-8deg); }
     }
 
     /* ========== NAV (DUAL GLASS) ========== */
@@ -173,11 +203,7 @@
     .nav-links a:hover { color: var(--brand-primary) !important; }
     .nav-links a.active { color: var(--brand-primary) !important; font-weight: 600; }
     .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
-    .nav-logo-dark { display: none; filter: brightness(0) invert(1); }
-    .nav.hero-mode .nav-logo-dark { display: inline; }
-    .nav.hero-mode .nav-logo-light { display: none; }
-    .nav.light-mode .nav-logo-dark { display: none; }
-    .nav.light-mode .nav-logo-light { display: inline; }
+    .nav-logo-dark, .nav.hero-mode .nav-logo-dark, .nav.light-mode .nav-logo-dark { display: none; }
 
     @media (min-width: 768px) {
       .nav-links { display: flex; }
@@ -277,7 +303,7 @@
     /* FAQ */
     .faq-item { border-bottom: 1px solid var(--border-subtle); }
     .faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 0; background: none; border: none; cursor: pointer; font-size: 1rem; font-weight: 500; color: var(--txt-primary); text-align: left; min-height: 44px; }
-    .faq-question:hover { color: var(--brand-primary); }
+    .faq-question:hover { color: var(--surface-teal); }
     .faq-answer { overflow: hidden; }
     .faq-answer-inner { padding-bottom: 1.25rem; color: var(--txt-secondary); line-height: 1.6; }
 
@@ -307,6 +333,7 @@
     .stack-front {
       background: var(--surface); border: 1px solid var(--border-subtle);
       flex-direction: column; gap: 0.5rem;
+      color: var(--txt-primary);
     }
     .stack-back {
       background: var(--surface-dark); border: 1px solid var(--border-hover-dark);
@@ -413,7 +440,7 @@
     }
 
     /* Stat bar */
-    .stat-bar { display: flex; gap: 2.5rem; justify-content: center; flex-wrap: wrap; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
+    .stat-bar { display: flex; gap: 3.5rem; row-gap: 1.5rem; justify-content: center; flex-wrap: wrap; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
 
     /* ========== RESPONSIVE ========== */
     @media (min-width: 640px) {
@@ -482,21 +509,40 @@
 
   <!-- ========== HERO DARK ========== -->
   <section class="hero-dark" id="hero" aria-label="Hero principal">
-    <!-- Code hex background -->
-    <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:0.12;">
-      <div style="position:absolute;top:10%;left:5%;" class="hex-code" x-data="codigoVivo()" x-init="init()">
-        <template x-for="(linea, i) in lineas" :key="i">
-          <div><span x-text="linea"></span></div>
-        </template>
+    <!-- Terminal viva + Floating tech cards 3D -->
+    <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;">
+      <!-- Terminal -->
+      <div style="position:absolute;top:8%;left:4%;max-width:20rem;">
+        <div x-data="terminalVivo()" x-init="init()" class="terminal-line" style="opacity:0.12;">
+          <template x-for="(linea, i) in lineas" :key="i">
+            <div style="margin-bottom:0.15rem;">
+              <span style="opacity:0.5;">></span> <span x-text="linea"></span>
+            </div>
+          </template>
+          <span class="terminal-cursor"></span>
+        </div>
       </div>
-      <div style="position:absolute;bottom:15%;right:5%;transform:rotate(180deg);" class="hex-code" x-data="codigoVivo()" x-init="init()">
-        <template x-for="(linea, i) in lineas" :key="i">
-          <div><span x-text="linea"></span></div>
-        </template>
+      <!-- Second terminal (bottom-right, mirrored) -->
+      <div style="position:absolute;bottom:12%;right:4%;transform:rotate(180deg);max-width:20rem;">
+        <div x-data="terminalVivo()" x-init="init()" class="terminal-line" style="opacity:0.10;">
+          <template x-for="(linea, i) in lineas" :key="i">
+            <div style="margin-bottom:0.15rem;">
+              <span style="opacity:0.5;">></span> <span x-text="linea"></span>
+            </div>
+          </template>
+          <span class="terminal-cursor"></span>
+        </div>
       </div>
+      <!-- Floating Tech Cards 3D -->
+      <div class="float-card" style="top:15%;left:12%;"><div class="float-card-inner" style="animation-duration:15s,8s;"><i class="bi bi-lightning-charge"></i></div></div>
+      <div class="float-card" style="top:50%;left:6%;"><div class="float-card-inner" style="animation-duration:13s,9s;animation-delay:-2s,-1s;"><i class="bi bi-database"></i></div></div>
+      <div class="float-card" style="top:70%;left:18%;"><div class="float-card-inner" style="animation-duration:14s,7s;animation-delay:-4s,-3s;"><i class="bi bi-lock"></i></div></div>
+      <div class="float-card" style="top:20%;right:15%;"><div class="float-card-inner" style="animation-duration:11s,10s;animation-delay:-1s,-2s;"><i class="bi bi-server"></i></div></div>
+      <div class="float-card" style="top:45%;right:8%;"><div class="float-card-inner" style="animation-duration:16s,8s;animation-delay:-5s,-4s;"><i class="bi bi-cpu"></i></div></div>
+      <div class="float-card" style="top:75%;right:20%;"><div class="float-card-inner" style="animation-duration:12s,9s;animation-delay:-3s,-5s;"><i class="bi bi-diagram-3"></i></div></div>
     </div>
 
-    <div class="container" style="position:relative;z-index:1;padding-top:5rem;">
+    <div class="container" style="position:relative;z-index:1;padding-top:5rem;padding-bottom:3rem;">
       <div class="hero-fade hero-fade-1" style="margin-bottom:0.75rem;">
         <span class="badge badge-lime">Offline-first</span>
       </div>
@@ -563,7 +609,7 @@
         </div>
         <!-- Solution -->
         <div>
-          <p class="caption" style="color:var(--brand-primary);margin-bottom:1rem;font-weight:600;">
+          <p class="caption" style="color:var(--surface-teal);margin-bottom:1rem;font-weight:600;">
             <span x-show="lang==='es'"><i aria-hidden="true" class="bi bi-check-circle"></i> CÓMO TRABAJO YO</span>
             <span x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-check-circle"></i> HOW I WORK</span>
           </p>
@@ -1220,7 +1266,7 @@
           <span class="badge badge-lime">Dexie.js</span>
           <span class="badge badge-lime">CryptoJS</span>
           <span class="badge badge-lime">IA Jutia</span>
-          <span class="badge" style="background:var(--surface-dark-hover);">SQLite</span>
+          <span class="badge badge-lime">SQLite</span>
           <span class="badge badge-lime">jsPDF</span>
           <span class="badge badge-lime">SheetJS</span>
         </div>
@@ -1241,7 +1287,7 @@
           <span x-show="lang==='es'">Cuéntame tu idea y te digo cómo hacerla realidad offline-first.</span>
           <span x-show="lang==='en'" x-cloak>Tell me your idea and I'll tell you how to make it real, offline-first.</span>
         </p>
-        <div class="flex items-center justify-center gap-3" style="flex-wrap:wrap;">
+        <div class="flex items-center justify-center" style="flex-wrap:wrap;gap:2rem;">
           <a href="https://wa.me/5355944628" target="_blank" class="btn-cta-final">
             <i aria-hidden="true" class="bi bi-whatsapp" style="font-size:1.25rem;"></i> <span x-show="lang==='es'">Empezar ahora</span><span x-show="lang==='en'" x-cloak>Start now</span>
           </a>
@@ -1261,7 +1307,7 @@
       <div style="text-align:center;margin-bottom:1.5rem;">
         <img src="./brand/logotipo.jpg" alt="AHAguilera" style="height:2.5rem;margin:0 auto;border-radius:50%;">
       </div>
-      <div class="flex items-center justify-center gap-4" style="margin-bottom:1.5rem;flex-wrap:wrap;">
+      <div class="flex items-center justify-center gap-8" style="margin-bottom:1.5rem;flex-wrap:wrap;row-gap:0.75rem;">
         <a href="#apps" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
           <span x-show="lang==='es'">Apps</span><span x-show="lang==='en'" x-cloak>Apps</span>
         </a>
@@ -1357,32 +1403,65 @@
         faqOpen: null
       }));
 
-      // Codigo vivo animado
-      Alpine.data('codigoVivo', () => ({
+      // Terminal viva — líneas de código real que aparecen una por una
+      Alpine.data('terminalVivo', () => ({
         lineas: [],
         interval: null,
-        hexChars: '0123456789ABCDEF',
-        genLine(len) {
-          let s = '';
-          for (let i = 0; i < len; i++) {
-            s += this.hexChars[Math.floor(Math.random() * 16)];
-            if (i % 4 === 3 && i < len - 1) s += ' ';
-          }
-          return s;
-        },
+        pauseTimer: null,
+        codigo: [
+          'Alpine.data("app", () => ({ items: [] }))',
+          'Dexie.open().then(db => db.get("cliente"))',
+          'CryptoJS.AES.encrypt(data, key).toString()',
+          'db.inventario.where("stock").below(10).toArray()',
+          'useEffect(() => { fetchLocal() }, [])',
+          '$store.loading.phase = "ready"',
+          'await db.productos.bulkAdd(mapped)',
+          'navigator.onLine ? sync() : queue()',
+          'aplicacion.render("main", contexto)',
+          'window.indexedDB.open("app_v2", 1)',
+          'x-data="{ open: false }" @click="open = true"',
+          'Alpine.store("session", { user: null })',
+          'db.transaction("rw", items, () => {})',
+          'ciphertext.toString(CryptoJS.enc.Base64)',
+          'FlexSearch.create({ tokenize: "forward" })',
+          'x-init="refreshCache().then(() => loader=false)"',
+          'pako.gzip(JSON.stringify(data))',
+          'Alpine.effect(() => console.log($store))',
+          'navigator.serviceWorker.register("/sw.js")',
+          'window.syncManager.register("sync-tasks")'
+        ],
         init() {
-          // Generate initial lines
-          for (let i = 0; i < 16; i++) {
-            this.lineas.push(this.genLine(20 + Math.floor(Math.random() * 16)));
+          const tipo = Math.floor(Math.random() * 3);
+          let pool = [];
+          if (tipo === 0) pool = this.codigo.slice(0,7);
+          else if (tipo === 1) pool = this.codigo.slice(7,14);
+          else pool = this.codigo.slice(14);
+          for (let i = 0; i < 8; i++) {
+            this.lineas.push(pool[Math.floor(Math.random() * pool.length)]);
           }
-          // Mutate every 3 seconds
+          this.loop();
+        },
+        loop() {
+          let idx = 0;
           this.interval = setInterval(() => {
-            const idx = Math.floor(Math.random() * this.lineas.length);
-            this.lineas[idx] = this.genLine(20 + Math.floor(Math.random() * 16));
-          }, 3000);
+            if (idx < this.lineas.length - 1) {
+              idx++;
+            } else {
+              clearInterval(this.interval);
+              this.pauseTimer = setTimeout(() => {
+                const pool = this.codigo;
+                for (let i = 0; i < this.lineas.length; i++) {
+                  this.lineas[i] = pool[Math.floor(Math.random() * pool.length)];
+                }
+                idx = 0;
+                this.loop();
+              }, 4000);
+            }
+          }, 200);
         },
         destroy() {
           if (this.interval) clearInterval(this.interval);
+          if (this.pauseTimer) clearTimeout(this.pauseTimer);
         }
       }));
 
