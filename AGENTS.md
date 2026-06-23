@@ -21,7 +21,7 @@ La landing sigue el **Enfoque A** (Cálido-Tech): balancea profesionalismo, arte
 ## Secciones de la landing (orden actual)
 
 1. **Nav dual-glass** — logo redondo, links, toggle ES/EN, hamburguesa móvil
-2. **Hero oscuro** — headline, subheadline, 2 CTAs, badge .exe+.apk, stats
+  2. **Hero oscuro** — headline, subheadline, 2 CTAs, badge .exe+.apk, stats (tagline now single line: "Apps offline-first que parecen magia.")
 3. **Valor beige** — 3 cards con iconos + bloque comparativo "Software normal vs Cómo trabajo yo"
 4. **Apps oscuro** — Grid catálogo (InventarioPRO, FacturaExpress, ClienteSeguro, GastosDiarios)
 5. **IA Jutia oscuro** — Mini IA offline-first, perfiles Lite/Full, bloque comparativo competencia

@@ -71,6 +71,7 @@ La landing es de UNA página implementada en 4 parciales que se concatenan. Las 
 | **Punchline** | "Tu app. En .exe + .apk. Sin internet. Sin mensualidades." — reemplaza subheadline + format badge |
 | **Single CTA** | "Crear mi app →" (lime pill) + subtle link "Ver catálogo de apps →" |
 | **Stats narrative** | "clientes que repiten", "apps entregadas este año", "años sin servidores" |
+| **Tagline** | "Apps offline-first que parecen magia." (single line) |
 | **Terminal panel** | Right column: border 1px rgba(207,244,52,0.15), bg rgba(207,244,52,0.03), border-radius 12px, fadeIn animado, progress bar "██▓▓▒▒░░░░░░░ 100% offline" |
 
 ## 6. Reglas de negocio
