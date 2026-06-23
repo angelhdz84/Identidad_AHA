@@ -459,6 +459,19 @@
       margin-top: 0.5rem;
     }
 
+    /* Hero responsive grid */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 3fr 2fr;
+      }
+    }
+
     /* Stat bar */
     .stat-bar { display: flex; gap: 3.5rem; row-gap: 1.5rem; justify-content: center; flex-wrap: wrap; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
 
@@ -484,7 +497,7 @@
   <a href="#main" class="sr-only focus:not-sr-only" style="position:absolute;top:0;left:0;padding:0.75rem 1.5rem;background:var(--brand-primary);color:var(--txt-on-accent);z-index:300;font-weight:600;border-radius:0 0 8px 0;">
     Saltar al contenido
   </a>
-
+?﻿
   <!-- ========== NAV DUAL GLASS ========== -->
   <nav class="nav" :class="{ 'hero-mode': !scrolledLight, 'light-mode': scrolledLight }" role="navigation" aria-label="Navegación principal">
     <div class="nav-inner">
@@ -508,7 +521,7 @@
           <i aria-hidden="true" class="bi" style="font-size:1.25rem;" :class="mobileOpen ? 'bi-x-lg' : 'bi-list'"></i>
         </button>
         <button @click="lang = lang === 'es' ? 'en' : 'es'; localStorage.setItem('lang', lang)"
-                class="btn btn-ghost" style="padding:0.5rem;font-size:0.75rem;font-weight:600;" aria-label="Cambiar idioma">
+                class="btn btn-ghost" style="padding:0.5rem;font-size:0.75rem;font-weight:600;" aria-label="ES / EN — Cambiar idioma">
           <span :class="lang === 'es' ? '' : 'txt-muted'" style="font-weight:600;">ES</span>
           <span class="txt-muted">/</span>
           <span :class="lang === 'en' ? '' : 'txt-muted'" style="font-weight:600;">EN</span>
@@ -529,72 +542,80 @@
 
   <!-- ========== HERO DARK ========== -->
   <section class="hero-dark" id="hero" aria-label="Hero principal">
-    <!-- Terminal viva + Floating tech cards 3D -->
-    <div style="position:absolute;inset:0;overflow:hidden;pointer-events:none;">
-      <!-- Terminal -->
-      <div style="position:absolute;top:8%;left:4%;max-width:20rem;">
-        <div x-data="terminalVivo(codigoHero)" x-init="init()" class="terminal-line" style="opacity:0.12;">
-          <template x-for="(linea, i) in lineas" :key="i">
-            <div style="margin-bottom:0.15rem;">
-              <span style="opacity:0.5;">></span> <span x-text="linea"></span>
-            </div>
-          </template>
-          <span class="terminal-cursor"></span>
-        </div>
-      </div>
-      <!-- Second terminal (bottom-right, mirrored) -->
-      <div style="position:absolute;bottom:12%;right:4%;transform:rotate(180deg);max-width:20rem;">
-        <div x-data="terminalVivo(codigoHero)" x-init="init()" class="terminal-line" style="opacity:0.10;">
-          <template x-for="(linea, i) in lineas" :key="i">
-            <div style="margin-bottom:0.15rem;">
-              <span style="opacity:0.5;">></span> <span x-text="linea"></span>
-            </div>
-          </template>
-          <span class="terminal-cursor"></span>
-        </div>
-      </div>
-    </div>
-
     <div class="container" style="position:relative;z-index:1;padding-top:5rem;padding-bottom:3rem;">
-      <div class="hero-fade hero-fade-1" style="margin-bottom:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;">
-        <span class="badge" style="background:rgba(207,244,52,0.08);color:var(--brand-primary);border:1px solid rgba(207,244,52,0.2);">AHApp</span>
-        <span class="badge badge-lime">Offline-first</span>
-      </div>
-      <h1 class="display hero-fade hero-fade-2" style="max-width:48rem;margin-bottom:0.75rem;">
-        <span x-show="lang === 'es'">Apps offline-first<br>que parecen magia.</span>
-        <span x-show="lang === 'en'" x-cloak>Offline-first apps<br>that look like magic.</span>
-      </h1>
-      <p class="hero-sub hero-fade hero-fade-3" style="margin-bottom:0.25rem;">
-        <span x-show="lang==='es'">Pero son código. Tu app. En tu escritorio. En tu bolsillo.</span>
-        <span x-show="lang==='en'" x-cloak>But they're code. Your app. On your desktop. In your pocket.</span>
-      </p>
-      <p class="hero-fade hero-fade-3" style="font-weight:600;margin-bottom:2rem;">
-        <span class="badge-formato" x-show="lang==='es'"><i aria-hidden="true" class="bi bi-laptop"></i> .exe + <i aria-hidden="true" class="bi bi-phone"></i> .apk — Sin internet · Sin mensualidades</span>
-        <span class="badge-formato" x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-laptop"></i> .exe + <i aria-hidden="true" class="bi bi-phone"></i> .apk — No internet · No monthly fees</span>
-      </p>
-      <div class="hero-fade hero-fade-4" style="display:flex;gap:0.75rem;flex-wrap:wrap;">
-        <a href="#apps" class="btn btn-primary" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
-          <span x-show="lang==='es'">Crear mi app →</span><span x-show="lang==='en'" x-cloak>Create my app →</span>
-        </a>
-        <a href="https://wa.me/5355944628" target="_blank" class="btn btn-outline-dark">
-          <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Ver catálogo</span><span x-show="lang==='en'" x-cloak>View catalog</span>
-        </a>
-      </div>
+      <div class="hero-grid">
 
-      <!-- Stats -->
-      <div class="stat-bar hero-fade hero-fade-4" style="animation-delay:1s;">
-        <div style="text-align:center;">
-          <div class="stat-number" x-data="counter(12)" x-init="init()" x-text="count">0</div>
-          <div class="stat-label"><span x-show="lang==='es'">clientes</span><span x-show="lang==='en'" x-cloak>clients</span></div>
+        <!-- Left: Text content -->
+        <div>
+          <h1 class="display hero-fade hero-fade-2" style="max-width:48rem;margin-bottom:0.75rem;">
+            <span style="color:var(--brand-primary);display:block;font-size:1.4em;line-height:1.1;margin-bottom:0.2rem;text-shadow:0 0 40px rgba(207,244,52,0.25);">AHApp</span>
+            <span style="font-size:0.5em;font-weight:400;display:block;color:var(--txt-secondary-dark);" x-show="lang==='es'">Apps offline-first que parecen magia.</span>
+            <span style="font-size:0.5em;font-weight:400;display:block;color:var(--txt-secondary-dark);" x-show="lang==='en'" x-cloak>Offline-first apps that look like magic.</span>
+          </h1>
+
+          <!-- Punchline (replaces subheadline + format badge) -->
+          <p class="hero-sub hero-fade hero-fade-3" style="margin-bottom:2rem;">
+            <span x-show="lang==='es'">
+              <span style="font-size:1.125rem;font-weight:600;display:block;">Tu app. En .exe + .apk.</span>
+              <span style="font-size:0.875rem;color:var(--txt-secondary-dark);display:block;margin-top:0.15rem;">Sin internet. Sin mensualidades.</span>
+            </span>
+            <span x-show="lang==='en'" x-cloak>
+              <span style="font-size:1.125rem;font-weight:600;display:block;">Your app. As .exe + .apk.</span>
+              <span style="font-size:0.875rem;color:var(--txt-secondary-dark);display:block;margin-top:0.15rem;">No internet. No monthly fees.</span>
+            </span>
+          </p>
+
+          <!-- Single CTA primary + subtle link secondary -->
+          <div class="hero-fade hero-fade-4" style="margin-bottom:0.5rem;">
+            <a href="#apps" class="btn btn-primary" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
+              <span x-show="lang==='es'">Crear mi app →</span><span x-show="lang==='en'" x-cloak>Create my app →</span>
+            </a>
+          </div>
+          <p class="hero-fade hero-fade-4" style="margin-bottom:2.5rem;">
+            <a href="#apps" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})" style="color:var(--txt-secondary-dark);font-size:0.8125rem;text-decoration:underline;text-underline-offset:3px;">
+              <span x-show="lang==='es'">Ver catálogo de apps →</span>
+              <span x-show="lang==='en'" x-cloak>View app catalog →</span>
+            </a>
+          </p>
+
+          <!-- Stats with narrative -->
+          <div class="stat-bar hero-fade hero-fade-4" style="animation-delay:1s;">
+            <div style="text-align:center;">
+              <div class="stat-number" x-data="counter(12)" x-init="init()" x-text="count">0</div>
+              <div class="stat-label"><span x-show="lang==='es'">clientes que repiten</span><span x-show="lang==='en'" x-cloak>returning clients</span></div>
+            </div>
+            <div style="text-align:center;">
+              <div class="stat-number" x-data="counter(9)" x-init="init()" x-text="count">0</div>
+              <div class="stat-label"><span x-show="lang==='es'">apps entregadas este año</span><span x-show="lang==='en'" x-cloak>apps delivered this year</span></div>
+            </div>
+            <div style="text-align:center;">
+              <div class="stat-number" x-data="counter(4)" x-init="init()" x-text="count">0</div>
+              <div class="stat-label"><span x-show="lang==='es'">años sin servidores</span><span x-show="lang==='en'" x-cloak>years with no servers</span></div>
+            </div>
+          </div>
         </div>
-        <div style="text-align:center;">
-          <div class="stat-number" x-data="counter(9)" x-init="init()" x-text="count">0</div>
-          <div class="stat-label"><span x-show="lang==='es'">apps entregadas</span><span x-show="lang==='en'" x-cloak>apps delivered</span></div>
+
+        <!-- Right: Terminal panel feature -->
+        <div class="hero-fade hero-fade-4" style="animation-delay:1.2s;">
+          <div style="border:1px solid rgba(207,244,52,0.15);background:rgba(207,244,52,0.03);border-radius:12px;padding:1.25rem;font-family:'Courier New',Consolas,monospace;font-size:0.75rem;line-height:1.6;">
+            <div x-data="terminalVivo(codigoHeroPanel)" x-init="init()">
+              <template x-for="(linea, i) in lineas" :key="i">
+                <div style="margin-bottom:0.15rem;">
+                  <span style="opacity:0.5;color:var(--brand-primary);">></span> <span x-text="linea" style="color:var(--txt-primary-dark);"></span>
+                </div>
+              </template>
+              <span class="terminal-cursor"></span>
+            </div>
+            <div style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid rgba(207,244,52,0.1);">
+              <span style="display:flex;gap:0.25rem;align-items:center;">
+                <span style="color:var(--brand-primary);font-size:0.65rem;">██▓▓▒▒░░░░░░░</span>
+                <span style="color:var(--txt-secondary-dark);font-size:0.65rem;" x-show="lang==='es'">100% offline</span>
+                <span style="color:var(--txt-secondary-dark);font-size:0.65rem;" x-show="lang==='en'" x-cloak>100% offline</span>
+              </span>
+            </div>
+          </div>
         </div>
-        <div style="text-align:center;">
-          <div class="stat-number" x-data="counter(4)" x-init="init()" x-text="count">0</div>
-          <div class="stat-label"><span x-show="lang==='es'">años construyendo</span><span x-show="lang==='en'" x-cloak>years building</span></div>
-        </div>
+
       </div>
     </div>
   </section>
@@ -636,43 +657,41 @@
         </div>
       </div>
       <!-- El trato -->
-      <div class="reveal" style="max-width:36rem;margin:2rem auto 0;">
-        <div class="card" style="padding:1.5rem;border-color:rgba(2,70,83,0.12);">
-          <p class="caption" style="color:var(--surface-teal);font-weight:600;margin-bottom:1rem;text-align:center;">
-            <span x-show="lang==='es'"><i aria-hidden="true" class="bi bi-handshake"></i> EL TRATO — Sin letras chiquitas</span>
-            <span x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-handshake"></i> THE DEAL — No fine print</span>
-          </p>
-          <table style="width:100%;border-collapse:collapse;">
-            <tr style="border-bottom:1px solid rgba(2,70,83,0.08);">
-              <td class="caption" style="padding:0.5rem 0;color:var(--txt-muted);width:35%;">Pago</td>
-              <td class="body-sm" style="padding:0.5rem 0 0.5rem 1rem;"><span x-show="lang==='es'">Único. Nunca mensualidad</span><span x-show="lang==='en'" x-cloak>One-time. Never monthly</span></td>
-            </tr>
-            <tr style="border-bottom:1px solid rgba(2,70,83,0.08);">
-              <td class="caption" style="padding:0.5rem 0;color:var(--txt-muted);">Formatos</td>
-              <td class="body-sm" style="padding:0.5rem 0 0.5rem 1rem;">.exe + .apk + ZIP</td>
-            </tr>
-            <tr style="border-bottom:1px solid rgba(2,70,83,0.08);">
-              <td class="caption" style="padding:0.5rem 0;color:var(--txt-muted);">Internet</td>
-              <td class="body-sm" style="padding:0.5rem 0 0.5rem 1rem;"><span x-show="lang==='es'">Cero necesario</span><span x-show="lang==='en'" x-cloak>Zero required</span></td>
-            </tr>
-            <tr style="border-bottom:1px solid rgba(2,70,83,0.08);">
-              <td class="caption" style="padding:0.5rem 0;color:var(--txt-muted);">Datos</td>
-              <td class="body-sm" style="padding:0.5rem 0 0.5rem 1rem;"><span x-show="lang==='es'">100% locales, cifrados AES-256</span><span x-show="lang==='en'" x-cloak>100% local, AES-256 encrypted</span></td>
-            </tr>
-            <tr style="border-bottom:1px solid rgba(2,70,83,0.08);">
-              <td class="caption" style="padding:0.5rem 0;color:var(--txt-muted);">Soporte</td>
-              <td class="body-sm" style="padding:0.5rem 0 0.5rem 1rem;"><span x-show="lang==='es'">Tú tienes el código, la app es tuya</span><span x-show="lang==='en'" x-cloak>You own the code, the app is yours</span></td>
-            </tr>
-            <tr>
-              <td class="caption" style="padding:0.5rem 0;color:var(--txt-muted);border-bottom:none;">Precio</td>
-              <td class="body-sm" style="padding:0.5rem 0 0.5rem 1rem;border-bottom:none;"><span x-show="lang==='es'">Según complejidad, no por usuario</span><span x-show="lang==='en'" x-cloak>By complexity, not per user</span></td>
-            </tr>
-          </table>
+      <div class="card reveal" style="max-width:36rem;margin:0 auto 2rem;padding:1.5rem 2rem;">
+        <p class="caption" style="color:var(--surface-teal);font-weight:600;margin-bottom:1rem;text-align:center;">
+          <span x-show="lang==='es'"><i aria-hidden="true" class="bi bi-handshake"></i> El trato</span>
+          <span x-show="lang==='en'" x-cloak><i aria-hidden="true" class="bi bi-handshake"></i> The deal</span>
+        </p>
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:0.6rem 1.25rem;align-items:baseline;">
+          <span class="caption" style="color:var(--txt-muted);font-weight:600;">Pago</span>
+          <span class="body-sm" x-show="lang==='es'">Único. Nunca mensualidad</span>
+          <span class="body-sm" x-show="lang==='en'" x-cloak>One-time. Never a monthly fee</span>
+
+          <span class="caption" style="color:var(--txt-muted);font-weight:600;">Formatos</span>
+          <span class="body-sm" x-show="lang==='es'">.exe + .apk + ZIP</span>
+          <span class="body-sm" x-show="lang==='en'" x-cloak>.exe + .apk + ZIP</span>
+
+          <span class="caption" style="color:var(--txt-muted);font-weight:600;">Internet</span>
+          <span class="body-sm" x-show="lang==='es'">Cero necesario</span>
+          <span class="body-sm" x-show="lang==='en'" x-cloak>Zero required</span>
+
+          <span class="caption" style="color:var(--txt-muted);font-weight:600;">Datos</span>
+          <span class="body-sm" x-show="lang==='es'">100% locales, cifrados AES-256</span>
+          <span class="body-sm" x-show="lang==='en'" x-cloak>100% local, AES-256 encrypted</span>
+
+          <span class="caption" style="color:var(--txt-muted);font-weight:600;">Soporte</span>
+          <span class="body-sm" x-show="lang==='es'">Tú tienes el código</span>
+          <span class="body-sm" x-show="lang==='en'" x-cloak>You own the code</span>
+
+          <span class="caption" style="color:var(--txt-muted);font-weight:600;">Precio</span>
+          <span class="body-sm" x-show="lang==='es'">Por complejidad, no por usuario</span>
+          <span class="body-sm" x-show="lang==='en'" x-cloak>By complexity, not per user</span>
         </div>
       </div>
+
       <div class="text-center reveal">
         <a href="https://wa.me/5355944628" target="_blank" class="btn btn-primary" style="padding:1rem 2.5rem;font-size:1.0625rem;">
-          <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Quiero mi .exe + .apk →</span><span x-show="lang==='en'" x-cloak>I want my .exe + .apk →</span>
+          <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Quiero mi .exe + .apk </span><span x-show="lang==='en'" x-cloak>I want my .exe + .apk </span>
         </a>
       </div>
     </div>
@@ -1560,7 +1579,7 @@
   </section>
 
   <!-- ========== SOBRE MÍ ========== -->
-  <section class="section section-dark" id="sobre-mi" aria-label="Sobre mí">
+  <section class="section section-light" id="sobre-mi" aria-label="Sobre mí">
     <div style="position:absolute;bottom:1.5rem;right:1.5rem;max-width:15rem;opacity:0.07;pointer-events:none;">
       <div x-data="terminalVivo(codigoSobreMi)" x-init="init()" class="terminal-line" style="font-size:0.6rem;">
         <template x-for="(linea, i) in lineas" :key="i">
@@ -1573,45 +1592,45 @@
         <span x-show="lang==='es'">SOBRE MÍ</span>
         <span x-show="lang==='en'" x-cloak>ABOUT ME</span>
       </p>
-      <div class="card-dark reveal" style="text-align:center;padding:2.5rem;">
+      <div class="card reveal" style="text-align:center;padding:2.5rem;">
         <div style="width:5rem;height:5rem;border-radius:16px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2.5rem;font-weight:700;color:var(--txt-on-accent);">AH</div>
-        <h2 class="h2" style="margin-bottom:0.25rem;color:#fff;">Angel Hernández Aguilera</h2>
-        <p class="body-sm" style="margin-bottom:1.5rem;color:var(--txt-secondary-dark);">
+        <h2 class="h2" style="margin-bottom:0.25rem;">Angel Hernández Aguilera</h2>
+        <p class="body-sm" style="margin-bottom:1.5rem;color:var(--txt-secondary);">
           <span x-show="lang==='es'">Desarrollador Freelance</span>
           <span x-show="lang==='en'" x-cloak>Freelance Developer</span>
         </p>
-        <blockquote style="font-style:italic;color:var(--txt-secondary-dark);margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;">
+        <blockquote style="font-style:italic;color:var(--txt-secondary);margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;">
           "Libertad tecnológica. Calidad freelance. Simplicidad radical."
         </blockquote>
-        <p class="body-sm" style="margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;color:var(--txt-secondary-dark);">
+        <p class="body-sm" style="margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;color:var(--txt-secondary);">
           <span x-show="lang==='es'">Construyo apps que funcionan sin internet. Sin servidores, sin mensualidades, sin complicaciones. Cada app es un producto terminado: validado, documentado y listo para usar.</span>
           <span x-show="lang==='en'" x-cloak>I build apps that work without internet. No servers, no monthly fees, no complications. Each app is a finished product: validated, documented, and ready to use.</span>
         </p>
         <div class="flex items-center justify-center gap-2" style="flex-wrap:wrap;">
-          <span class="badge badge-lime">Alpine.js</span>
-          <span class="badge badge-lime">Dexie.js</span>
-          <span class="badge badge-lime">CryptoJS</span>
-          <span class="badge badge-lime">IA Jutia</span>
-          <span class="badge badge-lime">SQLite</span>
-          <span class="badge badge-lime">jsPDF</span>
-          <span class="badge badge-lime">SheetJS</span>
+          <span class="badge" style="background:var(--surface-teal);">Alpine.js</span>
+          <span class="badge" style="background:var(--surface-teal);">Dexie.js</span>
+          <span class="badge" style="background:var(--surface-teal);">CryptoJS</span>
+          <span class="badge" style="background:var(--surface-teal);">IA Jutia</span>
+          <span class="badge" style="background:var(--surface-teal);">SQLite</span>
+          <span class="badge" style="background:var(--surface-teal);">jsPDF</span>
+          <span class="badge" style="background:var(--surface-teal);">SheetJS</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========== CTA FINAL ========== -->
-  <section class="section section-light" id="contacto" aria-label="Contacto" style="padding-bottom:4rem;">
+  <section class="section section-dark" id="contacto" aria-label="Contacto" style="padding-bottom:4rem;">
     <div class="float-light" style="top:-2rem;left:-1rem;color:#CFF434;transform:rotate(-10deg);"><div class="float-light-inner" style="animation-duration:15s;"><i class="bi bi-rocket-takeoff"></i></div></div>
     <div class="float-light" style="bottom:-2rem;right:-1.5rem;color:#CFF434;transform:rotate(14deg);"><div class="float-light-inner" style="animation-delay:-7s;animation-duration:23s;"><i class="bi bi-send"></i></div></div>
     <div class="container-narrow">
-      <div class="card reveal" style="text-align:center;padding:3rem 2rem;border:2px solid var(--brand-primary);">
+      <div class="card-dark reveal" style="text-align:center;padding:3rem 2rem;border:2px solid var(--brand-primary);">
         <div style="font-size:3rem;margin-bottom:1rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-rocket-takeoff"></i></div>
-        <h2 class="display" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:0.75rem;">
+        <h2 class="display" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:0.75rem;color:#fff;">
           <span x-show="lang==='es'">¿Listo para empezar?</span>
           <span x-show="lang==='en'" x-cloak>Ready to get started?</span>
         </h2>
-        <p class="body-sm txt-secondary" style="margin-bottom:2rem;max-width:24rem;margin-left:auto;margin-right:auto;">
+        <p class="body-sm" style="margin-bottom:2rem;max-width:24rem;margin-left:auto;margin-right:auto;color:var(--txt-secondary-dark);">
           <span x-show="lang==='es'">Cuéntame tu idea y te digo cómo hacerla realidad offline-first.</span>
           <span x-show="lang==='en'" x-cloak>Tell me your idea and I'll tell you how to make it real, offline-first.</span>
         </p>
@@ -1619,7 +1638,7 @@
           <a href="https://wa.me/5355944628" target="_blank" class="btn-cta-final">
             <i aria-hidden="true" class="bi bi-whatsapp" style="font-size:1.25rem;"></i> <span x-show="lang==='es'">Empezar ahora</span><span x-show="lang==='en'" x-cloak>Start now</span>
           </a>
-          <a href="mailto:angel@ahaguilera.dev" class="btn btn-outline-light" style="padding:1rem 2rem;font-size:1.0625rem;">
+          <a href="mailto:angel@ahaguilera.dev" class="btn btn-outline-dark" style="padding:1rem 2rem;font-size:1.0625rem;">
             <i aria-hidden="true" class="bi bi-envelope" style="font-size:1.25rem;"></i> Email
           </a>
         </div>
@@ -1630,36 +1649,36 @@
   </main>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="section-light" style="border-top:1px solid var(--border-subtle);padding:3rem 0 2rem;position:relative;overflow:hidden;" role="contentinfo">
+  <footer style="background:var(--canvas-dark);border-top:1px solid var(--border-subtle-dark);padding:3rem 0 2rem;position:relative;overflow:hidden;color:var(--txt-primary-dark);" role="contentinfo">
     <div class="float-light" style="bottom:-1.5rem;left:-1rem;color:#6B6560;transform:rotate(18deg);"><div class="float-light-inner" style="animation-duration:24s;"><i class="bi bi-flower2"></i></div></div>
     <div class="float-light" style="top:-1.5rem;right:-1rem;color:#6B6560;transform:rotate(-6deg);"><div class="float-light-inner" style="animation-delay:-8s;animation-duration:20s;"><i class="bi bi-heart"></i></div></div>
     <div class="container">
       <div style="text-align:center;margin-bottom:1.5rem;">
         <img src="./brand/logotipo.jpg" alt="AHAguilera" style="height:2.5rem;margin:0 auto;border-radius:50%;">
       </div>
-      <div class="flex items-center justify-center gap-8" style="margin-bottom:1.5rem;flex-wrap:wrap;row-gap:0.75rem;">
-        <a href="#apps" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
+      <div class="flex items-center justify-center" style="margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
+        <a href="#apps" class="body-sm" style="color:var(--txt-secondary-dark);min-height:44px;display:inline-flex;align-items:center;padding:0 0.5rem;" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
           <span x-show="lang==='es'">Apps</span><span x-show="lang==='en'" x-cloak>Apps</span>
         </a>
-        <a href="#precios" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('precios').scrollIntoView({behavior:'smooth'})">
+        <a href="#precios" class="body-sm" style="color:var(--txt-secondary-dark);min-height:44px;display:inline-flex;align-items:center;padding:0 0.5rem;" @click.prevent="document.getElementById('precios').scrollIntoView({behavior:'smooth'})">
           <span x-show="lang==='es'">Precios</span><span x-show="lang==='en'" x-cloak>Pricing</span>
         </a>
-        <a href="#ia-jutia" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('ia-jutia').scrollIntoView({behavior:'smooth'})">
+        <a href="#ia-jutia" class="body-sm" style="color:var(--txt-secondary-dark);min-height:44px;display:inline-flex;align-items:center;padding:0 0.5rem;" @click.prevent="document.getElementById('ia-jutia').scrollIntoView({behavior:'smooth'})">
           IA
         </a>
-        <a href="#stack" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('stack').scrollIntoView({behavior:'smooth'})">
+        <a href="#stack" class="body-sm" style="color:var(--txt-secondary-dark);min-height:44px;display:inline-flex;align-items:center;padding:0 0.5rem;" @click.prevent="document.getElementById('stack').scrollIntoView({behavior:'smooth'})">
           Stack
         </a>
-        <a href="#faq" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">
+        <a href="#faq" class="body-sm" style="color:var(--txt-secondary-dark);min-height:44px;display:inline-flex;align-items:center;padding:0 0.5rem;" @click.prevent="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">
           FAQ
         </a>
-        <a href="#sobre-mi" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'})">
+        <a href="#sobre-mi" class="body-sm" style="color:var(--txt-secondary-dark);min-height:44px;display:inline-flex;align-items:center;padding:0 0.5rem;" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'})">
           <span x-show="lang==='es'">Sobre mí</span><span x-show="lang==='en'" x-cloak>About</span>
         </a>
       </div>
       <div style="text-align:center;">
-        <p class="caption txt-muted">© 2026 AHAguilera · MIT License</p>
-        <p class="caption txt-muted" style="margin-top:0.25rem;">
+        <p class="caption" style="color:var(--txt-muted-dark);">© 2026 AHAguilera · MIT License</p>
+        <p class="caption" style="color:var(--txt-muted-dark);margin-top:0.25rem;">
           <span x-show="lang==='es'">100% offline · Sin CDN · .exe + .apk</span>
           <span x-show="lang==='en'" x-cloak>100% offline · No CDN · .exe + .apk</span>
         </p>
@@ -1741,6 +1760,16 @@
       'FlexSearch.create({ tokenize: "forward" })',
       'pako.gzip(JSON.stringify(data))',
       'navigator.serviceWorker.register("/sw.js")'
+    ];
+    const codigoHeroPanel = [
+      'Alpine.data("app", () => ({ items: [] }))',
+      'Dexie.open().then(db => db.get("cliente"))',
+      'IA Jutia: búsqueda + predicciones',
+      'Ahora mismo, sin servidor',
+      'Sin suscripciones, sin mensualidades',
+      'Tu app, tus datos, tu control',
+      'Cifrado AES-256 extremo a extremo',
+      'Neutralino + Capacitor: .exe + .apk'
     ];
     const codigoApps = [
       'db.productos.bulkAdd([{nombre,precio,stock}])',

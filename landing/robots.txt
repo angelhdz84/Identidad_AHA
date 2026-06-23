@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://angelhdz84.github.io/Identidad_AHA/sitemap.xml

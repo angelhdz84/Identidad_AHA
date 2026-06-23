@@ -30,7 +30,7 @@ La landing es de UNA página implementada en 4 parciales que se concatenan. Las 
 | # | Sección | Modo | Componentes clave | Alpine.js |
 |---|---------|------|------------------|-----------|
 | 1 | Nav flotante | Carbón | Logo circular (logotipo.jpg 2rem), links, toggle ES/EN, hamburguesa móvil | `x-data`, `x-model` lang, `x-show` menú |
-| 2 | Hero | Carbón | Headline, subheadline, 2 CTAs, badge .exe+.apk, stats | — |
+| 2 | Hero | Carbón | Headline, punchline, 1 CTA principal, badge .exe+.apk, stats, terminal panel | x-show lang |
 | 3 | Valor | Beige | 3 cards con iconos + bloque comparativo "Software normal vs Cómo trabajo yo" | Intersection Observer |
 | 4 | Apps | Carbón | Grid catálogo (InventarioPRO, FacturaExpress, ClienteSeguro, GastosDiarios) | Modales `x-show` |
 | 5 | IA Jutia | Carbón | Mini IA offline-first, perfiles Lite/Full, bloque comparativo competencia | — |
@@ -63,7 +63,17 @@ La landing es de UNA página implementada en 4 parciales que se concatenan. Las 
 5. FAQ resuelve objeciones
 6. CTA Final
 
-## 5. Reglas de negocio
+## 5. Hero redesign (Enfoque A)
+
+| Elemento | Descripción |
+|---------|------------|
+| **Lime headline** | AHApp en 1.4em con glow (text-shadow:0 0 40px rgba(207,244,52,0.25)) |
+| **Punchline** | "Tu app. En .exe + .apk. Sin internet. Sin mensualidades." — reemplaza subheadline + format badge |
+| **Single CTA** | "Crear mi app →" (lime pill) + subtle link "Ver catálogo de apps →" |
+| **Stats narrative** | "clientes que repiten", "apps entregadas este año", "años sin servidores" |
+| **Terminal panel** | Right column: border 1px rgba(207,244,52,0.15), bg rgba(207,244,52,0.03), border-radius 12px, fadeIn animado, progress bar "██▓▓▒▒░░░░░░░ 100% offline" |
+
+## 6. Reglas de negocio
 
 - Los precios son fijos y visibles (sin "cotización")
 - Los planes Lite/Standard tienen features delimitados; IA Jutia Lite incluida en plan Lite, IA Jutia Full en Standard y Custom

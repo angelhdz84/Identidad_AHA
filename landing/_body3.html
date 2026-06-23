@@ -330,7 +330,7 @@
   </section>
 
   <!-- ========== SOBRE MÍ ========== -->
-  <section class="section section-dark" id="sobre-mi" aria-label="Sobre mí">
+  <section class="section section-light" id="sobre-mi" aria-label="Sobre mí">
     <div style="position:absolute;bottom:1.5rem;right:1.5rem;max-width:15rem;opacity:0.07;pointer-events:none;">
       <div x-data="terminalVivo(codigoSobreMi)" x-init="init()" class="terminal-line" style="font-size:0.6rem;">
         <template x-for="(linea, i) in lineas" :key="i">
@@ -343,45 +343,45 @@
         <span x-show="lang==='es'">SOBRE MÍ</span>
         <span x-show="lang==='en'" x-cloak>ABOUT ME</span>
       </p>
-      <div class="card-dark reveal" style="text-align:center;padding:2.5rem;">
+      <div class="card reveal" style="text-align:center;padding:2.5rem;">
         <div style="width:5rem;height:5rem;border-radius:16px;background:var(--brand-primary);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-size:2.5rem;font-weight:700;color:var(--txt-on-accent);">AH</div>
-        <h2 class="h2" style="margin-bottom:0.25rem;color:#fff;">Angel Hernández Aguilera</h2>
-        <p class="body-sm" style="margin-bottom:1.5rem;color:var(--txt-secondary-dark);">
+        <h2 class="h2" style="margin-bottom:0.25rem;">Angel Hernández Aguilera</h2>
+        <p class="body-sm" style="margin-bottom:1.5rem;color:var(--txt-secondary);">
           <span x-show="lang==='es'">Desarrollador Freelance</span>
           <span x-show="lang==='en'" x-cloak>Freelance Developer</span>
         </p>
-        <blockquote style="font-style:italic;color:var(--txt-secondary-dark);margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;">
+        <blockquote style="font-style:italic;color:var(--txt-secondary);margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;">
           "Libertad tecnológica. Calidad freelance. Simplicidad radical."
         </blockquote>
-        <p class="body-sm" style="margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;color:var(--txt-secondary-dark);">
+        <p class="body-sm" style="margin-bottom:1.5rem;max-width:28rem;margin-left:auto;margin-right:auto;color:var(--txt-secondary);">
           <span x-show="lang==='es'">Construyo apps que funcionan sin internet. Sin servidores, sin mensualidades, sin complicaciones. Cada app es un producto terminado: validado, documentado y listo para usar.</span>
           <span x-show="lang==='en'" x-cloak>I build apps that work without internet. No servers, no monthly fees, no complications. Each app is a finished product: validated, documented, and ready to use.</span>
         </p>
         <div class="flex items-center justify-center gap-2" style="flex-wrap:wrap;">
-          <span class="badge badge-lime">Alpine.js</span>
-          <span class="badge badge-lime">Dexie.js</span>
-          <span class="badge badge-lime">CryptoJS</span>
-          <span class="badge badge-lime">IA Jutia</span>
-          <span class="badge badge-lime">SQLite</span>
-          <span class="badge badge-lime">jsPDF</span>
-          <span class="badge badge-lime">SheetJS</span>
+          <span class="badge" style="background:var(--surface-teal);">Alpine.js</span>
+          <span class="badge" style="background:var(--surface-teal);">Dexie.js</span>
+          <span class="badge" style="background:var(--surface-teal);">CryptoJS</span>
+          <span class="badge" style="background:var(--surface-teal);">IA Jutia</span>
+          <span class="badge" style="background:var(--surface-teal);">SQLite</span>
+          <span class="badge" style="background:var(--surface-teal);">jsPDF</span>
+          <span class="badge" style="background:var(--surface-teal);">SheetJS</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ========== CTA FINAL ========== -->
-  <section class="section section-light" id="contacto" aria-label="Contacto" style="padding-bottom:4rem;">
+  <section class="section section-dark" id="contacto" aria-label="Contacto" style="padding-bottom:4rem;">
     <div class="float-light" style="top:-2rem;left:-1rem;color:#CFF434;transform:rotate(-10deg);"><div class="float-light-inner" style="animation-duration:15s;"><i class="bi bi-rocket-takeoff"></i></div></div>
     <div class="float-light" style="bottom:-2rem;right:-1.5rem;color:#CFF434;transform:rotate(14deg);"><div class="float-light-inner" style="animation-delay:-7s;animation-duration:23s;"><i class="bi bi-send"></i></div></div>
     <div class="container-narrow">
-      <div class="card reveal" style="text-align:center;padding:3rem 2rem;border:2px solid var(--brand-primary);">
+      <div class="card-dark reveal" style="text-align:center;padding:3rem 2rem;border:2px solid var(--brand-primary);">
         <div style="font-size:3rem;margin-bottom:1rem;color:var(--brand-primary);"><i aria-hidden="true" class="bi bi-rocket-takeoff"></i></div>
-        <h2 class="display" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:0.75rem;">
+        <h2 class="display" style="font-size:clamp(1.75rem,3.5vw,2.5rem);margin-bottom:0.75rem;color:#fff;">
           <span x-show="lang==='es'">¿Listo para empezar?</span>
           <span x-show="lang==='en'" x-cloak>Ready to get started?</span>
         </h2>
-        <p class="body-sm txt-secondary" style="margin-bottom:2rem;max-width:24rem;margin-left:auto;margin-right:auto;">
+        <p class="body-sm" style="margin-bottom:2rem;max-width:24rem;margin-left:auto;margin-right:auto;color:var(--txt-secondary-dark);">
           <span x-show="lang==='es'">Cuéntame tu idea y te digo cómo hacerla realidad offline-first.</span>
           <span x-show="lang==='en'" x-cloak>Tell me your idea and I'll tell you how to make it real, offline-first.</span>
         </p>
@@ -389,7 +389,7 @@
           <a href="https://wa.me/5355944628" target="_blank" class="btn-cta-final">
             <i aria-hidden="true" class="bi bi-whatsapp" style="font-size:1.25rem;"></i> <span x-show="lang==='es'">Empezar ahora</span><span x-show="lang==='en'" x-cloak>Start now</span>
           </a>
-          <a href="mailto:angel@ahaguilera.dev" class="btn btn-outline-light" style="padding:1rem 2rem;font-size:1.0625rem;">
+          <a href="mailto:angel@ahaguilera.dev" class="btn btn-outline-dark" style="padding:1rem 2rem;font-size:1.0625rem;">
             <i aria-hidden="true" class="bi bi-envelope" style="font-size:1.25rem;"></i> Email
           </a>
         </div>
@@ -400,36 +400,36 @@
   </main>
 
   <!-- ========== FOOTER ========== -->
-  <footer class="section-light" style="border-top:1px solid var(--border-subtle);padding:3rem 0 2rem;position:relative;overflow:hidden;" role="contentinfo">
+  <footer style="background:var(--canvas-dark);border-top:1px solid var(--border-subtle-dark);padding:3rem 0 2rem;position:relative;overflow:hidden;color:var(--txt-primary-dark);" role="contentinfo">
     <div class="float-light" style="bottom:-1.5rem;left:-1rem;color:#6B6560;transform:rotate(18deg);"><div class="float-light-inner" style="animation-duration:24s;"><i class="bi bi-flower2"></i></div></div>
     <div class="float-light" style="top:-1.5rem;right:-1rem;color:#6B6560;transform:rotate(-6deg);"><div class="float-light-inner" style="animation-delay:-8s;animation-duration:20s;"><i class="bi bi-heart"></i></div></div>
     <div class="container">
       <div style="text-align:center;margin-bottom:1.5rem;">
         <img src="./brand/logotipo.jpg" alt="AHAguilera" style="height:2.5rem;margin:0 auto;border-radius:50%;">
       </div>
-      <div class="flex items-center justify-center gap-8" style="margin-bottom:1.5rem;flex-wrap:wrap;row-gap:0.75rem;">
-        <a href="#apps" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
+      <div class="flex items-center justify-center" style="margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
+        <a href="#apps" class="body-sm" style="color:var(--txt-secondary-dark);min-height:44px;display:inline-flex;align-items:center;padding:0 0.5rem;" @click.prevent="document.getElementById('apps').scrollIntoView({behavior:'smooth'})">
           <span x-show="lang==='es'">Apps</span><span x-show="lang==='en'" x-cloak>Apps</span>
         </a>
-        <a href="#precios" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('precios').scrollIntoView({behavior:'smooth'})">
+        <a href="#precios" class="body-sm" style="color:var(--txt-secondary-dark);min-height:44px;display:inline-flex;align-items:center;padding:0 0.5rem;" @click.prevent="document.getElementById('precios').scrollIntoView({behavior:'smooth'})">
           <span x-show="lang==='es'">Precios</span><span x-show="lang==='en'" x-cloak>Pricing</span>
         </a>
-        <a href="#ia-jutia" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('ia-jutia').scrollIntoView({behavior:'smooth'})">
+        <a href="#ia-jutia" class="body-sm" style="color:var(--txt-secondary-dark);min-height:44px;display:inline-flex;align-items:center;padding:0 0.5rem;" @click.prevent="document.getElementById('ia-jutia').scrollIntoView({behavior:'smooth'})">
           IA
         </a>
-        <a href="#stack" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('stack').scrollIntoView({behavior:'smooth'})">
+        <a href="#stack" class="body-sm" style="color:var(--txt-secondary-dark);min-height:44px;display:inline-flex;align-items:center;padding:0 0.5rem;" @click.prevent="document.getElementById('stack').scrollIntoView({behavior:'smooth'})">
           Stack
         </a>
-        <a href="#faq" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">
+        <a href="#faq" class="body-sm" style="color:var(--txt-secondary-dark);min-height:44px;display:inline-flex;align-items:center;padding:0 0.5rem;" @click.prevent="document.getElementById('faq').scrollIntoView({behavior:'smooth'})">
           FAQ
         </a>
-        <a href="#sobre-mi" class="body-sm" style="color:var(--txt-secondary);" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'})">
+        <a href="#sobre-mi" class="body-sm" style="color:var(--txt-secondary-dark);min-height:44px;display:inline-flex;align-items:center;padding:0 0.5rem;" @click.prevent="document.getElementById('sobre-mi').scrollIntoView({behavior:'smooth'})">
           <span x-show="lang==='es'">Sobre mí</span><span x-show="lang==='en'" x-cloak>About</span>
         </a>
       </div>
       <div style="text-align:center;">
-        <p class="caption txt-muted">© 2026 AHAguilera · MIT License</p>
-        <p class="caption txt-muted" style="margin-top:0.25rem;">
+        <p class="caption" style="color:var(--txt-muted-dark);">© 2026 AHAguilera · MIT License</p>
+        <p class="caption" style="color:var(--txt-muted-dark);margin-top:0.25rem;">
           <span x-show="lang==='es'">100% offline · Sin CDN · .exe + .apk</span>
           <span x-show="lang==='en'" x-cloak>100% offline · No CDN · .exe + .apk</span>
         </p>
@@ -511,6 +511,16 @@
       'FlexSearch.create({ tokenize: "forward" })',
       'pako.gzip(JSON.stringify(data))',
       'navigator.serviceWorker.register("/sw.js")'
+    ];
+    const codigoHeroPanel = [
+      'Alpine.data("app", () => ({ items: [] }))',
+      'Dexie.open().then(db => db.get("cliente"))',
+      'IA Jutia: búsqueda + predicciones',
+      'Ahora mismo, sin servidor',
+      'Sin suscripciones, sin mensualidades',
+      'Tu app, tus datos, tu control',
+      'Cifrado AES-256 extremo a extremo',
+      'Neutralino + Capacitor: .exe + .apk'
     ];
     const codigoApps = [
       'db.productos.bulkAdd([{nombre,precio,stock}])',

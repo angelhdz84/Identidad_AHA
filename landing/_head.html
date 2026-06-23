@@ -459,6 +459,19 @@
       margin-top: 0.5rem;
     }
 
+    /* Hero responsive grid */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 3fr 2fr;
+      }
+    }
+
     /* Stat bar */
     .stat-bar { display: flex; gap: 3.5rem; row-gap: 1.5rem; justify-content: center; flex-wrap: wrap; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
 
