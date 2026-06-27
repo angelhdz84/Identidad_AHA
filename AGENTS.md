@@ -18,6 +18,12 @@ La landing sigue el **Enfoque A** (Cálido-Tech): balancea profesionalismo, arte
 
 **Acento único**: `#CFF434` (lime) — funciona sobre ambos modos, máximo 10% del área visual.
 
+## Cambios recientes
+
+- ✅ **Calculadora eliminada** (Jun 2026) — Se removió la calculadora de precios para simplificar la experiencia. Los precios ahora se muestran directamente en las cards de cada plan.
+- ✅ **6 testimonios implementados** — Carrusel con 2 cards por página, transición suave, 6 testimonials en total.
+- ✅ **Avatar actualizado** — Se agregó `brand/avatar_aha.webp` como avatar personal en Sobre Mí.
+
 ## Secciones de la landing (orden actual)
 
 1. **Nav dual-glass** — logo redondo, links, toggle ES/EN, hamburguesa móvil

@@ -56,12 +56,15 @@
         <span x-show="lang==='es'">Seleccionadas por ser las más solicitadas. ¿No encuentras la tuya? La construimos.</span>
         <span x-show="lang==='en'" x-cloak>The most requested apps. Can't find yours? I'll build it.</span>
       </p>
-      <div class="grid stagger" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
-        <!-- App 1 -->
-        <div class="card-dark reveal" style="transition-delay:0ms" @click="activeModal='inventario'" role="button" tabindex="0" @keydown.enter="activeModal='inventario'" aria-label="InventarioPRO">
-          <!-- Mockup SVG -->
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+      <div class="apps-grid preview stagger">
+        <!-- App 1: AHA Inventario (featured) -->
+        <div class="card-dark reveal card-masonry-lg" style="transition-delay:0ms" @click="activeModal='inventario'" role="button" tabindex="0" @keydown.enter="activeModal='inventario'" aria-label="AHA Inventario">
+          <div class="hero-mockup" style="width:100%;height:260px;margin-bottom:1rem;">
             <div class="mockup-screen">
+              <div style="display:flex;gap:4px;margin-bottom:6px;">
+                <div style="flex:3;height:12px;border-radius:4px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:12px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+              </div>
               <div class="mockup-row" style="width:60%;"></div>
               <div class="mockup-row" style="width:40%;"></div>
               <div class="mockup-block" style="margin-top:0.25rem;"></div>
@@ -69,117 +72,144 @@
                 <div style="flex:1;height:24px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
                 <div style="flex:1;height:24px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
               </div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">InventarioPRO</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">Negocio</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Control de stock con alertas, reportes y escaneo sin internet.</span>
-            <span x-show="lang==='en'" x-cloak>Inventory control with alerts, reports, offline scanning.</span>
-          </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20InventarioPRO" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 2 -->
-        <div class="card-dark reveal" style="transition-delay:100ms" @click="activeModal='factura'" role="button" tabindex="0" @keydown.enter="activeModal='factura'" aria-label="FacturaExpress">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div class="mockup-row" style="width:50%;"></div>
-              <div class="mockup-row" style="width:75%;"></div>
-              <div class="mockup-block" style="margin-top:0.25rem;height:30px;"></div>
               <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:2;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:2;height:28px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:28px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
               </div>
             </div>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">FacturaExpress</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">Negocio</span>
+            <h3 class="h3" style="color:#fff;">AHA Inventario</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">Almacén</span>
           </div>
           <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Facturación offline. Con RFC, PDF export y catálogo de productos.</span>
-            <span x-show="lang==='en'" x-cloak>Offline invoicing. With tax ID, PDF export, product catalog.</span>
+            <span x-show="lang==='es'">Control de stock, alertas, QR y reportes PDF. Predice cuándo se agota un producto.</span>
+            <span x-show="lang==='en'" x-cloak>Stock control, alerts, QR, PDF reports. Predicts when a product runs out.</span>
           </p>
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20FacturaExpress" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Inventario" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
               <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
             </a>
           </div>
         </div>
 
-        <!-- App 3 -->
-        <div class="card-dark reveal" style="transition-delay:200ms" @click="activeModal='cliente'" role="button" tabindex="0" @keydown.enter="activeModal='cliente'" aria-label="ClienteSeguro CRM">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+        <!-- App 2: AHA POS (featured) -->
+        <div class="card-dark reveal card-masonry-lg" style="transition-delay:100ms" @click="activeModal='pos'" role="button" tabindex="0" @keydown.enter="activeModal='pos'" aria-label="AHA POS">
+          <div class="hero-mockup" style="width:100%;height:260px;margin-bottom:1rem;">
             <div class="mockup-screen">
-              <div class="mockup-row" style="width:65%;"></div>
-              <div class="mockup-row" style="width:45%;"></div>
-              <div style="display:flex;gap:4px;margin-top:8px;">
-                <div style="flex:1;height:32px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:32px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:32px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+              <div style="display:flex;gap:4px;margin-bottom:6px;">
+                <div style="flex:1;height:14px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:3;height:14px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div style="display:flex;gap:4px;">
+                <div style="flex:2;height:40px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:40px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.05);"></div>
+                <div style="flex:2;height:20px;border-radius:4px;background:rgba(207,244,52,0.07);"></div>
+              </div>
+              <div class="mockup-block" style="margin-top:6px;height:36px;width:70%;"></div>
+              <div style="display:flex;gap:4px;margin-top:6px;">
+                <div style="flex:1;height:18px;border-radius:4px;background:rgba(207,244,52,0.05);"></div>
+                <div style="flex:2;height:18px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
               </div>
             </div>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">ClienteSeguro</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">CRM</span>
+            <h3 class="h3" style="color:#fff;">AHA POS</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">Tienda</span>
           </div>
           <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">CRM offline con historial, notas y seguimiento de clientes.</span>
-            <span x-show="lang==='en'" x-cloak>Offline CRM with history, notes, and client tracking.</span>
+            <span x-show="lang==='es'">Punto de venta con código de barras, carrito y corte de caja offline. Predice más vendidos.</span>
+            <span x-show="lang==='en'" x-cloak>POS with barcode, cart, offline cash closing. Predicts best sellers.</span>
           </p>
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20ClienteSeguro" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20POS" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
               <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
             </a>
           </div>
         </div>
 
-        <!-- App 4 -->
-        <div class="card-dark reveal" style="transition-delay:300ms" @click="activeModal='gastos'" role="button" tabindex="0" @keydown.enter="activeModal='gastos'" aria-label="GastosDiarios">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+        <!-- App 3: AHA Flota (featured) -->
+        <div class="card-dark reveal card-masonry-lg" style="transition-delay:200ms" @click="activeModal='flota'" role="button" tabindex="0" @keydown.enter="activeModal='flota'" aria-label="AHA Flota">
+          <div class="hero-mockup" style="width:100%;height:260px;margin-bottom:1rem;">
             <div class="mockup-screen">
-              <div class="mockup-row" style="width:45%;"></div>
+              <div style="display:flex;gap:4px;margin-bottom:6px;">
+                <div style="flex:2;height:20px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:20px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
+              </div>
               <div class="mockup-row" style="width:55%;"></div>
-              <div style="display:flex;gap:4px;margin-top:8px;">
-                <div style="flex:3;height:24px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:24px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+              <div style="display:flex;gap:4px;margin-top:6px;">
+                <div style="flex:3;height:22px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:22px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
               </div>
-              <div style="margin-top:4px;height:40px;border-radius:6px;background:rgba(207,244,52,0.04);display:flex;gap:2px;padding:4px;">
-                <div style="flex:2;background:rgba(207,244,52,0.1);border-radius:3px;"></div>
-                <div style="flex:1;background:rgba(207,244,52,0.05);border-radius:3px;"></div>
-                <div style="flex:1;background:rgba(207,244,52,0.07);border-radius:3px;"></div>
+              <div class="mockup-block" style="margin-top:6px;"></div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+                <div style="flex:2;height:16px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
               </div>
             </div>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">GastosDiarios</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">Finanzas</span>
+            <h3 class="h3" style="color:#fff;">AHA Flota</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">Transporte</span>
           </div>
           <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Control de gastos con gráficos, categorías y exportación a Excel.</span>
-            <span x-show="lang==='en'" x-cloak>Expense tracking with charts, categories, Excel export.</span>
+            <span x-show="lang==='es'">Vehículos, combustible km/l, mantenimiento, incidentes. Predice próximo servicio.</span>
+            <span x-show="lang==='en'" x-cloak>Vehicles, fuel km/l, maintenance, incidents. Predicts next service.</span>
           </p>
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20GastosDiarios" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Flota" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
               <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
             </a>
           </div>
         </div>
 
-        <!-- App 5 -->
-        <div class="card-dark reveal" style="transition-delay:400ms" @click="activeModal='comanda'" role="button" tabindex="0" @keydown.enter="activeModal='comanda'" aria-label="AHA Comanda">
+        <!-- App 4: AHA Obra (featured) -->
+        <div class="card-dark reveal card-masonry-lg" style="transition-delay:300ms" @click="activeModal='obra'" role="button" tabindex="0" @keydown.enter="activeModal='obra'" aria-label="AHA Obra">
+          <div class="hero-mockup" style="width:100%;height:260px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div class="mockup-row" style="width:75%;"></div>
+              <div class="mockup-block" style="margin-top:4px;"></div>
+              <div style="display:flex;gap:4px;">
+                <div style="flex:2;height:24px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:24px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:1;height:30px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:2;height:30px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
+                <div style="flex:1;height:30px;border-radius:6px;background:rgba(207,244,52,0.06);"></div>
+              </div>
+              <div style="margin-top:4px;height:14px;width:50%;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+              <div style="margin-top:4px;display:flex;gap:4px;">
+                <div style="flex:1;height:44px;border-radius:8px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:44px;border-radius:8px;background:rgba(207,244,52,0.08);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">AHA Obra</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">Construcción</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Etapas, materiales, fotos avance, reporte PDF. Predice desviación de presupuesto.</span>
+            <span x-show="lang==='en'" x-cloak>Stages, materials, progress photos, PDF report. Predicts budget deviation.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Obra" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 5: AHA Comanda -->
+        <div class="card-dark reveal" style="transition-delay:0ms" @click="activeModal='comanda'" role="button" tabindex="0" @keydown.enter="activeModal='comanda'" aria-label="AHA Comanda">
           <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
             <div class="mockup-screen">
               <div style="display:flex;gap:4px;margin-bottom:6px;">
@@ -214,8 +244,49 @@
           </div>
         </div>
 
-        <!-- App 6 -->
-        <div class="card-dark reveal" style="transition-delay:500ms" @click="activeModal='citas'" role="button" tabindex="0" @keydown.enter="activeModal='citas'" aria-label="AHA Citas">
+        <!-- App 6: AHA CRM -->
+        <div class="card-dark reveal" style="transition-delay:100ms" @click="activeModal='crm'" role="button" tabindex="0" @keydown.enter="activeModal='crm'" aria-label="AHA CRM">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div class="mockup-row" style="width:65%;"></div>
+              <div class="mockup-row" style="width:45%;"></div>
+              <div style="display:flex;gap:4px;margin-top:8px;">
+                <div style="flex:1;height:32px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:32px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:32px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">AHA CRM</h3>
+            <span class="badge" style="font-size:0.65rem;background:rgba(207,244,52,0.1);color:var(--brand-primary);">Ventas</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Pipeline Kanban, contactos, cotizaciones PDF y facturas. Búsqueda difusa.</span>
+            <span x-show="lang==='en'" x-cloak>Kanban pipeline, contacts, PDF quotes, invoices. Fuzzy search.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20CRM" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Show more button -->
+      <div class="btn-show-more-wrap reveal">
+        <button class="btn-show-more" @click="showMoreApps = !showMoreApps">
+          <span x-show="!showMoreApps"><span x-show="lang==='es'">Ver más apps</span><span x-show="lang==='en'" x-cloak>See more apps</span> <i class="bi bi-chevron-down"></i></span>
+          <span x-show="showMoreApps" x-cloak><span x-show="lang==='es'">Ocultar</span><span x-show="lang==='en'" x-cloak>Hide</span> <i class="bi bi-chevron-up"></i></span>
+        </button>
+      </div>
+
+      <!-- Hidden apps (show more) -->
+      <div class="apps-grid expanded" x-show="showMoreApps" x-cloak>
+        <!-- App 7: AHA Citas -->
+        <div class="card-dark reveal card-sm card-quarter" @click="activeModal='citas'" role="button" tabindex="0" @keydown.enter="activeModal='citas'" aria-label="AHA Citas">
           <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
             <div class="mockup-screen">
               <div style="display:flex;gap:4px;margin-bottom:6px;">
@@ -247,43 +318,8 @@
           </div>
         </div>
 
-        <!-- App 7 -->
-        <div class="card-dark reveal" style="transition-delay:600ms" @click="activeModal='pos'" role="button" tabindex="0" @keydown.enter="activeModal='pos'" aria-label="AHA POS">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div style="display:flex;gap:4px;margin-bottom:6px;">
-                <div style="flex:1;height:18px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:3;height:18px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div style="display:flex;gap:4px;">
-                <div style="flex:2;height:40px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:40px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:1;height:24px;border-radius:4px;background:rgba(207,244,52,0.05);"></div>
-                <div style="flex:2;height:24px;border-radius:4px;background:rgba(207,244,52,0.07);"></div>
-              </div>
-              <div class="mockup-block" style="margin-top:6px;height:28px;width:70%;"></div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA POS</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">Tienda</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Punto de venta con código de barras, carrito y corte de caja offline.</span>
-            <span x-show="lang==='en'" x-cloak>Point of sale with barcode scanner, cart, and offline cash closing.</span>
-          </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20POS" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 8 -->
-        <div class="card-dark reveal" style="transition-delay:700ms" @click="activeModal='asistencia'" role="button" tabindex="0" @keydown.enter="activeModal='asistencia'" aria-label="AHA Asistencia">
+        <!-- App 8: AHA Asistencia -->
+        <div class="card-dark reveal card-sm card-quarter" style="transition-delay:100ms" @click="activeModal='asistencia'" role="button" tabindex="0" @keydown.enter="activeModal='asistencia'" aria-label="AHA Asistencia">
           <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
             <div class="mockup-screen">
               <div style="display:flex;gap:4px;margin-bottom:6px;">
@@ -318,8 +354,8 @@
           </div>
         </div>
 
-        <!-- App 9 -->
-        <div class="card-dark reveal" style="transition-delay:800ms" @click="activeModal='creador'" role="button" tabindex="0" @keydown.enter="activeModal='creador'" aria-label="AHA Creador">
+        <!-- App 9: AHA Creador -->
+        <div class="card-dark reveal card-sm card-quarter" style="transition-delay:200ms" @click="activeModal='creador'" role="button" tabindex="0" @keydown.enter="activeModal='creador'" aria-label="AHA Creador">
           <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
             <div class="mockup-screen">
               <div class="mockup-row" style="width:70%;"></div>
@@ -349,6 +385,134 @@
           <div style="display:flex;justify-content:space-between;align-items:center;">
             <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
             <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Creador" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 10: AHA Checklist -->
+        <div class="card-dark reveal card-sm card-quarter" style="transition-delay:300ms" @click="activeModal='checklist'" role="button" tabindex="0" @keydown.enter="activeModal='checklist'" aria-label="AHA Checklist">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div class="mockup-row" style="width:50%;"></div>
+              <div style="display:flex;gap:4px;margin-top:8px;">
+                <div style="flex:1;height:30px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:30px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:2;height:18px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:18px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div class="mockup-block" style="margin-top:6px;height:28px;"></div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">AHA Checklist</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">Inspecciones</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Plantillas, inspecciones con foto/firma y reportes PDF. Predice áreas con más fallas.</span>
+            <span x-show="lang==='en'" x-cloak>Templates, inspections with photo/signature, PDF reports. Predicts failure-prone areas.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Checklist" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 11: AHA Campo -->
+        <div class="card-dark reveal card-sm card-third" style="transition-delay:0ms" @click="activeModal='campo'" role="button" tabindex="0" @keydown.enter="activeModal='campo'" aria-label="AHA Campo">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div style="display:flex;gap:4px;margin-bottom:6px;">
+                <div style="flex:2;height:18px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:18px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div style="display:flex;gap:4px;">
+                <div style="flex:3;height:28px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:1;height:28px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.05);"></div>
+                <div style="flex:2;height:16px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+              </div>
+              <div class="mockup-block" style="margin-top:6px;height:24px;width:60%;"></div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">AHA Campo</h3>
+            <span class="badge" style="font-size:0.65rem;background:rgba(207,244,52,0.1);color:var(--brand-primary);">Agricultura</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Lotes, cultivos, ganado, insumos y gastos. Predice rendimiento por hectárea.</span>
+            <span x-show="lang==='en'" x-cloak>Plots, crops, livestock, supplies, expenses. Predicts yield per hectare.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Campo" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 12: AHA Rx -->
+        <div class="card-dark reveal card-sm card-third" style="transition-delay:100ms" @click="activeModal='rx'" role="button" tabindex="0" @keydown.enter="activeModal='rx'" aria-label="AHA Rx">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div style="display:flex;gap:4px;margin-bottom:6px;">
+                <div style="flex:1;height:20px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
+                <div style="flex:2;height:20px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+              <div class="mockup-row" style="width:40%;"></div>
+              <div class="mockup-block" style="margin-top:4px;height:34px;"></div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:2;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">AHA Rx</h3>
+            <span class="badge badge-lime" style="font-size:0.65rem;">Salud</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Pacientes, recetas PDF, medicamentos e historial clínico. Búsqueda por síntoma.</span>
+            <span x-show="lang==='en'" x-cloak>Patients, PDF prescriptions, medications, clinical history. Symptom search.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Rx" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
+              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- App 13: AHA PreFactura -->
+        <div class="card-dark reveal card-sm card-third" style="transition-delay:200ms" @click="activeModal='prefactura'" role="button" tabindex="0" @keydown.enter="activeModal='prefactura'" aria-label="AHA PreFactura">
+          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
+            <div class="mockup-screen">
+              <div class="mockup-row" style="width:55%;"></div>
+              <div class="mockup-row" style="width:75%;"></div>
+              <div class="mockup-block" style="margin-top:0.25rem;height:30px;"></div>
+              <div style="display:flex;gap:4px;margin-top:4px;">
+                <div style="flex:2;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
+            <h3 class="h3" style="color:#fff;">AHA PreFactura</h3>
+            <span class="badge" style="font-size:0.65rem;background:rgba(207,244,52,0.1);color:var(--brand-primary);">Facturación</span>
+          </div>
+          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
+            <span x-show="lang==='es'">Clientes RFC, facturas XML+PDF e historial. Búsqueda por RFC y total facturado.</span>
+            <span x-show="lang==='en'" x-cloak>Tax ID clients, XML+PDF invoices, history. Search by tax ID.</span>
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
+            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20PreFactura" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
               <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
             </a>
           </div>
@@ -404,11 +568,11 @@
             <span x-show="lang==='en'" x-cloak>To start in style</span>
           </p>
           <div class="price" style="margin-bottom:0.25rem;">$49 <span>/ único</span></div>
-          <p class="caption txt-muted" style="margin-bottom:1.5rem;">Solo .exe</p>
+          <p class="caption txt-muted" style="margin-bottom:1.5rem;"><i aria-hidden="true" class="bi bi-globe"></i> ZIP + GitHub Pages</p>
           <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
             <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">1 módulo funcional</span><span x-show="lang==='en'" x-cloak>1 functional module</span></li>
-            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Formato .exe (Windows)</span><span x-show="lang==='en'" x-cloak>.exe format (Windows)</span></li>
-            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Datos locales sin cifrado</span><span x-show="lang==='en'" x-cloak>Local data, no encryption</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Formato ZIP + GitHub Pages</span><span x-show="lang==='en'" x-cloak>ZIP + GitHub Pages format</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Dexie.js + CryptoJS incluidos</span><span x-show="lang==='en'" x-cloak>Dexie.js + CryptoJS included</span></li>
             <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">IA Jutia: búsqueda + predicciones</span><span x-show="lang==='en'" x-cloak>IA Jutia: search + predictions</span></li>
             <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Doble clic y funciona</span><span x-show="lang==='en'" x-cloak>Double click to run</span></li>
           </ul>
@@ -432,10 +596,10 @@
           <p class="caption" style="color:var(--brand-primary);margin-bottom:1.5rem;"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i> .exe + .apk</p>
           <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
             <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Hasta 3 módulos</span><span x-show="lang==='en'" x-cloak>Up to 3 modules</span></li>
-            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">.exe + .apk incluidos</span><span x-show="lang==='en'" x-cloak>.exe + .apk included</span></li>
-            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Cifrado AES-256</span><span x-show="lang==='en'" x-cloak>AES-256 encryption</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">.exe (Neutralino) + .apk (Capacitor)</span><span x-show="lang==='en'" x-cloak>.exe (Neutralino) + .apk (Capacitor)</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Cifrado AES-256 + SQLite local</span><span x-show="lang==='en'" x-cloak>AES-256 encryption + local SQLite</span></li>
             <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">IA Jutia Full: QA + ingesta documentos</span><span x-show="lang==='en'" x-cloak>IA Jutia Full: QA + document ingestion</span></li>
-            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Gráficos + exportación PDF</span><span x-show="lang==='en'" x-cloak>Charts + PDF export</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Plugins nativos: cámara, GPS, notificaciones</span><span x-show="lang==='en'" x-cloak>Native plugins: camera, GPS, notifications</span></li>
           </ul>
           <a href="https://wa.me/5355944628?text=Quiero%20plan%20Standard" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;">
             <span x-show="lang==='es'">Elegir Standard →</span><span x-show="lang==='en'" x-cloak>Choose Standard →</span>
@@ -444,18 +608,18 @@
 
         <!-- Custom -->
         <div class="price-card reveal" style="transition-delay:200ms">
-          <h3 class="h3" style="margin-bottom:0.25rem;">Custom</h3>
+          <h3 class="h3" style="margin-bottom:0.25rem;">Enterprise</h3>
           <p class="caption txt-muted" style="margin-bottom:0.5rem;">
-            <span x-show="lang==='es'">Tu idea, tu app, tus reglas</span>
-            <span x-show="lang==='en'" x-cloak>Your idea, your app, your rules</span>
+            <span x-show="lang==='es'">White-label completo</span>
+            <span x-show="lang==='en'" x-cloak>Full white-label</span>
           </p>
           <div class="price" style="margin-bottom:0.25rem;">$199+ <span>/ único</span></div>
           <p class="caption txt-muted" style="margin-bottom:1.5rem;"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i> + código fuente</p>
           <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;">
             <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Todo lo de Standard +</span><span x-show="lang==='en'" x-cloak>Everything in Standard +</span></li>
-            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Diseño UI personalizado</span><span x-show="lang==='en'" x-cloak>Custom UI design</span></li>
-            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">IA Jutia Full + ingesta documentos ilimitada</span><span x-show="lang==='en'" x-cloak>IA Jutia Full + unlimited document ingestion</span></li>
-            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Funciones a medida</span><span x-show="lang==='en'" x-cloak>Custom features</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">UI con tu marca (white-label)</span><span x-show="lang==='en'" x-cloak>Your brand UI (white-label)</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Script brand.ps1 para re-brandeo</span><span x-show="lang==='en'" x-cloak>brand.ps1 re-branding script</span></li>
+            <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Funciones a medida + docs personalizados</span><span x-show="lang==='en'" x-cloak>Custom features + personalized docs</span></li>
             <li class="body-sm flex items-center gap-2"><i aria-hidden="true" class="bi bi-check-lg" style="color:var(--brand-primary);"></i> <span x-show="lang==='es'">Código fuente incluido</span><span x-show="lang==='en'" x-cloak>Source code included</span></li>
           </ul>
           <a href="https://wa.me/5355944628?text=Quiero%20plan%20Custom" target="_blank" class="btn btn-outline-dark" style="width:100%;justify-content:center;">
@@ -464,8 +628,8 @@
         </div>
       </div>
       <p class="caption txt-muted text-center reveal" style="margin-top:2rem;">
-        <span x-show="lang==='es'">* Precios base en USD. Complejidad adicional = precio proporcional.</span>
-        <span x-show="lang==='en'" x-cloak>* Base prices in USD. Additional complexity = proportional pricing.</span>
+        <span x-show="lang==='es'">* Precios base en USD. Complejidad adicional (API externa, integración hardware) = proporcional. Sin regateo, sin descuentos. Precio justo, una vez.</span>
+        <span x-show="lang==='en'" x-cloak>* Base prices in USD. Additional complexity (external API, hardware integration) = proportional. No haggling, no discounts. Fair price, once.</span>
       </p>
     </div>
   </section>
@@ -546,4 +710,54 @@
       </div>
     </div>
   </section>
+
+  <!-- ========== TESTIMONIOS ========== -->
+  <section class="section section-light" id="testimonios" aria-label="Testimonios">
+    <div class="float-light" style="top:-1.5rem;left:-1rem;color:#024653;transform:rotate(-10deg);"><div class="float-light-inner" style="animation-duration:20s;"><i class="bi bi-chat-quote"></i></div></div>
+    <div class="float-light" style="bottom:-2rem;right:-1.5rem;color:#024653;transform:rotate(12deg);"><div class="float-light-inner" style="animation-delay:-6s;animation-duration:22s;"><i class="bi bi-star"></i></div></div>
+    <div class="container-narrow" x-data="testimoniosCarousel()">
+      <p class="eyebrow text-center reveal">
+        <span x-show="lang==='es'">TESTIMONIOS</span>
+        <span x-show="lang==='en'" x-cloak>TESTIMONIALS</span>
+      </p>
+      <h2 class="display text-center reveal delay-1" style="margin-bottom:0.75rem;">
+        <span x-show="lang==='es'">Lo que dicen<br>mis clientes</span>
+        <span x-show="lang==='en'" x-cloak>What my clients<br>say</span>
+      </h2>
+      <p class="body-sm txt-secondary text-center reveal delay-2" style="margin-bottom:2.5rem;">
+        <span x-show="lang==='es'">Personas reales, negocios reales, resultados reales.</span>
+        <span x-show="lang==='en'" x-cloak>Real people, real businesses, real results.</span>
+      </p>
+
+      <div class="reveal testimonial-stage" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 translate-x-10" x-transition:enter-end="opacity-100 translate-x-0" x-transition:leave="transition ease-in duration-400" x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 -translate-x-10">
+        <template x-for="(t, i) in visible" :key="i">
+          <div class="testimonial-card">
+            <img :src="'./assets/images/testimonials/' + t.img" :alt="t.name" class="testimonial-avatar" loading="lazy">
+            <div class="testimonial-stars">
+              <template x-for="star in 5">
+                <i :class="star <= t.rating ? 'bi bi-star-fill' : 'bi bi-star'" style="font-size:1rem;"></i>
+              </template>
+            </div>
+            <p class="testimonial-text body-sm" x-text="lang === 'es' ? t.text_es : t.text_en"></p>
+            <p class="testimonial-name body-sm" x-text="t.name"></p>
+            <p class="testimonial-company" x-text="t.company"></p>
+          </div>
+        </template>
+
+        <div class="testimonial-controls" style="grid-column:1/-1;">
+          <button class="testimonial-btn" @click="prev()" :disabled="current === 0" aria-label="Anterior">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <template x-for="(p, i) in pageCount" :key="i">
+            <button class="testimonial-dot" :class="current === i ? 'active' : ''" @click="current = i" :aria-label="'Página ' + (i+1)"></button>
+          </template>
+          <button class="testimonial-btn" @click="next()" :disabled="current >= pageCount - 1" aria-label="Siguiente">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
 

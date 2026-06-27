@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="es" x-data="{ lang: localStorage.getItem('lang') || 'es', mobileOpen: false, scrolled: false, scrolledLight: false, activeModal: null, faqOpen: null }" :class="{ 'lang-en': lang === 'en' }" x-init="scrollListener = () => { const y = window.scrollY; scrolled = y > 50; scrolledLight = y > 600; }; window.addEventListener('scroll', scrollListener)" x-cloak>
+<html lang="es" x-data="{ lang: localStorage.getItem('lang') || 'es', mobileOpen: false, scrolled: false, scrolledLight: false, activeModal: null, faqOpen: null, showMoreApps: false }" :class="{ 'lang-en': lang === 'en' }" x-init="scrollListener = () => { const y = window.scrollY; scrolled = y > 50; scrolledLight = y > 600; }; window.addEventListener('scroll', scrollListener)" x-cloak>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -297,11 +297,12 @@
     }
     .price-card:hover { transform: translateY(-2px); }
     .price-card.featured {
-      border-color: rgba(207,244,52,0.3);
-      box-shadow: 0 0 30px rgba(207,244,52,0.08);
-      transform: scale(1.05);
+      border-color: var(--brand-primary);
+      border-width: 2px;
+      box-shadow: 0 0 40px rgba(207,244,52,0.15);
+      transform: scale(1.07);
     }
-    .price-card.featured:hover { transform: scale(1.05) translateY(-2px); }
+    .price-card.featured:hover { transform: scale(1.07) translateY(-2px); }
     .price-card .price { font-size: 2.5rem; font-weight: 700; line-height: 1; }
     .price-card .price span { font-size: 1rem; font-weight: 400; color: var(--txt-muted-dark); }
 
@@ -358,6 +359,41 @@
       font-family: 'Courier New', Consolas, monospace;
       font-size: 0.65rem; color: var(--brand-primary);
       text-align: left; word-break: break-all;
+    }
+
+    /* ========== TECH GRID ========== */
+    .tech-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 640px) {
+      .tech-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .tech-grid .stack-inner {
+      height: 140px;
+    }
+    .tech-grid .stack-front {
+      background: linear-gradient(135deg, var(--surface-dark) 0%, var(--surface-dark-hover) 100%);
+      border: 1px solid rgba(207,244,52,0.15);
+    }
+    .tech-grid .stack-card:hover .stack-front {
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 24px rgba(207,244,52,0.12);
+    }
+    .tech-grid .stack-back {
+      background: linear-gradient(135deg, #024653 0%, var(--canvas-dark) 100%);
+      border: 1px solid var(--brand-primary);
+      font-size: 0.7rem;
+    }
+    .tech-grid .stack-front i {
+      font-size: 2.5rem;
+      color: var(--brand-primary);
+    }
+    .tech-grid .stack-front .body-sm {
+      color: var(--brand-primary);
     }
 
     /* CTA final pulse */
@@ -459,6 +495,77 @@
       margin-top: 0.5rem;
     }
 
+    /* ========== APPS GRID ========== */
+    .apps-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    .apps-grid.preview {
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .apps-grid.preview {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    /* Expanded grid: 12-column for flexible spans */
+    .apps-grid.expanded {
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .apps-grid.expanded {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .apps-grid.expanded {
+        grid-template-columns: repeat(12, 1fr);
+      }
+      .apps-grid.expanded .card-quarter {
+        grid-column: span 3;
+      }
+      .apps-grid.expanded .card-third {
+        grid-column: span 4;
+      }
+    }
+
+    /* Show more button */
+    .btn-show-more-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+    .btn-show-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 2rem;
+      background: var(--brand-primary);
+      color: var(--txt-on-accent);
+      border: none;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      min-height: 44px;
+    }
+    .btn-show-more:hover {
+      background: var(--brand-primary-hover);
+      transform: scale(1.03);
+    }
+
+    /* Expanded cards slightly smaller */
+    .card-sm .hero-mockup {
+      height: 150px !important;
+    }
+    .card-sm .body-sm {
+      font-size: 0.8125rem;
+    }
+    .card-sm {
+      font-size: 0.9375rem;
+    }
+
     /* Hero responsive grid */
     .hero-grid {
       display: grid;
@@ -474,6 +581,322 @@
 
     /* Stat bar */
     .stat-bar { display: flex; gap: 3.5rem; row-gap: 1.5rem; justify-content: center; flex-wrap: wrap; padding-top: 2rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
+
+    /* ========== TESTIMONIOS CAROUSEL ========== */
+    .testimonial-stage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      perspective: 1000px;
+    }
+    .testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--card-radius);
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px) rotateX(2deg) rotateY(2deg);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+      border-color: var(--brand-primary);
+    }
+    .testimonial-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--brand-primary), var(--surface-teal));
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+      transform-origin: left;
+    }
+    .testimonial-card:hover::before {
+      transform: scaleX(1);
+    }
+    @media (max-width: 767px) {
+      .testimonial-stage { grid-template-columns: 1fr; }
+    }
+    .testimonial-avatar {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1rem;
+      border: 3px solid var(--brand-primary);
+    }
+    .testimonial-stars {
+      color: #f59e0b;
+      margin-bottom: 0.75rem;
+    }
+    .testimonial-text {
+      font-style: italic;
+      color: var(--txt-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .testimonial-name {
+      font-weight: 600;
+      color: var(--txt-primary);
+    }
+    .testimonial-company {
+      font-size: 0.8125rem;
+      color: var(--txt-muted);
+    }
+    .testimonial-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .testimonial-btn {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      border: 1px solid var(--border-subtle);
+      background: var(--surface);
+      color: var(--txt-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      min-height: 44px;
+      min-width: 44px;
+    }
+    .testimonial-btn:hover {
+      border-color: var(--brand-primary);
+      color: var(--brand-primary);
+      background: rgba(207,244,52,0.05);
+    }
+    .testimonial-dot {
+      width: 0.625rem;
+      height: 0.625rem;
+      border-radius: 50%;
+      border: none;
+      background: var(--border-subtle);
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+      min-height: 10px;
+      min-width: 10px;
+    }
+    .testimonial-dot.active {
+      background: var(--brand-primary);
+      transform: scale(1.3);
+    }
+
+    /* ========== WHATSAPP FLOTANTE ========== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.75rem;
+    }
+    .whatsapp-float-menu {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      padding: 0.75rem;
+      width: 220px;
+      transform-origin: bottom right;
+    }
+    .whatsapp-float-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.15s;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--txt-primary);
+      min-height: 44px;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+    .whatsapp-float-item:hover {
+      background: rgba(207,244,52,0.08);
+    }
+    .whatsapp-float-item i {
+      font-size: 1.25rem;
+      color: #25D366;
+      flex-shrink: 0;
+    }
+    .whatsapp-float-btn {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      border: none;
+      background: #25D366;
+      color: #fff;
+      font-size: 1.75rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-height: 44px;
+      min-width: 44px;
+    }
+    .whatsapp-float-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+    }
+
+    /* ========== CALCULADORA DE PRECIOS ========== */
+    .calc-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    @media (min-width: 768px) {
+      .calc-layout {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .calc-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+    .calc-card {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem 1rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: var(--surface);
+      position: relative;
+    }
+    .calc-card:hover {
+      border-color: var(--brand-primary);
+      box-shadow: 0 2px 12px rgba(207,244,52,0.08);
+      transform: translateY(-1px);
+    }
+    .calc-card.selected {
+      border-color: var(--brand-primary);
+      background: rgba(207,244,52,0.04);
+      box-shadow: 0 0 0 1px var(--brand-primary);
+    }
+    .calc-check {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+    }
+    .calc-card-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .calc-card-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+    .calc-card-name {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--txt-primary);
+    }
+    .calc-card-desc {
+      font-size: 0.75rem;
+      color: var(--txt-muted);
+      line-height: 1.3;
+    }
+    .calc-card-price {
+      font-weight: 700;
+      font-size: 0.9375rem;
+      color: var(--surface-teal);
+      flex-shrink: 0;
+    }
+    .calc-card.selected .calc-card-price {
+      color: var(--brand-primary);
+    }
+
+    /* Dashboard result */
+    .calc-dashboard {
+      background: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 1.5rem;
+      position: sticky;
+      top: 5rem;
+    }
+    .calc-dash-header {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--txt-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.25rem;
+    }
+    .calc-dash-amount {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--brand-primary);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+      transition: transform 0.15s ease;
+    }
+    .calc-dash-sub {
+      font-size: 0.8125rem;
+      color: var(--txt-muted);
+      margin-bottom: 1rem;
+    }
+    .calc-dash-savings {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.75rem;
+      background: rgba(7,209,110,0.08);
+      color: var(--brand-success);
+      border-radius: 999px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .calc-dash-items {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    .calc-dash-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.3rem 0;
+      font-size: 0.8125rem;
+      color: var(--txt-secondary);
+    }
 
     /* ========== RESPONSIVE ========== */
     @media (min-width: 640px) {

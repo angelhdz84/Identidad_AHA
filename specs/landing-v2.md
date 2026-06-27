@@ -173,3 +173,10 @@ Inspiración tomada de:
 - **Jeton**: Acento como personalidad de marca, gradiente como elemento signature
 - **Dual-mode**: Inspirado en Stripe (alternancia claro/oscuro por sección, no por toggle)
 
+## Cambios recientes (Jun 2026)
+
+- **Calculadora eliminada** — La calculadora modular fue removida por confusión de precios. Ahora los precios se muestran directamente en las cards de cada plan.
+- **6 testimonios implementados** — Se agregaron 6 testimonios con carrusel moderno (2 cards por página) y hover 3D suave.
+- **Avatar actualizado** — Reemplazado el placeholder "AH" por avatar_aha.webp (250×250px) en la sección Sobre Mí.
+- **Hero tipografía ajustada** — letter-spacing agregado al tagline para mejorar legibilidad.
+
