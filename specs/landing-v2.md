@@ -36,7 +36,7 @@ La landing es de UNA página implementada en 4 parciales que se concatenan. Las 
 | 5 | IA Jutia | Carbón | Mini IA offline-first, perfiles Lite/Full, bloque comparativo competencia | — |
 | 6 | Precios | Carbón | 3 planes (Lite $49, Standard $99⭐, Custom $199+) con IA Jutia incluida | — |
 | 7 | Cómo funciona | Beige | 3 pasos + timeline vertical | Intersection Observer |
-| 8 | Stack flip | Carbón | 6 cards flip 3D (frontal=tecnología, trasera=beneficio cliente) | — |
+| 8 | Stack técnico | Carbón | Eyebrow + h2 + subtitle + tagline (LOCAL·MILLONES·OPEN SOURCE) + 6 cards grid 3-col con iconos, desc, stats, tags + footer pills | — |
 | 9 | Comparativa | Carbón | Tabla offline-first vs SaaS tradicional | Stagger animation |
 | 10 | FAQ | Beige | 7 preguntas acordeón (incluye "¿Qué es IA Jutia?") | `x-show` + `x-transition` |
 | 11 | Sobre mí | Carbón | Bio, skills badges, badge IA Jutia | — |
@@ -57,7 +57,7 @@ La landing es de UNA página implementada en 4 parciales que se concatenan. Las 
 
 ### Flujo secundario: Visitante escéptico
 1. Llega y duda → scrollea "Valor" bloque comparativo
-2. Ve "Cómo funciona" + "Stack flip" (beneficios cliente)
+2. Ve "Cómo funciona" + "Stack grid" (tecnologías con estadísticas)
 3. Comparativa offline-first vs tradicional
 4. Lee "Sobre mí" + badge IA Jutia
 5. FAQ resuelve objeciones
@@ -135,7 +135,7 @@ La landing es de UNA página implementada en 4 parciales que se concatenan. Las 
 | Hover | Cards: borde lime `#CFF434` o `box-shadow`. CTAs: lime más brillante `#dbf65a`. Nav links: color lime |
 | Focus | `outline: 2px solid #CFF434; outline-offset: 2px` |
 | Active/Click | Scale sutil `transform: scale(0.98)` |
-| Flip card | `transform: perspective(1000px) rotateY(180deg)` con `backface-visibility: hidden` |
+| Stack card hover | border-color + `translateY(-2px)` | 200ms | ease-out |
 
 ## 12. Motion Design
 
@@ -144,7 +144,7 @@ La landing es de UNA página implementada en 4 parciales que se concatenan. Las 
 | Hero headline | fadeIn + translateY(20→0) | 600ms | cubic-bezier(0.16, 1, 0.3, 1) |
 | Secciones al scroll | fadeIn + translateY(30→0) | 500ms | ease-out |
 | Cards hover | border-color + translateY(-2px) | 200ms | ease-out |
-| Flip 3D stack | perspective rotateY(0→180°) | 500ms | ease-in-out |
+| Stack card hover | border-color + `translateY(-2px)` | 200ms | ease-out |
 | FAQ toggle | height + opacity | 300ms | ease-out |
 | CTA hover | scale(1.02) + brighter lime | 150ms | ease-out |
 | Gradiente de transición | background-color con transition 0.6s | 600ms | ease |
@@ -179,4 +179,6 @@ Inspiración tomada de:
 - **6 testimonios implementados** — Se agregaron 6 testimonios con carrusel moderno (2 cards por página) y hover 3D suave.
 - **Avatar actualizado** — Reemplazado el placeholder "AH" por avatar_aha.webp (250×250px) en la sección Sobre Mí.
 - **Hero tipografía ajustada** — letter-spacing agregado al tagline para mejorar legibilidad.
+- **Stack redesign** (Jun 2026) — Flip cards 3D reemplazadas por grid 3-col simétrica con tagline strip "LOCAL·MILLONES·OPEN SOURCE" + footer pills (Open Source, 100% local, Actualización vitalicia, Sin vendor). Sección Partners eliminada (contenido integrado en Stack). Se añadió h2.display + subtitle siguiendo jerarquía de secciones oscuras. Consistencia visual corregida: se reemplazaron variables de modo claro por dark tokens.
+
 

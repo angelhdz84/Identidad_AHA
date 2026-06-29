@@ -23,6 +23,7 @@ La landing sigue el **Enfoque A** (Cálido-Tech): balancea profesionalismo, arte
 - ✅ **Calculadora eliminada** (Jun 2026) — Se removió la calculadora de precios para simplificar la experiencia. Los precios ahora se muestran directamente en las cards de cada plan.
 - ✅ **6 testimonios implementados** — Carrusel con 2 cards por página, transición suave, 6 testimonials en total.
 - ✅ **Avatar actualizado** — Se agregó `brand/avatar_aha.webp` como avatar personal en Sobre Mí.
+- ✅ **Stack redesign** (Jun 2026) — Flip cards 3D reemplazadas por grid 3-col simétrica. Sección Partners eliminada (contenido integrado en Stack como tagline strip + footer pills). Se añadió h2 + subtitle siguiendo la jerarquía visual de las demás secciones oscuras. Consistencia visual corregida (se usaban tokens de modo claro en sección oscura).
 
 ## Secciones de la landing (orden actual)
 
@@ -33,7 +34,7 @@ La landing sigue el **Enfoque A** (Cálido-Tech): balancea profesionalismo, arte
 5. **IA Jutia oscuro** — Mini IA offline-first, perfiles Lite/Full, bloque comparativo competencia
 6. **Precios oscuro** — 3 planes (Lite $49, Standard $99⭐, Custom $199+) con IA Jutia incluida
 7. **Cómo funciona beige** — 3 pasos + timeline vertical
-8. **Stack flip técnico** — 6 cards con flip 3D (frontal = tecnología, trasera = beneficio cliente)
+8. **Stack técnico** — Eyebrow + h2 + subtitle + tagline strip (LOCAL · MILLONES · OPEN SOURCE) + 6 cards grid 3-col con iconos, descripción, download stats y tags + footer pills (Open Source, 100% local, Actualización vitalicia, Sin vendor lock-in)
 9. **Comparativa offline-first** — tabla vs SaaS tradicional
 10. **FAQ beige** — acordeón con 7 preguntas (incluye "¿Qué es IA Jutia?")
 11. **Sobre mí oscuro** — bio, skills, badge IA Jutia
@@ -60,11 +61,18 @@ La landing sigue el **Enfoque A** (Cálido-Tech): balancea profesionalismo, arte
 - Bloque comparativo: "Lo que la competencia no puede decir" (4 statements)
 - Pricing refleja IA incluida: Lite en plan Lite, Full en Standard y Custom
 
-## Stack flip cards (beneficio-cliente)
+## Stack grid (tecnologías principales)
 
-Las 6 cards del stack tienen:
-- **Frontal**: tecnología (Alpine.js, Dexie, CryptoJS, Tailwind+DaisyUI, Bootstrap Icons, pako+jsPDF+SheetJS)
-- **Trasera**: beneficio para el cliente (app ligera, responde al instante, datos seguros, UX profesional, iconos claros, exportación)
+6 cards en grid 3-col con: icono, nombre, descripción con iconos inline, download stats + tags. Footer pills con 4 badges de posicionamiento. El contenido de la sección Partners anterior se integró como tagline strip y pills del footer.
+
+| Tecnología | Icono | Descripción | Estadística | Tag |
+|-----------|-------|-------------|-------------|-----|
+| Alpine.js | snow2 | Interfaz reactiva 100% local. Sin servidor. | 2M+/sem | Sin servidor |
+| Dexie.js | database | BD en navegador. Tus datos no se van. | 500K+/sem | Sin backend |
+| Tailwind CSS | wind | Estilos responsive compilados. Sin CDN. | 15M+/sem | Sin CDN |
+| DaisyUI | palette | Componentes listos: botones, tabs, modales. | 3M+/sem | Sin framework extra |
+| Bootstrap Icons | bootstrap-reboot | 2,000+ iconos vectoriales gratuitos. | Gratuito | Sin licencia |
+| CryptoJS | lock | Cifrado AES-256. Solo tú tienes la llave. | 10M+/sem | Sin terceros |
 
 ## Key identity sources (read these first)
 

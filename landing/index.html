@@ -42,7 +42,6 @@
       --border-subtle: #E0D6CE;
       --border-hover: #CFF434;
       --border-accent: #CFF434;
-      --accent-amber: #e7c59a;
       --shadow-card: 0 1px 3px rgba(0,0,0,0.06);
 
       /* ===== MODO OSCURO ===== */
@@ -494,7 +493,7 @@
       justify-content: center;
     }
 
-    /* ========== STACK GRID 3-COL ========== */
+    /* ========== STACK GRID 3-COL (dark mode) ========== */
     .stack-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -502,10 +501,10 @@
       margin-bottom: 2.5rem;
     }
     .s-card {
-      background: var(--surface);
+      background: var(--surface-dark);
       border-radius: var(--card-radius);
       padding: 1.75rem;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border-subtle-dark);
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
@@ -513,7 +512,7 @@
     }
     .s-card:hover {
       background: var(--surface-dark-hover);
-      border-color: rgba(207,244,52,0.12);
+      border-color: var(--border-hover-dark);
     }
     .s-card-icon {
       font-size: 2.25rem;
@@ -523,7 +522,7 @@
     .s-card-name {
       font-size: 1.125rem;
       font-weight: 700;
-      letter-spacing: -0.01em;
+      color: var(--txt-primary-dark);
     }
     .s-card-desc {
       font-size: 0.8125rem;
@@ -531,7 +530,7 @@
       line-height: 1.55;
     }
     .s-card-desc i {
-      color: var(--accent-amber, #e7c59a);
+      color: var(--brand-primary);
       font-size: 0.7rem;
       margin-right: 0.15rem;
     }
@@ -548,12 +547,12 @@
       align-items: center;
       gap: 0.25rem;
       font-size: 0.625rem;
-      color: var(--txt-muted);
+      color: var(--txt-muted-dark);
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
     .s-card-dl i {
-      color: var(--accent-amber, #e7c59a);
+      color: var(--brand-primary);
       font-size: 0.65rem;
     }
     .s-card-tag {
@@ -586,14 +585,14 @@
       align-items: center;
       gap: 0.4rem;
       font-size: 0.8125rem;
-      color: var(--txt-muted);
+      color: var(--txt-secondary-dark);
     }
     .tagline-item i {
       font-size: 0.9rem;
-      color: var(--accent-amber, #e7c59a);
+      color: var(--brand-primary);
     }
     .tagline-item strong {
-      color: var(--txt-primary);
+      color: var(--txt-primary-dark);
       font-weight: 600;
     }
 
@@ -604,7 +603,7 @@
       justify-content: center;
       gap: 0.75rem;
       padding: 1.25rem 0 0.25rem;
-      border-top: 1px solid var(--border-subtle);
+      border-top: 1px solid var(--border-subtle-dark);
     }
     .sf-pill {
       display: flex;
@@ -614,22 +613,22 @@
       border-radius: 6px;
       font-size: 0.6875rem;
       font-weight: 500;
-      color: var(--txt-muted);
-      background: var(--surface);
-      border: 1px solid var(--border-subtle);
+      color: var(--txt-secondary-dark);
+      background: var(--surface-dark);
+      border: 1px solid var(--border-subtle-dark);
       transition: border-color 0.2s, color 0.2s;
     }
     .sf-pill:hover {
       border-color: rgba(207,244,52,0.2);
-      color: var(--txt-primary);
+      color: var(--txt-primary-dark);
     }
     .sf-pill i {
       font-size: 0.75rem;
-      color: var(--accent-amber, #e7c59a);
+      color: var(--brand-primary);
     }
     .sf-pill .sup {
       font-size: 0.55rem;
-      color: var(--txt-muted);
+      color: var(--txt-muted-dark);
       text-transform: uppercase;
       margin-left: 0.1rem;
     }
@@ -1649,12 +1648,20 @@
         <span x-show="lang==='es'">STACK TÉCNICO</span>
         <span x-show="lang==='en'" x-cloak>TECH STACK</span>
       </p>
-      <div class="tagline-strip reveal delay-1">
+      <h2 class="display text-center reveal delay-1" style="margin-bottom:0.75rem;">
+        <span x-show="lang==='es'">Tecnologías que trabajan<br>para ti. No al revés.</span>
+        <span x-show="lang==='en'" x-cloak>Technologies that work<br>for you. Not the other way.</span>
+      </h2>
+      <p class="body-sm txt-secondary text-center reveal delay-2" style="max-width:32rem;margin:0 auto 2.5rem;">
+        <span x-show="lang==='es'">Cada tecnología fue elegida para que tus datos estén siempre en tu dispositivo. Sin servidores, sin suscripciones, sin dependencias.</span>
+        <span x-show="lang==='en'" x-cloak>Every technology was chosen so your data stays on your device. No servers, no subscriptions, no dependencies.</span>
+      </p>
+      <div class="tagline-strip reveal delay-3">
         <span class="tagline-item"><i class="bi bi-house-gear"></i> <strong>LOCAL</strong> por diseño</span>
         <span class="tagline-item"><i class="bi bi-graph-up-arrow"></i> <strong>MILLONES</strong> de descargas</span>
         <span class="tagline-item"><i class="bi bi-code-square"></i> <strong>OPEN SOURCE</strong> sin vendor</span>
       </div>
-      <div class="stack-grid stagger reveal delay-2">
+      <div class="stack-grid stagger reveal delay-4">
         <div class="s-card reveal">
           <div class="s-card-icon"><i class="bi bi-snow2"></i></div>
           <div class="s-card-name">Alpine.js</div>
@@ -1716,7 +1723,6 @@
         <span class="sf-pill"><i class="bi bi-arrow-repeat"></i> Actualización de por vida <span class="sup">incluida</span></span>
         <span class="sf-pill"><i class="bi bi-shield-check"></i> Sin vendor lock-in <span class="sup">garantizado</span></span>
       </div>
-      </p>
     </div>
   </section>
 
