@@ -53,470 +53,139 @@
         <span x-show="lang==='en'" x-cloak>Apps that solve<br>real problems</span>
       </h2>
       <p class="body-sm txt-secondary text-center reveal delay-2" style="margin-bottom:3rem;">
-        <span x-show="lang==='es'">Seleccionadas por ser las más solicitadas. ¿No encuentras la tuya? La construimos.</span>
-        <span x-show="lang==='en'" x-cloak>The most requested apps. Can't find yours? I'll build it.</span>
+        <span x-show="lang==='es'">Seleccionadas por industria. Encuentra la tuya y te llevas la solución completa.</span>
+        <span x-show="lang==='en'" x-cloak>Curated by industry. Find yours and get the complete solution.</span>
       </p>
-      <div class="apps-grid preview stagger">
-        <!-- App 1: AHA Inventario (featured) -->
-        <div class="card-dark reveal card-masonry-lg" style="transition-delay:0ms" @click="activeModal='inventario'" role="button" tabindex="0" @keydown.enter="activeModal='inventario'" aria-label="AHA Inventario">
-          <div class="hero-mockup" style="width:100%;height:260px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div style="display:flex;gap:4px;margin-bottom:6px;">
-                <div style="flex:3;height:12px;border-radius:4px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:12px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div class="mockup-row" style="width:60%;"></div>
-              <div class="mockup-row" style="width:40%;"></div>
-              <div class="mockup-block" style="margin-top:0.25rem;"></div>
-              <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:1;height:24px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:24px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-              </div>
-              <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:2;height:28px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:28px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA Inventario</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">Almacén</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Control de stock, alertas, QR y reportes PDF. Predice cuándo se agota un producto.</span>
-            <span x-show="lang==='en'" x-cloak>Stock control, alerts, QR, PDF reports. Predicts when a product runs out.</span>
+      <div class="vertical-grid stagger">
+        <!-- Vertical 1: Comercio y Retail -->
+        <div class="card-dark vertical-card reveal" style="transition-delay:0ms">
+          <div class="vertical-icon-wrap" style="background:rgba(207,244,52,0.06);color:var(--brand-primary);font-size:1.5rem;"><i aria-hidden="true" class="bi bi-cart-check"></i></div>
+          <h3 class="h3" style="color:#fff;margin-bottom:0.25rem;">
+            <span x-show="lang==='es'">Comercio y Retail</span>
+            <span x-show="lang==='en'" x-cloak>Commerce & Retail</span>
+          </h3>
+          <p class="body-sm" style="color:var(--txt-secondary-dark);margin-bottom:1rem;font-style:italic;">
+            <span x-show="lang==='es'">"Si se va el internet, dejo de vender y no sé qué tengo en stock."</span>
+            <span x-show="lang==='en'" x-cloak>"If internet goes down, I stop selling and don't know my stock."</span>
           </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Inventario" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
+          <ul class="vertical-apps">
+            <li><strong>AHA POS</strong> — <span x-show="lang==='es'">Cobra sin internet, con código de barras y corte de caja.</span><span x-show="lang==='en'" x-cloak>Offline POS with barcode and cash closing.</span></li>
+            <li><strong>AHA Inventario</strong> — <span x-show="lang==='es'">Controla stock en tiempo real, alertas de mínimo y movimientos.</span><span x-show="lang==='en'" x-cloak>Real-time stock control, low-stock alerts, movements.</span></li>
+            <li><strong>AHA PreFactura</strong> — <span x-show="lang==='es'">Facturas y presupuestos locales, sin suscripción mensual.</span><span x-show="lang==='en'" x-cloak>Local invoices and quotes, no monthly subscription.</span></li>
+          </ul>
+          <a href="https://wa.me/5355944628?text=Quiero%20saber%20m%C3%A1s%20de%20la%20vertical%20Comercio" target="_blank" class="btn btn-outline-dark vertical-cta">
+            <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Pedir demo por WhatsApp</span><span x-show="lang==='en'" x-cloak>Request demo on WhatsApp</span>
+          </a>
         </div>
 
-        <!-- App 2: AHA POS (featured) -->
-        <div class="card-dark reveal card-masonry-lg" style="transition-delay:100ms" @click="activeModal='pos'" role="button" tabindex="0" @keydown.enter="activeModal='pos'" aria-label="AHA POS">
-          <div class="hero-mockup" style="width:100%;height:260px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div style="display:flex;gap:4px;margin-bottom:6px;">
-                <div style="flex:1;height:14px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:3;height:14px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div style="display:flex;gap:4px;">
-                <div style="flex:2;height:40px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:40px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.05);"></div>
-                <div style="flex:2;height:20px;border-radius:4px;background:rgba(207,244,52,0.07);"></div>
-              </div>
-              <div class="mockup-block" style="margin-top:6px;height:36px;width:70%;"></div>
-              <div style="display:flex;gap:4px;margin-top:6px;">
-                <div style="flex:1;height:18px;border-radius:4px;background:rgba(207,244,52,0.05);"></div>
-                <div style="flex:2;height:18px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA POS</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">Tienda</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Punto de venta con código de barras, carrito y corte de caja offline. Predice más vendidos.</span>
-            <span x-show="lang==='en'" x-cloak>POS with barcode, cart, offline cash closing. Predicts best sellers.</span>
+        <!-- Vertical 2: Gastronomía -->
+        <div class="card-dark vertical-card reveal" style="transition-delay:100ms">
+          <div class="vertical-icon-wrap" style="background:rgba(7,209,110,0.06);color:var(--brand-success);font-size:1.5rem;"><i aria-hidden="true" class="bi bi-utensils"></i></div>
+          <h3 class="h3" style="color:#fff;margin-bottom:0.25rem;">
+            <span x-show="lang==='es'">Gastronomía</span>
+            <span x-show="lang==='en'" x-cloak>Restaurants & Bars</span>
+          </h3>
+          <p class="body-sm" style="color:var(--txt-secondary-dark);margin-bottom:1rem;font-style:italic;">
+            <span x-show="lang==='es'">"Los pedidos en papel se pierden y la cocina tarda en enterarse."</span>
+            <span x-show="lang==='en'" x-cloak>"Paper orders get lost and the kitchen is slow to respond."</span>
           </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20POS" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
+          <ul class="vertical-apps">
+            <li><strong>AHA Comanda</strong> — <span x-show="lang==='es'">Toma pedidos en mesa, pantalla de cocina y cuentas divididas. 100% offline.</span><span x-show="lang==='en'" x-cloak>Table ordering, kitchen display, split bills. 100% offline.</span></li>
+          </ul>
+          <a href="https://wa.me/5355944628?text=Quiero%20saber%20m%C3%A1s%20de%20la%20vertical%20Gastronom%C3%ADa" target="_blank" class="btn btn-outline-dark vertical-cta">
+            <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Pedir demo por WhatsApp</span><span x-show="lang==='en'" x-cloak>Request demo on WhatsApp</span>
+          </a>
         </div>
 
-        <!-- App 3: AHA Flota (featured) -->
-        <div class="card-dark reveal card-masonry-lg" style="transition-delay:200ms" @click="activeModal='flota'" role="button" tabindex="0" @keydown.enter="activeModal='flota'" aria-label="AHA Flota">
-          <div class="hero-mockup" style="width:100%;height:260px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div style="display:flex;gap:4px;margin-bottom:6px;">
-                <div style="flex:2;height:20px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:20px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div class="mockup-row" style="width:55%;"></div>
-              <div style="display:flex;gap:4px;margin-top:6px;">
-                <div style="flex:3;height:22px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:22px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div class="mockup-block" style="margin-top:6px;"></div>
-              <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-                <div style="flex:2;height:16px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA Flota</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">Transporte</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Vehículos, combustible km/l, mantenimiento, incidentes. Predice próximo servicio.</span>
-            <span x-show="lang==='en'" x-cloak>Vehicles, fuel km/l, maintenance, incidents. Predicts next service.</span>
+        <!-- Vertical 3: Salud, Belleza y Servicios -->
+        <div class="card-dark vertical-card reveal" style="transition-delay:200ms">
+          <div class="vertical-icon-wrap" style="background:rgba(2,70,83,0.15);color:var(--surface-teal);font-size:1.5rem;"><i aria-hidden="true" class="bi bi-heart-pulse"></i></div>
+          <h3 class="h3" style="color:#fff;margin-bottom:0.25rem;">
+            <span x-show="lang==='es'">Salud, Belleza y Servicios</span>
+            <span x-show="lang==='en'" x-cloak>Health, Beauty & Services</span>
+          </h3>
+          <p class="body-sm" style="color:var(--txt-secondary-dark);margin-bottom:1rem;font-style:italic;">
+            <span x-show="lang==='es'">"Se me cruzan las citas y pierdo el historial de mis pacientes."</span>
+            <span x-show="lang==='en'" x-cloak>"Appointments overlap and I lose patient history."</span>
           </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Flota" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
+          <ul class="vertical-apps">
+            <li><strong>AHA Citas</strong> — <span x-show="lang==='es'">Agenda visual, recordatorios y disponibilidad por profesional.</span><span x-show="lang==='en'" x-cloak>Visual scheduling, reminders, per-professional availability.</span></li>
+            <li><strong>AHA Rx</strong> — <span x-show="lang==='es'">Historial clínico, recetas en PDF y control de medicamentos.</span><span x-show="lang==='en'" x-cloak>Clinical history, PDF prescriptions, medication tracking.</span></li>
+            <li><strong>AHA CRM</strong> — <span x-show="lang==='es'">Seguimiento de clientes, pipeline y cotizaciones para agencias.</span><span x-show="lang==='en'" x-cloak>Client tracking, pipeline and quotes for agencies.</span></li>
+          </ul>
+          <a href="https://wa.me/5355944628?text=Quiero%20saber%20m%C3%A1s%20de%20la%20vertical%20Salud" target="_blank" class="btn btn-outline-dark vertical-cta">
+            <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Pedir demo por WhatsApp</span><span x-show="lang==='en'" x-cloak>Request demo on WhatsApp</span>
+          </a>
         </div>
 
-        <!-- App 4: AHA Obra (featured) -->
-        <div class="card-dark reveal card-masonry-lg" style="transition-delay:300ms" @click="activeModal='obra'" role="button" tabindex="0" @keydown.enter="activeModal='obra'" aria-label="AHA Obra">
-          <div class="hero-mockup" style="width:100%;height:260px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div class="mockup-row" style="width:75%;"></div>
-              <div class="mockup-block" style="margin-top:4px;"></div>
-              <div style="display:flex;gap:4px;">
-                <div style="flex:2;height:24px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:24px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:1;height:30px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:2;height:30px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
-                <div style="flex:1;height:30px;border-radius:6px;background:rgba(207,244,52,0.06);"></div>
-              </div>
-              <div style="margin-top:4px;height:14px;width:50%;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              <div style="margin-top:4px;display:flex;gap:4px;">
-                <div style="flex:1;height:44px;border-radius:8px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:44px;border-radius:8px;background:rgba(207,244,52,0.08);"></div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA Obra</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">Construcción</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Etapas, materiales, fotos avance, reporte PDF. Predice desviación de presupuesto.</span>
-            <span x-show="lang==='en'" x-cloak>Stages, materials, progress photos, PDF report. Predicts budget deviation.</span>
+        <!-- Vertical 4: Construcción, Obra y Campo -->
+        <div class="card-dark vertical-card reveal" style="transition-delay:300ms">
+          <div class="vertical-icon-wrap" style="background:rgba(207,244,52,0.06);color:var(--brand-primary);font-size:1.5rem;"><i aria-hidden="true" class="bi bi-building"></i></div>
+          <h3 class="h3" style="color:#fff;margin-bottom:0.25rem;">
+            <span x-show="lang==='es'">Construcción, Obra y Campo</span>
+            <span x-show="lang==='en'" x-cloak>Construction & Agriculture</span>
+          </h3>
+          <p class="body-sm" style="color:var(--txt-secondary-dark);margin-bottom:1rem;font-style:italic;">
+            <span x-show="lang==='es'">"En la obra no hay señal y los reportes en papel se pierden."</span>
+            <span x-show="lang==='en'" x-cloak>"No signal at the site and paper reports get lost."</span>
           </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Obra" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
+          <ul class="vertical-apps">
+            <li><strong>AHA Obra</strong> — <span x-show="lang==='es'">Controla partidas, materiales, gastos y avance con fotos.</span><span x-show="lang==='en'" x-cloak>Track budgets, materials, expenses, progress with photos.</span></li>
+            <li><strong>AHA Campo</strong> — <span x-show="lang==='es'">Formularios offline, GPS, lotes y control de insumos agrícolas.</span><span x-show="lang==='en'" x-cloak>Offline forms, GPS, plots, agricultural input tracking.</span></li>
+            <li><strong>AHA Checklist</strong> — <span x-show="lang==='es'">Inspecciones con foto y firma digital. Reportes PDF.</span><span x-show="lang==='en'" x-cloak>Inspections with photo and digital signature. PDF reports.</span></li>
+          </ul>
+          <a href="https://wa.me/5355944628?text=Quiero%20saber%20m%C3%A1s%20de%20la%20vertical%20Construcci%C3%B3n" target="_blank" class="btn btn-outline-dark vertical-cta">
+            <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Pedir demo por WhatsApp</span><span x-show="lang==='en'" x-cloak>Request demo on WhatsApp</span>
+          </a>
         </div>
 
-        <!-- App 5: AHA Comanda -->
-        <div class="card-dark reveal" style="transition-delay:0ms" @click="activeModal='comanda'" role="button" tabindex="0" @keydown.enter="activeModal='comanda'" aria-label="AHA Comanda">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div style="display:flex;gap:4px;margin-bottom:6px;">
-                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.08);"></div>
-              </div>
-              <div class="mockup-row" style="width:55%;"></div>
-              <div style="display:flex;gap:4px;margin-top:6px;">
-                <div style="flex:3;height:32px;border-radius:6px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:2;height:32px;border-radius:6px;background:rgba(207,244,52,0.1);"></div>
-              </div>
-              <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-                <div style="flex:2;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA Comanda</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">Restaurante</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Gestión de mesas, comandas y corte de caja para restaurantes y bares.</span>
-            <span x-show="lang==='en'" x-cloak>Table management, orders, and cash closing for restaurants and bars.</span>
+        <!-- Vertical 5: Logística y RRHH -->
+        <div class="card-dark vertical-card reveal" style="transition-delay:400ms">
+          <div class="vertical-icon-wrap" style="background:rgba(7,209,110,0.06);color:var(--brand-success);font-size:1.5rem;"><i aria-hidden="true" class="bi bi-truck"></i></div>
+          <h3 class="h3" style="color:#fff;margin-bottom:0.25rem;">
+            <span x-show="lang==='es'">Logística y RRHH</span>
+            <span x-show="lang==='en'" x-cloak>Logistics & HR</span>
+          </h3>
+          <p class="body-sm" style="color:var(--txt-secondary-dark);margin-bottom:1rem;font-style:italic;">
+            <span x-show="lang==='es'">"No sé cuánto gasto en gasolina ni quién llega tarde realmente."</span>
+            <span x-show="lang==='en'" x-cloak>"I don't know fuel costs or who's really late."</span>
           </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Comanda" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
+          <ul class="vertical-apps">
+            <li><strong>AHA Flota</strong> — <span x-show="lang==='es'">Control de vehículos, mantenimiento, combustible y conductores.</span><span x-show="lang==='en'" x-cloak>Vehicle tracking, maintenance, fuel, driver management.</span></li>
+            <li><strong>AHA Asistencia</strong> — <span x-show="lang==='es'">Marcaje QR con geolocalización. Sin reloj biométrico caro.</span><span x-show="lang==='en'" x-cloak>QR check-in with geolocation. No expensive biometric clock.</span></li>
+          </ul>
+          <a href="https://wa.me/5355944628?text=Quiero%20saber%20m%C3%A1s%20de%20la%20vertical%20Log%C3%ADstica" target="_blank" class="btn btn-outline-dark vertical-cta">
+            <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Pedir demo por WhatsApp</span><span x-show="lang==='en'" x-cloak>Request demo on WhatsApp</span>
+          </a>
         </div>
 
-        <!-- App 6: AHA CRM -->
-        <div class="card-dark reveal" style="transition-delay:100ms" @click="activeModal='crm'" role="button" tabindex="0" @keydown.enter="activeModal='crm'" aria-label="AHA CRM">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div class="mockup-row" style="width:65%;"></div>
-              <div class="mockup-row" style="width:45%;"></div>
-              <div style="display:flex;gap:4px;margin-top:8px;">
-                <div style="flex:1;height:32px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:32px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:32px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA CRM</h3>
-            <span class="badge" style="font-size:0.65rem;background:rgba(207,244,52,0.1);color:var(--brand-primary);">Ventas</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Pipeline Kanban, contactos, cotizaciones PDF y facturas. Búsqueda difusa.</span>
-            <span x-show="lang==='en'" x-cloak>Kanban pipeline, contacts, PDF quotes, invoices. Fuzzy search.</span>
+        <!-- Vertical 6: Freelancers y Creadores -->
+        <div class="card-dark vertical-card reveal" style="transition-delay:500ms">
+          <div class="vertical-icon-wrap" style="background:rgba(2,70,83,0.15);color:var(--surface-teal);font-size:1.5rem;"><i aria-hidden="true" class="bi bi-stars"></i></div>
+          <h3 class="h3" style="color:#fff;margin-bottom:0.25rem;">
+            <span x-show="lang==='es'">Freelancers y Creadores</span>
+            <span x-show="lang==='en'" x-cloak>Freelancers & Creators</span>
+          </h3>
+          <p class="body-sm" style="color:var(--txt-secondary-dark);margin-bottom:1rem;font-style:italic;">
+            <span x-show="lang==='es'">"Tengo mil ideas pero no sé cómo organizarlas ni cuánto gano."</span>
+            <span x-show="lang==='en'" x-cloak>"I have a thousand ideas but can't organize them or track earnings."</span>
           </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20CRM" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
+          <ul class="vertical-apps">
+            <li><strong>AHA Creador</strong> — <span x-show="lang==='es'">Banco de ideas, calendario de producción y control de patrocinios.</span><span x-show="lang==='en'" x-cloak>Idea bank, production calendar, sponsorship tracking.</span></li>
+          </ul>
+          <a href="https://wa.me/5355944628?text=Quiero%20saber%20m%C3%A1s%20de%20la%20vertical%20Freelancers" target="_blank" class="btn btn-outline-dark vertical-cta">
+            <i aria-hidden="true" class="bi bi-whatsapp"></i> <span x-show="lang==='es'">Pedir demo por WhatsApp</span><span x-show="lang==='en'" x-cloak>Request demo on WhatsApp</span>
+          </a>
         </div>
-
       </div>
 
-      <!-- Show more button -->
-      <div class="btn-show-more-wrap reveal">
-        <button class="btn-show-more" @click="showMoreApps = !showMoreApps">
-          <span x-show="!showMoreApps"><span x-show="lang==='es'">Ver más apps</span><span x-show="lang==='en'" x-cloak>See more apps</span> <i class="bi bi-chevron-down"></i></span>
-          <span x-show="showMoreApps" x-cloak><span x-show="lang==='es'">Ocultar</span><span x-show="lang==='en'" x-cloak>Hide</span> <i class="bi bi-chevron-up"></i></span>
-        </button>
-      </div>
-
-      <!-- Hidden apps (show more) -->
-      <div class="apps-grid expanded" x-show="showMoreApps" x-cloak>
-        <!-- App 7: AHA Citas -->
-        <div class="card-dark reveal card-sm card-quarter" @click="activeModal='citas'" role="button" tabindex="0" @keydown.enter="activeModal='citas'" aria-label="AHA Citas">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div style="display:flex;gap:4px;margin-bottom:6px;">
-                <div style="flex:2;height:24px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:24px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div class="mockup-row" style="width:50%;"></div>
-              <div style="display:flex;gap:4px;margin-top:6px;">
-                <div style="flex:1;height:38px;border-radius:6px;background:rgba(207,244,52,0.05);"></div>
-                <div style="flex:1;height:38px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:38px;border-radius:6px;background:rgba(207,244,52,0.05);"></div>
-              </div>
-              <div style="margin-top:4px;height:16px;width:40%;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA Citas</h3>
-            <span class="badge" style="font-size:0.65rem;background:rgba(207,244,52,0.1);color:var(--brand-primary);">Agenda</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Agenda offline para barberías, salones y consultorios. Sin internet.</span>
-            <span x-show="lang==='en'" x-cloak>Offline scheduling for barbershops, salons, and clinics.</span>
-          </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Citas" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 8: AHA Asistencia -->
-        <div class="card-dark reveal card-sm card-quarter" style="transition-delay:100ms" @click="activeModal='asistencia'" role="button" tabindex="0" @keydown.enter="activeModal='asistencia'" aria-label="AHA Asistencia">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div style="display:flex;gap:4px;margin-bottom:6px;">
-                <div style="flex:2;height:28px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:28px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div style="display:flex;gap:4px;">
-                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-                <div style="flex:3;height:16px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-              </div>
-              <div style="display:flex;gap:4px;margin-top:6px;">
-                <div style="flex:1;height:28px;border-radius:4px;background:rgba(207,244,52,0.05);"></div>
-                <div style="flex:1;height:28px;border-radius:4px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:28px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div class="mockup-block" style="margin-top:4px;"></div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA Asistencia</h3>
-            <span class="badge" style="font-size:0.65rem;background:rgba(207,244,52,0.1);color:var(--brand-primary);">RRHH</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Control de asistencia con marcaje QR y reportes para RRHH.</span>
-            <span x-show="lang==='en'" x-cloak>Attendance tracking with QR check-in and HR reports.</span>
-          </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Asistencia" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 9: AHA Creador -->
-        <div class="card-dark reveal card-sm card-quarter" style="transition-delay:200ms" @click="activeModal='creador'" role="button" tabindex="0" @keydown.enter="activeModal='creador'" aria-label="AHA Creador">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div class="mockup-row" style="width:70%;"></div>
-              <div style="display:flex;gap:4px;margin-top:6px;">
-                <div style="flex:2;height:30px;border-radius:4px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:30px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.05);"></div>
-                <div style="flex:2;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div style="margin-top:4px;display:flex;gap:4px;">
-                <div style="flex:1;height:24px;border-radius:6px;background:rgba(207,244,52,0.07);"></div>
-                <div style="flex:1;height:24px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA Creador</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">Contenido</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Banco de ideas, calendario y producción para creadores de contenido.</span>
-            <span x-show="lang==='en'" x-cloak>Idea bank, calendar, and production for content creators.</span>
-          </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Creador" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 10: AHA Checklist -->
-        <div class="card-dark reveal card-sm card-quarter" style="transition-delay:300ms" @click="activeModal='checklist'" role="button" tabindex="0" @keydown.enter="activeModal='checklist'" aria-label="AHA Checklist">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div class="mockup-row" style="width:50%;"></div>
-              <div style="display:flex;gap:4px;margin-top:8px;">
-                <div style="flex:1;height:30px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:30px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:2;height:18px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:18px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div class="mockup-block" style="margin-top:6px;height:28px;"></div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA Checklist</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">Inspecciones</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Plantillas, inspecciones con foto/firma y reportes PDF. Predice áreas con más fallas.</span>
-            <span x-show="lang==='en'" x-cloak>Templates, inspections with photo/signature, PDF reports. Predicts failure-prone areas.</span>
-          </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Checklist" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 11: AHA Campo -->
-        <div class="card-dark reveal card-sm card-third" style="transition-delay:0ms" @click="activeModal='campo'" role="button" tabindex="0" @keydown.enter="activeModal='campo'" aria-label="AHA Campo">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div style="display:flex;gap:4px;margin-bottom:6px;">
-                <div style="flex:2;height:18px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:18px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div style="display:flex;gap:4px;">
-                <div style="flex:3;height:28px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:1;height:28px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:1;height:16px;border-radius:4px;background:rgba(207,244,52,0.05);"></div>
-                <div style="flex:2;height:16px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-              </div>
-              <div class="mockup-block" style="margin-top:6px;height:24px;width:60%;"></div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA Campo</h3>
-            <span class="badge" style="font-size:0.65rem;background:rgba(207,244,52,0.1);color:var(--brand-primary);">Agricultura</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Lotes, cultivos, ganado, insumos y gastos. Predice rendimiento por hectárea.</span>
-            <span x-show="lang==='en'" x-cloak>Plots, crops, livestock, supplies, expenses. Predicts yield per hectare.</span>
-          </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Campo" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 12: AHA Rx -->
-        <div class="card-dark reveal card-sm card-third" style="transition-delay:100ms" @click="activeModal='rx'" role="button" tabindex="0" @keydown.enter="activeModal='rx'" aria-label="AHA Rx">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div style="display:flex;gap:4px;margin-bottom:6px;">
-                <div style="flex:1;height:20px;border-radius:6px;background:rgba(207,244,52,0.08);"></div>
-                <div style="flex:2;height:20px;border-radius:6px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-              <div class="mockup-row" style="width:40%;"></div>
-              <div class="mockup-block" style="margin-top:4px;height:34px;"></div>
-              <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:2;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.04);"></div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA Rx</h3>
-            <span class="badge badge-lime" style="font-size:0.65rem;">Salud</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Pacientes, recetas PDF, medicamentos e historial clínico. Búsqueda por síntoma.</span>
-            <span x-show="lang==='en'" x-cloak>Patients, PDF prescriptions, medications, clinical history. Symptom search.</span>
-          </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20Rx" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- App 13: AHA PreFactura -->
-        <div class="card-dark reveal card-sm card-third" style="transition-delay:200ms" @click="activeModal='prefactura'" role="button" tabindex="0" @keydown.enter="activeModal='prefactura'" aria-label="AHA PreFactura">
-          <div class="hero-mockup" style="width:100%;height:180px;margin-bottom:1rem;">
-            <div class="mockup-screen">
-              <div class="mockup-row" style="width:55%;"></div>
-              <div class="mockup-row" style="width:75%;"></div>
-              <div class="mockup-block" style="margin-top:0.25rem;height:30px;"></div>
-              <div style="display:flex;gap:4px;margin-top:4px;">
-                <div style="flex:2;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-                <div style="flex:1;height:20px;border-radius:4px;background:rgba(207,244,52,0.06);"></div>
-              </div>
-            </div>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:0.5rem;">
-            <h3 class="h3" style="color:#fff;">AHA PreFactura</h3>
-            <span class="badge" style="font-size:0.65rem;background:rgba(207,244,52,0.1);color:var(--brand-primary);">Facturación</span>
-          </div>
-          <p class="body-sm txt-secondary" style="margin-bottom:1rem;">
-            <span x-show="lang==='es'">Clientes RFC, facturas XML+PDF e historial. Búsqueda por RFC y total facturado.</span>
-            <span x-show="lang==='en'" x-cloak>Tax ID clients, XML+PDF invoices, history. Search by tax ID.</span>
-          </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;">
-            <span class="badge-formato"><i aria-hidden="true" class="bi bi-laptop"></i>+<i aria-hidden="true" class="bi bi-phone"></i></span>
-            <a href="https://wa.me/5355944628?text=Quiero%20AHA%20PreFactura" target="_blank" class="btn btn-outline-dark" style="padding:0.4rem 1rem;font-size:0.8125rem;">
-              <span x-show="lang==='es'">Ver más →</span><span x-show="lang==='en'" x-cloak>See more →</span>
-            </a>
-          </div>
-        </div>
+      <!-- Cross-selling note -->
+      <div class="reveal" style="margin-top:2rem;text-align:center;padding:1.25rem 1.5rem;background:rgba(207,244,52,0.04);border:1px solid rgba(207,244,52,0.12);border-radius:var(--card-radius);">
+        <p class="body-sm" style="color:var(--txt-secondary-dark);">
+          <i aria-hidden="true" class="bi bi-link-45deg" style="color:var(--brand-primary);margin-right:0.3rem;"></i>
+          <span x-show="lang==='es'"><strong>¿Necesitas más?</strong> Todas las apps AHA comparten la misma base. Combina <strong>POS + Inventario + PreFactura</strong> para un retail completo, o <strong>Obra + Campo + Flota</strong> para proyectos de ingeniería. Paga una vez, tenlo todo.</span>
+          <span x-show="lang==='en'" x-cloak><strong>Need more?</strong> All AHA apps share the same base. Combine <strong>POS + Inventory + PreInvoice</strong> for complete retail, or <strong>Construction + Field + Fleet</strong> for engineering projects. Pay once, have it all.</span>
+        </p>
       </div>
 
       <!-- CTA custom -->
