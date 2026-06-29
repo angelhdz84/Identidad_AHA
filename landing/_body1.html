@@ -52,21 +52,23 @@
         <div>
           <h1 class="display hero-fade hero-fade-2" style="max-width:48rem;margin-bottom:0.75rem;">
             <span style="color:var(--brand-primary);display:block;font-size:1.4em;line-height:1.1;margin-bottom:0.2rem;text-shadow:0 0 40px rgba(207,244,52,0.25);">AHApp</span>
-            <span style="font-size:0.5em;font-weight:400;display:block;color:var(--txt-secondary-dark);letter-spacing:0.02em;" x-show="lang==='es'">Apps offline-first que parecen magia.</span>
-            <span style="font-size:0.5em;font-weight:400;display:block;color:var(--txt-secondary-dark);letter-spacing:0.02em;" x-show="lang==='en'" x-cloak>Offline-first apps that look like magic.</span>
+            <span style="font-size:0.55em;font-weight:500;display:block;color:var(--txt-secondary-dark);letter-spacing:0.02em;" x-show="lang==='es'">Software offline-first. Pago único.</span>
+            <span style="font-size:0.55em;font-weight:500;display:block;color:var(--txt-secondary-dark);letter-spacing:0.02em;" x-show="lang==='en'" x-cloak>Offline-first software. One payment.</span>
           </h1>
 
-          <!-- Punchline (replaces subheadline + format badge) -->
-          <p class="hero-sub hero-fade hero-fade-3" style="margin-bottom:2rem;">
+          <!-- Punchline: 3 value props -->
+          <div class="hero-sub hero-fade hero-fade-3" style="margin-bottom:2rem;display:flex;flex-direction:column;gap:0.4rem;">
             <span x-show="lang==='es'">
-              <span style="font-size:1.125rem;font-weight:600;display:block;">Tu app. En .exe + .apk.</span>
-              <span style="font-size:0.875rem;color:var(--txt-secondary-dark);display:block;margin-top:0.15rem;">Sin internet. Sin mensualidades.</span>
+              <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.9375rem;color:var(--txt-secondary-dark);"><i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i> Pagas una vez. La app es tuya para siempre.</span>
+              <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.9375rem;color:var(--txt-secondary-dark);"><i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i> Tus datos cifrados en tu PC. Ni yo los veo.</span>
+              <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.9375rem;color:var(--txt-secondary-dark);"><i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i> Funciona sin internet. Sin servidores. Sin mensualidades.</span>
             </span>
             <span x-show="lang==='en'" x-cloak>
-              <span style="font-size:1.125rem;font-weight:600;display:block;">Your app. As .exe + .apk.</span>
-              <span style="font-size:0.875rem;color:var(--txt-secondary-dark);display:block;margin-top:0.15rem;">No internet. No monthly fees.</span>
+              <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.9375rem;color:var(--txt-secondary-dark);"><i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i> Pay once. The app is yours forever.</span>
+              <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.9375rem;color:var(--txt-secondary-dark);"><i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i> Your data encrypted on your PC. Not even I can see it.</span>
+              <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.9375rem;color:var(--txt-secondary-dark);"><i class="bi bi-check-circle-fill" style="color:var(--brand-primary);font-size:0.8rem;"></i> Works without internet. No servers. No monthly fees.</span>
             </span>
-          </p>
+          </div>
 
           <!-- Single CTA primary + subtle link secondary -->
           <div class="hero-fade hero-fade-4" style="margin-bottom:0.5rem;">

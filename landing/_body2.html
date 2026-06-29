@@ -627,7 +627,16 @@
           </a>
         </div>
       </div>
-      <p class="caption txt-muted text-center reveal" style="margin-top:2rem;">
+      <div class="reveal" style="display:flex;justify-content:center;margin-top:1.5rem;">
+        <div style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.75rem 1.5rem;background:rgba(7,209,110,0.08);border:1px solid rgba(7,209,110,0.2);border-radius:999px;">
+          <i class="bi bi-shield-check" style="color:var(--brand-success);font-size:1.1rem;"></i>
+          <span class="body-sm" style="color:var(--brand-success);font-weight:600;">
+            <span x-show="lang==='es'">Garantía 30 días: si no te ahorra al menos 5h al mes, te devolvemos el 200% de tu dinero.</span>
+            <span x-show="lang==='en'" x-cloak>30-day guarantee: if it doesn't save you 5h per month, we refund 200% of your money.</span>
+          </span>
+        </div>
+      </div>
+      <p class="caption txt-muted text-center reveal" style="margin-top:1.5rem;">
         <span x-show="lang==='es'">* Precios base en USD. Complejidad adicional (API externa, integración hardware) = proporcional. Sin regateo, sin descuentos. Precio justo, una vez.</span>
         <span x-show="lang==='en'" x-cloak>* Base prices in USD. Additional complexity (external API, hardware integration) = proportional. No haggling, no discounts. Fair price, once.</span>
       </p>
