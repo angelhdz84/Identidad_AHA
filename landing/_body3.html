@@ -142,140 +142,74 @@
         <span x-show="lang==='es'">STACK TÉCNICO</span>
         <span x-show="lang==='en'" x-cloak>TECH STACK</span>
       </p>
-      <h2 class="display text-center reveal delay-1" style="margin-bottom:0.5rem;">
-        <span x-show="lang==='es'">Tecnologías que no<br>dependen de nadie</span>
-        <span x-show="lang==='en'" x-cloak>Technology that<br>depends on no one</span>
-      </h2>
-      <p class="body-sm txt-secondary text-center reveal delay-2" style="margin-bottom:3rem;">
-        <span x-show="lang==='es'">Pasa el mouse sobre cada card para ver qué hace.</span>
-        <span x-show="lang==='en'" x-cloak>Hover each card to see what it does.</span>
-      </p>
-      <div class="grid tech-grid stagger">
-        <div class="stack-card reveal" style="transition-delay:0ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
-          <div class="stack-inner">
-            <div class="stack-front">
-              <i aria-hidden="true" class="bi bi-lightning"></i>
-              <div class="body-sm" style="font-weight:600;">Alpine.js</div>
-            </div>
-            <div class="stack-back">La app responde al instante</div>
+      <div class="tagline-strip reveal delay-1">
+        <span class="tagline-item"><i class="bi bi-house-gear"></i> <strong>LOCAL</strong> por diseño</span>
+        <span class="tagline-item"><i class="bi bi-graph-up-arrow"></i> <strong>MILLONES</strong> de descargas</span>
+        <span class="tagline-item"><i class="bi bi-code-square"></i> <strong>OPEN SOURCE</strong> sin vendor</span>
+      </div>
+      <div class="stack-grid stagger reveal delay-2">
+        <div class="s-card reveal">
+          <div class="s-card-icon"><i class="bi bi-snow2"></i></div>
+          <div class="s-card-name">Alpine.js</div>
+          <div class="s-card-desc"><i class="bi bi-lightning-charge-fill"></i> Interfaz reactiva 100% local. Sin servidor.</div>
+          <div class="s-card-meta">
+            <span class="s-card-dl"><i class="bi bi-download"></i> 2M+/sem</span>
+            <span class="s-card-tag"><i class="bi bi-house-gear"></i> Sin servidor</span>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:100ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
-          <div class="stack-inner">
-            <div class="stack-front">
-              <i aria-hidden="true" class="bi bi-database"></i>
-              <div class="body-sm" style="font-weight:600;">Dexie.js</div>
-            </div>
-            <div class="stack-back">Tus datos nunca suben a servidores</div>
+        <div class="s-card reveal">
+          <div class="s-card-icon"><i class="bi bi-database"></i></div>
+          <div class="s-card-name">Dexie.js</div>
+          <div class="s-card-desc"><i class="bi bi-floppy"></i> Base de datos en el navegador. Tus datos no se van.</div>
+          <div class="s-card-meta">
+            <span class="s-card-dl"><i class="bi bi-download"></i> 500K+/sem</span>
+            <span class="s-card-tag"><i class="bi bi-slash-circle"></i> Sin backend</span>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:200ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
-          <div class="stack-inner">
-            <div class="stack-front">
-              <i aria-hidden="true" class="bi bi-lock"></i>
-              <div class="body-sm" style="font-weight:600;">CryptoJS</div>
-            </div>
-            <div class="stack-back">Ni yo puedo ver tus datos</div>
+        <div class="s-card reveal">
+          <div class="s-card-icon"><i class="bi bi-wind"></i></div>
+          <div class="s-card-name">Tailwind CSS</div>
+          <div class="s-card-desc"><i class="bi bi-palette2"></i> Estilos responsive compilados. Sin CDN ni extra.</div>
+          <div class="s-card-meta">
+            <span class="s-card-dl"><i class="bi bi-download"></i> 15M+/sem</span>
+            <span class="s-card-tag"><i class="bi bi-cloud-slash"></i> Sin CDN</span>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:0ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
-          <div class="stack-inner">
-            <div class="stack-front">
-              <i aria-hidden="true" class="bi bi-file-earmark-zip"></i>
-              <div class="body-sm" style="font-weight:600;">pako</div>
-            </div>
-            <div class="stack-back">App más ligera, carga más rápido</div>
+        <div class="s-card reveal">
+          <div class="s-card-icon"><i class="bi bi-palette"></i></div>
+          <div class="s-card-name">DaisyUI</div>
+          <div class="s-card-desc"><i class="bi bi-ui-checks"></i> Componentes listos: botones, tabs, modales.</div>
+          <div class="s-card-meta">
+            <span class="s-card-dl"><i class="bi bi-download"></i> 3M+/sem</span>
+            <span class="s-card-tag"><i class="bi bi-puzzle"></i> Sin framework extra</span>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:100ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
-          <div class="stack-inner">
-            <div class="stack-front">
-              <i aria-hidden="true" class="bi bi-filetype-pdf"></i>
-              <div class="body-sm" style="font-weight:600;">jsPDF</div>
-            </div>
-            <div class="stack-back">Crea reportes PDF sin internet</div>
+        <div class="s-card reveal">
+          <div class="s-card-icon"><i class="bi bi-bootstrap-reboot"></i></div>
+          <div class="s-card-name">Bootstrap Icons</div>
+          <div class="s-card-desc"><i class="bi bi-images"></i> 2,000+ iconos vectoriales gratuitos.</div>
+          <div class="s-card-meta">
+            <span class="s-card-dl"><i class="bi bi-gift"></i> Gratuito</span>
+            <span class="s-card-tag"><i class="bi bi-unlock"></i> Sin licencia</span>
           </div>
         </div>
-        <div class="stack-card reveal" style="transition-delay:200ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
-          <div class="stack-inner">
-            <div class="stack-front">
-              <i aria-hidden="true" class="bi bi-file-spreadsheet"></i>
-              <div class="body-sm" style="font-weight:600;">SheetJS</div>
-            </div>
-            <div class="stack-back">Abre y guarda Excel sin conexión</div>
-          </div>
-        </div>
-        <div class="stack-card reveal" style="transition-delay:50ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
-          <div class="stack-inner">
-            <div class="stack-front">
-              <i aria-hidden="true" class="bi bi-window-stack"></i>
-              <div class="body-sm" style="font-weight:600;">NeutralinoJS</div>
-            </div>
-            <div class="stack-back">.exe nativo (~2MB). Sin Java ni Node</div>
-          </div>
-        </div>
-        <div class="stack-card reveal" style="transition-delay:150ms" x-data="{ flipped: false }" :class="flipped && 'flipped'" @click="flipped = !flipped" @keydown.enter.prevent="flipped = !flipped" @keydown.space.prevent="flipped = !flipped" role="button" tabindex="0">
-          <div class="stack-inner">
-            <div class="stack-front">
-              <i aria-hidden="true" class="bi bi-phone-flip"></i>
-              <div class="body-sm" style="font-weight:600;">Capacitor</div>
-            </div>
-            <div class="stack-back">.apk nativo: cámara, GPS, notificaciones</div>
+        <div class="s-card reveal">
+          <div class="s-card-icon"><i class="bi bi-lock"></i></div>
+          <div class="s-card-name">CryptoJS</div>
+          <div class="s-card-desc"><i class="bi bi-shield-check"></i> Cifrado AES-256. Solo tú tienes la llave.</div>
+          <div class="s-card-meta">
+            <span class="s-card-dl"><i class="bi bi-download"></i> 10M+/sem</span>
+            <span class="s-card-tag"><i class="bi bi-eye-slash"></i> Sin terceros</span>
           </div>
         </div>
       </div>
-      <p class="body-sm txt-secondary text-center reveal" style="margin-top:2rem;">
-        <span x-show="lang==='es'">Cada librería se descarga una vez. El runtime no pide nada a nadie.</span>
-        <span x-show="lang==='en'" x-cloak>Each library is downloaded once. The runtime asks nothing from anyone.</span>
-      </p>
-    </div>
-  </section>
-
-  <!-- ========== STACK PARTNERS ========== -->
-  <section class="section section-light" id="partners" aria-label="Tecnologías del stack">
-    <div class="container">
-      <p class="eyebrow text-center reveal">
-        <span x-show="lang==='es'">TECNOLOGÍAS QUE LO HACEN POSIBLE</span>
-        <span x-show="lang==='en'" x-cloak>TECHNOLOGIES THAT MAKE IT POSSIBLE</span>
-      </p>
-      <div class="partner-strip stagger reveal delay-1">
-        <div class="partner-item reveal" style="transition-delay:0ms">
-          <i aria-hidden="true" class="bi bi-snow2"></i>
-          <span class="partner-name">Alpine.js</span>
-          <span class="partner-desc" x-show="lang==='es'">Interfaz reactiva</span>
-          <span class="partner-desc" x-show="lang==='en'" x-cloak>Reactive UI</span>
-        </div>
-        <div class="partner-item reveal" style="transition-delay:50ms">
-          <i aria-hidden="true" class="bi bi-database"></i>
-          <span class="partner-name">Dexie.js</span>
-          <span class="partner-desc" x-show="lang==='es'">Base de datos local</span>
-          <span class="partner-desc" x-show="lang==='en'" x-cloak>Local database</span>
-        </div>
-        <div class="partner-item reveal" style="transition-delay:100ms">
-          <i aria-hidden="true" class="bi bi-wind"></i>
-          <span class="partner-name">Tailwind CSS</span>
-          <span class="partner-desc" x-show="lang==='es'">Diseño responsive</span>
-          <span class="partner-desc" x-show="lang==='en'" x-cloak>Responsive design</span>
-        </div>
-        <div class="partner-item reveal" style="transition-delay:150ms">
-          <i aria-hidden="true" class="bi bi-palette"></i>
-          <span class="partner-name">DaisyUI</span>
-          <span class="partner-desc" x-show="lang==='es'">Componentes UI</span>
-          <span class="partner-desc" x-show="lang==='en'" x-cloak>UI Components</span>
-        </div>
-        <div class="partner-item reveal" style="transition-delay:200ms">
-          <i aria-hidden="true" class="bi bi-bootstrap-reboot"></i>
-          <span class="partner-name">Bootstrap Icons</span>
-          <span class="partner-desc" x-show="lang==='es'">Iconografía</span>
-          <span class="partner-desc" x-show="lang==='en'" x-cloak>Icons</span>
-        </div>
-        <div class="partner-item reveal" style="transition-delay:250ms">
-          <i aria-hidden="true" class="bi bi-lock"></i>
-          <span class="partner-name">CryptoJS</span>
-          <span class="partner-desc" x-show="lang==='es'">Cifrado AES-256</span>
-          <span class="partner-desc" x-show="lang==='en'" x-cloak>AES-256 encryption</span>
-        </div>
+      <div class="stack-footer reveal">
+        <span class="sf-pill"><i class="bi bi-people"></i> Open Source <span class="sup">MIT</span></span>
+        <span class="sf-pill"><i class="bi bi-house-gear"></i> 100% local <span class="sup">sin nube</span></span>
+        <span class="sf-pill"><i class="bi bi-arrow-repeat"></i> Actualización de por vida <span class="sup">incluida</span></span>
+        <span class="sf-pill"><i class="bi bi-shield-check"></i> Sin vendor lock-in <span class="sup">garantizado</span></span>
       </div>
+      </p>
     </div>
   </section>
 
