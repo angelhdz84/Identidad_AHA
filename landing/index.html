@@ -557,6 +557,39 @@
       justify-content: center;
     }
 
+    /* ========== STACK PARTNERS ========== */
+    .partner-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem 2.5rem;
+      margin-top: 2rem;
+    }
+    .partner-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      text-align: center;
+    }
+    .partner-item i {
+      font-size: 1.75rem;
+      color: var(--txt-muted);
+      transition: color 0.2s ease;
+    }
+    .partner-item:hover i {
+      color: var(--brand-primary);
+    }
+    .partner-name {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--txt-primary);
+    }
+    .partner-desc {
+      font-size: 0.6875rem;
+      color: var(--txt-muted);
+    }
+
     /* Hero responsive grid */
     .hero-grid {
       display: grid;
@@ -1651,6 +1684,54 @@
         <span x-show="lang==='es'">Cada librería se descarga una vez. El runtime no pide nada a nadie.</span>
         <span x-show="lang==='en'" x-cloak>Each library is downloaded once. The runtime asks nothing from anyone.</span>
       </p>
+    </div>
+  </section>
+
+  <!-- ========== STACK PARTNERS ========== -->
+  <section class="section section-light" id="partners" aria-label="Tecnologías del stack">
+    <div class="container">
+      <p class="eyebrow text-center reveal">
+        <span x-show="lang==='es'">TECNOLOGÍAS QUE LO HACEN POSIBLE</span>
+        <span x-show="lang==='en'" x-cloak>TECHNOLOGIES THAT MAKE IT POSSIBLE</span>
+      </p>
+      <div class="partner-strip stagger reveal delay-1">
+        <div class="partner-item reveal" style="transition-delay:0ms">
+          <i aria-hidden="true" class="bi bi-snow2"></i>
+          <span class="partner-name">Alpine.js</span>
+          <span class="partner-desc" x-show="lang==='es'">Interfaz reactiva</span>
+          <span class="partner-desc" x-show="lang==='en'" x-cloak>Reactive UI</span>
+        </div>
+        <div class="partner-item reveal" style="transition-delay:50ms">
+          <i aria-hidden="true" class="bi bi-database"></i>
+          <span class="partner-name">Dexie.js</span>
+          <span class="partner-desc" x-show="lang==='es'">Base de datos local</span>
+          <span class="partner-desc" x-show="lang==='en'" x-cloak>Local database</span>
+        </div>
+        <div class="partner-item reveal" style="transition-delay:100ms">
+          <i aria-hidden="true" class="bi bi-wind"></i>
+          <span class="partner-name">Tailwind CSS</span>
+          <span class="partner-desc" x-show="lang==='es'">Diseño responsive</span>
+          <span class="partner-desc" x-show="lang==='en'" x-cloak>Responsive design</span>
+        </div>
+        <div class="partner-item reveal" style="transition-delay:150ms">
+          <i aria-hidden="true" class="bi bi-palette"></i>
+          <span class="partner-name">DaisyUI</span>
+          <span class="partner-desc" x-show="lang==='es'">Componentes UI</span>
+          <span class="partner-desc" x-show="lang==='en'" x-cloak>UI Components</span>
+        </div>
+        <div class="partner-item reveal" style="transition-delay:200ms">
+          <i aria-hidden="true" class="bi bi-bootstrap-reboot"></i>
+          <span class="partner-name">Bootstrap Icons</span>
+          <span class="partner-desc" x-show="lang==='es'">Iconografía</span>
+          <span class="partner-desc" x-show="lang==='en'" x-cloak>Icons</span>
+        </div>
+        <div class="partner-item reveal" style="transition-delay:250ms">
+          <i aria-hidden="true" class="bi bi-lock"></i>
+          <span class="partner-name">CryptoJS</span>
+          <span class="partner-desc" x-show="lang==='es'">Cifrado AES-256</span>
+          <span class="partner-desc" x-show="lang==='en'" x-cloak>AES-256 encryption</span>
+        </div>
+      </div>
     </div>
   </section>
 

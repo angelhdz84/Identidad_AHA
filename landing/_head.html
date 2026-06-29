@@ -557,6 +557,39 @@
       justify-content: center;
     }
 
+    /* ========== STACK PARTNERS ========== */
+    .partner-strip {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem 2.5rem;
+      margin-top: 2rem;
+    }
+    .partner-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      text-align: center;
+    }
+    .partner-item i {
+      font-size: 1.75rem;
+      color: var(--txt-muted);
+      transition: color 0.2s ease;
+    }
+    .partner-item:hover i {
+      color: var(--brand-primary);
+    }
+    .partner-name {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--txt-primary);
+    }
+    .partner-desc {
+      font-size: 0.6875rem;
+      color: var(--txt-muted);
+    }
+
     /* Hero responsive grid */
     .hero-grid {
       display: grid;
